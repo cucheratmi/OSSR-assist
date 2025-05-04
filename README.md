@@ -2,6 +2,7 @@
 
 version 0.1
 
+
 ## Description
 Application python d'assistance à la réalisation des revues systématiques. Propose aussi des outils d'IA d'aide 
 à la sélection, à l'extraction et à l'évaluation du risque de biais (nécessite un accès à une API payante 
@@ -22,6 +23,7 @@ et aussi d'autres types d'études (hors évaluation du ROB).
 - Export des résultats de la sélection, de l'extraction, de l'évaluation du risque de biais sous la forme de fichier .CSV ou Excel
 - Recherche des références dupliquées par proximité sémantique
 - Recherche automatique des publications rétractées
+
 
 
 ## Installation
