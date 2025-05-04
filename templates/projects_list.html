@@ -7,7 +7,7 @@
 <p class="mt-4 mb-4">
     <a href="/project/add" class="btn btn-outline-primary"><i class="bi bi-plus"></i> add new project</a>
 
-    <a href="/project/load_form" class="btn btn-outline-primary"><i class="bi bi-file-earmark-arrow-down"></i> load a saved project (.JSON file)</a>
+    <a href="/project/load_form" class="btn btn-outline-primary mx-4"><i class="bi bi-file-earmark-arrow-down"></i> load a saved project (.JSON file)</a>
 
 
 </p>
@@ -49,25 +49,27 @@
         <td style="font-size: smaller;">#{{ project["id"] }}</td>
 
         <td class="project_list_command">
-        <a href="/project/edit/{{ project["id"] }}" class="">project setup</a>
+        <a href="/project/edit/{{ project["id"] }}" class="text-decoration-none mx-2">Project setup</a>
         </td>
         <td  class="project_list_command">
-        <a href="/records/list/{{ project["id"] }}/1" class="">screening</a>
+        <a href="/records/list/{{ project["id"] }}/1" class="text-decoration-none mx-2">Screening</a>
         </td>
         <td  class="project_list_command">
-        <a href="/pdfs/list/{{ project["id"] }}" class="">PDFs</a>
+        <a href="/pdfs/list/{{ project["id"] }}" class="text-decoration-none mx-2">PDFs</a>
         </td>
         <td  class="project_list_command">
-        <a href="/studies/list/{{ project["id"] }}" class="">studies</a>
+        <a href="/studies/list/{{ project["id"] }}" class="text-decoration-none mx-2">Studies</a>
         </td>
         <td  class="project_list_command">
-        <a href="/data/list1/{{ project["id"] }}" class="">data</a>
+        <a href="/data/list1/{{ project["id"] }}"  class="text-decoration-none mx-2">Tables</a>
         </td>
         <td  class="project_list_command">
-        <a href="/projects/save/{{ project["id"] }}" class=""><i class="bi bi-file-earmark-arrow-up"></i> save project</a>
+        <a href="/projects/save/{{ project["id"] }}" class="text-decoration-none mx-2" title="save all data of the project into a JSON file." >
+            <i class="bi bi-file-earmark-arrow-up"></i> Save project
+        </a>
         </td>
 
-        <td style="padding-left: 3em;">
+        <td style="padding-left: 2em;">
             <a hx-delete="/project/delete/{{ project["id"] }}" ><i class="bi bi-trash3"></i></a>
         </td>
         </tr>

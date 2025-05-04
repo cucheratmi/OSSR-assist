@@ -1,3 +1,11 @@
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+
 
 .return_arrow{
     font-size: 1.2em;

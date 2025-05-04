@@ -485,7 +485,7 @@ def records_export_RIS(project_id):
         download_name=f'references_project_{project_id}.ris'
     )
 
-def records_flowchart(project):
+def records_flowchart(project_id):
     total=0
     included1=0
     excluded1=0
@@ -496,30 +496,32 @@ def records_flowchart(project):
     studies=0
 
     sql = "SELECT COUNT(*) FROM records WHERE project=? AND selection=0"
-    total = sql_select_fetchone(sql, (project,))['COUNT(*)']
+    total = sql_select_fetchone(sql, (project_id,))['COUNT(*)']
 
     sql = "SELECT COUNT(*) FROM records WHERE project=? AND selection=1"
-    included1 = sql_select_fetchone(sql, (project,))['COUNT(*)']
+    included1 = sql_select_fetchone(sql, (project_id,))['COUNT(*)']
 
     sql = "SELECT COUNT(*) FROM records WHERE project=? AND selection=2"
-    included2 = sql_select_fetchone(sql, (project,))['COUNT(*)']
+    included2 = sql_select_fetchone(sql, (project_id,))['COUNT(*)']
 
     sql = "SELECT COUNT(*) FROM records WHERE project=? AND selection=-1"
-    excluded1 = sql_select_fetchone(sql, (project,))['COUNT(*)']
+    excluded1 = sql_select_fetchone(sql, (project_id,))['COUNT(*)']
 
     sql = "SELECT COUNT(*) FROM records WHERE project=? AND selection=-2"
-    excluded2 = sql_select_fetchone(sql, (project,))['COUNT(*)']
+    excluded2 = sql_select_fetchone(sql, (project_id,))['COUNT(*)']
 
     sql = "SELECT COUNT(*) FROM records WHERE project=? AND selection=5"
-    undecided = sql_select_fetchone(sql, (project,))['COUNT(*)']
+    undecided = sql_select_fetchone(sql, (project_id,))['COUNT(*)']
 
     sql = "SELECT COUNT(*) FROM records WHERE project=? AND selection=0"
-    pending = sql_select_fetchone(sql, (project,))['COUNT(*)']
+    pending = sql_select_fetchone(sql, (project_id,))['COUNT(*)']
 
     sql="SELECT COUNT(*) FROM studies WHERE project=?"
-    studies = sql_select_fetchone(sql, (project,))['COUNT(*)']
+    studies = sql_select_fetchone(sql, (project_id,))['COUNT(*)']
 
-    return render_template('records_flowchart.html', pending=pending, total=total, included1=included1, excluded1=excluded1, included2=included2, excluded2=excluded2, undecided=undecided, studies=studies)
+    return render_template('records_flowchart.html', project_id=project_id, pending=pending, total=total,
+                           included1=included1, excluded1=excluded1, included2=included2, excluded2=excluded2,
+                           undecided=undecided, studies=studies)
 
 
 def record_edit(record_id, project_id):

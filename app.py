@@ -337,9 +337,9 @@ def endpoint_records_export_CSV(project_id):
 def endpoint_records_export_RIS(project_id):
     return records_export_RIS(project_id)
 
-@app.route('/records/flowchart/<int:project>')
-def endpoint_records_flowchart(project):
-    return records_flowchart(project)
+@app.route('/records/flowchart/<int:project_id>')
+def endpoint_records_flowchart(project_id):
+    return records_flowchart(project_id)
 
 @app.route('/records/retraction_watch/<int:project_id>')
 def endpoint_records_retraction_watch(project_id):
