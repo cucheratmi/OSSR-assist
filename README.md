@@ -53,15 +53,22 @@ Vous pourrez déclarer la clé d'accès à l'API du modèle de langage que vous 
 Vous pouvez aussi créer un fichier .env contenant une ou plusieurs clés (cf. le fichier exemple: .env-example.
 
 ## Utilisation
-à partir du répertoire de l'application 
+Il s'agit d'une application Flask. Une fois le serveur lancer à partir du répertoire de l'application par:
 
 ``
 python app.py
 ``
 
-## Développeur(s)
+L'application elle-même est accessible avec un navigateur Web (Firefox, Chrome, etc.) à l'adresse http://127.0.0.1:5000
+(le navigateur s'ouvre automatique sur certain système).
+
+## Développeurs
 
 - [Michel Cucherat](https://github.com/cucheratmi) 
+
+### Autres contributions 
+
+à venir
 
 ## Licence
 The OSSR software has an Apache 2.0 [LICENCE](LICENSE). The OSSR team
