@@ -15,6 +15,10 @@ from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate
 
 
+
+def first_letter_in_capital(s):
+    return s[0].upper() + s[1:]
+
 ### utils get context
 
 def get_abstract_from_pmid(pmid):

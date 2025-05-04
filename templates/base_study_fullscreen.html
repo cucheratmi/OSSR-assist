@@ -17,7 +17,7 @@
      <form class="mb-3">
         <select class="form-select {% if not record_id>0 %}is-invalid{% endif %}"
                 id="references" name="references" onchange="references_selected(this)" >
-            <option value="">Select a reference...</option>
+            <option value="0">Select a reference...</option>
             {% for key,r in references.items() %}
                 <option value="{{ key }}" title="{{ r['title'] }}" {% if record_id==key %}selected{% endif %}>
                     {{ r['author1'] }} - {{ r['source'] }}
@@ -38,7 +38,7 @@
     </script>
 
 {% if not record_id>0 %}
-    <div class="alert alert-danger text-center" role="alert">
+    <div class="alert alert-danger text-center" role="alert" style="margin-top: 10em;">
     <h4 class="alert-heading">No reference selected</h4>
 {#    <p>Please select a reference from the list above.</p>#}
     </div>

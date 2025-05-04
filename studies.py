@@ -140,12 +140,12 @@ def get_ROB(study_id, project_id):
             ROB_DOMAIN = ROB_DIAG_DOMAIN
             LEVEL_NAME = {0:'', 1:'low risk', 2:'some concern', 3:'high risk'}
             for i in range(1, len(ROB_DOMAIN)+1):
-                d[i] = {'domain': i, 'domain_name': ROB_DOMAIN[i], 'level': 0, 'level_name':'', 'justification': ''}
+                d[i] = {'domain': i, 'domain_name': first_letter_in_capital(ROB_DOMAIN[i]), 'level': 0, 'level_name':'', 'justification': ''}
         case _:
             ROB_DOMAIN = ROB_RCT_DOMAIN
             LEVEL_NAME = {0:'', 1:'low risk', 2:'some concern', 3:'high risk'}
             for i in range(1, 6):
-                d[i] = {'domain':i, 'domain_name':ROB_RCT_DOMAIN[i], 'level':0, 'level_name':'', 'justification': ''}
+                d[i] = {'domain':i, 'domain_name': first_letter_in_capital(ROB_RCT_DOMAIN[i]), 'level':0, 'level_name':'', 'justification': ''}
 
     sql = "SELECT domain, level, justification FROM ROB_values where study=?"
     rows = sql_select_fetchall(sql, (study_id,))
