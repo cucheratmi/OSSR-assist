@@ -1,4 +1,4 @@
-# OSSR - un logiciel open source d'aide à la réalisation des revues sytématiques
+# OSSR - un logiciel open source d'aide à la réalisation des revues systématiques
 
 version 0.1
 
@@ -7,7 +7,7 @@ version 0.1
 Application python d'assistance à la réalisation des revues systématiques. Propose aussi des outils d'IA d'aide 
 à la sélection, à l'extraction et à l'évaluation du risque de biais (nécessite un accès à une API payante 
 d'un modèle de langage).
-Permet la revue systématique des essais cliniques randomisés, des études de technologie diagnostique 
+Permet la revue systématique des essais cliniques randomisés, des études de technologies diagnostiques 
 et aussi d'autres types d'études (hors évaluation du ROB).
 
 
@@ -25,7 +25,7 @@ et aussi d'autres types d'études (hors évaluation du ROB).
 - Evaluation du ROB assisté par un outil d'IA
 - Export des résultats de la sélection, de l'extraction, de l'évaluation du risque de biais sous la forme de fichier .CSV ou Excel
 - Recherche des références dupliquées par proximité sémantique
-- Recherche automatique des publications rétractées
+- Recherche automatique des publications rétractées (à partir du fichier de Retraction Watch)
 
 
 
@@ -37,7 +37,7 @@ du répertoire décompressé).
 1) Cloner le dépositoire github
 à partir de l’emplacement où vous voulez mettre le répertoire cloné.
 ```
-git clone https://github.com/cucheratmi/TestDeploiement.git
+git clone https://github.com/cucheratmi/OSSR-assist.git
 ```
 
 2) Créer un environnement virtuel
