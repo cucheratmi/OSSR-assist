@@ -251,7 +251,6 @@ def deepseek_text_output_old(prompt, prompt_system):
     return answer
 
 
-
 def invoke_llm_text_output(model_level, prompt, prompt_system):
     if model_level=="secondary":
         llm_name = current_app.config["SECONDARY_LLM_NAME"]
