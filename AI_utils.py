@@ -211,7 +211,7 @@ def deepseek_text_output(prompt, prompt_system):
     url = "https://api.hyperbolic.xyz/v1/chat/completions"
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtaWNoZWwuY3VjaGVyYXRAZ21haWwuY29tIiwiaWF0IjoxNzQ2MDkwOTAwfQ.49n92myipJA0h4_VNWnD2cuUOjOKAxT0vhkpX1EXxZI"
+        "Authorization": os.environ["HYPERBOLIC_API_KEY"]
     }
     data = {
         "messages": [{
