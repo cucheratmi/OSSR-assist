@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<p class="mt-2 mb-3">
+    <a href="/">
+    <i class="bi bi-arrow-left"></i> home
+    </a>
+</p>
+
+<h1>Config variables - Setup</h1>
+
+    <h3>AI - API key</h3>
+
+    <div class="alert alert-info mt-4 mb-4" role="alert">
+    <p>
+        To use the AI screening and extraction tools,
+        you need to set up your LLM access key (Claude, Mistral, OpenAI).<br/>
+        To get an access key (subject to a charge), please consult the LLM website you wish to use.
+    </p>
+    <ul>
+        <li> <a href="https://console.mistral.ai/upgrade/plans" target="_blank">Mistral</a></li>
+        <li> <a href="https://docs.anthropic.com/en/home" target="_blank">Anthropic (Claude)</a></li>
+        <li> <a href="https://openai.com/api/" target="_blank">OpenAI (gpt)</a> </li>
+        <li><a href="https://app.hyperbolic.xyz/" target="_blank">hyperbolic.xyz</a> </li></li>
+    </ul>
+    </div>
+
+
+
+<form class="mt-4">
+
+<div class="mb-4">
+    <label for="LLM_NAME" class="form-label">LLM</label>
+    <select class="form-select" id="LLM_NAME" name="LLM_NAME" hx-post="/setup/update_field/LLM_NAME" hx-trigger="change" hx-target="#LLM_NAME_info" hx-swap="innerHTML">
+        <option value=""></option>
+        <option value="openai" {% if LLM_NAME == 'openai' %}selected{% endif %}>OpenAI (gpt-4o)</option>
+        <option value="mistral" {% if LLM_NAME == 'mistral' %}selected{% endif %}>Mistral (mistral-large-latest)</option>
+        <option value="claude" {% if LLM_NAME == 'claude' %}selected{% endif %}>Anthropic (claude-3-7-sonnet-latest)</option>
+        <option value="deepseek" {% if LLM_NAME == 'deepseek' %}selected{% endif %}>DeepSeek-R1 via hyperbolic.xyz</option>
+    </select>
+
+    <div id="LLM_NAME_info" class="form-text"></div>
+</div>
+
+{#<div class="mb-4">#}
+{#    <label for="API_KEY" class="form-label">API key</label>#}
+{#    <input type="text" class="form-control" id="API_KEY" name="API_KEY" value="{{ API_KEY }}" hx-post="/setup/update_field/API_KEY" hx-trigger="change" hx-target="#API_KEY_info" />#}
+{#    <div id="API_KEY_info" class="form-text"></div>#}
+{#    <div class="form-text">#}
+{#        If an .env file is used (in the application directory), there is no need to specify the API key .#}
+{#        The keys given in the .env file will be used.#}
+{#    </div>#}
+{#</div>#}
+
+<div class="mb-4">
+    <label for="API_KEY" class="form-label">API key of LLM</label>
+    <div class="input-group">
+        <input type="password" class="form-control" id="API_KEY" name="API_KEY"
+               value="{{ API_KEY }}" placeholder="API_KEY for the LLM model"
+               hx-post="/setup/update_field/API_KEY" hx-trigger="change" hx-target="#API_KEY_info" >
+        <button class="btn btn-outline-secondary" type="button" id="toggleAPI_KEY">
+            <i class="bi bi-eye"></i>
+        </button>
+    </div>
+    <div class="form-text">
+        If an .env file is used (in the application directory), there is no need to specify the API key .
+        The keys given in the .env file will be used.
+    </div>
+    <div id="API_KEY_info" class="form-text"></div>
+</div>
+
+<script>
+const togglePassword = document.querySelector("#toggleAPI_KEY");
+const password = document.querySelector("#API_KEY");
+
+togglePassword.addEventListener("click", function () {
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+
+    // Change l'icône
+    this.querySelector('i').classList.toggle('bi-eye');
+    this.querySelector('i').classList.toggle('bi-eye-slash');
+});
+</script>
+
+
+
+
+<hr/>
+
+<div class="mb-4">
+    <label for="SECONDARY_LLM_NAME" class="form-label">Secondary LLM (use for checking)</label>
+    <select class="form-select" id="SECONDARY_LLM_NAME" name="SECONDARY_LLM_NAME" hx-post="/setup/update_field/SECONDARY_LLM_NAME" hx-trigger="change" hx-target="#SECONDARY_LLM_NAME_info" hx-swap="innerHTML">
+        <option value="">none</option>
+        <option value="openai" {% if SECONDARY_LLM_NAME == 'openai' %}selected{% endif %}>OpenAI (gpt-4o)</option>
+        <option value="mistral" {% if SECONDARY_LLM_NAME == 'mistral' %}selected{% endif %}>Mistral (mistral-large-latest)</option>
+        <option value="claude" {% if SECONDARY_LLM_NAME == 'claude' %}selected{% endif %}>Anthropic (claude-3-7-sonnet-latest)</option>
+        <option value="deepseek" {% if SECONDARY_LLM_NAME == 'deepseek' %}selected{% endif %}>DeepSeek-R1 via hyperbolic.xyz</option>
+    </select>
+    <div id="SECONDARY_LLM_NAME_info" class="form-text"></div>
+<div class="form-text">
+    if no secondary model is defined, the same model will be used for extraction and checking.
+</div>
+</div>
+
+<div class="mb-4">
+    <label for="SECONDARY_API_KEY" class="form-label">API key of secondary LLM</label>
+    <div class="input-group">
+        <input type="password" class="form-control" id="SECONDARY_API_KEY" name="SECONDARY_API_KEY"
+               value="{{ SECONDARY_API_KEY }}" placeholder="API_KEY for the model used for checking"
+               hx-post="/setup/update_field/SECONDARY_API_KEY" hx-trigger="change" hx-target="#SECONDARY_API_KEY_info" >
+        <button class="btn btn-outline-secondary" type="button" id="toggleSECONDARY_API_KEY">
+            <i class="bi bi-eye"></i>
+        </button>
+    </div>
+    <div id="SECONDARY_API_KEY_info" class="form-text"></div>
+</div>
+
+<script>
+const togglePassword = document.querySelector("#toggleSECONDARY_API_KEY");
+const password = document.querySelector("#SECONDARY_API_KEY");
+
+togglePassword.addEventListener("click", function () {
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+
+    // Change l'icône
+    this.querySelector('i').classList.toggle('bi-eye');
+    this.querySelector('i').classList.toggle('bi-eye-slash');
+});
+</script>
+
+
+
+
+</form>
+
+
+{#<p>config LLM name: {{ config_LLM_NAME }}</p>#}
+{#<p>config API_KEY: {{ config_API_KEY }}</p>#}
+{#<p>config secondary LLM name: {{ config_SECONDARY_LLM_NAME }}</p>#}
+{#<p>config secondary API_KEY: {{ config_SECONDARY_API_KEY }}</p>#}
+
+{%  endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+    {%  set page = 'setup' %}
+    {% include '_navbar1.html' %}
+
+    <div class="mb-3">
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="/project_edit/{{ project_id }}"
+                   style="width: 15rem; text-align: center;">Protocol setup</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/project/update_fields/{{ project_id }}"
+                   style="width: 15rem; text-align: center;">Extraction fields setup</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/outcomes/setup/{{ project_id }}"
+                   style="width: 15rem; text-align: center;">Outcome setup</a>
+            </li>
+
+
+        </ul>
+
+    </div>
+
+
+<form class="mt-4">
+<div class="mb-4">
+    <label for="name" class="form-label">Project name</label>
+    <input type="text" class="form-control" id="name" name="name" value="{{ project_data["name"] }}" hx-post="/project/update_field/{{ project_id }}/name" hx-trigger="change" hx-target="#name_info" hx-swap="innerHTML"/>
+    <div id="name_info" class="form-text"></div>
+</div>
+
+<div class="mb-4">
+    <label for="type_of_study" class="form-label">Type of the reviewed studies</label>
+    <select class="form-control" id="type_of_study" name="type_of_study" value="{{ project_data["type_of_study"] }}" hx-post="/project/update_field/{{ project_id }}/type_of_study" hx-trigger="change" hx-target="#type_of_study_info" hx-swap="innerHTML">
+        <option value=""></option>
+        <option value="{{ TypeOfStudy.RCT.value }}" >RCT</option>
+        <option value="{{ TypeOfStudy.OBS.value }}" >Observational</option>
+        <option value="{{ TypeOfStudy.DIAG.value }}" >Diagnostic</option>
+        <option value="{{ TypeOfStudy.OTHER.value }}" >Other</option>
+    </select>
+    <div id="type_of_study_info" class="form-text"></div>
+<script>
+    document.getElementById("type_of_study").value = "{{ project_data['type_of_study'] }}";
+</script>
+</div>
+
+
+
+<div class="mb-4">
+    <label for="eligibility_criteria" class="form-label">Eligibility criteria for studies</label>
+    <textarea rows="6" class="form-control" id="eligibility_criteria" name="eligibility_criteria" hx-post="/project/update_field/{{ project_id }}/eligibility_criteria" hx-trigger="change" hx-target="#eligibility_criteria_info" hx-swap="innerHTML">{{ project_data["eligibility_criteria"] }}</textarea>
+    <div id="eligibility_criteria_info" class="form-text"></div>
+</div>
+
+<div class="mb-4">
+    <label for="red_words" class="form-label">Red words (highlighted during screening)</label>
+    <textarea rows="6" class="form-control" id="red_words" name="red_words" hx-post="/project/update_field/{{ project_id }}/red_words" hx-trigger="change" hx-target="#red_words_info" hx-swap="innerHTML">{{ project_data["red_words"] }}</textarea>
+    <div id="red_words_info" class="form-text"></div>
+</div>
+
+<div class="mb-4">
+    <label for="green_words" class="form-label">Green words (highlighted during screening)</label>
+    <textarea rows="6" class="form-control" id="green_words" name="green_words" hx-post="/project/update_field/{{ project_id }}/green_words" hx-trigger="change" hx-target="#green_words_info" hx-swap="innerHTML">{{ project_data["green_words"] }}</textarea>
+    <div id="green_words_info" class="form-text"></div>
+</div>
+
+
+</form>
+
+
+
+
+{%  endblock %}

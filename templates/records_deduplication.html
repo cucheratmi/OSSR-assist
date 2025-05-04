@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<p class="mt-2 mb-3">
+    <a href="/records/list/{{ project_id }}">
+    <i class="bi bi-arrow-left"></i> return to the reference list
+    </a>
+</p>
+
+
+<h1>References deduplication </h1>
+
+<p>
+deduplication by using cosine similarity between the tf-idf vectors of the title.
+</p>
+
+
+    <pre>
+    {{ output }}
+    </pre>
+
+
+{%  endblock %}

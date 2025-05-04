@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamed Text Example</title>
+</head>
+<body>
+    <h1>Streamed Text from API</h1>
+    <div id="content">Waiting for data...</div>
+
+    <script>
+        if (!!window.EventSource) {
+            var source = new EventSource('/stream');
+            source.onmessage = function(event) {
+                var contentDiv = document.getElementById('content');
+                contentDiv.innerHTML += event.data + '<br>';
+                if (event.data === 'Stream ended.') {
+                    source.close();
+                }
+            };
+        } else {
+            alert("Your browser does not support Server-Sent Events.");
+        }
+    </script>
+</body>
+</html>

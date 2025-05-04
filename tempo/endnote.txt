@@ -1,0 +1,2835 @@
+﻿%0 Journal Article
+%A Ackermann, E. J.
+%A Guo, S.
+%A Benson, M. D.
+%A Booten, S.
+%A Freier, S.
+%A Hughes, S. G.
+%A Kim, T. W.
+%A Jesse Kwoh, T.
+%A Matson, J.
+%A Norris, D.
+%A Yu, R.
+%A Watt, A.
+%A Monia, B. P.
+%D 2016
+%T Suppressing transthyretin production in mice, monkeys and humans using 2nd-Generation antisense oligonucleotides
+%B Amyloid
+%V 23
+%N 3
+%P 148-157
+%7 2016/10/21
+%8 Sep
+%! Suppressing transthyretin production in mice, monkeys and humans using 2nd-Generation antisense oligonucleotides
+%O Amyloid : the international journal of experimental and clinical investigation : the official journal of the International Society of Amyloidosis
+%@ 1350-6129
+%R 10.1080/13506129.2016.1191458
+%M 27355239
+%K Adolescent
+Adult
+Amyloid Neuropathies, Familial/therapy
+Animals
+Double-Blind Method
+Female
+Gene Expression
+Healthy Volunteers
+Hep G2 Cells
+Hepatocytes/cytology/*metabolism
+Humans
+Liver/*metabolism
+Macaca fascicularis
+Male
+Mice
+Mice, Transgenic
+Middle Aged
+Oligonucleotides, Antisense/administration & dosage/*pharmacokinetics
+Prealbumin/*antagonists & inhibitors/biosynthesis/genetics
+Primary Cell Culture
+RNA Cleavage
+RNA, Messenger/*antagonists & inhibitors/biosynthesis/genetics
+Ribonuclease H/*metabolism
+Attr
+Amyloidosis
+Fac
+Fap
+familial
+%X Transthyretin amyloidosis (ATTR amyloidosis) is a rare disease that results from the deposition of misfolded transthyretin (TTR) protein from the plasma into tissues as amyloid fibrils, leading to polyneuropathy and cardiomyopathy. IONIS-TTR(Rx) (ISIS 420915) is a 2nd-Generation 2'-O-(2-methoxyethyl) modified "2'-MOE" antisense oligonucleotide (ASO) that targets the TTR RNA transcript and reduces the levels of the TTR transcript through an RNaseH1 mechanism of action, leading to reductions in both mutant and wild-type TTR protein. The activity of IONIS-TTR(Rx) to decrease TTR protein levels was studied in transgenic mice bearing the Ile84Ser human TTR mutant, in cynomolgus monkeys and in healthy human volunteers. Robust (>80%) reductions of plasma TTR protein were obtained in all three species treated with IONIS-TTR(Rx), which in mice and monkeys was associated with substantial reductions in hepatic TTR RNA levels. These effects were dose-dependent and lasted for weeks post-dosing. In a Phase 1 healthy volunteer study, treatment with IONIS-TTR(Rx) for four weeks was well tolerated without any remarkable safety issues. TTR protein reductions up to 96% in plasma were observed. These nonclinical and clinical results support the ongoing Phase 3 development of IONIS-TTR(Rx) in patients with ATTR amyloidosis.
+%Z 1744-2818
+Ackermann, Elizabeth J
+Guo, Shuling
+Benson, Merrill D
+Booten, Sheri
+Freier, Sue
+Hughes, Steven G
+Kim, Tae-Won
+Jesse Kwoh, T
+Matson, John
+Norris, Dan
+Yu, Rosie
+Watt, Andy
+Monia, Brett P
+Clinical Trial, Phase I
+Journal Article
+Randomized Controlled Trial
+England
+Amyloid. 2016 Sep;23(3):148-157. doi: 10.1080/13506129.2016.1191458. Epub 2016 Jun 29.
+%+ a Ionis Pharmaceuticals , Carlsbad , CA , USA and.
+b Department of Pathology and Laboratory Medicine , Indiana University School of Medicine , Indianapolis , IN , USA.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Benson, M. D.
+%A Waddington-Cruz, M.
+%A Berk, J. L.
+%A Polydefkis, M.
+%A Dyck, P. J.
+%A Wang, A. K.
+%A Planté-Bordeneuve, V.
+%A Barroso, F. A.
+%A Merlini, G.
+%A Obici, L.
+%A Scheinberg, M.
+%A Brannagan, T. H., 3rd
+%A Litchy, W. J.
+%A Whelan, C.
+%A Drachman, B. M.
+%A Adams, D.
+%A Heitner, S. B.
+%A Conceição, I.
+%A Schmidt, H. H.
+%A Vita, G.
+%A Campistol, J. M.
+%A Gamez, J.
+%A Gorevic, P. D.
+%A Gane, E.
+%A Shah, A. M.
+%A Solomon, S. D.
+%A Monia, B. P.
+%A Hughes, S. G.
+%A Kwoh, T. J.
+%A McEvoy, B. W.
+%A Jung, S. W.
+%A Baker, B. F.
+%A Ackermann, E. J.
+%A Gertz, M. A.
+%A Coelho, T.
+%D 2018
+%T Inotersen Treatment for Patients with Hereditary Transthyretin Amyloidosis
+%B N Engl J Med
+%V 379
+%N 1
+%P 22-31
+%7 2018/07/05
+%8 Jul 5
+%! Inotersen Treatment for Patients with Hereditary Transthyretin Amyloidosis
+%O The New England journal of medicine
+%@ 0028-4793
+%R 10.1056/NEJMoa1716793
+%M 29972757
+%K Adult
+Aged
+Aged, 80 and over
+Amyloid Neuropathies, Familial/blood/complications/*therapy
+Disease Progression
+Double-Blind Method
+Female
+Glomerulonephritis/chemically induced
+Humans
+Injections, Subcutaneous
+Least-Squares Analysis
+Male
+Middle Aged
+Oligonucleotides, Antisense/adverse effects/*therapeutic use
+Polyneuropathies/etiology/therapy
+Prealbumin/analysis/*antagonists & inhibitors/genetics
+Quality of Life
+*RNAi Therapeutics
+Severity of Illness Index
+Thrombocytopenia/chemically induced
+%X BACKGROUND: Hereditary transthyretin amyloidosis is caused by pathogenic single-nucleotide variants in the gene encoding transthyretin ( TTR) that induce transthyretin misfolding and systemic deposition of amyloid. Progressive amyloid accumulation leads to multiorgan dysfunction and death. Inotersen, a 2'- O-methoxyethyl-modified antisense oligonucleotide, inhibits hepatic production of transthyretin. METHODS: We conducted an international, randomized, double-blind, placebo-controlled, 15-month, phase 3 trial of inotersen in adults with stage 1 (patient is ambulatory) or stage 2 (patient is ambulatory with assistance) hereditary transthyretin amyloidosis with polyneuropathy. Patients were randomly assigned, in a 2:1 ratio, to receive weekly subcutaneous injections of inotersen (300 mg) or placebo. The primary end points were the change in the modified Neuropathy Impairment Score+7 (mNIS+7; range, -22.3 to 346.3, with higher scores indicating poorer function; minimal clinically meaningful change, 2 points) and the change in the score on the patient-reported Norfolk Quality of Life-Diabetic Neuropathy (QOL-DN) questionnaire (range, -4 to 136, with higher scores indicating poorer quality of life). A decrease in scores indicated improvement. RESULTS: A total of 172 patients (112 in the inotersen group and 60 in the placebo group) received at least one dose of a trial regimen, and 139 (81%) completed the intervention period. Both primary efficacy assessments favored inotersen: the difference in the least-squares mean change from baseline to week 66 between the two groups (inotersen minus placebo) was -19.7 points (95% confidence interval [CI], -26.4 to -13.0; P<0.001) for the mNIS+7 and -11.7 points (95% CI, -18.3 to -5.1; P<0.001) for the Norfolk QOL-DN score. These improvements were independent of disease stage, mutation type, or the presence of cardiomyopathy. There were five deaths in the inotersen group and none in the placebo group. The most frequent serious adverse events in the inotersen group were glomerulonephritis (in 3 patients [3%]) and thrombocytopenia (in 3 patients [3%]), with one death associated with one of the cases of grade 4 thrombocytopenia. Thereafter, all patients received enhanced monitoring. CONCLUSIONS: Inotersen improved the course of neurologic disease and quality of life in patients with hereditary transthyretin amyloidosis. Thrombocytopenia and glomerulonephritis were managed with enhanced monitoring. (Funded by Ionis Pharmaceuticals; NEURO-TTR ClinicalTrials.gov number, NCT01737398 .).
+%Z 1533-4406
+Benson, Merrill D
+Waddington-Cruz, Márcia
+Berk, John L
+Polydefkis, Michael
+Dyck, Peter J
+Wang, Annabel K
+Planté-Bordeneuve, Violaine
+Barroso, Fabio A
+Merlini, Giampaolo
+Obici, Laura
+Scheinberg, Morton
+Brannagan, Thomas H 3rd
+Litchy, William J
+Whelan, Carol
+Drachman, Brian M
+Adams, David
+Heitner, Stephen B
+Conceição, Isabel
+Schmidt, Hartmut H
+Vita, Giuseppe
+Campistol, Josep M
+Gamez, Josep
+Gorevic, Peter D
+Gane, Edward
+Shah, Amil M
+Solomon, Scott D
+Monia, Brett P
+Hughes, Steven G
+Kwoh, T Jesse
+McEvoy, Bradley W
+Jung, Shiangtung W
+Baker, Brenda F
+Ackermann, Elizabeth J
+Gertz, Morie A
+Coelho, Teresa
+Clinical Trial, Phase III
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+Research Support, Non-U.S. Gov't
+United States
+N Engl J Med. 2018 Jul 5;379(1):22-31. doi: 10.1056/NEJMoa1716793.
+%U https://scholarworks.indianapolis.iu.edu/server/api/core/bitstreams/89c27b54-4c52-4b2e-b795-0ed1d97af789/content
+%> internal-pdf://3638729203/Benson-2018-Inotersen Treatment for Patients w.pdf
+%+ From the Indiana University School of Medicine, Indianapolis (M.D.B.); Centro de Estudos em Paramiloidose Antônio Rodrigues de Mello, National Amyloidosis Referral Center, University Hospital, Federal University of Rio de Janeiro, Rio de Janeiro (M.W.-C.); Amyloidosis Center, Boston University School of Medicine (J.L.B.) and Brigham and Women's Hospital, Harvard Medical School (A.M.S., S.D.S.), Boston; Johns Hopkins University, Baltimore (M.P.); Mayo Clinic, Rochester, MN (P.J.D., W.J.L., M.A.G.); University of California, Irvine, Irvine (A.K.W.); Amyloid Network-Hospital Henri Mondor-Assistance Publique-Hôpitaux de Paris (AP-HP)-Université Paris Est, Créteil, France (V.P.-B.); Institute for Neurologic Research Raúl Carrea, FLENI, Buenos Aires (F.A.B.); Amyloidosis Research and Treatment Center, Fondazione IRCCS Policlinico San Matteo, University of Pavia, Pavia (G.M., L.O.), and Unit of Neurology, University Hospital, Messina (G.V.) - both in Italy; Hospital AACD (Associação de Assistência à Criança Deficiente), São Paulo (M.S.); Columbia University Medical Center (T.H.B.) and Mount Sinai Medical Center (P.D.G.), New York; University College London-National Amyloidosis Centre, London (C.W.); Penn Presbyterian Medical Center, University of Pennsylvania Health System, Philadelphia (B.M.D.); Centre Hospitaliere Universitaire Bicêtre, AP-HP, Unité 1195, INSERM, Université Paris-Sud, Paris (D.A.); Oregon Health and Science University, Portland (S.B.H.); Centro Hospitalar Lisboa Norte-Hospital de Santa Maria, Lisbon (I.C.), and Centro Hospitalar do Porto, Porto (T.C.) - both in Portugal; Universitätsklinikum Münster, Münster, Germany (H.H.S.); Hospital Clínic, Universitat de Barcelona, Institut d'Investigacions Biomèdiques August Pi i Sunyer (J.M.C.), and Hospital Universitari Vall d'Hebron (J.G.), Barcelona; Auckland City Hospital, Auckland, New Zealand (E.G.); and Ionis Pharmaceuticals, Carlsbad, CA (B.P.M., S.G.H., T.J.K., B.W.M., S.W.J., B.F.B., E.J.A.).
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Conceição, I.
+%A Berk, J. L.
+%A Weiler, M.
+%A Kowacs, P. A.
+%A Dasgupta, N. R.
+%A Khella, S.
+%A Chao, C. C.
+%A Attarian, S.
+%A Kwoh, T. J.
+%A Jung, S. W.
+%A Chen, J.
+%A Viney, N. J.
+%A Yu, R. Z.
+%A Gertz, M.
+%A Masri, A.
+%A Cruz, M. W.
+%A Coelho, T.
+%D 2024
+%T Switching from inotersen to eplontersen in patients with hereditary transthyretin-mediated amyloidosis with polyneuropathy: analysis from NEURO-TTRansform
+%B J Neurol
+%V 271
+%N 10
+%P 6655-6666
+%7 2024/08/14
+%8 Oct
+%! Switching from inotersen to eplontersen in patients with hereditary transthyretin-mediated amyloidosis with polyneuropathy: analysis from NEURO-TTRansform
+%O Journal of neurology
+%@ 0340-5354 (Print)
+0340-5354
+%R 10.1007/s00415-024-12616-6
+%2 PMC11447117
+%M 39138650
+%K Humans
+*Amyloid Neuropathies, Familial/drug therapy/blood/complications
+Male
+Female
+Middle Aged
+*Polyneuropathies/drug therapy/blood
+Aged
+*Prealbumin
+Quality of Life
+Drug Substitution
+Adult
+Double-Blind Method
+Oligonucleotides
+Amyloidosis
+Antisense oligonucleotide
+Transthyretin
+Treatment efficacy
+Treatment safety
+to Alnylam Pharmaceuticals, AstraZeneca, Ionis Pharmaceuticals Inc., and Pfizer
+Inc. J.L.B. has participated in an Ionis Pharmaceuticals Inc., ad hoc advisory
+committee. M.W. is a consultant to Akcea Therapeutics, Alnylam Pharmaceuticals,
+Biogen, Hoffmann-La Roche, Novo Nordisk, Pfizer, and Sobi
+and has received
+speaker fees from Akcea Therapeutics, Alnylam Pharmaceuticals, and Biogen, and
+financial support for conference attendance from Akcea Therapeutics, Alnylam
+Pharmaceuticals, Ionis Pharmaceuticals Inc., and Pfizer Inc. P.A.K. is currently
+participating in the ION trial. N.R.D. is a consultant to Alnylam, Eidos, and
+Intellia
+and has lectured for Alnylam. S.K. is a consultant to Alnylum and Ionis
+Pharmaceuticals Inc. C-C.C. reports no conflicts of interest. S.A. has provided
+consultancy for Alnylam Pharmaceuticals, AstraZeneca, and Pfizer Inc. T.J.K.,
+S.W.J., N.J.V., and R.Z.Y. are employees of, and shareholders in Ionis
+Pharmaceuticals Inc. J.C. is an employee of, and shareholder in AstraZeneca. M.G.
+has been a consultant to Ionis Pharmaceuticals Inc./Akcea, Prothena, Sanofi,
+Janssen, Aptitude Health, Juno, Physicians Education Resource, AbbVie, Johnson &
+Johnson, Celgene, Research to Practice, and Sorrento
+has received research
+funding from Ashfield
+and has received fees for development of educational
+materials from i3 Health. A.M. has received research grants from Attralus,
+Cytokinetics, Ionis Pharmaceuticals Inc., Pfizer, Ultromics, and the Wheeler
+Foundation
+and personal funding from Alnylam, Attralus, Bristol-Myers Squibb,
+Cytokinetics, Eidos, Haya, Ionis Pharmaceuticals Inc., Pfizer Inc., and Tenaya.
+M.W.C. is a principal investigator for the NEURO-TTRansform trial and is a
+consultant for Ionis Pharmaceuticals Inc. T.C. is a principal investigator for
+the NEURO-TTRansform trial (paid to institution) and has received financial
+support from Ionis Pharmaceuticals Inc., and Akcea to attend scientific meetings.
+%X BACKGROUND: The phase 3 NEURO-TTRansform trial showed eplontersen treatment for 65 weeks reduced transthyretin (TTR), halted progression of neuropathy impairment, and improved quality of life (QoL) in adult patients with hereditary TTR-mediated amyloidosis with polyneuropathy (ATTRv-PN), vs. historical placebo. METHODS: NEURO-TTRansform enrolled patients with ATTRv-PN. A subset of patients were randomized to receive subcutaneous inotersen 300 mg weekly (Weeks 1-34) and subsequently switched to subcutaneous eplontersen 45 mg every 4 weeks (Weeks 37-81). Change in serum TTR and treatment-emergent adverse events (TEAEs) were evaluated through Week 85. Effects on neuropathy impairment, QoL, and nutritional status were also evaluated. RESULTS: Of 24 patients randomized to inotersen, 20 (83%) switched to eplontersen at Week 37 and four discontinued due to AEs/investigator decision. Absolute change in serum TTR was greater after switching from inotersen (-74.3%; Week 35) to eplontersen (-80.6%; Week 85). From the end of inotersen treatment, neuropathy impairment and QoL were stable (i.e., did not progress) while on eplontersen, and there was no deterioration in nutritional status. TEAEs were fewer with eplontersen (Weeks 37-85; 19/20 [95%] patients) compared with inotersen (up to Week 35; 24/24 [100%] patients). Mean platelet counts decreased during inotersen treatment (mean nadir reduction ‒40.7%) and returned to baseline during eplontersen treatment (mean nadir reduction, ‒3.2%). CONCLUSIONS: Switching from inotersen to eplontersen further reduced serum TTR, halted disease progression, stabilized QoL, restored platelet count, and improved tolerability, without deterioration in nutritional status. This supports a positive benefit-risk profile for patients with ATTRv-PN who switch from inotersen to eplontersen.
+%Z 1432-1459
+Conceição, Isabel
+Orcid: 0000-0003-0934-9631
+Berk, John L
+Weiler, Markus
+Kowacs, Pedro A
+Dasgupta, Noel R
+Khella, Sami
+Chao, Chi-Chao
+Attarian, Shahram
+Kwoh, T Jesse
+Jung, Shiangtung W
+Chen, Jersey
+Viney, Nicholas J
+Yu, Rosie Z
+Gertz, Morie
+Masri, Ahmad
+Cruz, Márcia Waddington
+Coelho, Teresa
+Clinical Trial, Phase III
+Journal Article
+Randomized Controlled Trial
+Germany
+J Neurol. 2024 Oct;271(10):6655-6666. doi: 10.1007/s00415-024-12616-6. Epub 2024 Aug 13.
+%U https://link.springer.com/content/pdf/10.1007/s00415-024-12616-6.pdf
+%> internal-pdf://1053749130/Conceição-2024-Switching from inotersen to epl.pdf
+%+ ULS Santa Maria, CAML, Instituto de Medicina Molecular, Faculdade de Medicina da Universidade de Lisboa, Lisbon, Portugal. imsconceicao@gmail.com.
+Boston University School of Medicine, Boston, MA, USA.
+Amyloidosis Center and Department of Neurology, Heidelberg University Hospital, Heidelberg, Germany.
+Instituto de Neurologia de Curitiba, Curitiba, Paraná, Brazil.
+Indiana University School of Medicine, Indianapolis, IN, USA.
+University of Pennsylvania School of Medicine, Philadelphia, PA, USA.
+National Taiwan University Hospital, Taipei, Taiwan.
+Neuromuscular Disorders and ALS Department, Centre Hospitalier Universitaire La Timone, Marseille, France.
+Clinical Development, Ionis Pharmaceuticals, Inc., Carlsbad, CA, USA.
+Late-Stage Development, Cardiovascular, Renal, and Metabolism, BioPharmaceuticals R&D, AstraZeneca, Gaithersburg, MA, USA.
+Preclinical Development, Ionis Pharmaceuticals, Inc, Carlsbad, CA, USA.
+Mayo Clinic, Rochester, MN, USA.
+OHSU Center for Hypertrophic Cardiomyopathy and Amyloidosis, Portland, OR, USA.
+CEPARM, Amyloidosis Center, University Hospital, Federal University of Rio de Janeiro, Rio de Janeiro, Brazil.
+Centro Hospitalar Universitário de Santo António, Porto, Portugal.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Drachman, B.
+%A Damy, T.
+%A Hanna, M.
+%A Wang, R.
+%A Angeli, F. S.
+%A Garcia-Pavia, P.
+%D 2024
+%T Long-term tafamidis efficacy in patients with transthyretin amyloid cardiomyopathy by baseline left ventricular ejection fraction
+%B Eur J Heart Fail
+%V 26
+%N 9
+%P 2038-2046
+%7 2024/06/27
+%8 Sep
+%! Long-term tafamidis efficacy in patients with transthyretin amyloid cardiomyopathy by baseline left ventricular ejection fraction
+%O European journal of heart failure
+%@ 1388-9842
+%R 10.1002/ejhf.3330
+%M 38932583
+%K Humans
+Male
+Female
+*Amyloid Neuropathies, Familial/drug therapy/physiopathology
+*Stroke Volume/physiology
+*Benzoxazoles/therapeutic use
+Middle Aged
+Aged
+*Cardiomyopathies/drug therapy/physiopathology
+Treatment Outcome
+Ventricular Function, Left/physiology/drug effects
+Double-Blind Method
+Follow-Up Studies
+Time Factors
+6‐min walk test
+Heart failure
+Mildly reduced ejection fraction
+Preserved ejection fraction
+Quality of life
+Reduced ejection fraction
+%X AIMS: Patients with transthyretin amyloid cardiomyopathy (ATTR-CM) present with diverse left ventricular ejection fraction (LVEF). This study assessed tafamidis efficacy by baseline LVEF in the phase 3 Tafamidis in Transthyretin Cardiomyopathy Clinical Trial (ATTR-ACT) and its long-term extension (LTE) study. METHODS AND RESULTS: Patients were randomized to 30 months of tafamidis or placebo treatment in ATTR-ACT. On completion, patients could join an LTE study to receive tafamidis. All-cause mortality (death, heart transplant, or cardiac mechanical assist device implantation) from baseline to the end of follow-up was assessed in patients continuously treated with tafamidis (80 mg meglumine or 61 mg free acid) or delayed tafamidis treatment (placebo in ATTR-ACT; tafamidis in the LTE study) according to baseline LVEF (<50% or ≥50%). Supportive outcomes were evaluated over a shorter follow-up. Patients with baseline LVEF <50% (n = 177: 88 tafamidis- and 89 placebo-treated) had signs of more severe heart failure, a higher proportion were Black, and had variant ATTR-CM than those with LVEF ≥50% (n = 171: 85 tafamidis- and 86 placebo-treated). At the end of follow-up (median 60-64 months), all-cause mortality was numerically higher in patients with baseline LVEF <50%; however, consistent with supportive findings, continuous tafamidis treatment was associated with a 47% reduction in mortality risk compared with delayed tafamidis treatment in patients with LVEF <50% and ≥50% (hazard ratio 0.53 [95% confidence interval 0.367-0.758]; p < 0.001, and 0.53 [0.344-0.818]; p < 0.01, respectively). CONCLUSIONS: Early initiation of tafamidis is associated with reduced mortality in patients with ATTR-CM, irrespective of initial LVEF value. CLINICAL TRIAL REGISTRATION: ClinicalTrials.gov NCT01994889, NCT02791230.
+%Z 1879-0844
+Drachman, Brian
+Damy, Thibaud
+Hanna, Mazen
+Wang, Ronnie
+Angeli, Franca S
+Garcia-Pavia, Pablo
+Pfizer/
+Clinical Trial, Phase III
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+England
+Eur J Heart Fail. 2024 Sep;26(9):2038-2046. doi: 10.1002/ejhf.3330. Epub 2024 Jun 26.
+%+ University of Pennsylvania Health System, Philadelphia, PA, USA.
+Referral Center for Cardiac Amyloidosis, CHU Henri Mondor, Créteil, France.
+Department of Cardiovascular Medicine, Cleveland Clinic, Cleveland, OH, USA.
+Pfizer Inc., Groton, CT, USA.
+Pfizer Inc., New York, NY, USA.
+Hospital Universitario Puerta de Hierro Majadahonda, IDIPHISA, CIBERCV, Madrid, Spain.
+Centro Nacional de Investigaciones Cardiovasculares (CNIC), Madrid, Spain.
+Universidad Francisco de Vitoria (UFV), Pozuelo de Alarcon, Spain.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Folkvaljon, F.
+%A Gertz, M.
+%A Gillmore, J. D.
+%A Khella, S.
+%A Masri, A.
+%A Maurer, M. S.
+%A Cruz, M. W.
+%A Wixner, J.
+%A Chen, J.
+%A Reicher, B.
+%A Kwoh, J.
+%A Yarlas, A.
+%A Berk, J. L.
+%D 2025
+%T Estimating Meaningful Differences in Measures of Neuropathic Impairment, Health-Related Quality of Life, and Nutritional Status in Patients With Hereditary Transthyretin Amyloidosis
+%B Muscle Nerve
+%V 71
+%N 1
+%P 96-107
+%7 2024/11/18
+%8 Jan
+%! Estimating Meaningful Differences in Measures of Neuropathic Impairment, Health-Related Quality of Life, and Nutritional Status in Patients With Hereditary Transthyretin Amyloidosis
+%O Muscle & nerve
+%@ 0148-639X (Print)
+0148-639x
+%R 10.1002/mus.28299
+%2 PMC11632571
+%M 39552102
+%K Humans
+*Amyloid Neuropathies, Familial/complications
+*Quality of Life
+Male
+Female
+Middle Aged
+Aged
+*Nutritional Status
+Double-Blind Method
+Polyneuropathies/physiopathology/diagnosis
+anchor‐based estimates
+antisense oligonucleotide
+eplontersen
+hereditary transthyretin amyloidosis with polyneuropathy
+meaningful difference
+AstraZeneca, BridgeBio, Intellia, and Ionis. Folke Folkvaljon is an employee of
+AstraZeneca. Jersey Chen and Barry Reicher are employees of, and hold stock in,
+AstraZeneca. Julian D. Gillmore has acted as Advisor for Alnylam, AstraZeneca,
+ATTRalus, BridgeBio, Intellia, Ionis, and Pfizer. Morie Gertz reports receiving
+personal fees from Ionis, Alnylam, Prothena, Janssen, Sanofi, Juno, Physicians
+Education Resource, Johnson & Johnson, Celgene, and Research to Practice
+serving
+on the data and safety monitoring board for AbbVie
+receiving grants from
+Aptitude Health
+receiving meeting fees from Ashfield and Sorrento
+and
+developing educational materials for i3Health. Sami Khella reports receiving
+consulting fees from Ionis and Alnylam. Jesse Kwoh is an employee and stockholder
+of Ionis. Ahmad Masri has received research grants from Attralus, Cytokinetics,
+Ionis, and Pfizer
+and consulting fees from Alexion, Attralus, BioMarin, Bristol
+Myers Squibb, Cytokinetics, Eidos, Haya, Ionis, Lexicon, Pfizer, and Tenaya.
+Mathew S. Maurer reports grant support from NIH R01HL139671 and R01AG081582‐01
+grants and personal fees from Alnylam, Pfizer, Eidos, Prothena, and Ionis
+and
+personal fees from AstraZeneca, Akcea, Intellia, and Novo Nordisk. Márcia
+Waddington Cruz is a principal investigator for the NEURO‐TTRansform trial and a
+consultant for Alnylam, AstraZeneca, Ionis, and Pfizer. Jonas Wixner reports
+receiving consulting fees from Akcea, AstraZeneca, Alnylam, Pfizer, and Intellia.
+Aaron Yarlas is an employee and stockholder of Ionis.
+%X INTRODUCTION/AIMS: The degree of change in neuropathic impairment and quality of life (QoL) that is clinically meaningful to patients with hereditary transthyretin amyloidosis with polyneuropathy (ATTRv-PN) is not established. This study aimed to estimate the magnitude of treatment differences that are meaningful to patients in measures of neuropathy and QoL and to determine whether eplontersen achieved a meaningful improvement versus placebo. METHODS: Data from the NEURO-TTRansform trial on patients with ATTRv-PN treated with eplontersen (n = 141) or historical placebo (n = 59) were used. Anchor-based approaches were used to estimate thresholds for meaningful differences in the modified Neuropathy Impairment Score +7 (mNIS+7) composite score, Norfolk QoL-Diabetic Neuropathy (Norfolk QoL-DN) total score, Neuropathy Symptoms and Change (NSC) total score, and modified body mass index (mBMI). Differences between the least squares means of the treatment groups were analyzed. RESULTS: Meaningful improvement in mNIS+7 was estimated as -4.0 points and deterioration as 1.8 points. The estimated ranges of meaningful improvement and deterioration in Norfolk QoL-DN were -12.8 to -4.0 points, and 5.9 to 14.7 points, respectively. For NSC, ranges were -2.4 to -1.3 points for meaningful improvement, and 0.6 to 5.8 points for deterioration. The estimated meaningful improvement in mBMI was 9.8 kg/m(2) × g/L and deterioration was -40.9 kg/m(2) × g/L. Improvements in each measure with eplontersen versus placebo were greater than the estimates of meaningful differences. DISCUSSION: Eplontersen demonstrated a clinically meaningful effect on neuropathic impairment, QoL, and nutritional status. Such estimates have implications for clinical practice and trials.
+%Z 1097-4598
+Folkvaljon, Folke
+Gertz, Morie
+Gillmore, Julian D
+Khella, Sami
+Masri, Ahmad
+Maurer, Mathew S
+Cruz, Márcia Waddington
+Wixner, Jonas
+Chen, Jersey
+Reicher, Barry
+Kwoh, Jesse
+Yarlas, Aaron
+Berk, John L
+Orcid: 0000-0002-1768-2373
+AstraZeneca/
+Ionis Pharmaceuticals, Inc./
+Journal Article
+Randomized Controlled Trial
+United States
+Muscle Nerve. 2025 Jan;71(1):96-107. doi: 10.1002/mus.28299. Epub 2024 Nov 17.
+%U https://pmc.ncbi.nlm.nih.gov/articles/PMC11632571/
+%+ HTA Statistics & Data Science, BioPharmaceuticals Medical, AstraZeneca, Barcelona, Spain.
+Mayo Clinic, Rochester, Minnesota, USA.
+National Amyloidosis Centre, University College London, Royal Free Hospital, London, UK.
+University of Pennsylvania School of Medicine, Philadelphia, Pennsylvania, USA.
+OHSU Center for Hypertrophic Cardiomyopathy and Amyloidosis, Portland, Oregon, USA.
+Columbia University Irving Medical Center, New York, New York, USA.
+CEPARM, Amyloidosis Center, University Hospital, Federal University of Rio de Janeiro, Rio de Janeiro, Brazil.
+Umeå University, Umeå, Sweden.
+Late Stage Development, Cardiovascular, Renal and Metabolism, BioPharmaceuticals R&D, AstraZeneca, Gaithersburg, Maryland, USA.
+Ionis, Carlsbad, California, USA.
+Boston University School of Medicine, Boston, Massachusetts, USA.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Fontana, M.
+%A Berk, J. L.
+%A Gillmore, J. D.
+%A Witteles, R. M.
+%A Grogan, M.
+%A Drachman, B.
+%A Damy, T.
+%A Garcia-Pavia, P.
+%A Taubel, J.
+%A Solomon, S. D.
+%A Sheikh, F. H.
+%A Tahara, N.
+%A González-Costello, J.
+%A Tsujita, K.
+%A Morbach, C.
+%A Pozsonyi, Z.
+%A Petrie, M. C.
+%A Delgado, D.
+%A Van der Meer, P.
+%A Jabbour, A.
+%A Bondue, A.
+%A Kim, D.
+%A Azevedo, O.
+%A Hvitfeldt Poulsen, S.
+%A Yilmaz, A.
+%A Jankowska, E. A.
+%A Algalarrondo, V.
+%A Slugg, A.
+%A Garg, P. P.
+%A Boyle, K. L.
+%A Yureneva, E.
+%A Silliman, N.
+%A Yang, L.
+%A Chen, J.
+%A Eraly, S. A.
+%A Vest, J.
+%A Maurer, M. S.
+%D 2025
+%T Vutrisiran in Patients with Transthyretin Amyloidosis with Cardiomyopathy
+%B N Engl J Med
+%V 392
+%N 1
+%P 33-44
+%7 2024/08/31
+%8 Jan 2
+%! Vutrisiran in Patients with Transthyretin Amyloidosis with Cardiomyopathy
+%O The New England journal of medicine
+%@ 0028-4793
+%R 10.1056/NEJMoa2409134
+%M 39213194
+%K Aged
+Female
+Humans
+Male
+Middle Aged
+*Amyloid Neuropathies, Familial/complications/drug therapy/genetics/mortality
+*Cardiomyopathies/drug therapy/genetics/mortality
+Double-Blind Method
+Injections, Subcutaneous
+Kaplan-Meier Estimate
+*Prealbumin/antagonists & inhibitors/genetics
+*RNA, Small Interfering/administration & dosage
+RNAi Therapeutics
+Walk Test
+Quality of Life
+Aged, 80 and over
+Treatment Outcome
+%X BACKGROUND: Transthyretin amyloidosis with cardiomyopathy (ATTR-CM) is a progressive, fatal disease. Vutrisiran, a subcutaneously administered RNA interference therapeutic agent, inhibits the production of hepatic transthyretin. METHODS: In this double-blind, randomized trial, we assigned patients with ATTR-CM in a 1:1 ratio to receive vutrisiran (25 mg) or placebo every 12 weeks for up to 36 months. The primary end point was a composite of death from any cause and recurrent cardiovascular events. Secondary end points included death from any cause, the change from baseline in the distance covered on the 6-minute walk test, and the change from baseline in the Kansas City Cardiomyopathy Questionnaire-Overall Summary (KCCQ-OS) score. The efficacy end points were assessed in the overall population and in the monotherapy population (the patients who were not receiving tafamidis at baseline) and were tested hierarchically. RESULTS: A total of 655 patients underwent randomization; 326 were assigned to receive vutrisiran and 329 to receive placebo. Vutrisiran treatment led to a lower risk of death from any cause and recurrent cardiovascular events than placebo (hazard ratio in the overall population, 0.72; 95% confidence interval [CI], 0.56 to 0.93; P = 0.01; hazard ratio in the monotherapy population, 0.67; 95% CI, 0.49 to 0.93; P = 0.02) and a lower risk of death from any cause through 42 months (hazard ratio in the overall population, 0.65; 95% CI, 0.46 to 0.90; P = 0.01). Among the patients in the overall population, 125 in the vutrisiran group and 159 in the placebo group had at least one primary end-point event. In the overall population, treatment with vutrisiran resulted in less of a decline in the distance covered on the 6-minute walk test than placebo (least-squares mean difference, 26.5 m; 95% CI, 13.4 to 39.6; P<0.001) and less of a decline in the KCCQ-OS score (least-squares mean difference, 5.8 points; 95% CI, 2.4 to 9.2; P<0.001). Similar benefits were observed in the monotherapy population. The incidence of adverse events was similar in the two groups (99% in the vutrisiran group and 98% in the placebo group); serious adverse events occurred in 62% of the patients in the vutrisiran group and in 67% of those in the placebo group. CONCLUSIONS: Among patients with ATTR-CM, treatment with vutrisiran led to a lower risk of death from any cause and cardiovascular events than placebo and preserved functional capacity and quality of life. (Funded by Alnylam Pharmaceuticals; HELIOS-B ClinicalTrials.gov number, NCT04153149.).
+%Z 1533-4406
+Fontana, Marianna
+Orcid: 0000-0002-9233-9831
+Berk, John L
+Gillmore, Julian D
+Witteles, Ronald M
+Grogan, Martha
+Drachman, Brian
+Damy, Thibaud
+Garcia-Pavia, Pablo
+Taubel, Jorg
+Solomon, Scott D
+Orcid: 0000-0003-3698-9597
+Sheikh, Farooq H
+Tahara, Nobuhiro
+Orcid: 0000-0003-2011-8201
+González-Costello, José
+Tsujita, Kenichi
+Morbach, Caroline
+Pozsonyi, Zoltán
+Petrie, Mark C
+Delgado, Diego
+Van der Meer, Peter
+Jabbour, Andrew
+Bondue, Antoine
+Kim, Darae
+Azevedo, Olga
+Hvitfeldt Poulsen, Steen
+Yilmaz, Ali
+Jankowska, Ewa A
+Algalarrondo, Vincent
+Slugg, Andrew
+Garg, Pushkal P
+Boyle, Katherine L
+Yureneva, Elena
+Silliman, Nancy
+Yang, Lilli
+Chen, Jihong
+Eraly, Satish A
+Vest, John
+Maurer, Mathew S
+Orcid: 0000-0001-5400-5008
+HELIOS-B Trial Investigators
+N/A/Alnylam Pharmaceuticals/
+Clinical Trial, Phase III
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+United States
+N Engl J Med. 2025 Jan 2;392(1):33-44. doi: 10.1056/NEJMoa2409134. Epub 2024 Aug 30.
+%+ From the National Amyloidosis Centre, Division of Medicine, University College London, Royal Free Hospital (M.F., J.D.G.), and Richmond Pharmacology (J.T.), London, and the Institute of Cardiovascular and Medical Sciences, British Heart Foundation Glasgow Cardiovascular Research Centre, Glasgow (M.C.P.) - all in the United Kingdom; Boston University School of Medicine (J.L.B.) and the Cardiovascular Division, Brigham and Women's Hospital (S.D.S.) - both in Boston; the Division of Cardiovascular Medicine, Stanford University School of Medicine, Stanford, CA (R.M.W.); the Department of Cardiovascular Diseases, Mayo Clinic College of Medicine, Rochester, MN (M.G.); the Division of Cardiology, Penn Presbyterian Medical Center, University of Pennsylvania Health System, Philadelphia (B.D.); the Cardiology Department and French National Reference Centre for Cardiac Amyloidosis, GRC Amyloid Research Institute and Clinical Investigation Centre 1430 at Hôpitaux Universitaires Henri-Mondor, Assistance Publique-Hôpitaux de Paris (AP-HP), and Institut Mondor de Recherche Biomédicale, INSERM, Université Paris Est Creteil, Creteil (T.D.), and the Department of Cardiology, French National Reference Center for Cardiac Amyloidosis, Bichat University Hospital, AP-HP, Paris (V.A.) - all in France; the Department of Cardiology, Hospital Universitario Puerta de Hierro Majadahonda, Health Research Institute of the Puerta de Hierro Majadahonda-Segovia, Centro de Investigación Biomédica en Red Enfermedades Cardiovasculares (CIBER-CV), and Centro Nacional de Investigaciones Cardiovasculares (P.G.-P.), and CIBER-CV (J.G.-C.), Madrid, and the Department of Cardiology, Hospital Universitari de Bellvitge, Instituto de Investigación Biomédica de Bellvitge, and Universitat de Barcelona, Barcelona (J.G.-C.) - all in Spain; MedStar Heart and Vascular Institute, MedStar Health, and Georgetown University School of Medicine - both in Washington, DC (F.H.S.); the Division of Cardiovascular Medicine, Department of Medicine, Kurume University School of Medicine, Kurume (N.T.), and the Department of Cardiovascular Medicine, Graduate School of Medical Sciences, Kumamoto University, Kumamoto (K.T.) - both in Japan; the Department of Clinical Research and Epidemiology, Comprehensive Heart Failure Center, University Hospital Würzburg, and the Department of Medicine I, University Hospital Würzburg, Würzburg (C.M.), and the Division of Cardiovascular Imaging, University Hospital Münster, Münster (A.Y.) - both in Germany; the Department of Internal Medicine and Hematology, Semmelweis University, Budapest, Hungary (Z.P.); the Department of Cardiology, University Health Network of Toronto, Toronto (D.D.); University Medical Center Groningen, University of Groningen, Groningen, the Netherlands (P.V.M.); the Victor Chang Cardiac Research Institute, the Cardiology Department, St. Vincent's Hospital, and the School of Clinical Medicine, University of New South Wales - all in Sydney (A.J.); the Department of Cardiology, Hôpital Universitaire de Bruxelles-Hôpital Erasme, Université Libre de Bruxelles, Brussels (A.B.); the Department of Medicine, Heart Vascular Stroke Institute, Samsung Medical Center, Sungkyunkwan University School of Medicine, Seoul, South Korea (D.K.); the Cardiology Department, Hospital Senhora da Oliveira-Guimarães, Guimarães, and the School of Medicine, University of Minho, Braga - both in Portugal (O.A.); the Department of Cardiology, Aarhus University Hospital, Aarhus, Denmark (S.H.P.); the Division of Translational Cardiology and Clinical Registries, Institute of Heart Diseases, Wrocław Medical University, Wrocław, Poland (E.A.J.); Alnylam Pharmaceuticals, Cambridge, MA (A.S., P.P.G., K.L.B., E.Y., N.S., L.Y., J.C., S.A.E., J.V.); and Columbia University Irving Medical Center, New York (M.S.M.).
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Fontana, M.
+%A Maurer, M. S.
+%A Gillmore, J. D.
+%A Bender, S.
+%A Aldinc, E.
+%A Eraly, S. A.
+%A Jay, P. Y.
+%A Solomon, S. D.
+%D 2025
+%T Outpatient Worsening Heart Failure in Patients With Transthyretin Amyloidosis With Cardiomyopathy in the HELIOS-B Trial
+%B J Am Coll Cardiol
+%V 85
+%N 7
+%P 753-761
+%7 2024/11/21
+%8 Feb 25
+%! Outpatient Worsening Heart Failure in Patients With Transthyretin Amyloidosis With Cardiomyopathy in the HELIOS-B Trial
+%O Journal of the American College of Cardiology
+%@ 0735-1097
+%R 10.1016/j.jacc.2024.11.015
+%M 39566871
+%K Humans
+*Heart Failure/drug therapy/etiology/diagnosis/mortality
+Male
+Female
+*Amyloid Neuropathies, Familial/complications/drug therapy/mortality
+Aged
+*Cardiomyopathies/drug therapy/complications/diagnosis
+Disease Progression
+Middle Aged
+Outpatients
+Prognosis
+Double-Blind Method
+RNAi
+cardiomyopathy
+diuretic
+heart failure
+transthyretin amyloidosis
+Pharmaceuticals Inc. The funder collaborated with the authors during the study
+design, data collection, data analysis, data interpretation, and writing of the
+report. Dr Fontana has received research support from AstraZeneca
+has received
+consultancy and/or advisory board membership from Alexion, Alnylam
+Pharmaceuticals, Attralus, Caelum Biosciences, Intellia Therapeutics, Ionis
+Pharmaceuticals, Janssen Pharmaceuticals, Lexeo Therapeutics, Novo Nordisk,
+Pfizer, and Prothena
+has received support for attending meetings from Alnylam
+Pharmaceuticals, AstraZeneca, and Attralus
+and has equity in Lexeo Therapeutics
+and Mycardium. Dr Maurer has received research support from Alnylam
+Pharmaceuticals, Attralus, BridgeBio, Intellia Therapeutics, and Ionis
+Pharmaceuticals
+and has received consulting fees from Akcea Therapeutics,
+Alnylam Pharmaceuticals, AstraZeneca, Intellia Therapeutics, Novo Nordisk, and
+Roche. Dr Gillmore has received research support from Alnylam Pharmaceuticals
+has received consulting fees from Alnylam Pharmaceuticals, AstraZeneca,
+BridgeBio, Intellia Therapeutics, Ionis Pharmaceuticals, and Lycia Therapeutics
+and has received payment for lectures or speaker fees from Alnylam
+Pharmaceuticals and AstraZeneca. Drs Bender, Aldinc, Eraly, and Jay are employees
+of Alnylam Pharmaceuticals
+and have equity in Alnylam Pharmaceuticals. Dr
+Solomon has received research grants from Alexion Pharmaceuticals, Alnylam
+Pharmaceuticals, Applied Therapeutics, AstraZeneca, Bayer, Bellerophon
+Therapeutics, Boston Scientific, BridgeBio, Bristol Myers Squibb, Cytokinetics,
+Edgewise Therapeutics, Eidos Therapeutics, Eli Lilly & Company, Gossamer Bio,
+GSK, Ionis Pharmaceuticals, NIH/NHLBI, Novartis, Novo Nordisk, Respicardia,
+Sanofi Pasteur, Tenaya Therapeutics, TheracosBio, and Us2.AI
+and has consulted
+for Abbott, Action Pharma, Akros Pharma, Alexion Pharmaceuticals, Alnylam
+Pharmaceuticals, American Regent, Amgen, Anacardio, Arena Pharmaceuticals,
+AstraZeneca, Bayer, Bristol Myers Squibb, Cardior, Cardurion, CellProthera,
+Corvia Medical, Cytokinetics, Dinaqor, Eli Lilly & Company, GlaxoSmithKline,
+Intellia, Lexicon Pharmaceuticals, Moderna, Novartis, Quantum Genomics, Roche,
+Sanofi Pasteur, Sarepta Therapeutics, Tenaya Therapeutics, TheracosBio, Tremeau
+Pharmaceuticals, and Valo.
+%X BACKGROUND: Transthyretin amyloidosis with cardiomyopathy (ATTR-CM) is a fatal disease, caused by misfolded transthyretin depositing as amyloid fibrils in the heart. Because disease progression is common, practical and sensitive methods are needed to monitor patients and optimize treatment decisions. Outpatient worsening heart failure (HF) (oral loop diuretic intensification or initiation) is simple to assess and has been shown to be prognostic of mortality in patients with ATTR-CM. OBJECTIVES: This study aimed to assess the clinical and prognostic significance of and the effect of vutrisiran treatment on outpatient worsening HF in patients with ATTR-CM from HELIOS-B (A Study to Evaluate Vutrisiran in Patients With Transthyretin Amyloidosis With Cardiomyopathy). METHODS: Associations between outpatient worsening HF and a composite of all-cause mortality and recurrent cardiovascular (CV) events (CV hospitalizations and urgent HF visits), all-cause mortality, and other disease progression-related endpoints were evaluated. The impact of vutrisiran over 36 months on outpatient worsening HF and an expanded composite of all-cause mortality, recurrent CV events, and outpatient worsening HF was also assessed. RESULTS: Overall, 321 patients (49.1%) had ≥1 outpatient worsening HF, 245 (37.5%) had ≥1 CV event(s), and 120 (18.3%) died; 237 patients (36.2%) had no events. Patients with outpatient worsening HF had an increased risk of all-cause mortality and CV events (HR: 2.58; 95% CI: 2.04-3.27) and all-cause mortality (HR: 2.45; 95% CI: 1.70-3.52), as well as a greater deterioration in 6-minute walk test distance and Kansas City Cardiomyopathy Questionnaire-Overall Summary score, and a greater increase in N-terminal prohormone of B-type natriuretic peptide. In recurrent event analyses over the double-blind period, vutrisiran vs placebo reduced the rate of outpatient worsening HF (relative rate ratio: 0.66; 95% CI: 0.56-0.78). Vutrisiran also reduced the risk of the composite of all-cause mortality, CV events, and outpatient worsening HF vs placebo (HR: 0.69; 95% CI: 0.57-0.83). CONCLUSIONS: Outpatient worsening HF was frequent in patients with ATTR-CM in HELIOS-B, was associated with increased mortality, and reduced by vutrisiran. (HELIOS-B: A Study to Evaluate Vutrisiran in Patients With Transthyretin Amyloidosis With Cardiomyopathy; NCT04153149).
+%Z 1558-3597
+Fontana, Marianna
+Maurer, Mathew S
+Gillmore, Julian D
+Bender, Shaun
+Aldinc, Emre
+Eraly, Satish A
+Jay, Patrick Y
+Solomon, Scott D
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+United States
+J Am Coll Cardiol. 2025 Feb 25;85(7):753-761. doi: 10.1016/j.jacc.2024.11.015. Epub 2024 Nov 18.
+%U https://www.sciencedirect.com/science/article/pii/S0735109724104640?via%3Dihub
+%+ National Amyloidosis Centre, University College London, Division of Medicine, Royal Free Hospital, London, United Kingdom.
+Columbia University Irving Medical Center, New York, New York, USA.
+Alnylam Pharmaceuticals, Cambridge, Massachusetts, USA.
+Cardiovascular Division, Brigham and Women's Hospital, Boston, Massachusetts, USA. Electronic address: ssolomon@bwh.harvard.edu.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Fontana, M.
+%A Maurer, M. S.
+%A Gillmore, J. D.
+%A Bender, S.
+%A Jay, P. Y.
+%A Solomon, S. D.
+%D 2025
+%T Worsening of Heart Failure in Outpatients With Transthyretin Amyloidosis and Cardiomyopathy in the APOLLO-B Trial
+%B J Am Coll Cardiol
+%V 85
+%N 7
+%P 744-752
+%7 2025/01/23
+%8 Feb 25
+%! Worsening of Heart Failure in Outpatients With Transthyretin Amyloidosis and Cardiomyopathy in the APOLLO-B Trial
+%O Journal of the American College of Cardiology
+%@ 0735-1097
+%R 10.1016/j.jacc.2024.10.097
+%M 39846936
+%K Humans
+*Heart Failure/drug therapy
+Male
+Female
+*Amyloid Neuropathies, Familial/complications/drug therapy/mortality
+*Cardiomyopathies/drug therapy/complications
+Aged
+*Disease Progression
+*Outpatients
+Middle Aged
+Double-Blind Method
+Prognosis
+Diuretics/therapeutic use/administration & dosage
+Stroke Volume
+RNA, Small Interfering
+RNAi
+diuretic
+heart failure
+transthyretin amyloidosis
+Pharmaceuticals Inc. The funder collaborated with the authors during the study
+design, data collection, data analysis, data interpretation, and writing of the
+report. Dr Fontana has received research support from AstraZeneca
+has performed
+consultancy and/or held Advisory Board membership for Alexion, Alnylam
+Pharmaceuticals, Attralus, Caelum Biosciences, Intellia Therapeutics, Ionis
+Pharmaceuticals, Janssen Pharmaceuticals, Lexeo Therapeutics, Novo Nordisk,
+Pfizer, and Prothena
+has received support for attending meetings from Alnylam
+Pharmaceuticals, AstraZeneca, and Attralus
+and owns equity in Lexeo Therapeutics
+and Mycardium. Dr Maurer has received grant support from the National Institutes
+of Health (R01HL139671 and AG081582)
+has received grants from Alnylam
+Pharmaceuticals, BridgeBio, Intellia Therapeutics, and Ionis Pharmaceuticals
+and
+has received personal fees from Akcea, Alnylam Pharmaceuticals, AstraZeneca,
+Intellia Therapeutics, Novo Nordisk, Prothena, and Roche. Dr Gillmore has
+received research support from Alnylam Pharmaceuticals
+has received consulting
+fees from Alnylam Pharmaceuticals, AstraZeneca, BridgeBio, Intellia Therapeutics,
+Ionis Pharmaceuticals, and Lycia Therapeutics
+and has received payment for
+lectures or speaker fees from Alnylam Pharmaceuticals and AstraZeneca. Drs Bender
+and Jay are employees of and own equity in Alnylam Pharmaceuticals. Dr Solomon
+has received research grants from Alexion, Alnylam Pharmaceuticals, Applied
+Therapeutics, AstraZeneca, Bayer, Bellerophon, Boston Scientific, Bristol Myers
+Squibb, Cytokinetics, Edgewise, Eidos/Bridgebio, Gossamer, GlaxoSmithKline, Ionis
+Pharmaceuticals, Lilly, the National Institutes of Health/National Heart, Lung,
+and Blood Institute, Novartis, Novo Nordisk, Respicardia, Sanofi Pasteur, Tenaya,
+Theracos, and US2.AI
+and has consulted for Abbott, Action, Akros, Alexion,
+Alnylam Pharmaceuticals, American Regent, Amgen, Anacardio, Arena, AstraZeneca,
+Bayer, Bristol Myers Squibb, Cardior, Cardurion, CellProThera, Corvia,
+Cytokinetics, Dinaqor, GlaxoSmithKline, Lexicon, Lilly, Moderna, Novartis,
+Quantum Genomics, Roche, Sanofi Pasteur, Sarepta, Tenaya, Theracos, Tremeau, and
+Valo.
+%X BACKGROUND: Outpatient worsening heart failure (HF), defined by initiation or intensification of diuretics, is adversely prognostic for patients with either reduced or preserved ejection fraction. OBJECTIVES: This study sought to investigate the prognostic value of outpatient worsening HF in transthyretin amyloidosis with cardiomyopathy and the effect of patisiran treatment. METHODS: Post hoc analyses of the APOLLO-B trial (NCT03997383) evaluated the associations between outpatient worsening HF (defined by oral diuretic initiation or intensification), measures of disease progression, and a composite endpoint of all-cause mortality and cardiovascular (CV) events. We further examined the effect of patisiran on outpatient worsening HF over 24 months (ie, during the double-blind and open-label extension periods). RESULTS: In APOLLO-B, 144 (40.1%) patients had no event, 157 (43.7%) had outpatient worsening HF, 13 (3.6%) required an urgent HF visit, 118 (32.9%) had a CV hospitalization, and 47 (13.1%) died. Outpatient worsening HF was associated with an increased risk of all-cause mortality and CV events (HR: 2.21; 95% CI: 1.58-3.08), as well as a greater deterioration in 6-minute walk test distance, Kansas City Cardiomyopathy Questionnaire-Overall Summary score, and NYHA functional class and a greater increase in N-terminal prohormone of B-type natriuretic peptide. Addition of outpatient diuretic initiation or intensification to the composite endpoint of all-cause mortality and CV events increased the overall number of patients having an event from 141 to 215 (a 52% increase). Patisiran reduced the risk of outpatient worsening HF (HR: 0.70; 95% CI: 0.51-0.96) over 24 months. CONCLUSIONS: During APOLLO-B, outpatient worsening HF in patients with transthyretin amyloidosis with cardiomyopathy was frequent, prognostic, and reduced by patisiran.
+%Z 1558-3597
+Fontana, Marianna
+Maurer, Mathew S
+Gillmore, Julian D
+Bender, Shaun
+Jay, Patrick Y
+Solomon, Scott D
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+United States
+J Am Coll Cardiol. 2025 Feb 25;85(7):744-752. doi: 10.1016/j.jacc.2024.10.097. Epub 2025 Jan 22.
+%U https://www.sciencedirect.com/science/article/pii/S0735109724102975?via%3Dihub
+%+ National Amyloidosis Centre, University College London, Division of Medicine, Royal Free Hospital, London, United Kingdom.
+Department of Medicine, Columbia University Irving Medical Center, New York, New York, USA.
+Alnylam Pharmaceuticals, Cambridge, Massachusetts, USA.
+Cardiovascular Division, Brigham and Women's Hospital, Boston, Massachusetts, USA. Electronic address: SSOLOMON@BWH.HARVARD.EDU.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Fox, J. C.
+%A Hellawell, J. L.
+%A Rao, S.
+%A O'Reilly, T.
+%A Lumpkin, R.
+%A Jernelius, J.
+%A Gretler, D.
+%A Sinha, U.
+%D 2020
+%T First-in-Human Study of AG10, a Novel, Oral, Specific, Selective, and Potent Transthyretin Stabilizer for the Treatment of Transthyretin Amyloidosis: A Phase 1 Safety, Tolerability, Pharmacokinetic, and Pharmacodynamic Study in Healthy Adult Volunteers
+%B Clin Pharmacol Drug Dev
+%V 9
+%N 1
+%P 115-129
+%7 2019/06/07
+%8 Jan
+%! First-in-Human Study of AG10, a Novel, Oral, Specific, Selective, and Potent Transthyretin Stabilizer for the Treatment of Transthyretin Amyloidosis: A Phase 1 Safety, Tolerability, Pharmacokinetic, and Pharmacodynamic Study in Healthy Adult Volunteers
+%O Clinical pharmacology in drug development
+%@ 2160-763X (Print)
+2160-763x
+%R 10.1002/cpdd.700
+%2 PMC7003869
+%M 31172685
+%K Administration, Oral
+Adolescent
+Adult
+Amyloid Neuropathies, Familial
+*Benzoates/adverse effects/blood/pharmacokinetics/pharmacology
+Double-Blind Method
+Fasting/metabolism
+Female
+Food-Drug Interactions
+Healthy Volunteers
+Humans
+Male
+Middle Aged
+Prealbumin/analysis
+*Pyrazoles/adverse effects/blood/pharmacokinetics/pharmacology
+Young Adult
+Ag10
+Attr
+amyloidosis
+cardiomyopathy
+transthyretin
+T.O. is an employee of Celerion, Inc. R.L. and D.G. are independent consultants
+who contributed to this work under contract to Eidos Therapeutics, Inc.
+%X AG10 is a novel, potent, and selective oral transthyretin (TTR) stabilizer being developed to treat TTR amyloidosis (ATTR). This randomized, double-blind, placebo-controlled study evaluated safety, tolerability, pharmacokinetics, and pharmacodynamics (ex vivo stabilization) of orally administered AG10 in healthy adult volunteers. Both mutant and wild-type ATTR are underdiagnosed diseases with limited therapeutic options. As TTR amyloidogenesis is initiated by dissociation of TTR tetramers destabilized due to inherited mutations or aging, AG10 is designed to treat the disease at its source. Four single and three multiple ascending dose levels of AG10 or matching placebo were orally administered. Safety and tolerability were assessed by vital signs, electrocardiogram, adverse events, and clinical laboratory tests. Pharmacokinetics were measured using a validated bioanalytical assay. Pharmacodynamics were assessed via three pharmacodynamic assays of TTR stabilization. AG10 was uniformly well tolerated, and no safety signals of clinical concern were observed. Pharmacokinetic observations included time to maximum concentration <1 hour, dose-dependent maximum concentration and area under the plasma concentration-time curve, low intersubject variability, and half-life ∼25 hr. Complete (>90%) stabilization of TTR was observed across the entire dosing interval at steady state on the highest dose tested. Serum TTR levels, an in vivo reflection of TTR stabilization by AG10, increased from baseline following 12 days of dosing. AG10 appears to be safe and well tolerated in healthy adult volunteers and can completely stabilize TTR across the dosing interval, establishing clinical proof of concept. Based on these data, AG10 has the potential to be a safe and effective treatment for patients with either mutant or wild-type ATTR.
+%Z 2160-7648
+Fox, Jonathan C
+Hellawell, Jennifer L
+Rao, Satish
+O'Reilly, Terry
+Lumpkin, Rick
+Jernelius, Jesper
+Gretler, Daniel
+Sinha, Uma
+Clinical Trial, Phase I
+Journal Article
+Randomized Controlled Trial
+United States
+Clin Pharmacol Drug Dev. 2020 Jan;9(1):115-129. doi: 10.1002/cpdd.700. Epub 2019 Jun 6.
+%U https://pmc.ncbi.nlm.nih.gov/articles/PMC7003869/
+%+ Eidos Therapeutics, Inc., San Francisco, CA, USA.
+Celerion, Inc., Tempe, AZ, USA.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Garcia-Pavia, P.
+%A Aus dem Siepen, F.
+%A Donal, E.
+%A Lairez, O.
+%A van der Meer, P.
+%A Kristen, A. V.
+%A Mercuri, M. F.
+%A Michalon, A.
+%A Frost, R. J. A.
+%A Grimm, J.
+%A Nitsch, R. M.
+%A Hock, C.
+%A Kahr, P. C.
+%A Damy, T.
+%D 2023
+%T Phase 1 Trial of Antibody NI006 for Depletion of Cardiac Transthyretin Amyloid
+%B N Engl J Med
+%V 389
+%N 3
+%P 239-250
+%7 2023/05/22
+%8 Jul 20
+%! Phase 1 Trial of Antibody NI006 for Depletion of Cardiac Transthyretin Amyloid
+%O The New England journal of medicine
+%@ 0028-4793
+%R 10.1056/NEJMoa2303765
+%M 37212440
+%K Humans
+*Amyloid Neuropathies, Familial/diagnostic imaging/drug therapy/complications
+*Antibodies/administration & dosage/adverse effects/pharmacology/therapeutic use
+*Cardiomyopathies/diagnostic imaging/drug therapy/etiology
+*Heart Failure/diagnostic imaging/drug therapy/etiology
+Magnetic Resonance Imaging
+Prealbumin
+Double-Blind Method
+Chronic Disease
+*Recombinant Proteins/administration & dosage/adverse
+effects/pharmacokinetics/therapeutic use
+Infusions, Intravenous
+%X BACKGROUND: Transthyretin amyloid (ATTR) cardiomyopathy is a progressive and fatal disease caused by misfolded transthyretin. Despite advances in slowing disease progression, there is no available treatment that depletes ATTR from the heart for the amelioration of cardiac dysfunction. NI006 is a recombinant human anti-ATTR antibody that was developed for the removal of ATTR by phagocytic immune cells. METHODS: In this phase 1, double-blind trial, we randomly assigned (in a 2:1 ratio) 40 patients with wild-type or variant ATTR cardiomyopathy and chronic heart failure to receive intravenous infusions of either NI006 or placebo every 4 weeks for 4 months. Patients were sequentially enrolled in six cohorts that received ascending doses (ranging from 0.3 to 60 mg per kilogram of body weight). After four infusions, patients were enrolled in an open-label extension phase in which they received eight infusions of NI006 with stepwise increases in the dose. The safety and pharmacokinetic profiles of NI006 were assessed, and cardiac imaging studies were performed. RESULTS: The use of NI006 was associated with no apparent drug-related serious adverse events. The pharmacokinetic profile of NI006 was consistent with that of an IgG antibody, and no antidrug antibodies were detected. At doses of at least 10 mg per kilogram, cardiac tracer uptake on scintigraphy and extracellular volume on cardiac magnetic resonance imaging, both of which are imaging-based surrogate markers of cardiac amyloid load, appeared to be reduced over a period of 12 months. The median N-terminal pro-B-type natriuretic peptide and troponin T levels also seemed to be reduced. CONCLUSIONS: In this phase 1 trial of the recombinant human antibody NI006 for the treatment of patients with ATTR cardiomyopathy and heart failure, the use of NI006 was associated with no apparent drug-related serious adverse events. (Funded by Neurimmune; NI006-101 ClinicalTrials.gov number, NCT04360434.).
+%Z 1533-4406
+Garcia-Pavia, Pablo
+Aus dem Siepen, Fabian
+Donal, Erwan
+Lairez, Olivier
+van der Meer, Peter
+Kristen, Arnt V
+Mercuri, Michele F
+Michalon, Aubin
+Frost, Robert J A
+Grimm, Jan
+Nitsch, Roger M
+Hock, Christoph
+Kahr, Peter C
+Damy, Thibaud
+Clinical Trial, Phase I
+Journal Article
+Randomized Controlled Trial
+United States
+N Engl J Med. 2023 Jul 20;389(3):239-250. doi: 10.1056/NEJMoa2303765. Epub 2023 May 20.
+%+ From Hospital Universitario Puerta de Hierro Majadahonda, IDIPHISA, CIBERCV, and Centro Nacional de Investigaciones Cardiovasculares, Madrid, and Universidad Francisco de Vitoria, Pozuelo de Alarcón - all in Spain (P.G.-P.); the Department of Cardiology, University Hospital Heidelberg, Heidelberg (F.S.), and Cardiovascular Center Darmstadt, Darmstadt (A.V.K.) - both in Germany; the Department of Cardiology, University of Rennes, Centre Hospitalier Universitaire (CHU) de Rennes, INSERM, LTSI-UMR 1099, Rennes (E.D.), Service de Cardiologie, CHU de Toulouse-Hôpital Rangueil, Toulouse (O.L.), and the Cardiology Department and French National Reference Center for Cardiac Amyloidosis, Hôpitaux Universitaires Henri Mondor, Assistance Publique-Hôpitaux de Paris, and Institut Mondor de Recherche Biomédicale, INSERM, Université Paris Est Créteil, Créteil (T.D.) - all in France; the Department of Cardiology, University Medical Center Groningen, University of Groningen, Groningen, the Netherlands (P.M.); Alexion-AstraZeneca Rare Disease, Boston (M.F.M.); and Neurimmune (A.M., R.J.A.F., J.G., R.M.N., C.H., P.C.K.) and the Institute for Regenerative Medicine (R.M.N., C.H.) and the Center for Molecular Cardiology (P.C.K.), University of Zurich - all in Schlieren, Switzerland.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Garcia-Pavia, P.
+%A Grogan, M.
+%A Kale, P.
+%A Berk, J. L.
+%A Maurer, M. S.
+%A Conceição, I.
+%A Di Carli, M.
+%A Solomon, S. D.
+%A Chen, C.
+%A Yureneva, E.
+%A Vest, J.
+%A Gillmore, J. D.
+%D 2024
+%T Impact of vutrisiran on exploratory cardiac parameters in hereditary transthyretin-mediated amyloidosis with polyneuropathy
+%B Eur J Heart Fail
+%V 26
+%N 2
+%P 397-410
+%7 2024/02/07
+%8 Feb
+%! Impact of vutrisiran on exploratory cardiac parameters in hereditary transthyretin-mediated amyloidosis with polyneuropathy
+%O European journal of heart failure
+%@ 1388-9842
+%R 10.1002/ejhf.3138
+%M 38321786
+%K Humans
+Prealbumin/genetics
+*Heart Failure
+*Amyloid Neuropathies, Familial/complications/drug therapy/genetics
+*Polyneuropathies/drug therapy
+99mTc scintigraphy
+Cardiomyopathy
+Echocardiography
+Hereditary transthyretin‐mediated amyloidosis
+NT‐proBNP
+Vutrisiran
+%X AIMS: HELIOS-A was a Phase 3, open-label study of vutrisiran, an RNA interference therapeutic, in patients with hereditary transthyretin (ATTRv) amyloidosis with polyneuropathy. This analysis evaluated vutrisiran's impact on exploratory cardiac endpoints in HELIOS-A patients. METHODS AND RESULTS: Patients were randomized 3:1 to subcutaneous vutrisiran 25 mg every 3 months or intravenous patisiran 0.3 mg/kg every 3 weeks (reference group) for 18 months. Exploratory cardiac endpoints included change from baseline in N-terminal prohormone of brain-type natriuretic peptide (NT-proBNP) and echocardiographic parameters versus external placebo (APOLLO study). The modified intent-to-treat (mITT) population comprised randomized patients receiving any study drug (n = 122). A cardiac subpopulation with evidence of cardiac amyloid involvement (n = 40) was prespecified. (99m)Tc scintigraphy exploratory assessments in a planned vutrisiran-treated cohort at select sites were compared with baseline. At Month 18, vutrisiran demonstrated beneficial effects on NT-proBNP versus external placebo in the mITT and cardiac subpopulations (adjusted geometric mean fold change ratio [95% confidence interval] 0.480 [0.383-0.600], p = 9.606 × 10(-10) and 0.491 [0.337-0.716], p = 0.0004, respectively). Benefits or trends towards benefit in echocardiographic parameters versus external placebo were observed for both populations. In (99m)Tc scintigraphy assessments, 32/47 (68.1%) and 31/48 (64.6%) patients exhibited reduced normalized left ventricular total uptake and heart-to-contralateral lung ratio, respectively. Perugini grade was reduced or unchanged versus baseline in 55/57 (96.5%) evaluable patients. No increase in cardiac adverse events was observed with vutrisiran versus external placebo. CONCLUSIONS: Vutrisiran demonstrated evidence of potential benefit on cardiac manifestations in patients with ATTRv amyloidosis with polyneuropathy, with an acceptable safety profile.
+%Z 1879-0844
+Garcia-Pavia, Pablo
+Orcid: 0000-0002-5470-2257
+Grogan, Martha
+Kale, Parag
+Berk, John L
+Orcid: 0000-0002-1768-2373
+Maurer, Mathew S
+Conceição, Isabel
+Orcid: 0000-0003-0934-9631
+Di Carli, Marcelo
+Solomon, Scott D
+Chen, Chongshu
+Yureneva, Elena
+Vest, John
+Gillmore, Julian D
+Alnylam Pharmaceuticals/
+Journal Article
+Randomized Controlled Trial
+England
+Eur J Heart Fail. 2024 Feb;26(2):397-410. doi: 10.1002/ejhf.3138. Epub 2024 Feb 6.
+%+ Department of Cardiology, Hospital Universitario Puerta de Hierro, Madrid, Spain.
+Centro Nacional de Investigaciones Cardiovasculares (CNIC), Madrid, Spain.
+Universidad Francisco de Vitoria (UFV), Pozuelo de Alarcon, Spain.
+Department of Cardiovascular Diseases, Mayo Clinic, Rochester, MN, USA.
+Center for Advanced Heart and Lung Disease, Baylor University Medical Center, Dallas, TX, USA.
+Amyloidosis Center, Boston Medical Center, Boston University, Boston, MA, USA.
+Division of Cardiology, Department of Medicine, Center for Advanced Cardiac Care, Columbia University Irving Medical Center, New York, NY, USA.
+Centro Hospitalar Universitário Lisboa Norte, Hospital de Santa Maria and Faculdade de Medicina, Lisbon, Portugal.
+Department of Medicine, Brigham and Women's Hospital, Harvard Medical School, Boston, MA, USA.
+Cardiovascular Division, Brigham and Women's Hospital, Boston, MA, USA.
+Alnylam Pharmaceuticals, Cambridge, MA, USA.
+National Amyloidosis Centre, University College London, Royal Free Hospital, London, UK.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Gillmore, J. D.
+%A Judge, D. P.
+%A Cappelli, F.
+%A Fontana, M.
+%A Garcia-Pavia, P.
+%A Gibbs, S.
+%A Grogan, M.
+%A Hanna, M.
+%A Hoffman, J.
+%A Masri, A.
+%A Maurer, M. S.
+%A Nativi-Nicolau, J.
+%A Obici, L.
+%A Poulsen, S. H.
+%A Rockhold, F.
+%A Shah, K. B.
+%A Soman, P.
+%A Garg, J.
+%A Chiswell, K.
+%A Xu, H.
+%A Cao, X.
+%A Lystig, T.
+%A Sinha, U.
+%A Fox, J. C.
+%D 2024
+%T Efficacy and Safety of Acoramidis in Transthyretin Amyloid Cardiomyopathy
+%B N Engl J Med
+%V 390
+%N 2
+%P 132-142
+%7 2024/01/10
+%8 Jan 11
+%! Efficacy and Safety of Acoramidis in Transthyretin Amyloid Cardiomyopathy
+%O The New England journal of medicine
+%@ 0028-4793
+%R 10.1056/NEJMoa2305434
+%M 38197816
+%K Functional Status
+Hospitalization
+Humans
+Amyloid Neuropathies, Familial
+*Amyloidosis/drug therapy/pathology
+Heart
+*Cardiomyopathies/drug therapy/pathology
+*Prealbumin/drug effects/therapeutic use
+*Cardiovascular Agents/adverse effects/pharmacology/therapeutic use
+Double-Blind Method
+Natriuretic Peptide, Brain/analysis
+Treatment Outcome
+%X BACKGROUND: Transthyretin amyloid cardiomyopathy is characterized by the deposition of misfolded monomeric transthyretin (TTR) in the heart. Acoramidis is a high-affinity TTR stabilizer that acts to inhibit dissociation of tetrameric TTR and leads to more than 90% stabilization across the dosing interval as measured ex vivo. METHODS: In this phase 3, double-blind trial, we randomly assigned patients with transthyretin amyloid cardiomyopathy in a 2:1 ratio to receive acoramidis hydrochloride at a dose of 800 mg twice daily or matching placebo for 30 months. Efficacy was assessed in the patients who had an estimated glomerular filtration rate of at least 30 ml per minute per 1.73 m(2) of body-surface area. The four-step primary hierarchical analysis included death from any cause, cardiovascular-related hospitalization, the change from baseline in the N-terminal pro-B-type natriuretic peptide (NT-proBNP) level, and the change from baseline in the 6-minute walk distance. We used the Finkelstein-Schoenfeld method to compare all potential pairs of patients within strata to generate a P value. Key secondary outcomes were death from any cause, the 6-minute walk distance, the score on the Kansas City Cardiomyopathy Questionnaire-Overall Summary, and the serum TTR level. RESULTS: A total of 632 patients underwent randomization. The primary analysis favored acoramidis over placebo (P<0.001); the corresponding win ratio was 1.8 (95% confidence interval [CI], 1.4 to 2.2), with 63.7% of pairwise comparisons favoring acoramidis and 35.9% favoring placebo. Together, death from any cause and cardiovascular-related hospitalization contributed more than half the wins and losses to the win ratio (58% of all pairwise comparisons); NT-proBNP pairwise comparisons yielded the highest ratio of wins to losses (23.3% vs. 7.0%). The overall incidence of adverse events was similar in the acoramidis group and the placebo group (98.1% and 97.6%, respectively); serious adverse events were reported in 54.6% and 64.9% of the patients. CONCLUSIONS: In patients with transthyretin amyloid cardiomyopathy, the receipt of acoramidis resulted in a significantly better four-step primary hierarchical outcome containing components of mortality, morbidity, and function than placebo. Adverse events were similar in the two groups. (Funded by BridgeBio Pharma; ATTRibute-CM ClinicalTrials.gov number, NCT03860935.).
+%Z 1533-4406
+Gillmore, Julian D
+Judge, Daniel P
+Cappelli, Francesco
+Fontana, Marianna
+Garcia-Pavia, Pablo
+Gibbs, Simon
+Grogan, Martha
+Hanna, Mazen
+Hoffman, James
+Masri, Ahmad
+Maurer, Mathew S
+Orcid: 0000-0001-5400-5008
+Nativi-Nicolau, Jose
+Obici, Laura
+Poulsen, Steen Hvitfeldt
+Rockhold, Frank
+Shah, Keyur B
+Soman, Prem
+Garg, Jyotsna
+Chiswell, Karen
+Xu, Haolin
+Cao, Xiaofan
+Lystig, Ted
+Sinha, Uma
+Fox, Jonathan C
+ATTRibute-CM Investigators
+Clinical Trial, Phase III
+Journal Article
+Randomized Controlled Trial
+United States
+N Engl J Med. 2024 Jan 11;390(2):132-142. doi: 10.1056/NEJMoa2305434.
+%+ From the National Amyloidosis Centre, Division of Medicine, University College London, Royal Free Hospital, London (J.D.G., M.F.); the Medical University of South Carolina, Charleston, SC (D.P.J.); Tuscan Regional Amyloidosis Centre, Careggi University Hospital, Florence (F.C.), and the Amyloidosis Research and Treatment Center, IRCCS Fondazione Policlinico San Matteo, Pavia (L.O.) - both in Italy; the Department of Cardiology, Hospital Universitario Puerta de Hierro Majadahonda, Centro de Investigacíon Biomédica en Red Enfermedades Cardiovaculares, and Centro Nacional de Investigaciones Cardiovasculares (P.G.-P.) - both in Madrid; European Reference Network for Rare, Low Prevalence and Complex Diseases of the Heart, Amsterdam (P.G.-P.); the Victorian and Tasmanian Amyloidosis Service, Department of Haematology, Monash University Eastern Health Clinical School, Box Hill, VIC, Australia (S.G.); the Department of Cardiovascular Diseases, Mayo Clinic, Rochester, MN (M.G.); the Department of Cardiovascular Medicine, Cleveland Clinic, Cleveland (M.H.); the Sylvester Comprehensive Cancer Center, University of Miami, Miami (J.H.), and the Amyloidosis Program, Department of Transplant, Mayo Clinic, Jacksonville (J.N.-N.) - both in Florida; the Cardiac Amyloidosis Program, Knight Cardiovascular Institute, Oregon Health and Science University, Portland (A.M.); the Cardiac Amyloidosis Program, Division of Cardiology, Columbia College of Physicians and Surgeons, New York (M.S.M.); the Department of Cardiology, Aarhus University Hospital, Aarhus, Denmark (S.H.P.); Duke Clinical Research Institute (F.R., J.G., K.C., H.X.) and Duke University Medical Center (F.R.) - both in Durham, NC; the Pauley Heart Center, Virginia Commonwealth University, Richmond (K.B.S.); the Division of Cardiology, University of Pittsburgh Medical Center, Pittsburgh (P.S.); and Eidos Therapeutics affiliate of BridgeBio Pharma, San Francisco (X.C., T.L., U.S., J.C.F.).
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Hanna, M.
+%A Damy, T.
+%A Grogan, M.
+%A Stewart, M.
+%A Gundapaneni, B.
+%A Patterson, T. A.
+%A Schwartz, J. H.
+%A Sultan, M. B.
+%A Maurer, M. S.
+%D 2021
+%T Impact of Tafamidis on Health-Related Quality of Life in Patients With Transthyretin Amyloid Cardiomyopathy (from the Tafamidis in Transthyretin Cardiomyopathy Clinical Trial)
+%B Am J Cardiol
+%V 141
+%P 98-105
+%7 2020/11/22
+%8 Feb 15
+%! Impact of Tafamidis on Health-Related Quality of Life in Patients With Transthyretin Amyloid Cardiomyopathy (from the Tafamidis in Transthyretin Cardiomyopathy Clinical Trial)
+%O The American journal of cardiology
+%@ 0002-9149
+%R 10.1016/j.amjcard.2020.10.066
+%M 33220323
+%K Activities of Daily Living
+Aged
+Aged, 80 and over
+Amyloid Neuropathies, Familial/*drug therapy/physiopathology
+Benzoxazoles/*therapeutic use
+Cardiomyopathies/*drug therapy/physiopathology
+Cost of Illness
+Female
+Humans
+Male
+Patient Reported Outcome Measures
+*Quality of Life
+Self Efficacy
+Social Participation
+%X In the Tafamidis in Transthyretin Cardiomyopathy Clinical Trial, tafamidis significantly reduced all-cause mortality and cardiovascular-related hospitalizations in patients with transthyretin amyloid cardiomyopathy (ATTR-CM). ATTR-CM is associated with a significant burden of disease; further analysis of patient-reported quality of life will provide additional data on the efficacy of tafamidis. In the Tafamidis in Transthyretin Cardiomyopathy Clinical Trial, 441 adult patients with ATTR-CM were randomized (2:1:2) to tafamidis 80 mg, tafamidis 20 mg, or placebo for 30 months, with pooled tafamidis (80 mg and 20 mg) compared with placebo. Change in Kansas City Cardiomyopathy Questionnaire Overall Summary (KCCQ-OS) domain scores, EQ-5D-3L scores, and patient global assessment, were prespecified exploratory end points. A greater proportion of patients improved KCCQ-OS score at month 30 with tafamidis (41.8%) versus placebo (21.4%). Tafamidis significantly reduced the decline in all 4 KCCQ-OS domains (p <0.0001 for all), and in EQ-5D-3L utility (0.09 [confidence interval 0.05 to 0.12]; p <0.0001) and EQ visual analog scale (9.11 [confidence interval 5.39 to 12.83]; p <0.0001) scores at month 30 versus placebo. A larger proportion of tafamidis-treated patients reported their patient global assessment improved at month 30 (42.3% vs 23.8% with placebo). In conclusion, tafamidis effectively reduced the decline in patient-reported outcomes, providing further insight into its efficacy in health-related quality of life in patients with ATTR-CM.
+%Z 1879-1913
+Hanna, Mazen
+Damy, Thibaud
+Grogan, Martha
+Stewart, Michelle
+Gundapaneni, Balarama
+Patterson, Terrell A
+Schwartz, Jeffrey H
+Sultan, Marla B
+Maurer, Mathew S
+Journal Article
+Randomized Controlled Trial
+Research Support, Non-U.S. Gov't
+United States
+Am J Cardiol. 2021 Feb 15;141:98-105. doi: 10.1016/j.amjcard.2020.10.066. Epub 2020 Nov 19.
+%+ Amyloidosis Center, Cleveland Clinic, Cleveland, Ohio. Electronic address: HANNAM@ccf.org.
+French Referral Center for Cardiac Amyloidosis, Amyloidosis Mondor Network, GRC Amyloid Research Institute, and Department of Cardiology, Hôpital Henri-Mondor Ap-Hp, Créteil, France.
+Department of Cardiovascular Diseases, Mayo Clinic, Rochester, Minnesota.
+Pfizer Inc, Groton, Connecticut.
+Pfizer Inc, New York, New York.
+Columbia University Vagelos College of Physicians and Surgeons, New York, New York.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Judge, D. P.
+%A Alexander, K. M.
+%A Cappelli, F.
+%A Fontana, M.
+%A Garcia-Pavia, P.
+%A Gibbs, S. D. J.
+%A Grogan, M.
+%A Hanna, M.
+%A Masri, A.
+%A Maurer, M. S.
+%A Obici, L.
+%A Soman, P.
+%A Cao, X.
+%A Lystig, T.
+%A Tamby, J. F.
+%A Siddhanti, S.
+%A Castaño, A.
+%A Katz, L.
+%A Fox, J. C.
+%A Mahaffey, K. W.
+%A Gillmore, J. D.
+%D 2025
+%T Efficacy of Acoramidis on All-Cause Mortality and Cardiovascular Hospitalization in Transthyretin Amyloid Cardiomyopathy
+%B J Am Coll Cardiol
+%V 85
+%N 10
+%P 1003-1014
+%7 2025/03/13
+%8 Mar 18
+%! Efficacy of Acoramidis on All-Cause Mortality and Cardiovascular Hospitalization in Transthyretin Amyloid Cardiomyopathy
+%O Journal of the American College of Cardiology
+%@ 0735-1097
+%R 10.1016/j.jacc.2024.11.042
+%M 40074465
+%K Humans
+Male
+Female
+Double-Blind Method
+Aged
+*Amyloid Neuropathies, Familial/drug therapy/complications/mortality
+*Hospitalization
+*Cardiomyopathies/drug therapy/mortality
+Middle Aged
+Treatment Outcome
+Cause of Death/trends
+Aged, 80 and over
+Attr-cm
+acoramidis
+all-cause mortality
+cardiovascular-related hospitalization
+transthyretin
+BridgeBio Pharma, Inc. Dr Judge has received consultancy fees from Alexion
+Pharmaceuticals, Alleviant Medical, Alnylam Pharmaceuticals, Attralus,
+Cytokinetics, Lexeo Therapeutics, Novo Nordisk, Pfizer, Renovacor, and Tenaya
+Therapeutics
+and his institution has received clinical trial funding from Array
+Biopharma, BridgeBio Pharma, Inc (formerly Eidos Therapeutics), MyoKardia, and
+Pfizer. Dr Alexander has served as a consultant, advisor, or speaker for Arbor
+Biotechnologies, Attralus, Intellia Therapeutics, and Prothena. Dr Cappelli has
+served as a consultant, advisor, or speaker for Alnylam Pharmaceuticals, Amicus
+Therapeutics, AstraZeneca, BridgeBio Pharma, Inc (formerly Eidos Therapeutics),
+Novo Nordisk, and Pfizer. Dr Fontana has served as a consultant, advisor, or
+speaker for Akcea Therapeutics, Alexion Pharmaceuticals, Alnylam Pharmaceuticals,
+AstraZeneca, BridgeBio Pharma, Inc (formerly Eidos Therapeutics), Intellia
+Therapeutics, Ionis Pharmaceuticals, Janssen Global Services, Novo Nordisk, and
+Pfizer
+and has received research grants from BridgeBio Pharma, Inc (formerly
+Eidos Therapeutics) and Pfizer. Dr Garcia-Pavia has served as a consultant,
+advisor, or speaker for Alexion Pharmaceuticals, Alnylam Pharmaceuticals,
+AstraZeneca, Attralus, Bayer, BridgeBio (formerly Eidos Therapeutics), Intellia
+Therapeutics, Ionis Pharmaceuticals, Neuroimmune, Novo Nordisk, and Pfizer
+and
+his institution has received research and/or educational funding from Alnylam
+Pharmaceuticals, AstraZeneca, BridgeBio Pharma, Inc (formerly Eidos
+Therapeutics), Intellia Therapeutics, Novo Nordisk, and Pfizer. Dr Gibbs is an
+employee of BridgeBio Pharma, Inc
+and has served as a speaker, advisory board
+member, or steering committee member for AbbVie, Alnylam Pharmaceuticals, Bristol
+Myers Squibb, Intellia Therapeutics, Ionis Pharmaceuticals, Janssen
+Pharmaceuticals, Pfizer, and Takeda. Dr Grogan has served as a researcher for
+Alnylam Pharmaceuticals, BridgeBio Pharma, Inc (formerly Eidos Therapeutics),
+Intellia Therapeutics, Novo Nordisk, Janssen Pharmaceuticals, and Pfizer
+and has
+served as a consultant, advisor, or speaker for Alnylam, BridgeBio, Pfizer,
+Janssen Pharmaceuticals, and Novo Nordisk. Dr Hanna has served as a consultant,
+advisor, or speaker for Alexion Pharmaceuticals, Alnylam Pharmaceuticals,
+BridgeBio Pharma, Inc (formerly Eidos Therapeutics), Ionis Pharmaceuticals, and
+Pfizer. Dr Masri has served as a researcher for Attralus, Cytokinetics, Ionis
+Pharmaceuticals, and Pfizer
+and has served as a consultant, advisor, or speaker
+for Akros Pharma, Alexion Pharmaceuticals, Alnylam Pharmaceuticals, AstraZeneca,
+Attralus, BioMarin Pharmaceutical, BridgeBio Pharma, Inc (formerly Eidos
+Therapeutics), Bristol Myers Squibb, Cytokinetics, Haya Therapeutics, Ionis
+Pharmaceuticals, Lexicon Pharmaceuticals, Pfizer, Prothena Biosciences, and
+Tenaya Therapeutics. Dr Maurer has served as a researcher for the National
+Institutes of Health (R01HL139671 and R01AG081582-01), Alnylam Pharmaceuticals,
+BridgeBio Pharma, Inc (formerly Eidos Therapeutics), Ionis Pharmaceuticals,
+Pfizer, Attralus, and Intellia Therapeutics
+and has served as a consultant or
+advisor for Akcea Therapeutics, Alnylam Pharmaceuticals, AstraZeneca, Attralus,
+BridgeBio Pharma, Inc (formerly Eidos Therapeutics), Intellia Therapeutics, Ionis
+Pharmaceuticals, Novo Nordisk, and Pfizer. Dr Obici has served as a consultant,
+advisor, or speaker for Alnylam Pharmaceuticals, AstraZeneca, BridgeBio Pharma,
+Inc (formerly Eidos Therapeutics), Ionis Pharmaceuticals, Novo Nordisk, Pfizer,
+and Sobi–Swedish Orphan Biovitrum. Dr Soman has served as a researcher for
+Pfizer
+and has served as a consultant, advisor, or speaker for Alnylam
+Pharmaceuticals, BridgeBio Pharma, Inc (formerly Eidos Therapeutics), and Pfizer.
+Drs Cao, Lystig, Tamby, Siddhanti, Castaño, Katz, and Fox are employees and
+stockholders of BridgeBio Pharma, Inc. Dr Mahaffey has received research support
+from the American Heart Association, Apple, Inc, Bayer, California Institute
+Regenerative Medicine, CSL Behring, Eidos, Ferring, Gilead, Google, Idorsia,
+Johnson and Johnson, Luitpold, Novartis, PAC-12, Precordior, and Sanifit
+has
+served as a consultant for Applied Therapeutics, Bayer, Bristol Myers Squibb,
+BridgeBio, CSL Behring, Elsevier, Fosun Pharma, Human, Johnson and Johnson,
+Moderna, Myokardia, Novartis, Novo Nordisk, Otsuka, Phasebio, Portola, Quidel,
+and Theravance
+and has equity in Human, Medeloop, Precordior, and Regencor. Dr
+Gillmore has served as a consultant, advisor, or speaker for Alnylam
+Pharmaceuticals, AstraZeneca, Attralus, BridgeBio Pharma, Inc, Intellia
+Therapeutics, Ionis Pharmaceuticals, Lycia, and Pfizer.
+%X BACKGROUND: Transthyretin amyloid cardiomyopathy (ATTR-CM) is an underdiagnosed chronic disease associated with progressive heart failure that results in impaired quality of life, repeated hospitalizations, and premature death. Acoramidis is a selective, oral transthyretin stabilizer recently approved by the U.S. Food and Drug Administration for the treatment of ATTR-CM. In a phase 3, randomized, double-blind study (ATTRibute-CM [Efficacy and Safety of AG10 in Subjects With Transthyretin Amyloid Cardiomyopathy]), acoramidis was well tolerated and showed clinical efficacy in improving the primary endpoint, a hierarchical combination of all-cause mortality (ACM), cardiovascular-related hospitalization (CVH), N-terminal pro-B-type natriuretic peptide level, and 6-minute walk distance. OBJECTIVES: The goal of this study was to characterize the efficacy of acoramidis on ACM and CVH. METHODS: In ATTRibute-CM, participants with ATTR-CM were randomized 2:1 to receive acoramidis hydrochloride (800 mg twice daily) or placebo for 30 months. Efficacy analyses were conducted in the modified intention-to-treat population (participants with a baseline estimated glomerular filtration rate ≥30 mL/min/1.73 m(2)). CVH and the composite of ACM or first CVH were plotted by using Kaplan-Meier curves and summarized with a stratified Cox proportional hazards model. The annualized frequency of CVH was analyzed by using a negative binomial regression model. Subgroup analyses were conducted for the composite of ACM or first CVH. RESULTS: Of the 632 participants randomized to treatment, 611 (97%) were included in efficacy analyses (acoramidis, n = 409; placebo, n = 202). Compared with placebo, acoramidis reduced the occurrence of the composite of ACM or first CVH (acoramidis, 35.9%; placebo, 50.5%; HR: 0.64; 95% CI: 0.50-0.83; P = 0.0008) and of first CVH (acoramidis, 26.7%; placebo, 42.6%; HR: 0.60; 95% CI: 0.45-0.80; P = 0.0005), with Kaplan-Meier curves separating at month 3 and continuing to diverge through month 30. Annualized frequency of CVH was reduced with acoramidis compared with placebo (acoramidis, 0.22; placebo, 0.45; relative risk ratio: 50%; 95% CI: 0.36-0.70; P < 0.0001). The efficacy of acoramidis on the composite of ACM or first CVH was consistent across subgroups. Acoramidis was well tolerated, with no safety signals of potential clinical concern identified. CONCLUSIONS: In participants with ATTR-CM, acoramidis reduced the composite of ACM or first CVH vs placebo, with an early effect driven by a reduction in CVH. (Efficacy and Safety of AG10 in Subjects With Transthyretin Amyloid Cardiomyopathy [ATTRibute-CM]; NCT03860935).
+%Z 1558-3597
+Judge, Daniel P
+Alexander, Kevin M
+Cappelli, Francesco
+Fontana, Marianna
+Garcia-Pavia, Pablo
+Gibbs, Simon D J
+Grogan, Martha
+Hanna, Mazen
+Masri, Ahmad
+Maurer, Mathew S
+Obici, Laura
+Soman, Prem
+Cao, Xiaofan
+Lystig, Ted
+Tamby, Jean-François
+Siddhanti, Suresh
+Castaño, Adam
+Katz, Leonid
+Fox, Jonathan C
+Mahaffey, Kenneth W
+Gillmore, Julian D
+Clinical Trial, Phase III
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+United States
+J Am Coll Cardiol. 2025 Mar 18;85(10):1003-1014. doi: 10.1016/j.jacc.2024.11.042.
+%U https://www.sciencedirect.com/science/article/pii/S0735109724105566?via%3Dihub
+%+ Division of Cardiology, Medical University of South Carolina, Charleston, South Carolina, USA. Electronic address: Judged@musc.edu.
+Division of Cardiovascular Medicine, Department of Medicine, Stanford University School of Medicine, Palo Alto, California, USA; Stanford Center for Clinical Research, Stanford School of Medicine, Palo Alto, California, USA.
+Tuscan Regional Amyloidosis Centre, Careggi University Hospital, Florence, Italy.
+National Amyloidosis Centre, University College London, Royal Free Hospital, London, United Kingdom.
+Department of Cardiology, Hospital Universitario Puerta de Hierro Majadahonda and Centro Nacional de Investigaciones Cardiovasculares (CNIC), Madrid, Spain.
+Victorian and Tasmanian Amyloidosis Service, Eastern Health, Melbourne, Victoria, Australia; Epworth HealthCare, East Melbourne, Victoria, Australia.
+Department of Cardiovascular Medicine, Mayo Clinic, Rochester, Minnesota, USA.
+Cleveland Clinic, Cleveland, Ohio, USA.
+Division of Cardiology, Oregon Health & Science University, Portland, Oregon, USA.
+Department of Medicine, Columbia University Irving Medical Center, New York, New York, USA.
+Amyloidosis Research and Treatment Centre, Fondazione IRCCS Policlinico San Matteo, Pavia, Italy.
+Division of Cardiology, University of Pittsburgh Medical Center, Pittsburgh, Pennsylvania, USA.
+BridgeBio Pharma, Inc, San Francisco, California, USA.
+Stanford Center for Clinical Research, Stanford School of Medicine, Palo Alto, California, USA.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Judge, D. P.
+%A Gillmore, J. D.
+%A Alexander, K. M.
+%A Ambardekar, A. V.
+%A Cappelli, F.
+%A Fontana, M.
+%A García-Pavía, P.
+%A Grodin, J. L.
+%A Grogan, M.
+%A Hanna, M.
+%A Masri, A.
+%A Nativi-Nicolau, J.
+%A Obici, L.
+%A Hvitfeldt Poulsen, S.
+%A Sarswat, N.
+%A Shah, K.
+%A Soman, P.
+%A Lystig, T.
+%A Cao, X.
+%A Wang, K.
+%A Pecoraro, M. L.
+%A Tamby, J. F.
+%A Katz, L.
+%A Sinha, U.
+%A Fox, J. C.
+%A Maurer, M. S.
+%D 2025
+%T Long-Term Efficacy and Safety of Acoramidis in ATTR-CM: Initial Report From the Open-Label Extension of the ATTRibute-CM Trial
+%B Circulation
+%V 151
+%N 9
+%P 601-611
+%7 2024/11/18
+%8 Mar 4
+%! Long-Term Efficacy and Safety of Acoramidis in ATTR-CM: Initial Report From the Open-Label Extension of the ATTRibute-CM Trial
+%O Circulation
+%@ 0009-7322 (Print)
+0009-7322
+%R 10.1161/circulationaha.124.072771
+%2 PMC11875408
+%M 39556242
+%K Humans
+Female
+Male
+*Amyloid Neuropathies, Familial/drug therapy/mortality/diagnosis
+Aged
+Middle Aged
+Prealbumin/metabolism
+Treatment Outcome
+*Cardiomyopathies/drug therapy/mortality
+Natriuretic Peptide, Brain/blood
+Aged, 80 and over
+Time Factors
+Benzoxazoles
+amyloidosis, familial
+clinical trials as topic
+exercise tolerance
+hospitalization
+mortality
+quality of life
+transthyretin-related heart failure
+Medical, Alnylam Pharmaceuticals, Attralus, BridgeBio Pharma, Cytokinetics, Lexeo
+Therapeutics, Novo Nordisk, Pfizer, Rocket Pharmaceuticals, Renovacor, and Tenaya
+Therapeutics
+his institution received clinical trial funding from Array
+Biopharma, BridgeBio Pharma (formerly Eidos Therapeutics), MyoKardia, and Pfizer.
+Dr Gillmore has acted as a consultant, advisor, or speaker for Alnylam
+Pharmaceuticals, AstraZeneca, Attralus, BridgeBio Pharma, Intellia Therapeutics,
+Ionis Pharmaceuticals, Lycia Therapeutics, and Pfizer. Dr Alexander has acted as
+a consultant, advisor, or speaker for Arbor Biotechnologies, Attralus, Intellia
+Therapeutics, and Prothena Biosciences. Dr Ambardekar reports no conflicts. Dr
+Cappelli has acted as a consultant, advisor, or speaker for Alnylam
+Pharmaceuticals, Amicus Therapeutics, AstraZeneca, BridgeBio Pharma (formerly
+Eidos Therapeutics), Novo Nordisk, Bayer, and Pfizer. Dr Fontana has acted as a
+consultant, advisor, or speaker for Alnylam, Alexion, AstraZeneca, Attralus,
+Bayer, BridgeBio Pharma (formerly Eidos Therapeutics), Caelum Biosciences,
+Cardior, Intellia Therapeutics, Ionis Pharmaceuticals, Janssen Pharmaceuticals,
+Lexeo Therapeutics, Novo Nordisk, Pfizer, and Prothena Biosciences
+owns stock or
+stock options of Lexeo Therapeutics and Myocardium
+has received research grants
+from Alnylam, AstraZeneca, BridgeBio Pharma, and Pfizer
+and has received a
+salary from British Heart Foundation intermediate fellowship. Dr García-Pavía has
+acted as a consultant, advisor, or speaker for Alexion Pharmaceuticals, Alnylam
+Pharmaceuticals, AstraZeneca, Attralus, Bayer, BridgeBio Pharma (formerly Eidos
+Therapeutics), Intellia Therapeutics, Ionis Pharmaceuticals, Neuroimmune, Novo
+Nordisk, and Pfizer
+his institution received research or educational funding
+from Alnylam Pharmaceuticals, AstraZeneca, BridgeBio Pharma (formerly Eidos
+Therapeutics), Intellia Therapeutics, Novo Nordisk, and Pfizer. Dr Grodin has
+acted as a researcher for the Texas Health Resources clinical scholarship,
+BridgeBio Pharma (formerly Eidos Therapeutics), Pfizer, and National Heart, Lung,
+and Blood Institute (R01HL160892) and as a consultant, advisor, or speaker for
+Alexion, Alnylam, AstraZeneca, BridgeBio Pharma, Intellia, Lumanity, Novo
+Nordisk, Pfizer, Tenax Therapeutics, and Ultromics. Dr Grogan has acted as a
+researcher for Alnylam Pharmaceuticals, BridgeBio Pharma (formerly Eidos
+Therapeutics), Intellia Therapeutics, Janssen Pharmaceuticals, Novo Nordisk, and
+Pfizer and as a consultant, advisor, or speaker for Alnylam, BridgeBio Pharma,
+Janssen Pharmaceuticals, Novo Nordisk, and Pfizer. Dr Hanna has acted as a
+consultant, advisor, or speaker for Alexion Pharmaceuticals, Alnylam
+Pharmaceuticals, Attralus, BridgeBio Pharma (formerly Eidos Therapeutics), Ionis
+Pharmaceuticals, and Pfizer. Dr Masri has acted as a researcher for Attralus,
+Cytokinetics, Ionis Pharmaceuticals, and Pfizer and as a consultant, advisor, or
+speaker for Akros Pharma, Alexion Pharmaceuticals, Alnylam Pharmaceuticals,
+AstraZeneca, Attralus, BioMarin Pharmaceutical, BridgeBio Pharma (formerly Eidos
+Therapeutics), Bristol Myers Squibb, Cytokinetics, Haya Therapeutics, Ionis
+Pharmaceuticals, Lexicon Pharmaceuticals, Pfizer, Prothena Biosciences, and
+Tenaya Therapeutics. Dr Nativi-Nicolau has acted as a researcher for Alnylam
+Pharmaceuticals, AstraZeneca, BridgeBio Pharma (formerly Eidos Therapeutics), and
+Pfizer. Dr Obici has acted as a consultant, advisor, or speaker for Alnylam
+Pharmaceuticals, AstraZeneca, BridgeBio Pharma (formerly Eidos Therapeutics),
+Ionis Pharmaceuticals, Novo Nordisk, Pfizer, and Sobi–Swedish Orphan Biovitrum.
+Dr Hvitfeldt Poulsen has received consulting fees from Bayer A/S, BridgeBio
+Pharma (formerly Eidos Therapeutics), and Pfizer A/S and research support from
+Novo Nordisk A/S. Dr Sarswat has acted as a researcher for Pfizer and as a
+consultant, advisor, or speaker for Alnylam, AstraZeneca, BridgeBio Pharma
+(formerly Eidos Therapeutics), Novo Nordisk, and Pfizer. Dr Shah has acted as a
+consultant, advisor, or speaker for Pfizer. Dr Soman has acted as a researcher
+for Pfizer and as a consultant, advisor, or speaker for Alnylam Pharmaceuticals,
+BridgeBio Pharma (formerly Eidos Therapeutics), and Pfizer. Drs Lystig, Cao,
+Wang, Pecoraro, Tamby, Katz, Sinha, and Fox are employees and stockholders of
+BridgeBio Pharma. Dr Maurer has acted as a researcher for the National Institutes
+of Health (R01HL139671 and R01AG081582-01), Alnylam Pharmaceuticals, Attralus,
+BridgeBio Pharma (formerly Eidos Therapeutics), Intellia Therapeutics, Ionis
+Pharmaceuticals, and Pfizer and as a consultant or advisor for Akcea
+Therapeutics, Alnylam Pharmaceuticals, AstraZeneca, Attralus, BridgeBio Pharma
+(formerly Eidos Therapeutics), Intellia Therapeutics, Ionis Pharmaceuticals, Novo
+Nordisk, and Pfizer.
+%X BACKGROUND: In the phase 3 randomized controlled study ATTRibute-CM (Efficacy and Safety of AG10 in Subjects With Transthyretin Amyloid Cardiomyopathy), acoramidis, a transthyretin stabilizer, demonstrated significant efficacy on the primary end point. Participants with transthyretin amyloid cardiomyopathy who completed ATTRibute-CM were invited to enroll in an open-label extension study (OLE). We report the efficacy and safety data of acoramidis in participants who completed ATTRibute-CM and enrolled in the ongoing OLE. METHODS: Participants who previously received acoramidis through month 30 in ATTRibute-CM continued to receive it (continuous acoramidis), and those who received placebo through month 30 were switched to acoramidis (placebo to acoramidis). Participants who received concomitant tafamidis in ATTRibute-CM were required to discontinue it to be eligible to enroll in the OLE. Clinical efficacy outcomes analyzed through month 42 included time to event for all-cause mortality (ACM) or first cardiovascular-related hospitalization (CVH), ACM alone, first CVH alone, ACM or recurrent CVH, change from baseline in NT-proBNP (N-terminal pro-B-type natriuretic peptide), 6-minute walk distance, serum transthyretin, and Kansas City Cardiomyopathy Questionnaire Overall Summary score. Safety outcomes were analyzed through month 42. RESULTS: Overall, 438 of 632 participants in ATTRibute-CM completed treatment, and 389 enrolled in the ongoing OLE (263 continuous acoramidis and 126 placebo to acoramidis). The hazard ratio for ACM or first CVH was 0.57 (95% CI, 0.46-0.72) at month 42 based on a stratified Cox proportional hazards model (P<0.0001) favoring continuous acoramidis. Similar analyses were performed on ACM alone and first CVH alone, with hazard ratios of 0.64 (95% CI, 0.47-0.88) and 0.53 (95% CI, 0.41-0.69), respectively, at month 42. Treatment effects for NT-proBNP and 6-minute walk distance also favored continuous acoramidis. On initiation of open-label acoramidis in the placebo-to-acoramidis arm, there was a prompt increase in serum transthyretin. Quality of life assessed by Kansas City Cardiomyopathy Questionnaire Overall Summary score was well preserved in continuous-acoramidis participants compared with the placebo-to-acoramidis participants. No new clinically important safety issues were identified in this long-term evaluation. CONCLUSIONS: Early initiation and continuous use of acoramidis in the ATTRibute-CM study through month 42 of the ongoing OLE study were associated with sustained clinical benefits in a contemporary transthyretin amyloid cardiomyopathy cohort, with no clinically important safety issues newly identified. REGISTRATION: URL: https://www.clinicaltrials.gov; Unique identifier: NCT04988386.
+%Z 1524-4539
+Judge, Daniel P
+Orcid: 0000-0002-3407-0248
+Gillmore, Julian D
+Orcid: 0000-0001-6174-9232
+Alexander, Kevin M
+Orcid: 0000-0003-4024-3691
+Ambardekar, Amrut V
+Orcid: 0000-0003-3503-4203
+Cappelli, Francesco
+Orcid: 0000-0002-1622-0732
+Fontana, Marianna
+Orcid: 0000-0002-9233-9831
+García-Pavía, Pablo
+Orcid: 0000-0002-5470-2257
+Grodin, Justin L
+Orcid: 0000-0003-2400-3196
+Grogan, Martha
+Orcid: 0000-0002-2541-4440
+Hanna, Mazen
+Masri, Ahmad
+Orcid: 0000-0002-6390-6526
+Nativi-Nicolau, Jose
+Orcid: 0000-0002-5481-2122
+Obici, Laura
+Orcid: 0000-0001-7468-700x
+Hvitfeldt Poulsen, Steen
+Sarswat, Nitasha
+Orcid: 0000-0003-0233-7881
+Shah, Keyur
+Soman, Prem
+Orcid: 0000-0003-1425-6536
+Lystig, Ted
+Orcid: 0000-0002-4523-0761
+Cao, Xiaofan
+Wang, Kevin
+Pecoraro, Maria Lucia
+Tamby, Jean-François
+Katz, Leonid
+Sinha, Uma
+Fox, Jonathan C
+Orcid: 0000-0002-1250-5239
+Maurer, Mathew S
+Orcid: 0000-0001-5400-5008
+Clinical Trial, Phase III
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+United States
+Circulation. 2025 Mar 4;151(9):601-611. doi: 10.1161/CIRCULATIONAHA.124.072771. Epub 2024 Nov 18.
+%U https://pmc.ncbi.nlm.nih.gov/articles/PMC11875408/
+%+ Division of Cardiology, Medical University of South Carolina, Charleston (D.P.J.).
+National Amyloidosis Centre, University College London, Royal Free Hospital, UK (J.D.G., M.F.).
+Division of Cardiovascular Medicine, Department of Medicine, Stanford Center for Clinical Research, Stanford University School of Medicine, Palo Alto, CA (K.M.A.).
+Department of Medicine, Division of Cardiology, Consortium for Fibrosis Research & Translation, University of Colorado Anschutz Medical Campus, Aurora (A.V.A.).
+Tuscan Regional Amyloidosis Centre, Careggi University Hospital, Florence, IT (F.C.).
+Department of Cardiology, Hospital Universitario Puerta de Hierro Majadahonda and Centro Nacional de Investigaciones Cardiovasculares, Madrid, ES (P.G.-P.).
+Department of Internal Medicine, Division of Cardiology, University of Texas Southwestern Medical Center, Dallas (J.L.G.).
+Department of Cardiovascular Medicine, Mayo Clinic, Rochester, MN (M.G.).
+Department of Cardiovascular Medicine, Cleveland Clinic, OH (M.H.).
+Division of Cardiology, Oregon Health & Science University, Portland (A.M.).
+Department of Transplant, Mayo Clinic, Jacksonville, FL (J.N.-N.).
+Amyloidosis Research and Treatment Centre, Fondazione IRCCS Policlinico San Matteo, Pavia, IT (L.O.).
+Department of Cardiology, Aarhus University Hospital, DK (S.H.P.).
+Division of Cardiovascular Medicine, University of Chicago Medicine, IL (N.S.).
+Pauley Heart Center, Department of Cardiology, Virginia Commonwealth University, Richmond (K.S.).
+Division of Cardiology, University of Pittsburgh Medical Center, PA (P.S.).
+BridgeBio Pharma, Inc, San Francisco, CA (T.L., X.C., K.W., M.L.P., J.-F.T., L.K., U.S., J.C.F.).
+Department of Medicine, Columbia University Irving Medical Center, New York, NY (M.S.M.).
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Judge, D. P.
+%A Heitner, S. B.
+%A Falk, R. H.
+%A Maurer, M. S.
+%A Shah, S. J.
+%A Witteles, R. M.
+%A Grogan, M.
+%A Selby, V. N.
+%A Jacoby, D.
+%A Hanna, M.
+%A Nativi-Nicolau, J.
+%A Patel, J.
+%A Rao, S.
+%A Sinha, U.
+%A Turtle, C. W.
+%A Fox, J. C.
+%D 2019
+%T Transthyretin Stabilization by AG10 in Symptomatic Transthyretin Amyloid Cardiomyopathy
+%B J Am Coll Cardiol
+%V 74
+%N 3
+%P 285-295
+%7 2019/03/20
+%8 Jul 23
+%! Transthyretin Stabilization by AG10 in Symptomatic Transthyretin Amyloid Cardiomyopathy
+%O Journal of the American College of Cardiology
+%@ 0735-1097
+%R 10.1016/j.jacc.2019.03.012
+%M 30885685
+%K Aged
+Aged, 80 and over
+Amyloid Neuropathies, Familial/diagnosis/*drug therapy
+Benzoates/pharmacology/*therapeutic use
+Double-Blind Method
+Female
+Heart Failure/diagnosis/*drug therapy
+Humans
+Male
+Middle Aged
+Pyrazoles/pharmacology/*therapeutic use
+Ag10
+Attr-cm
+amyloidosis
+cardiomyopathy
+heart failure
+transthyretin
+%X BACKGROUND: Transthyretin (TTR) amyloidosis is an underdiagnosed disease caused by destabilization of TTR due to pathogenic mutations or aging. Both pathogenic and protective mutations illuminate mechanisms of disease and potential interventions. AG10 is a selective, oral TTR stabilizer under development for transthyretin amyloidosis cardiomyopathy (ATTR-CM) that mimics a protective TTR mutation. OBJECTIVES: This randomized, double-blind, placebo-controlled study evaluated safety, tolerability, pharmacokinetics, and pharmacodynamics of AG10 in ATTR-CM patients with symptomatic, chronic heart failure. METHODS: ATTR-CM, New York Heart Association functional class II to III subjects (n = 49, mutant or wild-type) were randomized 1:1:1 to AG10 400 mg, AG10 800 mg, or placebo twice daily for 28 days. Safety and tolerability were assessed by clinical and laboratory criteria. AG10 plasma levels were measured. TTR stability was assessed by changes in serum TTR, and 2 established ex vivo assays (fluorescent probe exclusion and Western blot). RESULTS: AG10 treatment was well-tolerated, achieved target plasma concentrations and demonstrated near-complete stabilization of TTR. TTR stabilization was more complete and less variable at the higher dose with stabilization by fluorescent probe exclusion of 92 ± 10% (mean ± SD) at trough and 96 ± 9% at peak (both p < 10(-12) vs. placebo). Average serum TTR increased by 36 ± 21% and 51 ± 38% at 400 and 800 mg, respectively (both p < 0.0001 vs. placebo). Baseline serum TTR in treated subjects was below normal in 80% of mutant and 33% of wild-type subjects. AG10 treatment restored serum TTR to the normal range in all subjects. CONCLUSIONS: AG10 has the potential to be a safe and effective treatment for patients with ATTR-CM. A phase 3 trial is ongoing. (Study of AG10 in Amyloid Cardiomyopathy; NCT03458130).
+%Z 1558-3597
+Judge, Daniel P
+Heitner, Stephen B
+Falk, Rodney H
+Maurer, Mathew S
+Shah, Sanjiv J
+Witteles, Ronald M
+Grogan, Martha
+Selby, Van N
+Jacoby, Daniel
+Hanna, Mazen
+Nativi-Nicolau, Jose
+Patel, Jignesh
+Rao, Satish
+Sinha, Uma
+Turtle, Cameron W
+Fox, Jonathan C
+R01 HL139671/HL/NHLBI NIH HHS/United States
+R21 AG058348/AG/NIA NIH HHS/United States
+K24 AG036778/AG/NIA NIH HHS/United States
+R01 LM006910/LM/NLM NIH HHS/United States
+R01 DK046335/DK/NIDDK NIH HHS/United States
+R01 HL107577/HL/NHLBI NIH HHS/United States
+R01 HL127028/HL/NHLBI NIH HHS/United States
+R01 HL140731/HL/NHLBI NIH HHS/United States
+Journal Article
+Randomized Controlled Trial
+Research Support, N.I.H., Extramural
+Research Support, Non-U.S. Gov't
+United States
+J Am Coll Cardiol. 2019 Jul 23;74(3):285-295. doi: 10.1016/j.jacc.2019.03.012. Epub 2019 Mar 15.
+%U https://www.sciencedirect.com/science/article/pii/S0735109719339208?via%3Dihub
+%+ Department of Medicine, Medical University of South Carolina, Charleston, South Carolina.
+Knight Cardiovascular Institute, Oregon Health & Science University, Portland, Oregon. Electronic address: heitner@ohsu.edu.
+Division of Cardiovascular Medicine, Brigham and Women's Hospital, Boston, Massachusetts.
+Columbia University Irving Medical Center, New York, New York.
+Northwestern University Feinberg School of Medicine, Chicago, Illinois.
+Stanford University Medical Center, Stanford, California.
+Mayo Clinic, Rochester, Minnesota.
+University of California, San Francisco, San Francisco, California.
+Yale University Medical Center, New Haven, Connecticut.
+Department of Cardiovascular Medicine, Cleveland Clinic Foundation, Cleveland, Ohio.
+University of Utah Health, Salt Lake City, Utah.
+Cedars-Sinai Medical Center, Los Angeles, California.
+Eidos Therapeutics, Inc., San Francisco, California.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Judge, D. P.
+%A Kristen, A. V.
+%A Grogan, M.
+%A Maurer, M. S.
+%A Falk, R. H.
+%A Hanna, M.
+%A Gillmore, J.
+%A Garg, P.
+%A Vaishnaw, A. K.
+%A Harrop, J.
+%A Powell, C.
+%A Karsten, V.
+%A Zhang, X.
+%A Sweetser, M. T.
+%A Vest, J.
+%A Hawkins, P. N.
+%D 2020
+%T Phase 3 Multicenter Study of Revusiran in Patients with Hereditary Transthyretin-Mediated (hATTR) Amyloidosis with Cardiomyopathy (ENDEAVOUR)
+%B Cardiovasc Drugs Ther
+%V 34
+%N 3
+%P 357-370
+%7 2020/02/18
+%8 Jun
+%! Phase 3 Multicenter Study of Revusiran in Patients with Hereditary Transthyretin-Mediated (hATTR) Amyloidosis with Cardiomyopathy (ENDEAVOUR)
+%O Cardiovascular drugs and therapy
+%@ 0920-3206 (Print)
+0920-3206
+%R 10.1007/s10557-019-06919-4
+%2 PMC7242280
+%M 32062791
+%K Adult
+Aged
+Aged, 80 and over
+Amyloid Neuropathies, Familial/blood/genetics/physiopathology/*therapy
+Canada
+Cardiomyopathies/blood/*drug therapy/genetics/physiopathology
+Cause of Death
+Disease Progression
+Early Termination of Clinical Trials
+Europe
+Exercise Tolerance/drug effects
+Female
+Genetic Predisposition to Disease
+Humans
+Male
+Middle Aged
+Mutation
+Phenotype
+Prealbumin/*genetics/metabolism
+RNA, Small Interfering/adverse effects/pharmacokinetics/*therapeutic use
+*RNAi Therapeutics/adverse effects
+Recovery of Function
+Time Factors
+Treatment Outcome
+United States
+ATTR amyloidosis
+Cardiomyopathy
+RNA interference
+Revusiran
+consultation, and writing from Alnylam Pharmaceuticals, Inc. and support for
+scientific consultation from GlaxoSmithKline plc and Pfizer. Arnt V. Kristen
+received a research grant, support for scientific consultation, and symposia
+honoraria from Alnylam Pharmaceuticals, Inc. Martha Grogan received support for
+clinical trial participation from Alnylam Pharmaceuticals, Inc., Eidos
+Therapeutics, Inc., Pfizer, and Prothena Corporation plc. Matthew S. Maurer
+received support for clinical research from Alnylam Pharmaceuticals, Inc., Eidos
+Therapeutics, Inc., Pfizer, and Prothena Corporation plc
+support for Data and
+Safety Monitoring Board participation from Prothena Corporation plc
+and support
+for steering committee participation from Pfizer. Rodney H. Falk received support
+for consultancy and research from Akcea Therapeutics, Inc. Eidos Therapeutics,
+Inc., and Alnylam Pharmaceuticals, Inc. Mazen Hanna received support for advisory
+board participation from Alnylam Pharmaceuticals, Inc., Akcea Therapeutics, Inc,
+Eidos Therapeutics, Inc., and Pfizer. Julian Gillmore received support for
+clinical trial and advisory board participation from Alnylam Pharmaceuticals,
+Inc. Pushkal Garg, Akshay K. Vaishnaw, Jamie Harrop, Christine Powell, Verena
+Karsten, Marianne Sweetser, John Vest, and Xiaoping Zhang are employees of, and
+own stock in, Alnylam Pharmaceuticals, Inc.
+%X PURPOSE: The Phase 3 ENDEAVOUR study evaluated revusiran, an investigational RNA interference therapeutic targeting hepatic transthyretin (TTR) production, for treating cardiomyopathy caused by hereditary transthyretin-mediated (hATTR) amyloidosis. METHODS: Patients with hATTR amyloidosis with cardiomyopathy were randomized 2:1 to receive subcutaneous daily revusiran 500 mg (n = 140) or placebo (n = 66) for 5 days over a week followed by weekly doses. Co-primary endpoints were 6-min walk test distance and serum TTR reduction. RESULTS: Revusiran treatment was stopped after a median of 6.71 months; the study Sponsor prematurely discontinued dosing due to an observed mortality imbalance between treatment arms. Eighteen (12.9%) patients on revusiran and 2 (3.0%) on placebo died during the on-treatment period. Most deaths in both treatment arms were adjudicated as cardiovascular due to heart failure (HF), consistent with the natural history of the disease. A post hoc safety investigation of patients treated with revusiran found that, at baseline, a greater proportion of those who died were ≥ 75 years and showed clinical evidence of more advanced HF compared with those who were alive throughout treatment. Revusiran pharmacokinetic exposures and TTR lowering did not show meaningful differences between patients who died and who were alive. Revusiran did not deleteriously affect echocardiographic parameters, cardiac biomarkers, or frequency of cardiovascular and HF hospitalization events. CONCLUSIONS: Causes for the observed mortality imbalance associated with revusiran were thoroughly investigated and no clear causative mechanism could be identified. Although the results suggest similar progression of cardiac parameters in both treatment arms, a role for revusiran cannot be excluded. CLINICAL TRIAL REGISTRATION: NCT02319005.
+%Z 1573-7241
+Judge, Daniel P
+Kristen, Arnt V
+Grogan, Martha
+Maurer, Mathew S
+Falk, Rodney H
+Hanna, Mazen
+Gillmore, Julian
+Garg, Pushkal
+Vaishnaw, Akshay K
+Harrop, Jamie
+Powell, Christine
+Karsten, Verena
+Zhang, Xiaoping
+Sweetser, Marianne T
+Vest, John
+Hawkins, Philip N
+Clinical Trial, Phase III
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+Research Support, Non-U.S. Gov't
+United States
+Cardiovasc Drugs Ther. 2020 Jun;34(3):357-370. doi: 10.1007/s10557-019-06919-4.
+%U https://link.springer.com/content/pdf/10.1007/s10557-019-06919-4.pdf
+%> internal-pdf://2889740082/Judge-2020-Phase 3 Multicenter Study of Revusi.pdf
+%+ Johns Hopkins Hospital, Baltimore, MD, USA.
+Medical University of South Carolina, Charleston, SC, USA.
+Department of Cardiology, University of Heidelberg, Heidelberg, Germany.
+Mayo Clinic, Rochester, MN, USA.
+Columbia University Medical Center, New York, NY, USA.
+Brigham and Women's Hospital, Boston, MA, USA.
+Cleveland Clinic, Cleveland, OH, USA.
+National Amyloidosis Centre, Division of Medicine, UCL Medical School Royal Free Hospital Rowland Hill Street, NW3 2PF, London, UK.
+Alnylam Pharmaceuticals, Cambridge, MA, USA.
+National Amyloidosis Centre, Division of Medicine, UCL Medical School Royal Free Hospital Rowland Hill Street, NW3 2PF, London, UK. p.hawkins@ucl.ac.uk.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Klamerus, K. J.
+%A Watsky, E.
+%A Moller, R.
+%A Wang, R.
+%A Riley, S.
+%D 2015
+%T The effect of tafamidis on the QTc interval in healthy subjects
+%B Br J Clin Pharmacol
+%V 79
+%N 6
+%P 918-25
+%7 2014/12/30
+%8 Jun
+%! The effect of tafamidis on the QTc interval in healthy subjects
+%O British journal of clinical pharmacology
+%@ 0306-5251 (Print)
+0306-5251
+%R 10.1111/bcp.12561
+%2 PMC4456124
+%M 25546001
+%K Action Potentials
+Administration, Oral
+Adult
+Belgium
+Benzoxazoles/*administration & dosage/*adverse effects/pharmacokinetics
+Cross-Over Studies
+Drug Administration Schedule
+Electrocardiography
+Female
+Healthy Volunteers
+Heart Conduction System/*drug effects/physiopathology
+Heart Rate/*drug effects
+Humans
+Long QT Syndrome/*chemically induced/diagnosis/physiopathology
+Male
+Middle Aged
+Risk Assessment
+Singapore
+United States
+Young Adult
+QTc prolongation
+cardiomyopathy
+familial amyloid polyneuropathy
+tafamidis
+transthyretin amyloidosis
+%X AIMS: The transthyretin (TTR) stabilizer, tafamidis, has demonstrated efficacy and safety in the treatment of TTR familial amyloid polyneuropathy (20 mg day(-1) ). Tafamidis use in TTR cardiomyopathy led to the study of the potential effect of tafamidis on the QTc interval in healthy subjects. METHODS: This randomized, three treatment, three period, six sequence crossover study with placebo, a positive control (moxifloxacin 400 mg) and tafamidis (400 mg, to achieve a supra-therapeutic Cmax of ~20 µg ml(-1) ) was conducted in healthy volunteers at three clinical research units. Oral dosing in each of the three treatment periods was separated by a washout period of  ≥ 14 days. Serial triplicate 12-lead electrocardiograms were performed. QTc intervals were derived using the Fridericia correction method. Safety and tolerability were assessed by physical examination, vital signs measurement, laboratory analyses and monitoring of adverse events (AEs). RESULTS: A total of 42 subjects completed the study. The upper limit of the two-sided 90% confidence intervals (CIs) for the difference in baseline-adjusted QTc F between tafamidis 400 mg and placebo was <10 ms (non-inferiority criterion) for all time points. The lower limit of the two-sided 90% CI between moxifloxacin 400 mg and placebo exceeded 5 ms at the pre-specified moxifloxacin tmax of 3 h post-dose, confirming assay sensitivity. Cmax and AUC(0,24 h) for tafamidis were 20.36 µg ml(-1) and 305.4 µg ml(-1) h, respectively. There were no serious/severe AEs or treatment discontinuations due to AEs. CONCLUSIONS: This thorough QTc study suggests that a supra-therapeutic single 400 mg oral dose of tafamidis does not prolong the QTc interval and is well-tolerated in healthy volunteers.
+%Z 1365-2125
+Klamerus, Karen J
+Watsky, Eric
+Moller, Robert
+Wang, Ronnie
+Riley, Steve
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+Research Support, Non-U.S. Gov't
+England
+Br J Clin Pharmacol. 2015 Jun;79(6):918-25. doi: 10.1111/bcp.12561.
+%U https://pmc.ncbi.nlm.nih.gov/articles/PMC4456124/
+%+ Pfizer, Inc., San Diego, CA and.
+Pfizer, Inc., Groton, CT, USA.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Lockwood, P. A.
+%A Le, V. H.
+%A O'Gorman, M. T.
+%A Patterson, T. A.
+%A Sultan, M. B.
+%A Tankisheva, E.
+%A Wang, Q.
+%A Riley, S.
+%D 2020
+%T The Bioequivalence of Tafamidis 61-mg Free Acid Capsules and Tafamidis Meglumine 4 × 20-mg Capsules in Healthy Volunteers
+%B Clin Pharmacol Drug Dev
+%V 9
+%N 7
+%P 849-854
+%7 2020/03/21
+%8 Oct
+%! The Bioequivalence of Tafamidis 61-mg Free Acid Capsules and Tafamidis Meglumine 4 × 20-mg Capsules in Healthy Volunteers
+%O Clinical pharmacology in drug development
+%@ 2160-763X (Print)
+2160-763x
+%R 10.1002/cpdd.789
+%2 PMC7754314
+%M 32196976
+%K Administration, Oral
+Adult
+Amyloid Neuropathies/*drug therapy
+Amyloid Neuropathies, Familial/complications
+Benzoxazoles/administration & dosage/adverse effects/*pharmacokinetics
+Brazil
+Canada
+Cardiomyopathies/drug therapy/etiology/genetics/*prevention & control
+Cross-Over Studies
+Disease Progression
+Dose-Response Relationship, Drug
+Drug Administration Schedule
+Drug Compounding/methods
+Fasting/blood
+Female
+Healthy Volunteers/statistics & numerical data
+Humans
+Japan
+Male
+Middle Aged
+Prealbumin/*drug effects/metabolism
+Safety
+Therapeutic Equivalency
+United States
+amyloidosis
+bioequivalence
+pharmacokinetics
+tafamidis
+transthyretin
+Tankisheva, Q. Wang, and S. Riley are full‐time employees of Pfizer and hold
+Pfizer stock and/or stock options.
+%X Tafamidis, a non-nonsteroidal anti-inflammatory benzoxazole derivative, acts as a transthyretin (TTR) stabilizer to slow progression of TTR amyloidosis (ATTR). Tafamidis meglumine, available as 20-mg capsules, is approved in more than 40 countries worldwide for the treatment of adults with early-stage symptomatic ATTR polyneuropathy. This agent, administered as an 80-mg, once-daily dose (4 × 20-mg capsules), is approved in the United States, Japan, Canada, and Brazil for the treatment of hereditary and wild-type ATTR cardiomyopathy in adults. An alternative single solid oral dosage formulation (tafamidis 61-mg free acid capsules) was developed and introduced for patient convenience (approved in the United States, United Arab Emirates, and European Union). In this single-center, open-label, randomized, 2-period, 2-sequence, crossover, multiple-dose phase 1 study, the rate and extent of absorption were compared between tafamidis 61-mg free acid capsules (test) and tafamidis meglumine 80-mg (4 × 20-mg) capsules (reference) after 7 days of repeated oral dosing under fasted conditions in 30 healthy volunteers. Ratios of adjusted geometric means (90%CI) for the test/reference formulations were 102.3 (98.0-106.8) for area under the concentration-time profile over the dosing interval and 94.1 (89.1-99.4) for the maximum observed concentration, satisfying prespecified bioequivalence acceptance criteria (90%CI, 80-125). Both tafamidis regimens had an acceptable safety/tolerability profile in this population.
+%Z 2160-7648
+Lockwood, Peter A
+Le, Vu H
+O'Gorman, Melissa T
+Patterson, Terrell A
+Sultan, Marla B
+Tankisheva, Ekaterina
+Wang, Qiang
+Riley, Steve
+Clinical Trial, Phase I
+Comparative Study
+Journal Article
+Randomized Controlled Trial
+Research Support, Non-U.S. Gov't
+United States
+Clin Pharmacol Drug Dev. 2020 Oct;9(7):849-854. doi: 10.1002/cpdd.789. Epub 2020 Mar 20.
+%U https://pmc.ncbi.nlm.nih.gov/articles/PMC7754314/
+%+ Pfizer, Groton, Connecticut, USA.
+Pfizer, New York, New York, USA.
+Pfizer, Brussels, Belgium.
+Pfizer Beijing City, China.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Marra, A. M.
+%A Palmiero, G.
+%A Losi, M.
+%A Mallardo, M.
+%A Galati, A.
+%A Bossone, E.
+%A Esposito, G.
+%A Calabrò, P.
+%A Cittadini, A.
+%A Limongelli, G.
+%D 2024
+%T Exercise Training and Rehabilitation in Cardiac Amyloidosis (ERICA) Study: Rationale and Design
+%B Heart Fail Clin
+%V 20
+%N 3s
+%P e55-e62
+%7 2025/03/14
+%8 Jul
+%! Exercise Training and Rehabilitation in Cardiac Amyloidosis (ERICA) Study: Rationale and Design
+%O Heart failure clinics
+%@ 1551-7136 (Print)
+1551-7136
+%R 10.1016/j.hfc.2024.09.008
+%M 40082016
+%K Humans
+*Exercise Therapy/methods
+*Cardiomyopathies/rehabilitation/physiopathology
+Heart Failure/rehabilitation/physiopathology
+Quality of Life
+Cardiac Rehabilitation/methods
+Male
+Amyloid Neuropathies, Familial/rehabilitation/physiopathology
+Female
+Oxygen Consumption/physiology
+Cardiac amyloidosis
+Cardiomyopathies
+Exercise training
+Heart failure
+Rehabilitation
+Wild-type transthyretin
+work.
+%X Notwithstanding the dramatic improvement associated with Tafamidis in Heart Failure due to wild-type transthyretin cardiac amyloidosis (ATTRwt-CA), the effect of exercise training on ATTRwt-CA remains unexplored. We hereby present rationale and design of the Exercise training and Rehabilitation in Cardiac Amyloidosis study. This interventional, controlled study will randomize ATTRwt-CA patients into a control group and a training group. Primary endpoint will be the distance obtained at the 6-min walk test. Quality-of-life, peak oxygen consumption, left and right heart architecture and function, and natriuretic peptides will be secondary endpoints.
+%Z Marra, Alberto M
+Palmiero, Giuseppe
+Losi, Mariangela
+Mallardo, Mario
+Galati, Alfonso
+Bossone, Eduardo
+Esposito, Giovanni
+Calabrò, Paolo
+Cittadini, Antonio
+Limongelli, Giuseppe
+ERICA Investigators
+Journal Article
+Randomized Controlled Trial
+Review
+United States
+Heart Fail Clin. 2024 Jul;20(3S):e55-e62. doi: 10.1016/j.hfc.2024.09.008. Epub 2024 Nov 20.
+%U https://www.sciencedirect.com/science/article/abs/pii/S1551713624000850?via%3Dihub
+%+ Department of Translational Medical Sciences, "Federico II" University of Naples, "Federico II" University Hospital and School of Medicine, Building N. 18, First Floor, Via Pansini 5, Naples I-81031, Italy; A.O.U. "Federico II" University Hospital, Naples, Italy. Electronic address: albertomaria.marra@unina.it.
+Inherited and Rare Cardiovascular Diseases, Department of Translational Medical Sciences, University of Campania "Luigi Vanvitelli", AO Colli-Monaldi Hospital -ERN Guard Heart, Via L. Bianchi, 80131 Naples, Italy. Electronic address: https://twitter.com/dottorpalmiero.
+A.O.U. "Federico II" University Hospital, Naples, Italy; Department of Advances Medical Sciences, "Federico II" University of Naples, Via Pansini N. 5, Building N.2, I-81031 Naples, Italy.
+Cardiac Rehabilitation Unit, "San Gennaro" Hospital, ASL NA 1, Via S. Gennaro dei Poveri, 25, 80136, Naples, Italy.
+Cardiac Rehabilitation Unit, "Villa Betania Giomi" Hospital, Via Pio IV, 42, 00165 Rome, Italy.
+A.O.U. "Federico II" University Hospital, Naples, Italy; Department of Public Health, "Federico II" University of Naples, Building N. 18, First Floor, Via Pansini 5, I-81031 Italy.
+Department of Translational Medical Sciences, University of Campania "Luigi Vanvitelli", 80131 Naples, Italy; Division of Cardiology, A.O.R.N. "Sant'Anna & San Sebastiano", Via Ferdinanso Palasciano, Caserta I-81100, Italy.
+Department of Translational Medical Sciences, "Federico II" University of Naples, "Federico II" University Hospital and School of Medicine, Building N. 18, First Floor, Via Pansini 5, Naples I-81031, Italy; A.O.U. "Federico II" University Hospital, Naples, Italy.
+Inherited and Rare Cardiovascular Diseases, Department of Translational Medical Sciences, University of Campania "Luigi Vanvitelli", AO Colli-Monaldi Hospital -ERN Guard Heart, Via L. Bianchi, 80131 Naples, Italy. Electronic address: https://twitter.com/glimongelli.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Masri, A.
+%A Maurer, M. S.
+%A Claggett, B. L.
+%A Kulac, I.
+%A Waddington Cruz, M.
+%A Conceição, I.
+%A Weiler, M.
+%A Berk, J. L.
+%A Gertz, M.
+%A Gillmore, J. D.
+%A Rush, S.
+%A Chen, J.
+%A Zhou, W.
+%A Kwoh, J.
+%A Duran, J. M.
+%A Tsimikas, S.
+%A Solomon, S. D.
+%D 2024
+%T Effect of Eplontersen on Cardiac Structure and Function in Patients With Hereditary Transthyretin Amyloidosis
+%B J Card Fail
+%V 30
+%N 8
+%P 973-980
+%7 2023/12/09
+%8 Aug
+%! Effect of Eplontersen on Cardiac Structure and Function in Patients With Hereditary Transthyretin Amyloidosis
+%O Journal of cardiac failure
+%@ 1071-9164
+%R 10.1016/j.cardfail.2023.11.016
+%M 38065307
+%K Adult
+Aged
+Female
+Humans
+Male
+Middle Aged
+*Amyloid Neuropathies, Familial/drug therapy/physiopathology/complications
+Cardiomyopathies/drug therapy/physiopathology
+Echocardiography
+Oligonucleotides/therapeutic use
+Prealbumin/genetics
+Stroke Volume/physiology/drug effects
+Treatment Outcome
+Ventricular Function, Left/physiology/drug effects
+Amyloidosis
+clinical trial
+echo
+eplontersen
+polyneuropathy
+transthyretin
+%X BACKGROUND: Hereditary transthyretin amyloidosis (ATTRv) is associated with polyneuropathy, cardiomyopathy, or both. The effects of eplontersen on cardiac structure and function were assessed. METHODS AND RESULTS: NEURO-TTRansform was an open-label trial involving 144 adults with ATTRv polyneuropathy (49 patients [34%] with cardiomyopathy) receiving eplontersen throughout and compared with a historical placebo group (n = 60; 30 patients [50%] with cardiomyopathy) from the NEURO-TTR trial at week 65. Treatment effect (eplontersen vs placebo), presented as mean difference (95% confidence interval) was analyzed after adjusting for age, sex, region, baseline value, ATTRv disease stage, previous ATTRv treatment, and V30M transthyretin variant. There were notable differences at baseline between the eplontersen group and historical placebo. In the cardiomyopathy subgroup, 65 weeks of eplontersen treatment was associated with improvement from baseline relative to placebo in left ventricular ejection fraction of 4.3% (95% confidence interval 1.40-21.01; P = .049) and stroke volume 10.64 mL (95% confidence interval 3.99-17.29; P = .002) while the remainder of echocardiographic parameters remained stable. CONCLUSIONS: Eplontersen was associated with stable or improved measures of cardiac structure and function vs historical placebo in patients with ATTRv polyneuropathy and cardiomyopathy. Further investigation into eplontersen's effect on transthyretin amyloid cardiomyopathy is being conducted in the CARDIO-TTRansform trial.
+%Z 1532-8414
+Masri, Ahmad
+Maurer, Mathew S
+Claggett, Brian L
+Kulac, Ian
+Waddington Cruz, Marcia
+Conceição, Isabel
+Weiler, Markus
+Berk, John L
+Gertz, Morie
+Gillmore, Julian D
+Rush, Stephen
+Chen, Jersey
+Zhou, Wunan
+Kwoh, Jesse
+Duran, Jason M
+Tsimikas, Sotirios
+Solomon, Scott D
+Clinical Trial, Phase III
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+United States
+J Card Fail. 2024 Aug;30(8):973-980. doi: 10.1016/j.cardfail.2023.11.016. Epub 2023 Dec 7.
+%+ Oregon Health & Science University, Portland, Oregon.
+Columbia University Irving Medical Center, New York, New York.
+Cardiovascular Division, Brigham and Women's Hospital, Harvard Medical School, Boston, Massachusetts.
+Hospital Universitário Clementino Fraga Filho, Federal University of Rio de Janeiro, Rio de Janeiro, Brazil.
+Centro Hospitalar Universitário Lisboa-Norte, Hospital de Santa Maria, Lisbon, Portugal.
+Amyloidosis Center and Department of Neurology, Heidelberg University Hospital, Heidelberg, Germany.
+Boston University School of Medicine, Boston, Massachusetts.
+Mayo Clinic, Rochester, Minnesota.
+National Amyloidosis Centre, University College London, London, UK.
+BioPharmaceuticals R&D, AstraZeneca, Gothenburg, Sweden.
+BioPharmaceuticals R&D, AstraZeneca, Gaithersburg, Maryland.
+Ionis Pharmaceuticals, Inc., Carlsbad, California.
+Ionis Pharmaceuticals, Inc., Carlsbad, California; University of California San Diego, La Jolla, California.
+Cardiovascular Division, Brigham and Women's Hospital, Harvard Medical School, Boston, Massachusetts. Electronic address: ssolomon@bwh.harvard.edu.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Maurer, M. S.
+%A Kale, P.
+%A Fontana, M.
+%A Berk, J. L.
+%A Grogan, M.
+%A Gustafsson, F.
+%A Hung, R. R.
+%A Gottlieb, R. L.
+%A Damy, T.
+%A González-Duarte, A.
+%A Sarswat, N.
+%A Sekijima, Y.
+%A Tahara, N.
+%A Taylor, M. S.
+%A Kubanek, M.
+%A Donal, E.
+%A Palecek, T.
+%A Tsujita, K.
+%A Tang, W. H. W.
+%A Yu, W. C.
+%A Obici, L.
+%A Simões, M.
+%A Fernandes, F.
+%A Poulsen, S. H.
+%A Diemberger, I.
+%A Perfetto, F.
+%A Solomon, S. D.
+%A Di Carli, M.
+%A Badri, P.
+%A White, M. T.
+%A Chen, J.
+%A Yureneva, E.
+%A Sweetser, M. T.
+%A Jay, P. Y.
+%A Garg, P. P.
+%A Vest, J.
+%A Gillmore, J. D.
+%D 2023
+%T Patisiran Treatment in Patients with Transthyretin Cardiac Amyloidosis
+%B N Engl J Med
+%V 389
+%N 17
+%P 1553-1565
+%7 2023/10/27
+%8 Oct 26
+%! Patisiran Treatment in Patients with Transthyretin Cardiac Amyloidosis
+%O The New England journal of medicine
+%@ 0028-4793 (Print)
+0028-4793
+%R 10.1056/NEJMoa2300757
+%2 PMC10757426
+%$ NIHMS1940616
+%M 37888916
+%K Humans
+*Cardiomyopathies/drug therapy/etiology/genetics/metabolism
+*Prealbumin/genetics/metabolism
+*RNA, Small Interfering/therapeutic use
+Amyloidosis, Familial/complications/drug therapy/genetics
+Liver/metabolism
+Double-Blind Method
+*Amyloidosis/complications/drug therapy/genetics
+%X BACKGROUND: Transthyretin amyloidosis, also called ATTR amyloidosis, is associated with accumulation of ATTR amyloid deposits in the heart and commonly manifests as progressive cardiomyopathy. Patisiran, an RNA interference therapeutic agent, inhibits the production of hepatic transthyretin. METHODS: In this phase 3, double-blind, randomized trial, we assigned patients with hereditary, also known as variant, or wild-type ATTR cardiac amyloidosis, in a 1:1 ratio, to receive patisiran (0.3 mg per kilogram of body weight) or placebo once every 3 weeks for 12 months. A hierarchical procedure was used to test the primary and three secondary end points. The primary end point was the change from baseline in the distance covered on the 6-minute walk test at 12 months. The first secondary end point was the change from baseline to month 12 in the Kansas City Cardiomyopathy Questionnaire-Overall Summary (KCCQ-OS) score (with higher scores indicating better health status). The second secondary end point was a composite of death from any cause, cardiovascular events, and change from baseline in the 6-minute walk test distance over 12 months. The third secondary end point was a composite of death from any cause, hospitalizations for any cause, and urgent heart failure visits over 12 months. RESULTS: A total of 360 patients were randomly assigned to receive patisiran (181 patients) or placebo (179 patients). At month 12, the decline in the 6-minute walk distance was lower in the patisiran group than in the placebo group (Hodges-Lehmann estimate of median difference, 14.69 m; 95% confidence interval [CI], 0.69 to 28.69; P = 0.02); the KCCQ-OS score increased in the patisiran group and declined in the placebo group (least-squares mean difference, 3.7 points; 95% CI, 0.2 to 7.2; P = 0.04). Significant benefits were not observed for the second secondary end point. Infusion-related reactions, arthralgia, and muscle spasms occurred more often among patients in the patisiran group than among those in the placebo group. CONCLUSIONS: In this trial, administration of patisiran over a period of 12 months resulted in preserved functional capacity in patients with ATTR cardiac amyloidosis. (Funded by Alnylam Pharmaceuticals; APOLLO-B ClinicalTrials.gov number, NCT03997383.).
+%Z 1533-4406
+Maurer, Mathew S
+Orcid: 0000-0001-5400-5008
+Kale, Parag
+Fontana, Marianna
+Berk, John L
+Grogan, Martha
+Gustafsson, Finn
+Hung, Rebecca R
+Gottlieb, Robert L
+Orcid: 0000-0001-8376-8709
+Damy, Thibaud
+González-Duarte, Alejandra
+Sarswat, Nitasha
+Sekijima, Yoshiki
+Tahara, Nobuhiro
+Orcid: 0000-0003-2011-8201
+Taylor, Mark S
+Kubanek, Milos
+Donal, Erwan
+Palecek, Tomas
+Tsujita, Kenichi
+Tang, W H Wilson
+Yu, Wen-Chung
+Obici, Laura
+Simões, Marcus
+Fernandes, Fábio
+Poulsen, Steen Hvitfeldt
+Diemberger, Igor
+Perfetto, Federico
+Solomon, Scott D
+Di Carli, Marcelo
+Badri, Prajakta
+White, Matthew T
+Chen, Jihong
+Yureneva, Elena
+Sweetser, Marianne T
+Jay, Patrick Y
+Garg, Pushkal P
+Vest, John
+Gillmore, Julian D
+APOLLO-B Trial Investigators
+K24 AG036778/AG/NIA NIH HHS/United States
+R01 AG027518/AG/NIA NIH HHS/United States
+R01 AG081582/AG/NIA NIH HHS/United States
+UL1 TR001873/TR/NCATS NIH HHS/United States
+Clinical Trial, Phase III
+Journal Article
+Randomized Controlled Trial
+Research Support, U.S. Gov't, P.H.S.
+United States
+N Engl J Med. 2023 Oct 26;389(17):1553-1565. doi: 10.1056/NEJMoa2300757.
+%U https://pmc.ncbi.nlm.nih.gov/articles/PMC10757426/
+%+ From Columbia University Irving Medical Center (M.S.M.) and Grossman School of Medicine, NYU Langone (A.G.-D.) - both in New York; the Center for Advanced Heart and Lung Disease, Baylor University Medical Center (P.K., R.L.G.), Baylor Scott & White Research Institute, and Texas A&M Health Science Center, Dallas (R.L.G.), and TCU School of Medicine, Fort Worth (R.L.G.) - all in Texas; the National Amyloidosis Centre, UCL, Division of Medicine, Royal Free Hospital, London (M.F., J.D.G.); Boston University School of Medicine (J.L.B.), the Cardiovascular Division, Brigham and Women's Hospital (S.D.S., M.D.C.), and the Division of Nuclear Medicine and Molecular Imaging, Brigham and Women's Hospital, Harvard Medical School (M.D.C.), Boston, and Alnylam Pharmaceuticals, Cambridge (P.B., M.T.W., J.C., E.Y., M.T.S., P.Y.J., P.P.G., J.V.) - all in Massachusetts; the Department of Cardiovascular Diseases, Mayo Clinic College of Medicine, Rochester, MN (M.G.); the Department of Cardiology, Rigshospitalet, University of Copenhagen, Copenhagen (F.G.), and the Department of Cardiology, Aarhus University Hospital, Aarhus (S.H.P.) - both in Denmark; the Division of Cardiovascular Medicine, Department of Medicine, Vanderbilt University Medical Center, Nashville (R.R.H.); the Cardiology Department and French National Reference Center for Cardiac Amyloidosis, GRC Amyloid Research Institute and Clinical Investigation Centre 1430 at Hôpitaux Universitaires Henri-Mondor Assistance Publique-Hôpitaux de Paris, and IMRB, INSERM, Université Paris Est Creteil, Creteil (T.D.), and INSERM, LTSI UMR 1099, Centre Hospitalier Universitaire de Rennes, Rennes (E.D.) - both in France; Instituto Nacional de Ciencias Médicas y Nutrición Salvador Zubirán, México City (A.G.-D.); the Department of Medicine, University of Chicago, Chicago (N.S.); the Department of Medicine (Neurology and Rheumatology), Shinshu University School of Medicine, Matsumoto (Y.S.), the Division of Cardiovascular Medicine, Department of Medicine, Kurume University School of Medicine, Kurume (N.T.), and the Department of Cardiovascular Medicine, Graduate School of Medical Sciences, Kumamoto University, Kumamoto (K.T.) - all in Japan; Westmead Amyloidosis Service, Westmead Hospital, Sydney (M.S.T.); the Department of Cardiology, Institute for Clinical and Experimental Medicine (M.K.), and the 2nd Department of Medicine, Department of Cardiovascular Medicine, First Faculty of Medicine, Charles University in Prague and General University Hospital in Prague (T.P.) - both in Prague, Czech Republic; the Heart Vascular and Thoracic Institute, Cleveland Clinic, Cleveland (W.H.W.T.); Taipei Veterans General Hospital and National Yang Ming Chiao Tung University, Taipei, Taiwan (W.-C.Y.); Amyloidosis Research & Treatment Center, Fondazione IRCCS Policlinico San Matteo di Pavia, Pavia (L.O.), the Department of Medical and Surgical Sciences, University of Bologna, and the Cardiology Unit, IRCCS Azienda Ospedaliero-Universitaria di Bologna, Bologna (I.D.), and the Department of Clinical and Experimental Medicine, Careggi University Hospital, Florence (F.P.) - all in Italy; and Unidade de Pesquisa Clínica-UPC, Hospital Das Clinicas da Faculdade de Medicina de Ribeirão Preto-USP (M.S.), and Instituto do Coração-HCFMUSP (F.F.) - both in São Paulo.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Maurer, M. S.
+%A Schwartz, J. H.
+%A Gundapaneni, B.
+%A Elliott, P. M.
+%A Merlini, G.
+%A Waddington-Cruz, M.
+%A Kristen, A. V.
+%A Grogan, M.
+%A Witteles, R.
+%A Damy, T.
+%A Drachman, B. M.
+%A Shah, S. J.
+%A Hanna, M.
+%A Judge, D. P.
+%A Barsdorf, A. I.
+%A Huber, P.
+%A Patterson, T. A.
+%A Riley, S.
+%A Schumacher, J.
+%A Stewart, M.
+%A Sultan, M. B.
+%A Rapezzi, C.
+%D 2018
+%T Tafamidis Treatment for Patients with Transthyretin Amyloid Cardiomyopathy
+%B N Engl J Med
+%V 379
+%N 11
+%P 1007-1016
+%7 2018/08/28
+%8 Sep 13
+%! Tafamidis Treatment for Patients with Transthyretin Amyloid Cardiomyopathy
+%O The New England journal of medicine
+%@ 0028-4793
+%R 10.1056/NEJMoa1805689
+%M 30145929
+%K Administration, Oral
+Aged
+Aged, 80 and over
+Amyloid Neuropathies, Familial/complications/*drug therapy
+Benzoxazoles/adverse effects/*therapeutic use
+Cardiomyopathies/complications/*drug therapy
+Disease Progression
+Double-Blind Method
+Female
+Heart Failure/etiology/mortality
+Hospitalization/statistics & numerical data
+Humans
+Male
+Middle Aged
+Prealbumin/*antagonists & inhibitors
+Quality of Life
+Survival Analysis
+Walk Test
+%X BACKGROUND: Transthyretin amyloid cardiomyopathy is caused by the deposition of transthyretin amyloid fibrils in the myocardium. The deposition occurs when wild-type or variant transthyretin becomes unstable and misfolds. Tafamidis binds to transthyretin, preventing tetramer dissociation and amyloidogenesis. METHODS: In a multicenter, international, double-blind, placebo-controlled, phase 3 trial, we randomly assigned 441 patients with transthyretin amyloid cardiomyopathy in a 2:1:2 ratio to receive 80 mg of tafamidis, 20 mg of tafamidis, or placebo for 30 months. In the primary analysis, we hierarchically assessed all-cause mortality, followed by frequency of cardiovascular-related hospitalizations according to the Finkelstein-Schoenfeld method. Key secondary end points were the change from baseline to month 30 for the 6-minute walk test and the score on the Kansas City Cardiomyopathy Questionnaire-Overall Summary (KCCQ-OS), in which higher scores indicate better health status. RESULTS: In the primary analysis, all-cause mortality and rates of cardiovascular-related hospitalizations were lower among the 264 patients who received tafamidis than among the 177 patients who received placebo (P<0.001). Tafamidis was associated with lower all-cause mortality than placebo (78 of 264 [29.5%] vs. 76 of 177 [42.9%]; hazard ratio, 0.70; 95% confidence interval [CI], 0.51 to 0.96) and a lower rate of cardiovascular-related hospitalizations, with a relative risk ratio of 0.68 (0.48 per year vs. 0.70 per year; 95% CI, 0.56 to 0.81). At month 30, tafamidis was also associated with a lower rate of decline in distance for the 6-minute walk test (P<0.001) and a lower rate of decline in KCCQ-OS score (P<0.001). The incidence and types of adverse events were similar in the two groups. CONCLUSIONS: In patients with transthyretin amyloid cardiomyopathy, tafamidis was associated with reductions in all-cause mortality and cardiovascular-related hospitalizations and reduced the decline in functional capacity and quality of life as compared with placebo. (Funded by Pfizer; ATTR-ACT ClinicalTrials.gov number, NCT01994889 .).
+%Z 1533-4406
+Maurer, Mathew S
+Schwartz, Jeffrey H
+Gundapaneni, Balarama
+Elliott, Perry M
+Merlini, Giampaolo
+Waddington-Cruz, Marcia
+Kristen, Arnt V
+Grogan, Martha
+Witteles, Ronald
+Damy, Thibaud
+Drachman, Brian M
+Shah, Sanjiv J
+Hanna, Mazen
+Judge, Daniel P
+Barsdorf, Alexandra I
+Huber, Peter
+Patterson, Terrell A
+Riley, Steven
+Schumacher, Jennifer
+Stewart, Michelle
+Sultan, Marla B
+Rapezzi, Claudio
+ATTR-ACT Study Investigators
+Clinical Trial, Phase III
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+Research Support, Non-U.S. Gov't
+United States
+N Engl J Med. 2018 Sep 13;379(11):1007-1016. doi: 10.1056/NEJMoa1805689. Epub 2018 Aug 27.
+%+ From the Columbia University Vagelos College of Physicians and Surgeons (M.S.M.) and Pfizer (J.H.S., A.I.B., P.H., J.S., M.B.S.), New York; Syneos Health, Raleigh, NC (B.G.); University College London and St. Bartholomew's Hospital, London (P.M.E.); the Amyloidosis Center, Istituto di Ricovero e Cura a Carattere Scientifico Policlinico San Matteo, and the University of Pavia, Pavia (G.M.), and the Department of Experimental, Diagnostic, and Specialty Medicine, University of Bologna, Bologna (C.R.) - both in Italy; the Amyloidosis Center (CEPARM), Federal University of Rio de Janeiro, Rio de Janeiro (M.W-C.); the Amyloidosis Center, Medical University of Heidelberg, Heidelberg, Germany (A.V.K.); the Department of Cardiovascular Diseases, Mayo Clinic, Rochester, MN (M.G.); Stanford University School of Medicine, Stanford, CA (R.W.); the French Referral Center for Cardiac Amyloidosis, Amyloidosis Mondor Network, GRC Amyloid Research Institute and Department of Cardiology, Assistance Publique-Hôpitaux de Paris, CHU Henri Mondor, and INSERM Unité 955, Clinical Investigation Center 006, and DHU ATVB, Creteil, France (T.D.); Penn Presbyterian Medical Center, University of Pennsylvania Health System, Philadelphia (B.M.D.); the Division of Cardiology, Department of Medicine, Northwestern University Feinberg School of Medicine, Chicago (S.J.S.); Cleveland Clinic, Cleveland (M.H.); the Medical University of South Carolina, Charleston (D.P.J.); and Pfizer, Groton, CT (T.A.P., S.R., M.S.).
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Mesquita, C. T.
+%A Schwartzmann, P.
+%A Correia, E. B.
+%A Simões, M. V.
+%A Biolo, A.
+%A Duque, D. R.
+%A Jay, P. Y.
+%A Fernandes, F.
+%D 2025
+%T Patisiran Treatment in the Brazilian Subpopulation of the Phase 3 APOLLO-B Study in Transthyretin Amyloidosis with Cardiomyopathy: Post Hoc Analysis
+%B Arq Bras Cardiol
+%V 122
+%N 4
+%P e20240568
+%7 2025/04/17
+%8 Mar
+%! Patisiran Treatment in the Brazilian Subpopulation of the Phase 3 APOLLO-B Study in Transthyretin Amyloidosis with Cardiomyopathy: Post Hoc Analysis
+%O Arquivos brasileiros de cardiologia
+%@ 0066-782x
+%R 10.36660/abc.20240568
+%(Tratamento com Patisirana na Subpopulação Brasileira do Estudo de Fase 3 APOLLO-B em Amiloidose por Transtirretina com Cardiomiopatia: Análise Post Hoc.
+%M 40243852
+%K Humans
+Male
+Female
+*Amyloid Neuropathies, Familial/drug therapy/complications
+*Cardiomyopathies/drug therapy/physiopathology
+Middle Aged
+Treatment Outcome
+Aged
+Brazil
+Biomarkers/blood
+Double-Blind Method
+Natriuretic Peptide, Brain/blood
+Walk Test
+Time Factors
+Peptide Fragments
+RNA, Small Interfering
+%X BACKGROUND: Patisiran rapidly knocked down transthyretin and preserved functional capacity in patients with transthyretin amyloidosis with cardiomyopathy (ATTR-CM) in the global Phase 3 APOLLO-B study (NCT03997383). OBJECTIVES: To evaluate patisiran efficacy and safety in post hoc analysis of the Brazilian subpopulation of APOLLO-B. METHODS: Patients were randomized 1:1 to patisiran 0.3 mg/kg or placebo every 3 weeks for 12 months. The primary endpoint was the change from baseline (CFB) in functional capacity (6-minute walk test [6MWT]) at Month 12. Secondary endpoints included CFB to Month 12 in the Kansas City Cardiomyopathy Questionnaire-Overall Summary (KCCQ-OS) score. Exploratory endpoints included CFB in cardiac biomarkers and Perugini grade of cardiac uptake during technetium-99m scintigraphy. RESULTS: Forty-two patients enrolled in Brazil (patisiran, n=20; placebo, n=22). Patisiran showed benefit in 6MWT and KCCQ-OS scores vs. placebo; CFB (95% confidence interval [CI]) in 6MWT (median) and KCCQ-OS scores (least squares mean) was -2.0 m (-58.5, 42.9) and 9.37 (1.93, 16.81) points with patisiran vs. -30.1 m (-72.2, 3.5) and 2.62 (-4.68, 9.92) points for placebo. For cardiac biomarkers, the mean fold-change from baseline (95% CI) for N-terminal prohormone B-type natriuretic peptide and troponin I was 1.31 (1.06, 1.61) and 1.12 (0.94, 1.34) for patisiran, and 1.71 (1.39, 2.10) and 1.28 (1.08, 1.53) for placebo, respectively. Perugini grade improved in 11/18 (61.1%) and 0/10 evaluable patients with patisiran and placebo, respectively. There were no deaths in the patisiran group vs. 3 in the placebo group.
+%Z 1678-4170
+Mesquita, Claudio Tinoco
+Schwartzmann, Pedro
+Correia, Edileide Barros
+Simões, Marcus V
+Biolo, Andreia
+Duque, Daniel Rodriguez
+Jay, Patrick Y
+Fernandes, Fábio
+Orcid: 0000-0002-9323-8805
+Clinical Trial, Phase III
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+Brazil
+Arq Bras Cardiol. 2025 Mar;122(4):e20240568. doi: 10.36660/abc.20240568.
+%U https://www.scielo.br/j/abc/a/LcbVL9Pyn8hx7yFRKqNYvky/?lang=en&format=pdf
+%> internal-pdf://0125069241/Mesquita-2025-Patisiran Treatment in the Brazi.pdf
+%+ Hospital Pró-Cardíaco, Rio de Janeiro, RJ - Brasil.
+Universidade Federal Fluminense, Niterói, RJ - Brasil.
+Unimed Ribeirão Preto, Ribeirão Preto, SP - Brasil.
+Instituto Dante Pazzanese de Cardiologia, São Paulo, SP - Brasil.
+Universidade de São Paulo Hospital das Clínicas da Faculdade de Medicina de Ribeirão Preto, Ribeirão Preto, SP - Brasil.
+Universidade Federal do Rio Grande do Sul, Porto Alegre, RS - Brasil.
+Alnylam Pharmaceuticals Inc, Cambridge, Massachusetts - EUA.
+Instituto do Coração do Hospital das Clínicas da Faculdade de Medicina da Universidade de São Paulo, São Paulo, SP - Brasil.
+%W NLM
+%G por
+eng
+
+
+
+%0 Journal Article
+%A Michalon, A.
+%A Renaud, L.
+%A Machacek, M.
+%A Cortijo, C.
+%A Udata, C.
+%A Mercuri, M. F.
+%A Buller, F.
+%A Hock, C.
+%A Nitsch, R. M.
+%A Kahr, P. C.
+%A Grimm, J.
+%D 2025
+%T Prediction of Cardiac ATTR Depletion by NI006 (ALXN2220) Using Mechanistic PK/PD Modeling
+%B Clin Pharmacol Ther
+%V 117
+%N 1
+%P 261-269
+%7 2024/10/16
+%8 Jan
+%! Prediction of Cardiac ATTR Depletion by NI006 (ALXN2220) Using Mechanistic PK/PD Modeling
+%O Clinical pharmacology and therapeutics
+%@ 0009-9236 (Print)
+0009-9236
+%R 10.1002/cpt.3455
+%2 PMC11652821 of Neurimmune AG. A.M., C.H., P.C.K., and J.G. are inventors on patents relating to NI006. C.U. and M.F.M. are employees of Alexion, AstraZeneca Rare Disease. L.R. and M.M. declare no competing interest for this work.
+%M 39410666
+%K Female
+Humans
+Male
+*Amyloid Neuropathies, Familial/drug therapy
+Antibodies, Monoclonal, Humanized/administration & dosage/pharmacokinetics
+Cardiomyopathies/drug therapy
+Dose-Response Relationship, Drug
+Models, Biological
+Prealbumin/metabolism
+Proof of Concept Study
+Clinical Trials, Phase III as Topic
+Randomized Controlled Trials as Topic
+Multicenter Studies as Topic
+Animals
+%X NI006 (aka ALXN2220) is a therapeutic antibody candidate in phase III clinical development for the depletion of amyloid transthyretin (ATTR) in patients with ATTR cardiomyopathy, an infiltrative cardiomyopathy leading to increased left ventricular wall thickness (LVWT). The mode-of-action consists in removal of disease-causing amyloid accumulations by activating phagocytic immune cells, a mechanism without precedent in cardiology. To select a safe and potentially efficacious dose range and treatment duration for a combined first-in-human and proof-of-concept clinical phase Ib study, we developed a mechanistic pharmacokinetic and pharmacodynamic (PK/PD) model that can predict NI006 exposure, its effects on cardiac amyloid load and on LWVT, which is a predictor of heart failure in this disease. The PK/PD model predictions supported 0.3 mg/kg monthly dosing as a safe starting dose and identified 10-60 mg/kg monthly as the potentially efficacious dose range with substantial and dose dependent cardiac amyloid burden reduction within 4 months for 60 mg/kg and 10 months for 10 mg/kg. These predictions were in good agreement with the observed primary results of the clinical phase Ib study where amyloid burden was measured by imaging. This novel translational PK/PD model provided important predictions to guide the design of the phase Ib study of NI006, indicating the value of this approach to integrate preclinical results into clinical trial design and increase translational success.
+%Z 1532-6535
+Michalon, Aubin
+Orcid: 0000-0002-5246-4881
+Renaud, Lionel
+Orcid: 0000-0003-1731-2900
+Machacek, Matthias
+Orcid: 0000-0003-0541-2365
+Cortijo, Cédric
+Orcid: 0009-0007-2239-0344
+Udata, Chandrasekhar
+Orcid: 0009-0003-7938-5432
+Mercuri, Michele F
+Orcid: 0000-0003-2266-4812
+Buller, Fabian
+Hock, Christoph
+Nitsch, Roger M
+Kahr, Peter C
+Orcid: 0000-0003-4446-3026
+Grimm, Jan
+Orcid: 0000-0002-3898-3298
+Neurimmune AG/
+Clinical Trial, Phase I
+Journal Article
+Randomized Controlled Trial
+United States
+Clin Pharmacol Ther. 2025 Jan;117(1):261-269. doi: 10.1002/cpt.3455. Epub 2024 Oct 15.
+%U https://pmc.ncbi.nlm.nih.gov/articles/PMC11652821/
+%+ Neurimmune, Schlieren, Switzerland.
+LYO-X, Basel, Switzerland.
+Alexion, AstraZeneca Rare Disease, Boston, Massachusetts, USA.
+Institute for Regenerative Medicine, University of Zurich, Schlieren, Switzerland.
+Center for Molecular Cardiology, University of Zurich, Schlieren, Switzerland.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Miller, A. B.
+%A Januzzi, J. L.
+%A O'Neill, B. J.
+%A Gundapaneni, B.
+%A Patterson, T. A.
+%A Sultan, M. B.
+%A López-Sendón, J.
+%D 2021
+%T Causes of Cardiovascular Hospitalization and Death in Patients With Transthyretin Amyloid Cardiomyopathy (from the Tafamidis in Transthyretin Cardiomyopathy Clinical Trial [ATTR-ACT])
+%B Am J Cardiol
+%V 148
+%P 146-150
+%7 2021/03/06
+%8 Jun 1
+%! Causes of Cardiovascular Hospitalization and Death in Patients With Transthyretin Amyloid Cardiomyopathy (from the Tafamidis in Transthyretin Cardiomyopathy Clinical Trial [ATTR-ACT])
+%O The American journal of cardiology
+%@ 0002-9149
+%R 10.1016/j.amjcard.2021.02.035
+%M 33667442
+%K Aged
+Amyloid Neuropathies, Familial/*drug therapy/genetics
+Amyloidosis/drug therapy/genetics
+Arrhythmias, Cardiac/epidemiology/mortality
+Benzoxazoles/therapeutic use
+Cardiomyopathies/*drug therapy/genetics
+Cardiovascular Diseases/epidemiology/*mortality
+Cause of Death
+Death, Sudden, Cardiac/epidemiology
+Double-Blind Method
+Female
+Heart Failure/epidemiology/mortality
+Hospitalization/*statistics & numerical data
+Humans
+Ischemic Attack, Transient/epidemiology
+Male
+Myocardial Infarction/epidemiology/mortality
+Prealbumin/genetics
+Proportional Hazards Models
+Stroke/epidemiology/mortality
+%X In the Tafamidis in Transthyretin Cardiomyopathy Clinical Trial (ATTR-ACT), tafamidis significantly reduced mortality and cardiovascular (CV)-related hospitalizations compared with placebo in patients with transthyretin amyloid cardiomyopathy (ATTR-CM). This analysis aimed to assess the causes of CV-related death and hospitalization in ATTR-ACT to provide further insight into the progression of ATTR-CM and efficacy of tafamidis. ATTR-ACT was an international, double-blind, placebo-controlled, and randomized study. Patients with hereditary or wild-type ATTR-CM were randomized to tafamidis (n = 264) or placebo (n = 177) for 30 months. The independent Endpoint Adjudication Committee determined whether certain investigator-reported events met the definition of disease-related efficacy endpoints using predefined criteria. Cause-specific reasons for CV-related deaths (heart failure [HF], arrhythmia, myocardial infarction, sudden death, stroke, and other CV causes) and hospitalizations (HF, arrhythmia, myocardial infarction, transient ischemic attack/stroke, and other CV causes) were assessed. Total CV-related deaths was 53 (20.1%) with tafamidis and 50 (28.2%) with placebo, with HF (15.5% tafamidis, 22.6% placebo), followed by sudden death (2.7% tafamidis, 5.1% placebo), the most common causes. The number of patients with a CV-related hospitalization was 138 (52.3%) with tafamidis and 107 (60.5%) with placebo; with HF the most common cause (43.2% tafamidis, 50.3% placebo). All predefined causes of CV-related death or hospitalization were less frequent with tafamidis than placebo. In conclusion, these data provide further insight into CV disease progression in patients with ATTR-CM, with HF the most common adjudicated cause of CV-related hospitalization or death in ATTR-ACT. Clinical trial registration ClinicalTrials.gov: NCT01994889.
+%Z 1879-1913
+Miller, Alan B
+Januzzi, James L
+O'Neill, Blair J
+Gundapaneni, Balarama
+Patterson, Terrell A
+Sultan, Marla B
+López-Sendón, José
+Clinical Trial, Phase III
+Journal Article
+Randomized Controlled Trial
+Research Support, Non-U.S. Gov't
+United States
+Am J Cardiol. 2021 Jun 1;148:146-150. doi: 10.1016/j.amjcard.2021.02.035. Epub 2021 Mar 3.
+%+ Department of Medicine, University of Florida Cardiovascular Center, Jacksonville, Florida. Electronic address: alan.miller@jax.ufl.edu.
+Massachusetts General Hospital, Baim Institute for Clinical Research, Boston, Massachusetts.
+University of Alberta, Edmonton, Alberta, Canada.
+Pfizer Inc, Groton, Connecticut.
+Pfizer Inc, New York, New York.
+Hospital Universitario La Paz, IdiPaz, CIBER-CV, Madrid, Spain.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Solomon, S. D.
+%A Adams, D.
+%A Kristen, A.
+%A Grogan, M.
+%A González-Duarte, A.
+%A Maurer, M. S.
+%A Merlini, G.
+%A Damy, T.
+%A Slama, M. S.
+%A Brannagan, T. H., 3rd
+%A Dispenzieri, A.
+%A Berk, J. L.
+%A Shah, A. M.
+%A Garg, P.
+%A Vaishnaw, A.
+%A Karsten, V.
+%A Chen, J.
+%A Gollob, J.
+%A Vest, J.
+%A Suhr, O.
+%D 2019
+%T Effects of Patisiran, an RNA Interference Therapeutic, on Cardiac Parameters in Patients With Hereditary Transthyretin-Mediated Amyloidosis
+%B Circulation
+%V 139
+%N 4
+%P 431-443
+%7 2018/12/28
+%8 Jan 22
+%! Effects of Patisiran, an RNA Interference Therapeutic, on Cardiac Parameters in Patients With Hereditary Transthyretin-Mediated Amyloidosis
+%O Circulation
+%@ 0009-7322
+%R 10.1161/circulationaha.118.035831
+%M 30586695
+%K Adolescent
+Adult
+Aged
+Aged, 80 and over
+Amyloid Neuropathies, Familial/genetics/mortality/physiopathology/*therapy
+Biomarkers/blood
+Cardiomyopathies/genetics/mortality/physiopathology/*therapy
+Double-Blind Method
+Female
+Humans
+Male
+Middle Aged
+Natriuretic Peptide, Brain/blood
+Patient Admission
+Peptide Fragments/blood
+Prealbumin/*genetics/metabolism
+RNA, Small Interfering/adverse effects/*genetics/metabolism
+RNAi Therapeutics/adverse effects/*methods/mortality
+Recovery of Function
+Time Factors
+Treatment Outcome
+*Ventricular Function, Left
+*Ventricular Remodeling
+Young Adult
+Apollo
+RNA interference
+cardiac amyloidosis
+cardiomyopathy
+hATTR amyloidosis
+patisiran
+%X BACKGROUND: Hereditary transthyretin-mediated (hATTR) amyloidosis is a rapidly progressive, multisystem disease that presents with cardiomyopathy or polyneuropathy. The APOLLO study assessed the efficacy and tolerability of patisiran in patients with hATTR amyloidosis. The effects of patisiran on cardiac structure and function in a prespecified subpopulation of patients with evidence of cardiac amyloid involvement at baseline were assessed. METHODS: APOLLO was an international, randomized, double-blind, placebo-controlled phase 3 trial in patients with hATTR amyloidosis. Patients were randomized 2:1 to receive 0.3 mg/kg patisiran or placebo via intravenous infusion once every 3 weeks for 18 months. The prespecified cardiac subpopulation comprised patients with a baseline left ventricular wall thickness ≥13 mm and no history of hypertension or aortic valve disease. Prespecified exploratory cardiac end points included mean left ventricular wall thickness, global longitudinal strain, and N-terminal prohormone of brain natriuretic peptide. Cardiac parameters in the overall APOLLO patient population were also evaluated. A composite end point of cardiac hospitalizations and all-cause mortality was assessed in a post hoc analysis. RESULTS: In the cardiac subpopulation (n=126; 56% of total population), patisiran reduced mean left ventricular wall thickness (least-squares mean difference ± SEM: -0.9±0.4 mm, P=0.017), interventricular septal wall thickness, posterior wall thickness, and relative wall thickness at month 18 compared with placebo. Patisiran also led to increased end-diastolic volume (8.3±3.9 mL, P=0.036), decreased global longitudinal strain (-1.4±0.6%, P=0.015), and increased cardiac output (0.38±0.19 L/min, P=0.044) compared with placebo at month 18. Patisiran lowered N-terminal prohormone of brain natriuretic peptide at 9 and 18 months (at 18 months, ratio of fold-change patisiran/placebo 0.45, P<0.001). A consistent effect on N-terminal prohormone of brain natriuretic peptide at 18 months was observed in the overall APOLLO patient population (n=225). Median follow-up duration was 18.7 months. The exposure-adjusted rates of cardiac hospitalizations and all-cause death were 18.7 and 10.1 per 100 patient-years in the placebo and patisiran groups, respectively (Andersen-Gill hazard ratio, 0.54; 95% CI, 0.28-1.01). CONCLUSIONS: Patisiran decreased mean left ventricular wall thickness, global longitudinal strain, N-terminal prohormone of brain natriuretic peptide, and adverse cardiac outcomes compared with placebo at month 18, suggesting that patisiran may halt or reverse the progression of the cardiac manifestations of hATTR amyloidosis. CLINICAL TRIAL REGISTRATION: URL: https://www.clinicaltrials.gov . Unique identifier: NCT01960348.
+%Z 1524-4539
+Solomon, Scott D
+Adams, David
+Kristen, Arnt
+Grogan, Martha
+González-Duarte, Alejandra
+Maurer, Mathew S
+Merlini, Giampaolo
+Damy, Thibaud
+Slama, Michel S
+Brannagan, Thomas H 3rd
+Dispenzieri, Angela
+Berk, John L
+Shah, Amil M
+Garg, Pushkal
+Vaishnaw, Akshay
+Karsten, Verena
+Chen, Jihong
+Gollob, Jared
+Vest, John
+Suhr, Ole
+Clinical Trial, Phase III
+Journal Article
+Multicenter Study
+Randomized Controlled Trial
+Research Support, Non-U.S. Gov't
+United States
+Circulation. 2019 Jan 22;139(4):431-443. doi: 10.1161/CIRCULATIONAHA.118.035831.
+%+ Brigham and Women's Hospital, Harvard Medical School, Boston, MA (S.D.S., A.M.S.).
+Assistance Publique - Hôpitaux de Paris, National Reference Center for FAP, CHU Bicêtre, INSERM U1195, Université Paris Sud, Le Kremlin-Bicêtre, France (D.A.).
+Department of Cardiology, University of Heidelberg, Germany (A.K.).
+Mayo Clinic, Rochester, MN (M.G.).
+Instituto Nacional de Ciencias Médicas y Nutrición Salvador Zubirán, México City, Mexico (A.G.-D.).
+Department of Medicine/Cardiology, Columbia University Medical Center, New York, NY (M.S.M.).
+Amyloidosis Research and Treatment Center, Foundation IRCCS Policlinico San Matteo and University of Pavia, Italy (G.M.).
+French Referral Center for Cardiac Amyloidosis, Amyloidosis Mondor Network, GRC Amyloid Research Institute, Department of Cardiology, Assistance Publique - Hôpitaux de Paris, CHU Henri Mondor, and INSERM U955, Clinical Investigation Center, and DHU ATVB, Creteil, France (T.D.).
+Hôpital Bichat, Cardiology Department, Université Paris Sud, Paris, France (M.S.S.).
+Neurology Department, Columbia University, College of Physicians and Surgeons, New York, NY (T.H.B.).
+Division of Hematology, Mayo Clinic, Rochester, MN (A.D.).
+Amyloidosis Center, Boston Medical Center, MA (J.L.B.).
+Alnylam Pharmaceuticals, Cambridge, MA (P.G., A.V., V.K., J.C., J.G., J.V.).
+Department of Public Health and Clinical Medicine, Umeå University, Sweden (O.S.).
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Viney, N. J.
+%A Guo, S.
+%A Tai, L. J.
+%A Baker, B. F.
+%A Aghajan, M.
+%A Jung, S. W.
+%A Yu, R. Z.
+%A Booten, S.
+%A Murray, H.
+%A Machemer, T.
+%A Burel, S.
+%A Murray, S.
+%A Buchele, G.
+%A Tsimikas, S.
+%A Schneider, E.
+%A Geary, R. S.
+%A Benson, M. D.
+%A Monia, B. P.
+%D 2021
+%T Ligand conjugated antisense oligonucleotide for the treatment of transthyretin amyloidosis: preclinical and phase 1 data
+%B ESC Heart Fail
+%V 8
+%N 1
+%P 652-661
+%7 2020/12/08
+%8 Feb
+%! Ligand conjugated antisense oligonucleotide for the treatment of transthyretin amyloidosis: preclinical and phase 1 data
+%O ESC heart failure
+%@ 2055-5822
+%R 10.1002/ehf2.13154
+%2 PMC7835591
+%M 33283485
+%K Humans
+*Amyloid Neuropathies, Familial/drug therapy/genetics
+Healthy Volunteers
+Ligands
+*Oligonucleotides, Antisense
+Prealbumin/genetics
+Animals
+Mice
+Amyloidosis
+Antisense
+Cardiomyopathy
+Ligand-conjugated
+Polyneuropathy
+Transthyretin
+for Ionis Pharmaceuticals, Inc.
+%X AIMS: Amyloidogenic transthyretin (ATTR) amyloidosis is a fatal disease characterized by progressive cardiomyopathy and/or polyneuropathy. AKCEA-TTR-L(Rx) (ION-682884) is a ligand-conjugated antisense drug designed for receptor-mediated uptake by hepatocytes, the primary source of circulating transthyretin (TTR). Enhanced delivery of the antisense pharmacophore is expected to increase drug potency and support lower, less frequent dosing in treatment. METHODS AND RESULTS: AKCEA-TTR-L(Rx) demonstrated an approximate 50-fold and 30-fold increase in potency compared with the unconjugated antisense drug, inotersen, in human hepatocyte cell culture and mice expressing a mutated human genomic TTR sequence, respectively. This increase in potency was supported by a preferential distribution of AKCEA-TTR-L(Rx) to liver hepatocytes in the transgenic hTTR mouse model. A randomized, placebo-controlled, phase 1 study was conducted to evaluate AKCEA-TTR-L(Rx) in healthy volunteers (ClinicalTrials.gov: NCT03728634). Eligible participants were assigned to one of three multiple-dose cohorts (45, 60, and 90 mg) or a single-dose cohort (120 mg), and then randomized 10:2 (active : placebo) to receive a total of 4 SC doses (Day 1, 29, 57, and 85) in the multiple-dose cohorts or 1 SC dose in the single-dose cohort. The primary endpoint was safety and tolerability; pharmacokinetics and pharmacodynamics were secondary endpoints. All randomized participants completed treatment. No serious adverse events were reported. In the multiple-dose cohorts, AKCEA-TTR-L(Rx) reduced TTR levels from baseline to 2 weeks after the last dose of 45, 60, or 90 mg by a mean (SD) of -85.7% (8.0), -90.5% (7.4), and -93.8% (3.4), compared with -5.9% (14.0) for pooled placebo (P < 0.001). A maximum mean (SD) reduction in TTR levels of -86.3% (6.5) from baseline was achieved after a single dose of 120 mg AKCEA-TTR-L(Rx) . CONCLUSIONS: These findings suggest an improved safety and tolerability profile with the increase in potency achieved by productive receptor-mediated uptake of AKCEA-TTR-L(Rx) by hepatocytes and supports further development of AKCEA-TTR-L(Rx) for the treatment of ATTR polyneuropathy and cardiomyopathy.
+%Z 2055-5822
+Viney, Nicholas J
+Guo, Shuling
+Tai, Li-Jung
+Baker, Brenda F
+Aghajan, Mariam
+Jung, Shiangtung W
+Yu, Rosie Z
+Booten, Sheri
+Murray, Heather
+Machemer, Todd
+Burel, Sebastien
+Murray, Sue
+Buchele, Gustavo
+Tsimikas, Sotirios
+Schneider, Eugene
+Geary, Richard S
+Benson, Merrill D
+Monia, Brett P
+Clinical Trial, Phase I
+Journal Article
+Randomized Controlled Trial
+Research Support, Non-U.S. Gov't
+England
+ESC Heart Fail. 2021 Feb;8(1):652-661. doi: 10.1002/ehf2.13154. Epub 2020 Dec 7.
+%U https://escholarship.org/content/qt41n576q7/qt41n576q7.pdf?t=ry51m7
+%> internal-pdf://0288093757/Viney-2021-Ligand conjugated antisense oligonu.pdf
+%+ Ionis Pharmaceuticals, Inc., 2855 Gazelle Court, Carlsbad, CA, 92010, USA.
+University of California San Diego, La Jolla, CA, USA.
+Indiana University School of Medicine, Indianapolis, IN, USA.
+%W NLM
+%G eng
+
+
+
+%0 Journal Article
+%A Waddington-Cruz, M.
+%A Ackermann, E. J.
+%A Polydefkis, M.
+%A Heitner, S. B.
+%A Dyck, P. J.
+%A Barroso, F. A.
+%A Wang, A. K.
+%A Berk, J. L.
+%A Dyck, P. J. B.
+%A Monia, B. P.
+%A Hughes, S. G.
+%A Tai, L.
+%A Jesse Kwoh, T.
+%A Jung, S. W.
+%A Coelho, T.
+%A Benson, M. D.
+%A Gertz, M. A.
+%D 2018
+%T Hereditary transthyretin amyloidosis: baseline characteristics of patients in the NEURO-TTR trial
+%B Amyloid
+%V 25
+%N 3
+%P 180-188
+%7 2018/09/01
+%8 Sep
+%! Hereditary transthyretin amyloidosis: baseline characteristics of patients in the NEURO-TTR trial
+%O Amyloid : the international journal of experimental and clinical investigation : the official journal of the International Society of Amyloidosis
+%@ 1350-6129
+%R 10.1080/13506129.2018.1503593
+%M 30169969
+%K Adult
+Aged
+Aged, 80 and over
+Amyloid Neuropathies, Familial/drug therapy/*genetics
+Cardiomyopathies/drug therapy/genetics
+Female
+Humans
+Male
+Middle Aged
+Mutation/*genetics
+Oligonucleotides, Antisense/therapeutic use
+Polyneuropathies/drug therapy/genetics
+Prealbumin/*genetics
+Quality of Life
+Young Adult
+Transthyretin
+amyloidosis
+cardiomyopathy
+polyneuropathy
+%X BACKGROUND: Hereditary transthyretin (ATTRm) amyloidosis is a rare, progressive and fatal disease with a range of clinical manifestations. OBJECTIVE: This study comprehensively evaluates disease characteristics in a large, diverse cohort of patients with ATTRm amyloidosis. METHODS: Adult patients (N = 172) with Stage 1 or Stage 2 ATTRm amyloidosis who had polyneuropathy were screened and enrolled across 24 investigative sites and 10 countries in the NEURO-TTR trial ( www.clinicaltrials.gov , NCT01737398). Medical and disease history, quality of life, laboratory data, and clinical assessments were analyzed. RESULTS: The NEURO-TTR patient population was diverse in age, disease severity, TTR mutation, and organ involvement. Twenty-seven different TTR mutations were present, with Val30Met being the most common (52%). One third of patients reported early onset disease (before age 50) and the average duration of neuropathy symptoms was 5.3 years. Symptoms affected multiple organs and systems, with nearly 70% of patients exhibiting broad involvement of weakness, sensory loss, and autonomic disturbance. Over 60% of patients had cardiomyopathy, with highest prevalence in the United States (72%) and lowest in South America/Australasia (33%). Cardiac biomarker NT-proBNP correlated with left ventricular wall thickness (p<.001). Quality of life, measured by Norfolk QoL-DN and SF-36 patient-reported questionnaires, was significantly impaired and correlated with disease severity. CONCLUSIONS: Baseline data from the NEURO-TTR trial demonstrates ATTRm amyloidosis as a systemic disease with deficits in multiple organs and body systems, leading to decreased quality of life. We report concomitant presentation of polyneuropathy and cardiomyopathy in most patients, and early involvement of multiple body systems.
+%Z 1744-2818
+Waddington-Cruz, Marcia
+Ackermann, Elizabeth J
+Polydefkis, Michael
+Heitner, Stephen B
+Dyck, Peter J
+Barroso, Fabio A
+Wang, Annabel K
+Berk, John L
+Orcid: 0000-0002-1768-2373
+Dyck, P James B
+Monia, Brett P
+Hughes, Steven G
+Tai, Li
+Jesse Kwoh, T
+Jung, Shiangtung W
+Coelho, Teresa
+Benson, Merrill D
+Gertz, Morie A
+Orcid: 0000-0002-3853-5196
+Clinical Trial, Phase III
+Journal Article
+Randomized Controlled Trial
+England
+Amyloid. 2018 Sep;25(3):180-188. doi: 10.1080/13506129.2018.1503593. Epub 2018 Aug 31.
+%+ a Department of Neurology , Hospital Universitario Clementino Fraga, Federeal University of Rio , Rio de Janeiro , Brazil.
+b Clinical Development, Ionis Pharmaceuticals , Carlsbad , California , USA.
+c Department of Neurology , Johns Hopkins University , Baltimore , Maryland , USA.
+d Division of Cardiovascular Medicine , Knight Cardiovascular Institute , Portland , Oregon , USA.
+e Department of Neurology , Mayo Clinic , Rochester , Minnesota , USA.
+f Department of Neurology , Institute for Neurological Research Raúl Carrea, FLENI , Buenos Aires , Argentina.
+g Department of Neurology , University of California , Irvine, Orange , California , USA.
+h Amyloidosis Center , Boston University School of Medicine , Boston , Massachusetts , USA.
+i Drug Discovery, Ionis Pharmaceuticals , Carlsbad , California , USA.
+j Biometrics, Ionis Pharmaceuticals , Carlsbad , California , USA.
+k Hospital de Santo Antonio , Centro Hospitalar Porto , Porto , Portugal.
+l Department of Pathology and Laboratory Medicine , Indiana University School of Medicine , Indianapolis , Indiana , USA.
+m Division of Hematology, Mayo Clinic , Rochester , Minnesota , USA.
+%W NLM
+%G eng
+
+
+

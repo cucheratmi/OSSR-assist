@@ -1,0 +1,145 @@
+{% extends 'base_study_fullscreen.html' %}
+
+{%  block col2 %}
+
+<ul class="nav nav-tabs mt-0 mb-4">
+  <li class="nav-item">
+    <a class="nav-link" href="/study/fullscreen/tab1/{{ study_id }}/{{ project_id }}/{{ record_id }}">Study</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}">Fields</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}">Results</a>
+  </li>
+</ul>
+
+    <form>
+    <div class="mt-0 mb-0">
+        <div class="dropdown" style="float: right; margin-right: 1em;">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-list"></i> menu
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                    {%  if record_id==0 %}
+                        <p class="p-3" style="color: red;">Select a reference with PDF</p>
+                    {% endif %}
+                    <li>
+                        <a class="dropdown-item {% if record_id==0 %}disabled{% endif %}"
+                           href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}/20" onclick="loading()">
+                            <i class="bi bi-stars"></i> AI extraction from abstract
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item {% if record_id==0 %}disabled{% endif %}"
+                           href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}/21" onclick="loading()">
+                            <i class="bi bi-stars"></i> AI extraction from PDF
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item {% if record_id==0 %}disabled{% endif %}"
+                           href="#"
+                           hx-get="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}/9999"
+                           hx-trigger="click" hx-target="#AI_check" hx-swap="innerHTML" hx-indicator="#loader" >
+                            <i class="bi bi-stars"></i> AI checking extraction
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item disabled"
+                           href="/AI/compare1_r/{{ study_id }}/{{ project_id }}/{{ record_id }}/2" onclick="loading()">
+                            compare models for extraction
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item disabled"
+                           href="/AI/compare2_r/{{ study_id }}/{{ project_id }}/{{ record_id }}/2" onclick="loading()">
+                            compare models for extraction checking
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a href="" class="dropdown-item disabled">
+                            ???
+                        </a>
+                    </li>
+            </ul>
+        </div>
+        &nbsp;
+    </div>
+
+
+    <div id="AI_check" class="mt-4 mb-4" style=""></div>
+
+    <div id="loading"  style="display: none; text-align: center; font-size: large;">
+        <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Chargement...</span>
+        </div>
+    </div>
+    <script>
+    function loading() {
+        document.getElementById("loading").style.display = "block";
+    }
+    </script>
+
+    <div id="loader" class="htmx-indicator" style="text-align: center; font-size: large;">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Chargement...</span>
+      </div>
+    </div>
+
+
+        {% for f in results_data %}
+            <div class="row gt-3 mb-1 mt-4">
+                <div class="col-md-12" >
+                    <label for="F{{ f['outcome_name'] }}" class="form-label">{{ f['label'] }}</label>
+                    <textarea rows=2 class="form-control" id="F{{ f['outcome_id'] }}" name="F{{ f['outcome_id'] }}"
+                           hx-post="/outcomes/result_update/{{ f['outcome_id'] }}/{{ study_id }}"
+                           hx-trigger="change" hx-target="#F{{ f['outcome_id'] }}_info" hx-swap="innerHTML">{{ f['value'] }}</textarea>
+                    <div class="form-text">{{ f['description'] }}</div>
+                    <div id="F{{ f['outcome_id'] }}_info" class="form-text"></div>
+                </div>
+            </div>
+
+            {%  if f['outcome_id'] in AI_data %}
+            <div class="row gt-3 mb-3 mt-0 ">
+                <div class="col-md-11 form-floating">
+                    <textarea class="form-control" style="font-size: small; height: 4rem;"
+                              id="AI_{{ f['outcome_id'] }}" name="AI_{{ f['outcome_id'] }}" placeholder="✨ AI suggestion">{{ AI_data[f['outcome_id']] }}</textarea>
+                    <label for="AI_{{ f['outcome_id'] }}">AI suggestion</label>
+                </div>
+                <div class="col-md-1 align-middle" >
+                    <a class="btn btn-outline-primary btn-sm align-middle"
+                       href="javascript:void(0)" onclick="save_AI('{{ f['outcome_id'] }}')">
+                        save
+                    </a>
+                </div>
+
+            </div>
+            {%  endif %}
+
+
+        {% endfor %}
+    </form>
+<script>
+function save_AI(outcome_id) {
+    var AI_value = document.getElementById("AI_"+outcome_id).value;
+    document.getElementById("F"+outcome_id).value = AI_value;
+    document.getElementById("F"+outcome_id).dispatchEvent(new Event('change'));
+}
+</script>
+
+    <p style="text-align: center; margin-top: 4em;">
+    You can add supplementary outcomes in the <a class="nav-link " href="/outcomes/setup/{{ project_id }}">outcomes setup project tab</a>
+    </p>
+
+
+{%  endblock %}

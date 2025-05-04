@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<p class="mt-3 mb-3">
+    <a href="/pdfs/list/{{ project_id }}/{{ record_id }}" class="return_arrow">
+    <i class="bi bi-arrow-left"></i> return to the reference list
+    </a>
+</p>
+
+<h1>PDF upload</h1>
+
+    <h2>Record #{{ record_id }}</h2>
+
+    <p class="record_source">{{ record_data["author1"] }} {{ record_data["source"] }}</p>
+    <p class="record_title">{{ record_data["title"] | safe}}</p>
+
+    <p>
+    <a href="https://pubmed.ncbi.nlm.nih.gov/{{ record_data["pmid"] }}" target="_blank">
+        pubmed: {{ record_data["pmid"] }}
+    </a>
+    </p>
+    <p>
+    <a href="https://doi.org/{{ record_data["DOI"] }}" target="_blank">
+        doi: {{ record_data["DOI"] }}
+    </a>
+    </p>
+    <p>
+    <a target="_blank" href="{{ record_data["url"] }}">
+        <i class="bi, bi-link"></i> link to fulltext
+    </a>
+    </p>
+
+<h3>Upload pdf file (.pdf)</h3>
+
+    <p>
+        The PDF files of the references fulltext are needed for the second pass of the reference screening and
+    for the data extraction by AI
+    </p>
+
+            <div class="alert alert-light mt-5 mb-5" role="alert">
+            <h4 class="alert-heading">Upload fulltext PDF file</h4>
+            <form action="/pdfs/upload_pdf/{{ record_id }}/{{ project_id }}" method="post" enctype="multipart/form-data">
+
+                <label for="pdfFile" class="form-label ">PDF file (.pdf) to upload</label>
+                <input type="file" class="form-control mb-4" id="pdfFile" name="pdfFile">
+
+                <button type="submit" class="btn btn-primary">Upload pdf</button>
+            </form>
+        </div>
+
+
+
+{%  endblock %}

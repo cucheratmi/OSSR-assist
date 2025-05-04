@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+    {%  set page = 'screening' %}
+    {% include '_navbar1.html' %}
+
+    {# secondary navbar  #}
+    <div class="mb-3">
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="/records/list/{{ project_id }}/1/{{ i_page }}" style="width: 12rem; text-align: center;">pass 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/records/list/{{ project_id }}/2/{{ i_page }}" style="width: 12rem; text-align: center;">pass 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#" style="width: 12rem; text-align: center;">flow chart</a>
+            </li>
+        </ul>
+
+    </div>
+
+    <h5 class="mt-0 mb-4">
+        Flowchart numbers
+    </h5>
+
+<table class="table table-condensed table-hover" style="width: auto;">
+<tr>
+    <td>Total number of references</td><td>{{ total }}</td>
+</tr>
+<tr>
+    <td>Number of included references during pass2</td><td>{{ included1 }}</td>
+</tr>
+<tr>
+    <td>Number of included references during pass1</td><td>{{ included2 }}</td>
+</tr>
+<tr>
+    <td>Number of excluded references during pass1</td><td>{{ excluded1 }}</td>
+</tr>
+<tr>
+    <td>Number of excluded references during pass2</td><td>{{ excluded2 }}</td>
+</tr>
+<tr>
+    <td>Number of still undecideds </td><td>{{ undecided }}</td>
+</tr>
+<tr>
+    <td>Number of studies</td><td>{{ studies }}</td>
+</tr>
+
+</table>
+
+
+{%  endblock %}

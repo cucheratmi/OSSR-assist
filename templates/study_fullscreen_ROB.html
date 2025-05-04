@@ -1,0 +1,155 @@
+{% extends 'base_study_fullscreen.html' %}
+
+{%  block col2 %}
+
+    <div>
+<ul class="nav nav-tabs mt-0 mb-4">
+  <li class="nav-item">
+    <a class="nav-link" href="/study/fullscreen/tab1/{{ study_id }}/{{ project_id }}/{{ record_id }}">Study</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}">Fields</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Results</a>
+  </li>
+</ul>
+</div>
+
+
+    <div class="row" style="text-align: right;">
+        <div class="dropdown" style="">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                <i class="bi bi-list"></i> menu
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                {% if record_id==0 %}
+                    <p class="p-3" style="color: red;">select a reference with PDF</p>
+                {% endif %}
+                <li>
+                    <a class="dropdown-item  {% if record_id==0 %}disabled{% endif %}"
+                       href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}/10"
+                       onclick="loading()">
+                        <i class="bi bi-stars"></i> AI suggestion using PDF
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item  {% if record_id==0 %}disabled{% endif %}"
+                       href="#"
+                       hx-get="/study/check_ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}"
+                       hx-trigger="click" hx-target="#AI_check" hx-swap="innerHTML" hx-indicator="#loader">
+                        <i class="bi bi-stars"></i> AI checking
+                    </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a href="" class="dropdown-item disabled">
+                        ???
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="loading"  style="display: none; text-align: center; font-size: large;">
+        <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Chargement...</span>
+        </div>
+
+    </div>
+    <script>
+    function loading() {
+        document.getElementById("loading").style.display = "block";
+    }
+    </script>
+
+    <div id="AI_check" class="mt-0 mb-0" style=""></div>
+
+    <div id="loader" class="htmx-indicator" style="text-align: center; font-size: large;">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Chargement...</span>
+      </div>
+    </div>
+
+
+    <form id="form_ROB">
+
+        {% for i in ROB.keys() %}
+            <div class='row gt-3 mt-5 mb-2'>
+                <div class="col-md-6 align-middle" style="">
+                    {{ ROB[i]['domain'] }}
+                </div>
+                <div class="col-md-6">
+                    <select class='form-select' id="level_{{ i }}" name="level_{{ i }}"
+                            hx-post="/study/ROB_set_level/{{ study_id }}/{{ i }}" hx-trigger="change"
+                            hx-target="#level_{{ i }}" hx-swap="none">
+                        <option value="0"></option>
+                        <option value="1">low risk</option>
+                        <option value="2">some concern</option>
+                        <option value="3">high risk</option>
+                    </select>
+                    <script>
+                        document.getElementById("level_{{ i }}").value = "{{ ROB[i]['level'] }}";
+                    </script>
+                </div>
+            </div>
+
+            <div class="row gt-3 mb-1">
+                <div class="col-md-12" >
+{#                    <label for="justification_{{ i }}" class="form-label">Justification</label>#}
+                    <textarea rows=3 class="form-control" id="justification_{{ i }}" name="justification_{{ i }}"
+                              placeholder="Justification"
+                              hx-post="/study/ROB_set_justification/{{ study_id }}/{{ i }}"
+                              hx-trigger="change" hx-target="#justification_{{ i }}"
+                              hx-swap="none">{{ ROB[i]['justification'] }}</textarea>
+                </div>
+            </div>
+
+            {% if i in AI_data %}
+                <div class="row gt-3 mt-1 mb-3">
+                    <div class="col-md-11 form-floating">
+                        <textarea class="form-control" style="font-size: small; background-color: lavender; height: 6rem;"
+                                  id="AI_{{ i }}"
+                                  name="AI_{{ i }}">**{{ AI_data[i]['risk_of_bias'] }}** {{ AI_data[i]['justification'] }}</textarea>
+                        <label for="AI_{{ i }}">✨ AI suggestion</label>
+                    </div>
+                    <div class="col-md-1 align-middle" >
+                        <a class="btn btn-outline-primary btn-sm"
+                           href="javascript:void(0)" onclick="save_AI({{ i }}, {{ AI_data[i]['level'] }})">
+                            save
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endfor %}
+
+    </form>
+
+<script>
+function save_AI(i, AI_level) {
+    const justification_lib ="justification_"+i;
+    const level_lib ="level_" + i;
+
+    var AI_justification = document.getElementById("AI_"+i).value;
+
+    document.getElementById(justification_lib).value = AI_justification;
+    document.getElementById(level_lib).value = AI_level;
+
+    document.getElementById(justification_lib).dispatchEvent(new Event('change'));
+    document.getElementById(level_lib).dispatchEvent(new Event('change'));
+}
+
+</script>
+
+
+
+
+{%  endblock %}

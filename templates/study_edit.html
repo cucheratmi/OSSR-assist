@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+<p>
+    <a href="/studies/list/{{ project_id }}">
+    <i class="bi bi-arrow-left"></i> studies list
+    </a>
+</p>
+
+    <h2 class="mt-4">
+        {{ study_data["project_name"] }}
+        <small class="text-body-secondary"># {{ project_id }}</small>
+    </h2>
+
+    <h1 class="mt-4">{{ study_data["name"] }} <small class="text-body-secondary">Study edit</small></h1>
+
+    <form class="mt-4">
+        <div class="mb-4">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ study_data["name"] }}"
+                   hx-post="/study/update_field/{{ study_id }}" hx-trigger="change" hx-target="#name_info"
+                   hx-swap="innerHTML"/>
+            <div id="name_info" class="form-text"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="registration_number" class="form-label">registration number</label>
+            <input type="text" class="form-control" id="registration_number" name="registration_number"
+                   value="{{ study_data["registration_number"] }}" hx-post="/study/update_field/{{ study_id }}"
+                   hx-trigger="change" hx-target="#registration_number_info" hx-swap="innerHTML"/>
+            <div id="registration_number_info" class="form-text"></div>
+        </div>
+
+        {% for f in data_fields %}
+            <div class="mb-4">
+                <label for="F{{ f['field_name'] }}" class="form-label">{{ f['field_name'] }}</label>
+                <input type="text" class="form-control" id="F{{ f['field_id'] }}" name="F{{ f['field_id'] }}"
+                       value="{{ f['value'] }}" hx-post="/study/update_field2/{{ study_id }}/{{ f['field_id'] }}"
+                       hx-trigger="change" hx-target="#F{{ f['field_id'] }}_info" hx-swap="innerHTML"/>
+                <div id="F{{ f['field_id'] }}_info" class="form-text"></div>
+            </div>
+        {% endfor %}
+    </form>
+
+    <h4 class="mt-4 mb-2">Reference(s)</h4>
+    {% for r in references %}
+        <p class="mb-2">
+        {{ r['author1'] }} {{ r['title'] }} {{ r['source'] }}
+        <br/>
+        [{{ r['pmid'] }}] - {{ r['DOI'] }} - (record #{{ r['id'] }})
+        <br/>
+        <a href="/study/extraction_AI1/{{ study_id }}/{{ r['id'] }}" class="btn btn-warning btn-xs" target="_blank">AI extraction</a>
+        </p>
+    {% endfor %}
+
+
+{%  endblock %}

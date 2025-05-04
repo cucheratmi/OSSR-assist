@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<p class="mt-3 mb-3">
+    <a href="/" class="return_arrow">
+    <i class="bi bi-arrow-left"></i> return to projects list
+    </a>
+</p>
+
+
+<h1>Load saved project (.JSON file)</h1>
+
+<div class="alert alert-light mt-5 mb-5" role="alert">
+    <h4 class="alert-heading">Upload JSON file</h4>
+    <form action="/project/load_json" method="post" enctype="multipart/form-data">
+
+        <label for="json_file" class="form-label ">json_file to upload</label>
+        <input type="file" class="form-control mb-4" id="json_file" name="json_file">
+
+        <button type="submit" class="btn btn-primary">Load</button>
+    </form>
+</div>
+
+
+
+{%  endblock %}

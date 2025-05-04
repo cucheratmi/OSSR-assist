@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<p class="mt-3 mb-3">
+    <a href="/records/list/{{ project_id }}" class="return_arrow">
+    <i class="bi bi-arrow-left"></i> return to the reference list
+    </a>
+</p>
+
+
+
+    <h3>Upload reference file {{ s_database }}</h3>
+
+    <p>Upload a {{ format }} file containing your reference records. The file will be processed and the references will be
+        added to your project.</p>
+
+    <form action="/records/upload/{{ project_id }}/{{ s_database }}" method="post" enctype="multipart/form-data" class>
+
+        <label for="risFile" class="form-label">Choose {{ format }} file</label>
+        <input type="file" class="form-control" id="risFile" name="risFile">
+
+        <button type="submit" class="btn btn-primary mt-4">Upload references</button>
+    </form>
+
+
+{%  endblock %}

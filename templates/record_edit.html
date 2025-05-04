@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+
+{%  block content %}
+
+
+        <p class="mt-2 mb-3">
+            <a href="/records/list/{{ project_id }}">
+                <i class="bi bi-arrow-left"></i> return to the reference list
+            </a>
+        </p>
+
+    <h1>Reference edit <small class="text-secondary">reference #{{ record_id }}</small></h1>
+
+        <form>
+
+            <div class="mb-4">
+                <label for="author1" class="form-label">author1</label>
+                <input type="text" class="form-control" id="author1" name="author1"
+                       value="{{ record_data['author1'] }}" hx-post="/record/field_modif/{{ record_id }}/author1"
+                       hx-trigger="change" hx-target="#author1_info" hx-swap="innerHTML"/>
+                <div id="author1_info" class="form-text"></div>
+            </div>
+            <div class="mb-4">
+                <label for="title" class="form-label">title</label>
+                <input type="text" class="form-control" id="title" name="title"
+                       value="{{ record_data['title'] }}" hx-post="/record/field_modif/{{ record_id }}/title"
+                       hx-trigger="change" hx-target="#title_info" hx-swap="innerHTML"/>
+                <div id="title_info" class="form-text"></div>
+            </div>
+            <div class="mb-4">
+                <label for="source" class="form-label">source</label>
+                <input type="text" class="form-control" id="source" name="source"
+                       value="{{ record_data['source'] }}" hx-post="/record/field_modif/{{ record_id }}/source"
+                       hx-trigger="change" hx-target="#source_info" hx-swap="innerHTML"/>
+                <div id="source_info" class="form-text"></div>
+            </div>
+            <div class="mb-4">
+                <label for="registration_number" class="form-label">registration_number</label>
+                <input type="text" class="form-control" id="registration_number" name="registration_number"
+                       value="{{ record_data['registration_number'] }}" hx-post="/record/field_modif/{{ record_id }}/registration_number"
+                       hx-trigger="change" hx-target="#registration_number_info" hx-swap="innerHTML"/>
+                <div id="registration_number_info" class="form-text"></div>
+            </div>
+            <div class="mb-4">
+                <label for="DOI" class="form-label">DOI</label>
+                <input type="text" class="form-control" id="DOI" name="DOI"
+                       value="{{ record_data['DOI'] }}" hx-post="/record/field_modif/{{ record_id }}/DOI"
+                       hx-trigger="change" hx-target="#DOI_info" hx-swap="innerHTML"/>
+                <div id="DOI_info" class="form-text"></div>
+            </div>
+            <div class="mb-4">
+                <label for="pmid" class="form-label">pmid</label>
+                <input type="text" class="form-control" id="pmid" name="pmid"
+                       value="{{ record_data['pmid'] }}" hx-post="/record/field_modif/{{ record_id }}/pmid"
+                       hx-trigger="change" hx-target="#pmid_info" hx-swap="innerHTML"/>
+                <div id="pmid_info" class="form-text"></div>
+            </div>
+            <div class="mb-4">
+                <label for="url" class="form-label">url</label>
+                <input type="text" class="form-control" id="url" name="url"
+                       value="{{ record_data['url'] }}" hx-post="/record/field_modif/{{ record_id }}/url"
+                       hx-trigger="change" hx-target="#url_info" hx-swap="innerHTML"/>
+                <div id="url_info" class="form-text"></div>
+            </div>
+            <div class="mb-4">
+                <label for="acronym" class="form-label">acronym</label>
+                <input type="text" class="form-control" id="acronym" name="acronym"
+                       value="{{ record_data['acronym'] }}" hx-post="/record/field_modif/{{ record_id }}/acronym"
+                       hx-trigger="change" hx-target="#acronym_info" hx-swap="innerHTML"/>
+                <div id="acronym_info" class="form-text"></div>
+            </div>
+          <div class="mb-4">
+                <label for="abstract" class="form-label">abstract</label>
+                <textarea rows="7" class="form-control" id="abstract" name="abstract"
+                          hx-post="/record/field_modif/{{ record_id }}/abstract"
+                          hx-trigger="change" hx-target="#abstract_info" hx-swap="innerHTML">{{ record_data['abstract'] }}</textarea>
+                <div id="abstract_info" class="form-text"></div>
+            </div>
+
+
+{#            <div class="mb-4">#}
+{#                <label for="xxx" class="form-label">xxx</label>#}
+{#                <input type="text" class="form-control" id="xxx" name="xxx"#}
+{#                       value="{{ record_data['xxx'] }}" hx-post="/record/field_modif/{{ record_id }}/xxx"#}
+{#                       hx-trigger="change" hx-target="#xxx_info" hx-swap="innerHTML"/>#}
+{#                <div id="xxx_info" class="form-text"></div>#}
+{#            </div>#}
+
+            
+            
+        </form>
+
+
+{% endblock %}

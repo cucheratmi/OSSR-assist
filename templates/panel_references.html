@@ -1,0 +1,70 @@
+{% extends 'base_popup.html' %}
+
+{#TODO a effacer probablement#}
+
+{%  block content %}
+
+<h1>study panel extraction </h1>
+
+    <h2>Study #{{ study_id }}</h2>
+
+    <form>
+    <div class="mb-4">
+        <label for="name" class="form-label">References</label>
+        <select class="form-control" id="references" name="references" onchange="references_selected(this)" >
+            <option value="">Select a reference...</option>
+            {% for r in references %}
+                <option value="{{ r['id'] }}" title="{{ r['title'] }}" {% if record_id==r['id'] %}selected{% endif %}>
+                    {{ r['author1'] }} - {{ r['source'] }}
+                </option>
+            {% endfor %}
+        </select>
+
+    </div>
+    </form>
+
+    <script>
+    function references_selected(e) {
+        var record_id = e.value;
+        var url = "/study/panel_references/{{ study_id }}/{{ project_id }}/" + record_id;
+        window.location.href = url;
+    }
+    </script>
+
+    {% if selected_reference['source'] !="" and selected_reference['source'] is not none %}
+        {% if pdf_exists %}
+            <p><a href="/pdfs/file/{{ selected_reference["id"] }}">PDF</a></p>
+        {%  endif %}
+        <p class="title">{{ selected_reference['title'] }}</p>
+        <p class="source">{{ selected_reference['source'] }}</p>
+
+        <div class="abstract">
+        {{ selected_reference['abstract'] }}
+        </div>
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-stars"></i> AI extraction
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="javascript:AI_extraction()">AI extraction from pdf</a></li>
+            <li><a class="dropdown-item" href="javascript:AI_extraction()">AI extraction from abstract</a></li>
+          </ul>
+        </div>
+
+    {% endif %}
+
+    <script>
+    function AI_extraction() {
+        alert();
+        alert(window.opener.window2.location);
+        var url = "/study/extraction_AI1/{{ study_id }}/{{ record_id }}";
+        window.opener.window2.location = url;
+    }
+    </script>
+
+
+{%  endblock %}
+
+
+

@@ -1,0 +1,46 @@
+{% extends 'base_popup.html' %}
+
+{%  block content %}
+
+<h1>Fulltext access </h1>
+
+    <h2>Record #{{ record_id }}</h2>
+
+
+    <p class="record_source">{{ record_data["author1"] }} {{ record_data["source"] }}</p>
+    <p class="record_title">{{ record_data["title"] | safe}}</p>
+
+
+    <p>
+        PMID {{ record_data["pmid"] }}
+    <a href="https://pubmed.ncbi.nlm.nih.gov/{{ record_data["pmid"] }}" target="_self" class="btn btn-link">
+        pubmed.ncbi.nlm.nih.gov
+    </a>
+    -
+    <a href="https://pubmed.ncbi.nlm.nih.gov/{{ record_data["pmid"] }}/?otool=ifrbucbllib" target="_self" class="btn btn-link">
+        pubmed with otoolof your institution
+    </a>
+    -
+    <a href="https://pubmed-ncbi-nlm-nih-gov.docelec.univ-lyon1.fr/{{ record_data["pmid"] }}" target="_self"
+       class="btn btn-link">
+        pubmed with EZpoxy
+    </a>
+    </p>
+
+    <p>DOI {{ record_data["DOI"] }}
+    <a href="https:doi.org/{{ record_data["DOI"] }}" target="_self">
+        doi.org
+    </a>
+    </p>
+
+    <p>
+    {% if pdf_exists %}
+        <a href="/pdfs/file/{{ record_id }}" style="font-weight: bold;">PDF</a>
+    {% endif %}
+    </p>
+
+
+
+
+
+{%  endblock %}

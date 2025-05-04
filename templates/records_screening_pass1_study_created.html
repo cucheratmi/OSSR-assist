@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+    <a href="/records/list/{{ project_id }}" class="return_arrow">
+    <i class="bi bi-arrow-left"></i> return to the reference list
+    </a>
+
+    <h2>Study created from this reference (abstract)</h2>
+
+    <H3>record #{{ record_id }}</H3>
+
+<h4>study #{{ study_id }}</h4>
+
+<div class="row">
+
+<div class="col-md-7">
+
+    <p class="record_source">{{ record_data["author1"] }} {{ record_data["source"] }}</p>
+    <p>{{ record_data["registration_number"] }}</p>
+    <p class="record_title">{{ record_data["title"] | safe}}</p>
+    <div class="record_abstract">{{ record_data["abstract"] | safe }}</div>
+
+    <h5 class="mt-5 mb-2">AI suggestion</h5>
+    <div class="record_AI_answer">{{ record_data["AI_answer"] | safe }}</div>
+
+</div>
+
+<div class="col-md-5">
+
+<h5>Edit study</h5>
+
+    <form class="mt-4">
+        <div class="mb-4">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ study_data["name"] }}" hx-post="/study/update_field/{{ study_id }}" hx-trigger="change" hx-target="#name_info" hx-swap="innerHTML"/>
+            <div id="name_info" class="form-text"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="registration_number" class="form-label">registration number</label>
+            <input type="text" class="form-control" id="registration_number" name="registration_number" value="{{ study_data["registration_number"] }}" hx-post="/study/update_field/{{ study_id }}" hx-trigger="change" hx-target="#registration_number_info" hx-swap="innerHTML"/>
+            <div id="registration_number_info" class="form-text"></div>
+        </div>
+    </form>
+
+
+    <h4 class="mt-4 mb-2">Reference(s)</h4>
+    {% for r in references %}
+        <p class="mb-2">
+        {{ r['author1'] }} {{ r['title'] }} {{ r['source'] }}
+        <br/>
+        [{{ r['pmid'] }}] - {{ r['DOI'] }} - (record #{{ r['id'] }})
+        <br/>
+        <a href="/study/extraction_AI1/{{ study_id }}/{{ r['id'] }}" class="btn btn-warning btn-xs" target="_blank">AI extraction</a>
+        </p>
+    {% endfor %}
+
+
+
+</div>
+
+</div>
+
+
+
+
+{%  endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<p class="mt-2 mb-3">
+    <a href="/records/list/{{ project_id }}/{{ record_id }}">
+    <i class="bi bi-arrow-left"></i> return to the reference list
+    </a>
+</p>
+
+    <h2>{{ project_name }} <small class="text-secondary">project #{{ project_id }}</small></h2>
+
+<h1>Retraction watch</h1>
+
+{% if r1 != "" or r2 !="" %}
+    <h4 style="color: red;">ALERT! there are retracted references in this project!</h4>
+
+    <div>{{ r1 }}</div>
+
+    <div>{{ r2 }}</div>
+
+    {%  else %}
+    <h4 style="color: darkgreen; font-weight: bold;">No retracted reference</h4>
+    {%  endif %}
+
+
+{%  endblock %}

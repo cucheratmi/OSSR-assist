@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{%  block content %}
+
+
+        <p class="mt-2 mb-3">
+            <a href="/outcomes/setup/{{ project_id }}">
+                <i class="bi bi-arrow-left"></i> return to the outcome list
+            </a>
+        </p>
+
+    <h1>Outcomes edit <small class="text-secondary">field #{{ outcome_id }}</small></h1>
+
+        <form>
+
+            <div class="mb-4">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name"
+                       value="{{ outcome['name'] }}" hx-post="/outcomes/field_update/{{ outcome_id }}/name"
+                       hx-trigger="change" hx-target="#name_info" hx-swap="innerHTML"/>
+                <div id="name_info" class="form-text"></div>
+            </div>
+
+            <div class="mb-4">
+                <label for="description" class="form-label">Description</label>
+                <textarea rows="4" class="form-control" id="description" name="description"
+                          hx-post="/outcomes/field_update/{{ outcome_id }}/description"
+                          hx-trigger="change" hx-target="#description_info"
+                          hx-swap="innerHTML">{{ outcome['description'] }}</textarea>
+                <div id="description_info" class="form-text">
+                    Description that will be incorporated into the prompt for the AI extraction tool
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="type" class="form-label">type</label>
+                <input type="text" class="form-control" id="type" name="type"
+                       value="{{ outcome['type'] }}" hx-post="/outcomes/field_update/{{ outcome_id }}/type"
+                       hx-trigger="change" hx-target="#type_info" hx-swap="innerHTML"/>
+                <div id="type_info" class="form-text"></div>
+            </div>
+
+        </form>
+
+
+
+{%  endblock %}
+
+

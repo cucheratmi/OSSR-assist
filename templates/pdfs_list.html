@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+    {%  set page = 'pdf' %}
+    {% include '_navbar1.html' %}
+
+
+    <p>this page allows uploading the PDF file of the fulltext for each reference retained for screening using fulltext (pass 2) or already included</p>
+
+    {%  if not references  %}
+
+        <div class="alert alert-warning" role="alert">
+        <p>This list is empty because no reference has been included or selected for screening using the fulltext (pass 2).</p>
+        <p> Use the tab 'screening' to screen the references.</p>
+        </div>
+
+    {%  else  %}
+    <table class="table table-condensed table-hover" style="font-size: small;">
+    <tr>
+        <th>selection</th>
+        <th>first author</th>
+        <th>source</th>
+        <th>doi</th>
+        <th>pmid</th>
+        <th>pdf</th>
+        <th>get pdf</th>
+        <th></th>
+    </tr>
+    {% for r in references %}
+        <tr class="{% if r['id'] == record_id %} table-secondary {% endif %}">
+        <td>{{ r['selection'] }}</td>
+        <td>{{ r['author1'] }}</td>
+        <td>{{ r["source"] }}</td>
+        <td>
+            <a href="https://doi.org/{{ r["DOI"] }}" target="_blank">
+            {{ r["DOI"] }}
+            </a>
+        </td>
+        <td>
+            <a href="https://www.ncbi.nlm.nih.gov/pubmed/{{ r["pmid"] }}" target="_blank">
+            {{ r["pmid"] }}
+            </a>
+        </td>
+
+        <td>
+            {%  if pdf_exists[r['id']]  %}
+                <a href="/pdfs/file/{{r['id'] }}" target="_blank"><i class="bi bi-filetype-pdf"></i></a>
+            {% else %}
+                <span style="color: red;">unretrieved pdf</span>
+            {% endif %}
+        </td>
+
+        <td>
+            <a href="/pdfs/upload_panel/{{ r['id'] }}/{{ project_id }}" title="upload pdf">
+                <i class="bi bi-box-arrow-in-down" style="font-size: 1.5rem;"></i>
+            </a>
+        </td>
+        <td>&nbsp;</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {%  endif %}
+
+
+{%  endblock %}

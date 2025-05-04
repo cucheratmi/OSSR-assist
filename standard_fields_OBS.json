@@ -1,0 +1,51 @@
+[
+{
+"name": "exposed_population",
+"description": "definition of the population exposed to the treatment studied (designed sometimes by treatment users)"
+},
+{
+"name": "control_population",
+"description": "definition of the population control, not exposed to the treatment studied (designed sometimes by non-users)"
+},
+{
+"name": "population",
+"description": "description of target population"
+},
+{
+"name": "follow_up",
+"description": "mean or median duration of follow-up, with unit, all groups together"
+},
+{
+"name": "primary_endpoint",
+"description": "primary outcome, could be several if co-primary endpoints were used"
+},
+{
+"name": "N1",
+"description": "sample-size of the exposed group"
+},
+{
+"name": "N0",
+"description": "sample size of the control (non-exposed) group"
+},
+{
+"name": "acronym",
+"description": "acronym of the study (if exists)"
+},
+{
+"name": "study_location",
+"description": "study location"
+},
+{
+"name": "inclusion_period",
+"description": "inclusion period of the study, date of the first patient inclusion, date of the last inclusion"
+},
+{
+"name": "data_source",
+"description": "source of the data used (name of the registry, database, ...)"
+},
+{
+"name": "data_type",
+"description": "type of the data source (claims databased, EHR, registry, primary data, etc.)"
+}
+
+]

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<p class="mt-2 mb-3">
+    <a href="/records/list/{{ project_id }}">
+    <i class="bi bi-arrow-left"></i> return to the reference list
+    </a>
+</p>
+
+
+    <h1>Loading references</h1>
+
+    <p>Please wait during the reference file loading. It could take several minutes according to the number of references to read.</p>
+
+    <p>project #{{ project_id }}</p>
+    <p>database {{ database }}</p>
+
+    <div id="content"></div>
+
+    <script>
+        if (!!window.EventSource) {
+            var source = new EventSource('/records/stream_load_reference_file/{{ project_id }}/{{ database }}');
+            source.onmessage = function(event) {
+                var contentDiv = document.getElementById('content');
+                contentDiv.innerHTML += "<p>"+event.data+"</p>";
+                if (event.data === 'Stream ended.') {
+                    source.close();
+                    //window.location="/records/list/{{ project_id }}";
+                }
+            };
+        } else {
+            alert("Your browser does not support Server-Sent Events.");
+        }
+    </script>
+
+<p>
+    <a href="/records/list/{{ project_id }}" class="btn btn-outline-secondary btn-lg">
+        <i class="bi bi-arrow-left"></i> return to the reference list
+    </a>
+</p>
+
+
+{% endblock %}

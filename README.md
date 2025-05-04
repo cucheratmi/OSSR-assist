@@ -1,0 +1,67 @@
+# OSSR - un logiciel open source d'aide à la réalisation des revues sytématiques
+
+version 0.1
+
+## Description
+Application python d'assistance à la réalisation des revues systématiques. Propose aussi des outils d'IA d'aide 
+à la sélection, à l'extraction et à l'évaluation du risque de biais (nécessite un accès à une API payante 
+d'un modèle de langage).
+Permet la revue systématique des essais cliniques randomisés, des études de technologie diagnostique 
+et aussi d'autres types d'études (hors évaluation du ROB).
+
+
+
+## Fonctionnalités
+- Importation de références à partir d'un fichier Pubmed, Embase, RIS ou Endnote (format endnote export) 
+- Sélection manuelle des références à partir du titre ou de l'abstract
+- Suggestion de sélection automatique par IA (nécessite uen clés d'accès à une API à Mistral, ou openai ou anthropic)
+- Import des PDFs des références
+- Sélection à partir du fulltext (PDF)
+- Sélection assistée par un outil d'IA 
+- Extraction manuelle des données nécessaires pour la revue systématique (caractéristiques des études, résultats)
+- Export des résultats de la sélection, de l'extraction, de l'évaluation du risque de biais sous la forme de fichier .CSV ou Excel
+
+
+## Installation
+
+Soit par clonage, soit en téléchargeant le répertoire compressé (faire ensuite les étapes 2 et 3 à partir 
+du répertoire décompressé).   
+
+1) Cloner le dépositoire github
+à partir de l’emplacement où vous voulez mettre le répertoire cloné.
+```
+git clone https://github.com/cucheratmi/TestDeploiement.git
+```
+
+2) Créer un environnement virtuel
+```
+python -m venv ossr-env
+source ossr-env/bin/activate  # For Windows: pdf-env\Scripts\activate 
+```
+
+3) Installer les dépendances
+```
+pip install -r requirements.txt
+```
+
+4) Configurer les clés d'accès aux API de LLM (optionnel)
+Vous pourrez déclarer la clé d'accès à l'API du modèle de langage que vous souhaitez utiliser dans l'application. 
+Vous pouvez aussi créer un fichier .env contenant une ou plusieurs clés (cf. le fichier exemple: .env-example.
+
+## Utilisation
+à partir du répertoire de l'application 
+
+``
+python app.py
+``
+
+## Développeur(s)
+
+- [Michel Cucherat](https://github.com/cucheratmi) 
+
+## Licence
+The OSSR software has an Apache 2.0 [LICENCE](LICENSE). The OSSR team
+accepts no responsibility or liability for the use of the OSSR software or any
+direct or indirect damages arising out of the application of the tool.
+
+

@@ -1,0 +1,48 @@
+[
+{
+"name": "study_design",
+"description": "study design (cross sectional, case control, cohort study, etc.)"
+},
+{
+"name": "index_test",
+"description": "the index test, which is the test evaluated in the study"
+},
+{
+"name": "reference_standard",
+"description": "reference standard test (sometimes referred to as the gold standard test) should be a test that best defines a person as diseased or not diseased"
+},
+{
+"name": "participants",
+"description": "mean or median duration of follow-up, with unit, all groups together"
+},
+{
+"name": "setting",
+"description": "the context in which the test is used (primary care, emergency department, hospitalised patients, etc.)"
+},
+{
+"name": "target_condition",
+"description": "target condition, that is, the disease condition  that the test is intended to diagnose"
+},
+{
+"name": "blindness",
+"description": "blindness "
+},
+{
+"name": "acronym",
+"description": "acronym of the study (if exists)"
+},
+{
+"name": "study_location",
+"description": "study location"
+},
+{
+"name": "sample_sizes",
+"description": "sample sizes of the compared groups"
+},
+{
+"name": "inclusion_period",
+"description": "inclusion period of the study, date of the first patient inclusion, date of the last inclusion"
+}
+
+
+]

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+    {%  set page = 'studies' %}
+    {% include '_navbar1.html' %}
+
+    <p>
+    <a href="/study_add/{{ project_id }}" class="btn btn-primary">add new study manually</a>
+</p>
+
+
+    <table class="table table-condensed table-hover mt-3" style="width: auto;">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody hx-confirm="You are about to delete a study. &#10; Are you sure?" hx-target="closest tr" hx-swap="outerHTML swap:1s">
+    {% for study in studies %}
+        <tr>
+            <td>{{ study["id"] }}</td>
+            <td>{{ study["name"] }}</td>
+
+            <td style="padding-left: 3em;">
+                <a href="/study/fullscreen/tab1/{{ study["id"] }}/{{ project_id }}/0">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                </a>
+            </td>
+
+            <td style="padding-left: 3em;">
+                <a hx-delete="/study_delete2/{{ study["id"] }}/{{ project_id }}" class=""><i class="bi bi-trash3"></i></a>
+            </td>
+{#            <td>#}
+{#                <button class="btn danger" hx-delete="/study_delete2/{{ study["id"] }}/{{ project_id }}">#}
+{#                  <i class="bi bi-trash3"></i> Delete#}
+{#                </button>#}
+{#            </td>#}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{%  endblock %}

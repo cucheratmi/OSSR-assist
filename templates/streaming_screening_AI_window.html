@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<p class="mt-2 mb-3">
+    <a href="/records/list/{{ project_id }}">
+    <i class="bi bi-arrow-left"></i> return to the reference list
+    </a>
+</p>
+
+    <h1>AI references screening tool</h1>
+
+    <p>Please wait during the screening by the AI tool. It could take several minutes according to the number of references to screen.</p>
+
+    <div id="content"><p>Waiting for data...</p></div>
+
+    <script>
+        if (!!window.EventSource) {
+            var source = new EventSource('/stream2/{{ project_id }}');
+            source.onmessage = function(event) {
+                var contentDiv = document.getElementById('content');
+                contentDiv.innerHTML += "<p>"+event.data+"</p>";
+                if (event.data === 'Stream ended.') {
+                    source.close();
+                    {#window.opener.window.location.reload();#}
+                    {#window.close();#}
+                }
+            };
+        } else {
+            alert("Your browser does not support Server-Sent Events.");
+        }
+    </script>
+
+{%  endblock %}

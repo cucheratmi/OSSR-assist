@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.2.2/datatables.min.css" rel="stylesheet" integrity="sha384-WMi+Ec+QE8hxW/3qKvuefShIddYjwMalSgy0MR4FZnl285C4HGYfISceaagw0Am3" crossorigin="anonymous">
+<script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.2.2/datatables.min.js" integrity="sha384-WcZXtPeSp12Ybwm08R/IL8F3bMhrj0WW6jKsqKXTqJSwCSkISe4unYVY8Vzc1RZc" crossorigin="anonymous"></script>
+
+    {%  set page = 'data' %}
+    {% include '_navbar1.html' %}
+
+
+    <div class="mb-5">
+
+        <div class="dropdown" style="float: right;">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                <i class="bi bi-list"></i> export
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                    <a href="/data/results/excel/{{ project_id }}" target="_blank" class="dropdown-item">
+                        export to Excel .XLSX file
+                    </a>
+                </li>
+                <li>
+                    <a href="/data/results/csv/{{ project_id }}" target="_blank" class="dropdown-item">
+                        export to .CSV file
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="/data/list1/{{ project_id }}" style="width: 12rem; text-align: center;">Fields</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/table/ROB/{{project_id }}" style="width: 12rem; text-align: center;">ROB</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/table/results/{{project_id }}" style="width: 12rem; text-align: center;">Outcomes</a>
+            </li>
+        </ul>
+
+    </div>
+
+    <table class="table table-condensed table-hover table-sm" style="font-size: smaller;">
+
+    <tr>
+        <th>study</th>
+        {% for i in outcomes_list.keys() %}
+            <th style="width: {{ lg }}%;">{{ outcomes_list[i]  }}</th>
+        {%  endfor %}
+    </tr>
+    {%  for study in studies %}
+        <td>{{ study['study_name'] }}</td>
+        {% for i in outcomes_list.keys() %}
+            <td>
+                {{ study['results'][i] }}
+            </td>
+        {%  endfor %}
+    {%  endfor %}
+
+    </table>
+
+    
+
+
+{%  endblock %}

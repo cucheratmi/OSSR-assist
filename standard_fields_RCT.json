@@ -1,0 +1,51 @@
+[
+{
+"name": "studied_treatment",
+"description": "treatment in the experimental group"
+},
+{
+"name": "control_treatment",
+"description": "treatment in the control group"
+},
+{
+"name": "included_patients  ",
+"description": "description of included patients (inclusion criteria)"
+},
+{
+"name": "follow_up",
+"description": "mean or median duration of follow-up, with unit, all groups together"
+},
+{
+"name": "primary_endpoint",
+"description": "primary outcome, could be several if co-primary endpoints were used"
+},
+{
+"name": "N1",
+"description": "sample-size of the treated group (number of patients randomized into the experimental group)"
+},
+{
+"name": "N0",
+"description": "sample size of the control group (number of patients randomized into the control group)"
+},
+{
+"name": "blindness",
+"description": "blindness (double-blind or open-label)"
+},
+{
+"name": "sponsor",
+"description": "sponsor(s) of the clinical trial"
+},
+{
+"name": "acronym",
+"description": "acronym of the study"
+},
+{
+"name": "study_location",
+"description": "study location"
+},
+{
+"name": "inclusion_period",
+"description": "inclusion period of the study, date of the first patient inclusion, date of the last inclusion"
+}
+
+]

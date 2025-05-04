@@ -1,0 +1,22 @@
+{% extends 'base_popup.html' %}
+
+{%  block content %}
+
+    <h4>Extraction AI</h4>
+    
+    
+    
+    <p>{{ extracted_data.studied_treatment }}</p>
+    <p>{{ extracted_data.control_treatment }}</p>
+    <p>{{ extracted_data.included_patients }}</p>
+    <p>{{ extracted_data.follow_up }}</p>
+    <p>{{ extracted_data.primary_endpoint }}</p>
+    <p>{{ extracted_data.blindness }}</p>
+    <p>{{ extracted_data.sponsor }}</p>
+    <p>{{ extracted_data.acronym }}</p>
+    <p>{{ extracted_data.study_location }}</p>
+    <p>{{ extracted_data.inclusion_period }}</p>
+    <p>{{ extracted_data.N1 }}</p>
+    <p>{{ extracted_data.N0 }}</p>
+
+{%  endblock %}

@@ -1,0 +1,95 @@
+    {%  if record_data['study_id'] is none %}
+        {% if known_study is not none %}
+            <div class="alert alert-danger" role="alert">
+                Study already known as {{ known_study["name"] }} ({{ known_study["registration_number"] }})
+            </div>
+        {% endif %}
+    {%  endif %}
+
+    <p>selection {{ record_data["selection"] }}</p>
+
+    <div class="mb-4 text-center">
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="{{ btn_exclude_style }}">
+              {{ btn_exclude_label }}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_POPULATION.value }},this)">wrong population</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_TREATMENT.value }},this)">wrong treatment</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_CONTROL.value }},this)">wrong control</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_OUTCOME.value }},this)">wrong outcome</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_DESIGN.value }},this)">wrong design</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_OBJECTIVE.value }},this)">wrong study objective</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.NOT_A_PUBLICATION_ABOUT_A_STUDY.value }},this)">not a publication about a study</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.OTHER.value }},this)">other</a></li>
+          </ul>
+        </div>
+    </div>
+
+    <div class="mb-4 text-center">
+        <a class="btn btn-light" href="javascript:void(0)" onclick="set_selection('undecided',this)" style="{{ btn_undecided_style }}">{{ btn_undecided_label }}</a>
+    </div>
+
+    <div class="mb-4 text-center">
+{#        <a class="btn btn-light" href="javascript:void(0)" onclick="set_selection('included_first_pass',this)"  style="{{ btn_include_style }}">{{ btn_include_label }}</a>#}
+        <a class="btn btn-light" href="javascript:void(0)" onclick="create_study(this)"  style="{{ btn_include_style }}" title="include and create study">{{ btn_include_label }}</a>
+    </div>
+
+{#    <div class="mb-4 text-center">#}
+{#        <a class="btn btn-primary" href="javascript:void(0)" onclick="create_study(this)" >create study</a>#}
+{#    </div>#}
+
+    <div class="mb-4 text-center">
+        <a class="btn btn-link" href="javascript:void(0)" onclick="set_selection('included_first_pass',this)" style="">include without creating a study</a>
+    </div>
+
+<script>
+    function set_selection(selection_label, el) {
+        var url = "/records/screening_included/{{ record_id }}/{{ project_id }}/" + selection_label + "/{{ pass_number }}";
+        window.location.href=url;
+    }
+
+    function exclude(exclusion_reason, el) {
+        var url = "/records/screening_excluded/{{ record_id }}/{{ project_id }}/" + exclusion_reason + "/{{ pass_number }}";
+        window.location.href=url;
+    }
+
+    function create_study(el) {
+        var url="/records/create_study/{{ project_id }}/{{ record_id }}/{{ pass_number }}";
+        window.location.href=url;
+    }
+</script>
+
+{% if record_data['study_id'] is not none %}
+        <div class="alert alert-success" role="alert">
+            this reference is already linked to study {{ record_data['study_name'] }} ({{ record_data['study_registration_number'] }}) - study #{{ record_data['study_id'] }}
+        </div>
+
+{%  endif %}
+
+<h5>Included studies</h5>
+{# TODO rajouter explication #}
+
+    <table class="table table-condensed table-hover" style="font-size: smaller;">
+    {% for s in included_studies %}
+
+        {% if s['id']==known_study['id'] %}
+            {% set sty="table-danger" %}
+        {%  else %}
+            {% set sty="" %}
+        {% endif %}
+
+        {% if s['id']==record_data['study_id'] %}
+            {% set sty="table-success" %}
+        {%  endif %}
+
+        <tr class="{{ sty }}">
+            <td>{{ s["name"] }}</td>
+            <td>{{ s["registration_number"] }}</td>
+            <td title="add this reference to this study">
+                <a href="/records/link_record_to_study/{{ record_id }}/{{ s['id'] }}" >add ref</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+

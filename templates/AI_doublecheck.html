@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<p>
+    <a href="/records/list/{{ project_id }}" class="return_arrow">
+    <i class="bi bi-arrow-left"></i> return to the reference list
+    </a>
+</p>
+
+
+<h1>AI human crosschecking </h1>
+
+    <h4>table 1</h4>
+
+    <table class="table table-condensed table-hover table-sm" >
+    <tr>
+        <th>id</th>
+        <th style="width: 48%;">Abstract</th>
+        <th style="width: 48%;">AI suggestion</th>
+    </tr>
+    {% for row in table1 %}
+        <tr>
+        <td>{{ row['id'] }}</td>
+        <td>{{ row['abstract'] | safe }}</td>
+        <td>{{ row['AI_answer'] | safe }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+<h4>Table 2</h4>
+
+    <table class="table table-condensed table-hover table-sm" >
+    <tr>
+        <th>id</th>
+        <th style="width: 48%;">Abstract</th>
+        <th style="width: 48%;">AI suggestion</th>
+    </tr>
+    {% for row in table2 %}
+        <tr>
+        <td>{{ row['id'] }}</td>
+        <td>{{ row['abstract'] | safe }}</td>
+        <td>{{ row['AI_answer'] | safe }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+
+
+
+{%  endblock %}

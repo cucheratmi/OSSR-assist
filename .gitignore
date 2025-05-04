@@ -1,0 +1,12 @@
+.env
+.env.local
+.env.*
+!.env.example
+
+# Dossiers IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+README_draft.md

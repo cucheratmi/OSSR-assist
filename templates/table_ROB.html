@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+    {%  set page = 'data' %}
+    {% include '_navbar1.html' %}
+
+    <div class="mb-5">
+
+        <div class="dropdown" style="float: right;">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                <i class="bi bi-list"></i> export
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                    <a href="/data/ROB/excel1/{{ project_id }}" target="_blank" class="dropdown-item">
+                        export to Excel .XLSX file
+                    </a>
+                </li>
+                <li>
+                    <a href="/data/ROB/csv1/{{ project_id }}" target="_blank" class="dropdown-item">
+                        export to .CSV file
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="/data/list1/{{ project_id }}" style="width: 12rem; text-align: center;">Fields</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href=href="/table/ROB/{{project_id }}" style="width: 12rem; text-align: center;">ROB</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/table/results/{{project_id }}" style="width: 12rem; text-align: center;">Outcomes</a>
+            </li>
+        </ul>
+
+    </div>
+
+
+
+    <table class="table table-condensed table-hover table-sm" style="font-size: smaller;">
+
+    <tr>
+        <th>study</th>
+        {% for i in ROB_DOMAIN.keys() %}
+            <th style="width: {{ lg }}%;">{{ ROB_DOMAIN[i]  }}</th>
+        {%  endfor %}
+    </tr>
+    {%  for study in studies %}
+        <td>{{ study['study_name'] }}</td>
+        {% for i in ROB_DOMAIN.keys() %}
+            <td>
+                <span data-bs-toggle="popover" data-bs-title="Justification" data-bs-html="true"
+                      data-bs-placement="bottom" data-bs-trigger="hover" data-bs-container="body" data-bs-custom-class="popover-custom"
+                      data-bs-content="{{ study['rob'][i]['justification'] }}">
+                    {{ study['rob'][i]['risk_of_bias'] }}
+                </span>
+            </td>
+        {%  endfor %}
+    {%  endfor %}
+
+    </table>
+
+
+{%  endblock %}

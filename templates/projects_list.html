@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<h1 class="mt-4">Projects</h1>
+
+<p class="mt-4 mb-4">
+    <a href="/project/add" class="btn btn-outline-primary"><i class="bi bi-plus"></i> add new project</a>
+
+    <a href="/project/load_form" class="btn btn-outline-primary"><i class="bi bi-file-earmark-arrow-down"></i> load a saved project (.JSON file)</a>
+
+
+</p>
+
+{% if not projects  %}
+    <div class="alert alert-warning" role="alert">
+        <h4  class="alert-heading">No project found</h4>
+        <p>
+            You have not created any project yet. Please create a new one using the button
+            [<i class="bi bi-plus"></i> add new project] above.
+        </p>
+    </div>
+
+   <div class="alert alert-warning" role="alert">
+        <h4  class="alert-heading">access to API LLM setup</h4>
+        <p>
+            if you want to use AI tools for screening and extraction,
+            you need to set up your access key to an LLM (Claude, Mistral) using the ‘setup’ function
+            (located in the top right-hand corner).
+        </p>
+    </div>
+
+
+{%  endif %}
+
+<table class="table table-condensed table-hover mt-3" style="width: auto;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>id</th>
+            <th></th>
+            <th></th><th><th><th><th><th></th>
+        </tr>
+    </thead>
+    <tbody hx-confirm="You are about to delete a project. Are you sure?" hx-target="closest tr" hx-swap="outerHTML swap:1s">
+    {% for project in projects %}
+        <tr>
+        <td>{{ project["name"] }}</td>
+        <td style="font-size: smaller;">#{{ project["id"] }}</td>
+
+        <td class="project_list_command">
+        <a href="/project/edit/{{ project["id"] }}" class="">project setup</a>
+        </td>
+        <td  class="project_list_command">
+        <a href="/records/list/{{ project["id"] }}/1" class="">screening</a>
+        </td>
+        <td  class="project_list_command">
+        <a href="/pdfs/list/{{ project["id"] }}" class="">PDFs</a>
+        </td>
+        <td  class="project_list_command">
+        <a href="/studies/list/{{ project["id"] }}" class="">studies</a>
+        </td>
+        <td  class="project_list_command">
+        <a href="/data/list1/{{ project["id"] }}" class="">data</a>
+        </td>
+        <td  class="project_list_command">
+        <a href="/projects/save/{{ project["id"] }}" class=""><i class="bi bi-file-earmark-arrow-up"></i> save project</a>
+        </td>
+
+        <td style="padding-left: 3em;">
+            <a hx-delete="/project/delete/{{ project["id"] }}" ><i class="bi bi-trash3"></i></a>
+        </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{%  endblock %}

@@ -1,0 +1,68 @@
+
+.return_arrow{
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+/* record screening window */
+
+.record_title{
+    font-weight: bold;
+}
+
+.record_source{
+    font-style: italic;
+}
+
+.record_authors{}
+
+.record_abstract{}
+
+.record_AI_answer{
+    color: dimgrey;
+}
+
+.green_word{
+    background-color:  #88f888;
+}
+
+.red_word{
+    background-color:  #f84c4c;
+}
+
+
+/* htmx */
+
+tr.htmx-swapping td {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+
+
+.table_small{
+    font-size: smaller;
+}
+
+textarea.AI{
+    background-color: lavenderblush;
+    font-style: italic;
+}
+
+.background_AI {
+    background-color: lavender;
+}
+
+.alert-AI {
+    color: black;
+    background-color: lavender;
+    border-color: dodgerblue;
+}
+
+
+td.project_list_command{
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: center;
+    width: fit-content;
+}

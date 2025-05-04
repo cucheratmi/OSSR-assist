@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+<p class="mt-3 mb-3">
+    <a href="/studies/list/{{project_id}}" class="return_arrow">
+    <i class="bi bi-arrow-left"></i> return to study list
+    </a>
+</p>
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h3>Data extraction <small class="text-secondary">study #{{ study_id }} </small></h3>
+
+     <form class="mb-3">
+        <select class="form-select {% if not record_id>0 %}is-invalid{% endif %}"
+                id="references" name="references" onchange="references_selected(this)" >
+            <option value="">Select a reference...</option>
+            {% for key,r in references.items() %}
+                <option value="{{ key }}" title="{{ r['title'] }}" {% if record_id==key %}selected{% endif %}>
+                    {{ r['author1'] }} - {{ r['source'] }}
+                </option>
+            {% endfor %}
+        </select>
+     {% if not record_id>0 %}
+        <div class="invalid-feedback">Please select a reference</div>
+     {% endif %}
+    </form>
+
+    <script>
+    function references_selected(e) {
+        var record_id = e.value;
+        var url = "/study/fullscreen/{{ tab }}/{{ study_id }}/{{ project_id }}/" + record_id;
+        window.location.href = url;
+    }
+    </script>
+
+{% if not record_id>0 %}
+    <div class="alert alert-danger text-center" role="alert">
+    <h4 class="alert-heading">No reference selected</h4>
+{#    <p>Please select a reference from the list above.</p>#}
+    </div>
+{%  endif %}
+
+{% if record_id >0 %}
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-pdf-tab" data-bs-toggle="tab" data-bs-target="#nav-pdf" type="button" role="tab" aria-controls="nav-pdf" aria-selected="true">pdf</button>
+    <button class="nav-link" id="nav-abstract-tab" data-bs-toggle="tab" data-bs-target="#nav-abstract" type="button" role="tab" aria-controls="nav-abstract" aria-selected="false">abstract</button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+
+  <div class="tab-pane fade show active" id="nav-pdf" role="tabpanel" aria-labelledby="nav-pdf-tab" tabindex="0">
+        {% if pdf_exists %}
+            <iframe src="/pdfs/file/{{ record_id }}" width="100%" height="900px" id="pdf_iframe"></iframe>
+
+            <script>
+                            function ajusterHauteurIframe() {
+                                const iframe = document.getElementById('pdf_iframe');
+                                const hauteurFenetre = window.innerHeight;
+                                const offsetTop = iframe.offsetTop;
+                                const hauteurFinale = hauteurFenetre - offsetTop;
+
+                                iframe.style.height = hauteurFinale + 'px';
+                            }
+
+                            // Appel initial
+                            ajusterHauteurIframe();
+
+                            // Mise à jour lors du redimensionnement
+                            window.addEventListener('resize', ajusterHauteurIframe);
+            </script>
+        {%  else %}
+            <div class="alert alert-warning mt-5" role="alert">
+            <h4 class="alert-heading">No pdf</h4>
+            <p>The PDF of this reference is not available.</p>
+            <hr>
+            <p class="mb-0">
+                <a href="/pdfs/upload/{{ record_id }}" class="btn btn-warning">Upload a pdf</a>
+            </p>
+            </div>
+      {%  endif %}
+  </div>
+
+  <div class="tab-pane fade" id="nav-abstract" role="tabpanel" aria-labelledby="nav-abstract-tab" tabindex="0">
+    {% if record_id>0 %}
+        <p class="title">{{ references[record_id]['title'] }}</p>
+        <p class="source">{{ references[record_id]['source'] }}</p>
+        <div class="abstract">
+        {{ references[record_id]['abstract'] }}
+        </div>
+    {% endif %}
+  </div>
+
+</div>
+{% endif %}
+
+        </div>
+
+        <div class="col-md-6">
+
+        {% block col2 %}{% endblock %}
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+{%  endblock %}
+
+
+
