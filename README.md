@@ -20,6 +20,9 @@ et aussi d'autres types d'études (hors évaluation du ROB).
 - Sélection à partir du fulltext (PDF)
 - Sélection assistée par un outil d'IA 
 - Extraction manuelle des données nécessaires pour la revue systématique (caractéristiques des études, résultats)
+- Extraction assistée par un outil d'IA 
+- Evaluation du risque de biais avec le ROB2.0 pour les essais cliniques, QUADAS-2 pour les études de technologies diagnostiques
+- Evaluation du ROB assisté par un outil d'IA
 - Export des résultats de la sélection, de l'extraction, de l'évaluation du risque de biais sous la forme de fichier .CSV ou Excel
 - Recherche des références dupliquées par proximité sémantique
 - Recherche automatique des publications rétractées
