@@ -13,7 +13,7 @@
     <a class="nav-link" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled" href="#">Results</a>
+    <a class="nav-link" href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}">Results</a>
   </li>
 </ul>
 
@@ -28,20 +28,20 @@
                         <p class="p-3" style="color: red;">Select a reference with PDF</p>
                     {% endif %}
                     <li>
-                        <a class="dropdown-item {% if record_id==0 %}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0 or not primary_LLM_available %}disabled{% endif %}"
                            href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}/1" onclick="loading()">
                             <i class="bi bi-stars"></i> AI extraction from abstract
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item {% if record_id==0 %}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0  or not primary_LLM_available%}disabled{% endif %}"
                            href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}/2" onclick="loading()">
                             <i class="bi bi-stars"></i> AI extraction from PDF
                         </a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item {% if record_id==0 %}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0 or not secondary_LLM_available %}disabled{% endif %}"
                            href="#"
                            hx-get="/study/check_extraction/{{ study_id }}/{{ project_id }}/{{ record_id }}"
                            hx-trigger="click" hx-target="#AI_check" hx-swap="innerHTML" hx-indicator="#loader" >

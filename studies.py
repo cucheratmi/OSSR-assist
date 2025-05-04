@@ -1,7 +1,7 @@
 import sqlite3
 from os.path import exists
 
-from flask import Flask, render_template, request, redirect, url_for, make_response
+from flask import Flask, render_template, request, redirect, url_for, make_response, flash, session
 from pandas.core.window.doc import template_see_also
 
 import references
@@ -222,21 +222,19 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
 
     #### AI #####
     AI_data = dict()
-    if AI==1 or AI==2: # extraction from abstract or pdf
-        context_source = "abstract" if AI==1 else "pdf"
-        data = AI_extraction_personalised_fields(study_id, record_id, project_id, context_source)
-        for e in data:
-            i = int(e[0][1:])
-            AI_data[i] = e[1]
-    if AI == 10:  #rob
-        AI_data = AI_ROB(study_id, record_id, project_id, current_app.config['LLM_NAME'])
-    if AI == 20 or AI == 21: #results
-        context_source = "abstract" if AI == 1 else "pdf"
-        data = AI_results(study_id, record_id, project_id, context_source)
-        for e in data:
-            i = int(e[0][1:])
-            AI_data[i] = e[1]
-        print(AI_data)
+    if AI!=0:
+        if is_primary_LLM_available():
+            if AI==1 or AI==2: # extraction from abstract or pdf
+                AI_data = get_AI_data_extraction(AI, study_id, record_id, project_id)
+            if AI == 10:  #rob
+                AI_data = get_AI_data_ROB(study_id, record_id, project_id)
+            if AI == 20 or AI == 21: #results
+                AI_data = get_AI_data_results(AI, study_id, record_id, project_id)
+        else :
+            print("AI is used but LLM is not set. Please set an LLM in the setup menu. AI will not be used.")
+            session['_flashes'] = []
+            flash('You try to use AI function but no LLM was set or no API_KEY provided ! Set these parameters to use AI functions', 'danger')
+            return redirect(url_for("endpoint_setup"))
 
 
     return render_template(template, study_id=study_id,
@@ -245,8 +243,31 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
                            data_fields=data_fields,
                            ROB=ROB, ROB_DOMAIN=ROB_DOMAIN,
                            results_data=results_data,
-                           AI_data=AI_data, AI=AI)
+                           AI_data=AI_data, AI=AI,
+                           primary_LLM_available=is_primary_LLM_available(), secondary_LLM_available=is_secondary_LLM_available() )
 
+
+def get_AI_data_extraction(AI, study_id, record_id, project_id):
+    AI_data = dict()
+    context_source = "abstract" if AI == 1 else "pdf"
+    data = AI_extraction_personalised_fields(study_id, record_id, project_id, context_source)
+    for e in data:
+        i = int(e[0][1:])
+        AI_data[i] = e[1]
+    return AI_data
+
+def get_AI_data_results(AI, study_id, record_id, project_id):
+    AI_data = dict()
+    context_source = "abstract" if AI == 1 else "pdf"
+    data = AI_results(study_id, record_id, project_id, context_source)
+    for e in data:
+        i = int(e[0][1:])
+        AI_data[i] = e[1]
+    return AI_data
+
+def get_AI_data_ROB(study_id, record_id, project_id):
+    AI_data = AI_ROB(study_id, record_id, project_id, current_app.config['LLM_NAME'])
+    return AI_data
 
 
 # def study_fullscreen_AI(study_id, project_id, record_id=0):

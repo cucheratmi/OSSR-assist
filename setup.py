@@ -90,11 +90,17 @@ def app_config(app):
     # load_dotenv()
     env_path = Path('.env')
     if env_path.exists():
-        del os.environ['OPENAI_API_KEY']
-        del os.environ['MISTRAL_API_KEY']
-        del os.environ['ANTHROPIC_API_KEY']
-        del os.environ['HYPERBOLIC_API_KEY']
+        if "OPENAI_API_KEY" in os.environ:
+            del os.environ['OPENAI_API_KEY']
+        if "MISTRAL_API_KEY" in os.environ:
+            del os.environ['MISTRAL_API_KEY']
+        if "ANTHROPIC_API_KEY" in os.environ:
+            del os.environ['ANTHROPIC_API_KEY']
+        if "HYPERBOLIC_API_KEY" in os.environ:
+            del os.environ['HYPERBOLIC_API_KEY']
+
         load_dotenv()
+
 
     AI_initilization(app)
 

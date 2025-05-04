@@ -4,6 +4,27 @@
 
 <h1 class="mt-4">Projects</h1>
 
+    {% if not LLM_available %}
+        <div class="alert alert-warning" role="alert" style="margin-top: 2em; margin-bottom: 3em;">
+        <h4 class="alert-heading"><i class="bi bi-exclamation-triangle"></i> Caution. AI tools not available</h4>
+            <p>
+            AI tools are not available because no LLM is set.
+            <p>
+            <p>
+            To use the AI tools, you have to set up an LLM and
+            enter an API_KEY in the application set-up (link located in the top right-hand corner).
+            </p>
+            <p>
+            <a href="/setup" class="btn btn-primary btn-sm"><i class="bi bi-person-gear"></i> set-up</a>
+            </p>
+        </div>
+
+    {% endif %}
+
+
+
+
+
 <p class="mt-4 mb-4">
     <a href="/project/add" class="btn btn-outline-primary"><i class="bi bi-plus"></i> add new project</a>
 

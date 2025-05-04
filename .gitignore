@@ -1,5 +1,6 @@
 .env
 .env.local
+.env.bak
 .env.*
 !.env.example
 

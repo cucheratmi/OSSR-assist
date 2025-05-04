@@ -6,6 +6,7 @@ import re, math
 import csv, io
 import datetime
 
+from AI_utils import is_primary_LLM_available, is_secondary_LLM_available
 from utils import *
 from pubmed import parse_pubmed_file
 #from AI_screening import AI_records_screening
@@ -90,9 +91,13 @@ def records_list(project_id, pass_number=1, page=1):
         e["selection_text"] = INCLUSION_STATUS_DICT[e["selection"]]
         e["exclusion_reason_text"] = EXCLUSION_REASON_DICT[e["exclusion_reason"]]
 
+
+    LLM_available = is_primary_LLM_available() and is_secondary_LLM_available()
+
     return render_template('records_list.html', project_id=project_id, project_name=project_name, records=records,
                            pass_number=pass_number, i_page=page, n_page=npage,
-                           first_reference=first_reference, last_reference=last_reference, n_reference=n_reference,)
+                           first_reference=first_reference, last_reference=last_reference, n_reference=n_reference,
+                           primary_LLM_available=is_primary_LLM_available())
 
 
 def records_upload_form(project_id, s_database):

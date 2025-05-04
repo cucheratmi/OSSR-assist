@@ -5,11 +5,13 @@ import time
 import json
 
 from utils import *
+from AI_utils import *
 
 def projects_list():
     sql = "SELECT id, name FROM projects ORDER BY name"
     projects = sql_select_fetchall(sql, ())
-    return render_template('projects_list.html', projects=projects)
+    LLM_available = is_primary_LLM_available() and is_secondary_LLM_available()
+    return render_template('projects_list.html', projects=projects, LLM_available=LLM_available)
 
 def home():
     return projects_list()

@@ -2,6 +2,14 @@
 
 {%  block content %}
 
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} me-5">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
 <p class="mt-2 mb-3">
     <a href="/">
     <i class="bi bi-arrow-left"></i> home
@@ -31,7 +39,7 @@
 <form class="mt-4">
 
 <div class="mb-4">
-    <label for="LLM_NAME" class="form-label">LLM</label>
+    <label for="LLM_NAME" class="form-label">Primary LLM</label>
     <select class="form-select" id="LLM_NAME" name="LLM_NAME" hx-post="/setup/update_field/LLM_NAME" hx-trigger="change" hx-target="#LLM_NAME_info" hx-swap="innerHTML">
         <option value=""></option>
         <option value="openai" {% if LLM_NAME == 'openai' %}selected{% endif %}>OpenAI (gpt-4o)</option>
@@ -54,7 +62,7 @@
 {#</div>#}
 
 <div class="mb-4">
-    <label for="API_KEY" class="form-label">API key of LLM</label>
+    <label for="API_KEY" class="form-label">API key of primary LLM</label>
     <div class="input-group">
         <input type="password" class="form-control" id="API_KEY" name="API_KEY"
                value="{{ API_KEY }}" placeholder="API_KEY for the LLM model"
@@ -86,11 +94,8 @@ togglePassword.addEventListener("click", function () {
 
 
 
-
-<hr/>
-
 <div class="mb-4">
-    <label for="SECONDARY_LLM_NAME" class="form-label">Secondary LLM (use for checking)</label>
+    <label for="SECONDARY_LLM_NAME" class="form-label">Secondary LLM <small>(use for checking, could be the same)</small></label>
     <select class="form-select" id="SECONDARY_LLM_NAME" name="SECONDARY_LLM_NAME" hx-post="/setup/update_field/SECONDARY_LLM_NAME" hx-trigger="change" hx-target="#SECONDARY_LLM_NAME_info" hx-swap="innerHTML">
         <option value="">none</option>
         <option value="openai" {% if SECONDARY_LLM_NAME == 'openai' %}selected{% endif %}>OpenAI (gpt-4o)</option>
@@ -100,7 +105,8 @@ togglePassword.addEventListener("click", function () {
     </select>
     <div id="SECONDARY_LLM_NAME_info" class="form-text"></div>
 <div class="form-text">
-    if no secondary model is defined, the same model will be used for extraction and checking.
+    The secondary LLM wil be used for the checking of the primary model suggestions.
+    It could be the same but in this case the checking will be less relevant.
 </div>
 </div>
 

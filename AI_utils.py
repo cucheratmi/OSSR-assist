@@ -21,7 +21,8 @@ def first_letter_in_capital(s):
 
 ### utils get context
 
-def get_abstract_from_pmid(pmid):
+def ZZZZget_abstract_from_pmid(pmid):
+    # TODO à effacer
     url = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
     page = requests.get(url)
     soup = BeautifulSoup(page.content, "html.parser")
@@ -43,7 +44,6 @@ def get_abstract_from_pmid(pmid):
 def get_abstract(record_id):
     sql = "SELECT abstract, title FROM records WHERE id=?"
     abstract, title = sql_select_fetchone(sql, (record_id,))
-    print(title + "\n" + abstract)
     return title.strip() + " " + abstract.strip()
 
 def get_pdf(record_id):
@@ -93,17 +93,19 @@ Reference"""
 #### initialisation LLM model
 
 def initialise_LLM_model(llm_name):
-    if llm_name=="claude":
-        assert os.environ["ANTHROPIC_API_KEY"]!=""
-        model = ChatAnthropic(model='claude-3-7-sonnet-latest')
+    model = None
+    try:
+        if llm_name=="claude" and "ANTHROPIC_API_KEY" in os.environ:
+            model = ChatAnthropic(model='claude-3-7-sonnet-latest')
 
-    elif llm_name=="openai":
-        assert os.environ["OPENAI_API_KEY"]!=""
-        model = ChatOpenAI(model="gpt-4o", temperature=0)
+        elif llm_name=="openai" and "OPENAI_API_KEY" in os.environ:
+            model = ChatOpenAI(model="gpt-4o", temperature=0)
 
-    else:
-        assert os.environ["MISTRAL_API_KEY"]!=""
-        model = ChatMistralAI(model="mistral-large-latest")
+        else:
+            if "MISTRAL_API_KEY" in os.environ:
+                model = ChatMistralAI(model="mistral-large-latest")
+    except:
+        print("erreur initialisation model")
 
     return model
 
@@ -124,6 +126,7 @@ def AI_initilization(app):
 
 def invoke_llm_structured_output(system_prompt, user_prompt, context, pydantic_class):
     model = current_app.config["model"]
+    if model is None: return None
 
     prompt_template = ChatPromptTemplate([
         ("system", system_prompt),
@@ -273,3 +276,35 @@ def invoke_llm_text_output(model_level, prompt, prompt_system):
             answer = claude_text_output(prompt, prompt_system)
 
     return answer
+
+
+
+
+
+def is_API_KEY_available(llm_name):
+    if llm_name == "openai":
+        if "OPENAI_API_KEY" in os.environ and os.environ["OPENAI_API_KEY"]!="": return True
+
+    elif llm_name == "claude":
+        if "ANTHROPIC_API_KEY" in os.environ and os.environ["ANTHROPIC_API_KEY"] != "": return True
+
+    elif llm_name == "deepseek":
+        if "HYPERBOLIC_API_KEY" in os.environ and os.environ["HYPERBOLIC_API_KEY"] != "": return True
+
+    elif llm_name == "mistral":
+        if "MISTRAL_API_KEY" in os.environ and os.environ["MISTRAL_API_KEY"] != "": return True
+
+    return False
+
+def is_primary_LLM_available():
+    if current_app.config["LLM_NAME"] is None or current_app.config["LLM_NAME"].strip()=="": return False
+    llm_name = current_app.config["LLM_NAME"]
+    if is_API_KEY_available(llm_name): return True
+    return False
+
+def is_secondary_LLM_available():
+    if current_app.config["SECONDARY_LLM_NAME"] is None or current_app.config["SECONDARY_LLM_NAME"].strip()=="": return False
+    llm_name = current_app.config["SECONDARY_LLM_NAME"]
+    if is_API_KEY_available(llm_name): return True
+    return False
+
