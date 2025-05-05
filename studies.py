@@ -196,6 +196,8 @@ def set_ROB_justification(study, domain):
 
 
 def study_fullscreen(study_id, project_id, record_id, tab, AI):
+    project_name, _, _ = get_project_name(project_id)
+
     study_data = get_study_data(study_id)
     references = get_references(study_id)
     if record_id == 0 and len(references) == 1:
@@ -231,7 +233,7 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
 
 
     return render_template(template, study_id=study_id,
-                           project_id=project_id, pdf_exists=pdf_exists, record_id=record_id, tab=tab,
+                           project_id=project_id, project_name=project_name, pdf_exists=pdf_exists, record_id=record_id, tab=tab,
                            references=references, study_data=study_data,
                            data_fields=data_fields,
                            ROB=ROB, ROB_DOMAIN=ROB_DOMAIN,

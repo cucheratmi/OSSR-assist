@@ -28,16 +28,19 @@
                         <p class="mx-3" style="color: red;">Select a reference</p>
                     {% endif %}
                     <li>
-                        <a class="dropdown-item {% if record_id==0 or not primary_LLM_available %}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0 or data_fields==[] or not primary_LLM_available %}disabled{% endif %}"
                            href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}/1" onclick="loading()">
                             <i class="bi bi-stars"></i> AI extraction from abstract
                             {%  if not primary_LLM_available %}
                                 <span style="color: red;">LLM isn't set</span>
                             {% endif %}
+                            {%  if data_fields==[] %}
+                                <span style="color: red;">No extraction field declared</span>
+                            {% endif %}
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item {% if record_id==0  or not pdf_exists or not primary_LLM_available%}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0 or data_fields==[]  or not pdf_exists or not primary_LLM_available%}disabled{% endif %}"
                            href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}/2" onclick="loading()">
                             <i class="bi bi-stars"></i> AI extraction from PDF
                             {%  if not pdf_exists %}
@@ -46,12 +49,15 @@
                             {%  if not primary_LLM_available %}
                                 <span style="color: red;">LLM isn't set</span>
                             {% endif %}
+                            {%  if data_fields==[] %}
+                                <span style="color: red;">No extraction field declared</span>
+                            {% endif %}
 
                         </a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item {% if record_id==0  or not pdf_exists or not secondary_LLM_available %}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0 or data_fields==[] or not pdf_exists or not secondary_LLM_available %}disabled{% endif %}"
                            href="#"
                            hx-get="/study/check_extraction/{{ study_id }}/{{ project_id }}/{{ record_id }}"
                            hx-trigger="click" hx-target="#AI_check" hx-swap="innerHTML" hx-indicator="#loader" >
@@ -59,11 +65,15 @@
                             {%  if not pdf_exists %}
                                 <span style="color: red;">PDF not available</span>
                             {% endif %}
-                        </a>
                             {%  if not secondary_LLM_available %}
                                 <span style="color: red;">secondary LLM isn't set</span>
                             {% endif %}
+                            {%  if data_fields==[] %}
+                                <span style="color: red;">No extraction field declared</span>
+                            {% endif %}
+                        </a>
                     </li>
+
 
                     <li>
                         <a class="dropdown-item disabled"
@@ -117,6 +127,16 @@
       </div>
     </div>
 
+    {% if data_fields == [] %}
+        <div class="alert alert-warning mt-5" role="alert" style="margin-top: 3em;">
+        <h4 class="alert-heading">Warning. No extraction field declared</h4>
+        <p>No extraction field declared</p>
+                <p class="mb-0">
+            You can add extraction fields in the
+                    <a class="btn btn-primary btn-sm " href="/project/update_fields/{{ project_id }}">setup project tab</a>
+        </p>
+        </div>
+    {% endif %}
 
         {% for f in data_fields %}
             <div class="row gt-3 mb-1 mt-4">

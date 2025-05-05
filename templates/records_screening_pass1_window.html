@@ -2,13 +2,13 @@
 
 {%  block content %}
 
-    {%  include "_screening_message.html" %}
-
 <p class="mt-3 mb-3">
     <a href="/records/list/{{ project_id }}/1/1" class="return_arrow">
     <i class="bi bi-arrow-left"></i> return to the reference list (pass 1)
     </a>
 </p>
+
+    {%  include "_screening_message.html" %}
 
     <h2>
         <a href="/records/screening_pass1_next/{{ record_id }}/{{project_id}}" class="btn btn-outline-secondary btn-lg" style="float: right; margin-right: 5em;">next <i class="bi bi-arrow-right"></i></a>
