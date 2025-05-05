@@ -222,19 +222,12 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
 
     #### AI #####
     AI_data = dict()
-    if AI!=0:
-        if is_primary_LLM_available():
-            if AI==1 or AI==2: # extraction from abstract or pdf
-                AI_data = get_AI_data_extraction(AI, study_id, record_id, project_id)
-            if AI == 10:  #rob
-                AI_data = get_AI_data_ROB(study_id, record_id, project_id)
-            if AI == 20 or AI == 21: #results
-                AI_data = get_AI_data_results(AI, study_id, record_id, project_id)
-        else :
-            print("AI is used but LLM is not set. Please set an LLM in the setup menu. AI will not be used.")
-            session['_flashes'] = []
-            flash('You try to use AI function but no LLM was set or no API_KEY provided ! Set these parameters to use AI functions', 'danger')
-            return redirect(url_for("endpoint_setup"))
+    if AI==1 or AI==2: # extraction from abstract or pdf
+        AI_data = get_AI_data_extraction(AI, study_id, record_id, project_id)
+    if AI == 10:  #rob
+        AI_data = get_AI_data_ROB(study_id, record_id, project_id)
+    if AI == 20 or AI == 21: #results
+        AI_data = get_AI_data_results(AI, study_id, record_id, project_id)
 
 
     return render_template(template, study_id=study_id,

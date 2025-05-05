@@ -3,7 +3,6 @@ import os
 import flask
 import requests, json
 import pymupdf4llm
-from bs4 import BeautifulSoup
 import textwrap
 from flask import current_app, Flask, session
 
@@ -20,26 +19,6 @@ def first_letter_in_capital(s):
     return s[0].upper() + s[1:]
 
 ### utils get context
-
-def ZZZZget_abstract_from_pmid(pmid):
-    # TODO à effacer
-    url = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content, "html.parser")
-    results = soup.find(id="eng-abstract")
-    # print(results.prettify())
-    l = results.text.splitlines()
-    abstract = ""
-    for e in l:
-        if e == "":
-            continue
-        abstract = abstract + e.strip() + " "
-
-    results = soup.find('h1',class_="heading-title")
-    title = results.text
-    title = title.replace("\n", " ")
-
-    return title.strip() + "\n" + abstract.strip()
 
 def get_abstract(record_id):
     sql = "SELECT abstract, title FROM records WHERE id=?"
@@ -308,3 +287,11 @@ def is_secondary_LLM_available():
     if is_API_KEY_available(llm_name): return True
     return False
 
+
+
+def not_AI():
+    print("AI is used but LLM is not set. Please set an LLM in the setup menu. AI will not be used.")
+    session['_flashes'] = []
+    flash('You try to use AI function but no LLM was set or no API_KEY provided ! Set these parameters to use AI functions',
+          'danger')
+    return redirect(url_for("endpoint_setup"))

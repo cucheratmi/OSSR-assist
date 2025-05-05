@@ -25,27 +25,40 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                     {%  if record_id==0 %}
-                        <p class="p-3" style="color: red;">Select a reference with PDF</p>
+                        <p class="mx-3" style="color: red;">Select a reference</p>
                     {% endif %}
                     <li>
                         <a class="dropdown-item {% if record_id==0 or not primary_LLM_available %}disabled{% endif %}"
                            href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}/1" onclick="loading()">
                             <i class="bi bi-stars"></i> AI extraction from abstract
+                            {%  if not primary_LLM_available %}
+                                <span style="color: red;">LLM isn't set</span>
+                            {% endif %}
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item {% if record_id==0  or not primary_LLM_available%}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0  or not pdf_exists or not primary_LLM_available%}disabled{% endif %}"
                            href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}/2" onclick="loading()">
                             <i class="bi bi-stars"></i> AI extraction from PDF
+                            {%  if not pdf_exists %}
+                                <span style="color: red;">PDF not available</span>
+                            {% endif %}
+                            {%  if not primary_LLM_available %}
+                                <span style="color: red;">LLM isn't set</span>
+                            {% endif %}
+
                         </a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item {% if record_id==0 or not secondary_LLM_available %}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0  or not pdf_exists or not secondary_LLM_available %}disabled{% endif %}"
                            href="#"
                            hx-get="/study/check_extraction/{{ study_id }}/{{ project_id }}/{{ record_id }}"
                            hx-trigger="click" hx-target="#AI_check" hx-swap="innerHTML" hx-indicator="#loader" >
                             <i class="bi bi-stars"></i> AI checking extraction
+                            {%  if not pdf_exists %}
+                                <span style="color: red;">PDF not available</span>
+                            {% endif %}
                         </a>
                     </li>
 
@@ -53,6 +66,9 @@
                         <a class="dropdown-item disabled"
                            href="/AI/compare1/{{ study_id }}/{{ project_id }}/{{ record_id }}/2" onclick="loading()">
                             compare models for extraction
+                            {%  if not primary_LLM_available %}
+                                <span style="color: red;">secondary LLM isn't set</span>
+                            {% endif %}
                         </a>
                     </li>
                     <li>

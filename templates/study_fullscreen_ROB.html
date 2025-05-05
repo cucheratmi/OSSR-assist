@@ -31,14 +31,14 @@
                     <p class="p-3" style="color: red;">select a reference with PDF</p>
                 {% endif %}
                 <li>
-                    <a class="dropdown-item  {% if record_id==0 or not primary_LLM_available%}disabled{% endif %}"
+                    <a class="dropdown-item  {% if record_id==0 or not pdf_exists or not primary_LLM_available%}disabled{% endif %}"
                        href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}/10"
                        onclick="loading()">
                         <i class="bi bi-stars"></i> AI suggestion using PDF
                     </a>
                 </li>
                 <li>
-                    <a class="dropdown-item  {% if record_id==0  or not secondary_LLM_available %}disabled{% endif %}"
+                    <a class="dropdown-item  {% if record_id==0  or not pdf_exists or not secondary_LLM_available %}disabled{% endif %}"
                        href="#"
                        hx-get="/study/check_ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}"
                        hx-trigger="click" hx-target="#AI_check" hx-swap="innerHTML" hx-indicator="#loader">

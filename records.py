@@ -57,8 +57,11 @@ def records_list(project_id, pass_number=1, page=1):
 
     records = sql_select_fetchall(sql, (project_id,))
 
-    sql="SELECT name FROM projects WHERE id=?"
-    project_name = sql_select_fetchone(sql, (project_id,))['name']
+    sql="SELECT name, eligibility_criteria FROM projects WHERE id=?"
+    r = sql_select_fetchone(sql, (project_id,))
+    project_name = r['name']
+    eligibility_criteria = r['eligibility_criteria'].strip()
+    eligibility_criteria_available = (eligibility_criteria!="" and eligibility_criteria!="None")
 
     database_dict = {valeur: cle for cle, valeur in BIBLIOGRAPHIC_DATABASE.items()}
 
@@ -97,7 +100,7 @@ def records_list(project_id, pass_number=1, page=1):
     return render_template('records_list.html', project_id=project_id, project_name=project_name, records=records,
                            pass_number=pass_number, i_page=page, n_page=npage,
                            first_reference=first_reference, last_reference=last_reference, n_reference=n_reference,
-                           primary_LLM_available=is_primary_LLM_available())
+                           primary_LLM_available=is_primary_LLM_available(), eligibility_criteria_available=eligibility_criteria_available)
 
 
 def records_upload_form(project_id, s_database):
