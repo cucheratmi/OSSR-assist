@@ -43,7 +43,7 @@ git clone https://github.com/cucheratmi/OSSR-assist.git
 2) Créer un environnement virtuel
 ```
 python -m venv ossr-env
-source ossr-env/bin/activate  # For Windows: pdf-env\Scripts\activate 
+source ossr-env/bin/activate  # For Windows: ossr-env\Scripts\activate 
 ```
 
 3) Installer les dépendances

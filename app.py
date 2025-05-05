@@ -197,11 +197,11 @@ def endpoint_study_panel1(study_id, project_id):
 def endpoint_study_panel_references(study_id, project_id, record_id):
     return study_panel_references(study_id, project_id, record_id)
 
-@app.route('/study/fullscreen_old/<int:study_id>/<int:project_id>/', defaults={'record_id': 0,'tab': 'study'})
-@app.route('/study/fullscreen_old/<int:study_id>/<int:project_id>/<int:record_id>/', defaults={'tab': 'study'})
-@app.route('/study/fullscreen_old/<int:study_id>/<int:project_id>/<int:record_id>/<string:tab>/')
-def endpoint_study_fullscreen_old(study_id, project_id, record_id, tab):
-    return study_fullscreen_old(study_id, project_id, record_id, tab)
+# @app.route('/study/fullscreen_old/<int:study_id>/<int:project_id>/', defaults={'record_id': 0,'tab': 'study'})
+# @app.route('/study/fullscreen_old/<int:study_id>/<int:project_id>/<int:record_id>/', defaults={'tab': 'study'})
+# @app.route('/study/fullscreen_old/<int:study_id>/<int:project_id>/<int:record_id>/<string:tab>/')
+# def endpoint_study_fullscreen_old(study_id, project_id, record_id, tab):
+#     return study_fullscreen_old(study_id, project_id, record_id, tab)
 
 
 @app.route('/study/fullscreen/<string:tab>/<int:study_id>/<int:project_id>/<int:record_id>/', defaults={'AI': 0})
