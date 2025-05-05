@@ -51,6 +51,7 @@ source ossr-env/bin/activate  # For Windows: ossr-env\Scripts\activate
 pip install -r requirements.txt
 ```
 
+
 4) Configurer les clés d'accès aux API de LLM (optionnel)
 Vous pourrez déclarer la clé d'accès à l'API du modèle de langage que vous souhaitez utiliser dans l'application. 
 Vous pouvez aussi créer un fichier .env contenant une ou plusieurs clés (cf. le fichier exemple: .env-example.
