@@ -60,7 +60,7 @@
 
                 <li>
                     <a href="/records/screening_AI/{{ project_id }}"
-                       class="dropdown-item {% if not primary_LLM_available or not eligibility_criteria_available %}disabled{% endif %}" >
+                       class="dropdown-item {% if not primary_LLM_available or eligibility_criteria_empty %}disabled{% endif %}" >
                         <i class="bi bi-stars"></i> AI screening
                         {% if eligibility_criteria_empty %}
                             <span style="color: red;">eligibility not defined (in project set-up)</span>

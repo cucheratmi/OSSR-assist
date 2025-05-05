@@ -133,6 +133,7 @@ def evaluate_eligibility(record_id, title, abstract, prompt, cur, con):
         output += "<p>llm ERROR</p>"
 
     if response != "":
+        print(response)
         decision = 0
         h = response.split("\n")[0].lower().strip()
         if "study is eligible" in h: decision = 1
