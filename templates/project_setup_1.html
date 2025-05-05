@@ -9,7 +9,7 @@
 
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active" href="/project_edit/{{ project_id }}"
+                <a class="nav-link active" href="/project/edit/{{ project_id }}"
                    style="width: 15rem; text-align: center;">Protocol setup</a>
             </li>
             <li class="nav-item">
@@ -52,9 +52,25 @@
 
 
 <div class="mb-4">
-    <label for="eligibility_criteria" class="form-label">Eligibility criteria for studies</label>
-    <textarea rows="6" class="form-control" id="eligibility_criteria" name="eligibility_criteria" hx-post="/project/update_field/{{ project_id }}/eligibility_criteria" hx-trigger="change" hx-target="#eligibility_criteria_info" hx-swap="innerHTML">{{ project_data["eligibility_criteria"] }}</textarea>
+    <label for="eligibility_criteria" class="form-label">
+        Eligibility criteria for studies
+        {%  if eligibility_criteria_empty %}
+            <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
+                <span class="visually-hidden">Nouvelle notification</span>
+            </span>
+        {% endif %}
+
+    </label>
+    <textarea rows="6" class="form-control" id="eligibility_criteria" name="eligibility_criteria"
+              placeholder="eligibility criteria are used by the AI tool to give suggestion for references screening"
+              hx-post="/project/update_field/{{ project_id }}/eligibility_criteria" hx-trigger="change"
+              hx-target="#eligibility_criteria_info" hx-swap="innerHTML">{{ project_data["eligibility_criteria"] }}</textarea>
     <div id="eligibility_criteria_info" class="form-text"></div>
+{#    {% if eligibility_criteria_empty %}#}
+{#        <div class="alert alert-warning" role="alert">#}
+{#            Eligibility criteria should be defined to use the AI tool for screening.#}
+{#        </div>#}
+{#    {% endif %}#}
 </div>
 
 <div class="mb-4">

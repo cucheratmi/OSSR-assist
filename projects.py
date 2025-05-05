@@ -8,10 +8,11 @@ from utils import *
 from AI_utils import *
 
 def projects_list():
-    sql = "SELECT id, name, type_of_study FROM projects ORDER BY name"
+    sql = "SELECT id, name, type_of_study, eligibility_criteria FROM projects ORDER BY name"
     projects = sql_select_fetchall(sql, ())
-    LLM_available = is_primary_LLM_available() and is_secondary_LLM_available()
-    return render_template('projects_list.html', projects=projects, LLM_available=LLM_available, type_of_study_dict=type_of_study_dict)
+    LLM_available = (is_primary_LLM_available() and is_secondary_LLM_available())
+    return render_template('projects_list.html', projects=projects,
+                           no_LLM = not LLM_available, type_of_study_dict=type_of_study_dict,)
 
 def home():
     return projects_list()
@@ -20,8 +21,11 @@ def project_edit(id):
     sql = "SELECT * FROM projects WHERE id=?"
     project_data = sql_select_fetchone(sql, (id,))
     project_name = project_data['name']
+    eligibility_criteria_empty = project_data['eligibility_criteria'] is None or project_data['eligibility_criteria'] == ''
 
-    return render_template('project_setup_1.html', project_id=id, project_data=project_data, TypeOfStudy=TypeOfStudy, project_name=project_name)
+    return render_template('project_setup_1.html', project_id=id, project_data=project_data,
+                           TypeOfStudy=TypeOfStudy, project_name=project_name,
+                           eligibility_criteria_empty=eligibility_criteria_empty)
 
 
 def project_delete(project_id):
