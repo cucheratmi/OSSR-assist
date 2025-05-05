@@ -155,4 +155,15 @@
 
 </script>
 
+    {%  if outcomes==[] %}
+        <div class="alert alert-warning" role="alert" style="margin-top: 3em;">
+        <h4 class="alert-heading">Warning</h4>
+        <p>You have not defined any outcome. Please add some outcomes to your project.</p>
+
+        <hr>
+        <p class="mb-0">You can add outcomes by using the "add new" fields above.</p>
+        </div>
+    {%  endif %}
+
+
 {%  endblock %}
