@@ -9,16 +9,36 @@
 
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active" href="/project/edit/{{ project_id }}"
-                   style="width: 15rem; text-align: center;">Protocol setup</a>
+                <a class="nav-link active" href="/project/edit/{{ project_id }}" style="width: 15rem; text-align: center;">
+                    Protocol
+                    {%  if eligibility_criteria_empty %}
+                        <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Nouvelle notification</span>
+                        </span>
+                    {% endif %}
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="/project/update_fields/{{ project_id }}"
-                   style="width: 15rem; text-align: center;">Extraction fields setup</a>
+                   style="width: 15rem; text-align: center;">
+                    Extraction fields
+                    {%  if extraction_fields_list_empty %}
+                        <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Nouvelle notification</span>
+                        </span>
+                    {% endif %}
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="/outcomes/setup/{{ project_id }}"
-                   style="width: 15rem; text-align: center;">Outcome setup</a>
+                   style="width: 15rem; text-align: center;">
+                    Outcomes
+                    {%  if outcomes_list_empty %}
+                        <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Nouvelle notification</span>
+                        </span>
+                    {% endif %}
+                </a>
             </li>
 
 
@@ -36,7 +56,9 @@
 
 <div class="mb-4">
     <label for="type_of_study" class="form-label">Type of the reviewed studies</label>
-    <select class="form-control" id="type_of_study" name="type_of_study" value="{{ project_data["type_of_study"] }}" hx-post="/project/update_field/{{ project_id }}/type_of_study" hx-trigger="change" hx-target="#type_of_study_info" hx-swap="innerHTML">
+    <select class="form-select" id="type_of_study" name="type_of_study" value="{{ project_data["type_of_study"] }}"
+            hx-post="/project/update_field/{{ project_id }}/type_of_study" hx-trigger="change"
+            hx-target="#type_of_study_info" hx-swap="innerHTML">
         <option value=""></option>
         <option value="{{ TypeOfStudy.RCT.value }}" >RCT</option>
         <option value="{{ TypeOfStudy.OBS.value }}" >Observational</option>

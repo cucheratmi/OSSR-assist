@@ -2,9 +2,17 @@ from flask import render_template, redirect, url_for, request
 from utils import *
 
 def outcomes_setup(project_id):
+    project_name,_, eligibility_criteria_empty = get_project_name(project_id)
+
     sql = "SELECT * FROM outcomes WHERE project=? ORDER BY sort_order, name"
     outcomes = sql_select_fetchall(sql, (project_id,))
-    return render_template('project_setup_outcomes.html', project_id=project_id, outcomes=outcomes, OUTCOMES_TYPES=OUTCOMES_TYPES)
+
+    extraction_fields_list_empty = is_extraction_fields_list_empty(project_id)
+
+    return render_template('project_setup_outcomes.html', project_id=project_id,
+                           extraction_fields_list_empty=extraction_fields_list_empty,
+                           project_name=project_name, eligibility_criteria_empty=eligibility_criteria_empty,
+                           outcomes=outcomes, OUTCOMES_TYPES=OUTCOMES_TYPES)
 
 
 def outcomes_add(project_id):

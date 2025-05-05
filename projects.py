@@ -17,15 +17,19 @@ def projects_list():
 def home():
     return projects_list()
 
-def project_edit(id):
+def project_edit(project_id):
     sql = "SELECT * FROM projects WHERE id=?"
-    project_data = sql_select_fetchone(sql, (id,))
+    project_data = sql_select_fetchone(sql, (project_id,))
     project_name = project_data['name']
     eligibility_criteria_empty = project_data['eligibility_criteria'] is None or project_data['eligibility_criteria'] == ''
-    LLM_available = (is_primary_LLM_available() and is_secondary_LLM_available())
 
-    return render_template('project_setup_1.html', project_id=id, project_data=project_data,
+    LLM_available = (is_primary_LLM_available() and is_secondary_LLM_available())
+    outcomes_list_empty = is_outcomes_list_empty(project_id)
+    extraction_fields_list_empty = is_extraction_fields_list_empty(project_id)
+
+    return render_template('project_setup_1.html', project_id=project_id, project_data=project_data,
                            TypeOfStudy=TypeOfStudy, project_name=project_name,
+                           outcomes_list_empty=outcomes_list_empty, extraction_fields_list_empty=extraction_fields_list_empty,
                            eligibility_criteria_empty=eligibility_criteria_empty, no_LLM = not LLM_available)
 
 
@@ -69,12 +73,16 @@ def project_add():
 
 
 def project_fields_edit(project_id):
-    sql="SELECT name FROM projects WHERE id=?"
-    project_name = sql_select_fetchone(sql, (project_id,))['name']
+    project_name,_, eligibility_criteria_empty = get_project_name(project_id)
+    outcomes_list_empty = is_outcomes_list_empty(project_id)
 
     sql = "SELECT * FROM study_fields where project=? ORDER BY sort_order"
     fields = sql_select_fetchall(sql, (project_id,))
-    return render_template('project_setup_2.html', project_id=project_id, fields=fields, project_name=project_name)
+    return render_template('project_setup_2.html', project_id=project_id, fields=fields,
+                           project_name=project_name, eligibility_criteria_empty=eligibility_criteria_empty,
+                           outcomes_list_empty=outcomes_list_empty)
+
+
 
 def project_fields_update_order(project_id):
     new_order = request.get_json()

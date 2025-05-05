@@ -14,7 +14,7 @@
   <li class="nav-item">
     <a class="nav-link {% if page=='setup' %}active{% endif %}" href="/project/edit/{{ project_id }}">
         Project set-up
-        {%  if eligibility_criteria_empty %}
+        {%  if eligibility_criteria_empty or outcomes_list_empty or extraction_fields_list_empty %}
             <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
                 <span class="visually-hidden">Nouvelle notification</span>
             </span>

@@ -32,15 +32,36 @@
         <ul class="nav nav-pills">
             <li class="nav-item">
                 <a class="nav-link " href="/project/edit/{{ project_id }}"
-                   style="width: 15rem; text-align: center;">Protocol setup</a>
+                   style="width: 15rem; text-align: center;">
+                    Protocol
+                    {%  if eligibility_criteria_empty %}
+                        <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Nouvelle notification</span>
+                        </span>
+                    {% endif %}
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="/project/update_fields/{{ project_id }}"
-                   style="width: 15rem; text-align: center;">Extraction fields setup</a>
+                   style="width: 15rem; text-align: center;">
+                    Extraction fields
+                    {%  if fields==[] %}
+                        <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Nouvelle notification</span>
+                        </span>
+                    {% endif %}
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="/outcomes/setup/{{ project_id }}"
-                   style="width: 15rem; text-align: center;">Outcome setup</a>
+                   style="width: 15rem; text-align: center;">
+                    Outcome
+                    {%  if outcomes_list_empty %}
+                        <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Nouvelle notification</span>
+                        </span>
+                    {% endif %}
+                 </a>
             </li>
         </ul>
     </div>
@@ -65,7 +86,7 @@
         </div>
         <div class="col-auto">
             <a class="btn btn-outline-primary" href="/extraction_field/add/{{ project_id }}">
-                <i class="bi bi-plus"></i> add personalised field
+                <i class="bi bi-plus"></i> add a personalised field
             </a>
         </div>
     </div>
@@ -130,5 +151,17 @@
 
 
 </script>
+
+    {%  if fields==[] %}
+        <br/>
+        <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">Warning</h4>
+        <p>You have not defined any extraction fields. Please add some fields to your project.</p>
+            <p>Extraction fields correspond to the variable you want to describe for each study included in this systematic review</p>
+        <hr>
+        <p class="mb-0">You can add fields from the list of standard fields corresponding of studies reviewed or you can add personalised field.</p>
+        </div>
+    {% endif %}
+
 
 {%  endblock %}

@@ -222,3 +222,17 @@ def get_project_name(project_id):
     study_type = r['type_of_study']
     eligibility_criteria_empty = (r['eligibility_criteria'] is None or r['eligibility_criteria'].strip() == "")
     return project_name, study_type, eligibility_criteria_empty
+
+
+def is_outcomes_list_empty(project_id):
+    sql = "SELECT COUNT(*) FROM outcomes WHERE project=?"
+    parameters = (project_id,)
+    return sql_select_fetchone(sql, parameters)['COUNT(*)'] == 0
+
+def is_extraction_fields_list_empty(project_id):
+    sql = "SELECT COUNT(*) FROM study_fields WHERE project=?"
+    parameters = (project_id,)
+    return sql_select_fetchone(sql, parameters)['COUNT(*)'] == 0
+
+
+
