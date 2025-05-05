@@ -11,7 +11,7 @@ def test_if_pdf_exists(record_id):
     return os.path.exists(pdf_file_name)
 
 def pdfs_list(project_id, record_id):
-    project_name, study_type = get_project_name(project_id)
+    project_name, study_type, eligibility_criteria_empty = get_project_name(project_id)
 
     l = [InclusionStatus.INCLUDED_FIRST_PASS.value, InclusionStatus.INCLUDED_SECOND_PASS.value, InclusionStatus.UNDECIDED.value]
     s = ",".join(str(x) for x in l)
@@ -27,6 +27,7 @@ def pdfs_list(project_id, record_id):
         pdf_exists[record_id] = test_if_pdf_exists(record_id)
 
     return render_template("pdfs_list.html", references=references, project_id=project_id, pdf_exists=pdf_exists,
+                           eligibility_criteria_empty = eligibility_criteria_empty,
                            record_id=record_id, project_name=project_name,  )
 
 

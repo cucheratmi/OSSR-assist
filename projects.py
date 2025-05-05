@@ -22,10 +22,11 @@ def project_edit(id):
     project_data = sql_select_fetchone(sql, (id,))
     project_name = project_data['name']
     eligibility_criteria_empty = project_data['eligibility_criteria'] is None or project_data['eligibility_criteria'] == ''
+    LLM_available = (is_primary_LLM_available() and is_secondary_LLM_available())
 
     return render_template('project_setup_1.html', project_id=id, project_data=project_data,
                            TypeOfStudy=TypeOfStudy, project_name=project_name,
-                           eligibility_criteria_empty=eligibility_criteria_empty)
+                           eligibility_criteria_empty=eligibility_criteria_empty, no_LLM = not LLM_available)
 
 
 def project_delete(project_id):

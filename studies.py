@@ -15,10 +15,10 @@ def studies_list(project_id):
     sql = "SELECT id, name FROM studies WHERE project=? ORDER BY name"
     studies = sql_select_fetchall(sql, (project_id,))
 
-    sql="SELECT name FROM projects WHERE id=?"
-    project_name = sql_select_fetchone(sql, (project_id,))['name']
+    project_name, study_type, eligibility_criteria_empty = get_project_name(project_id)
 
-    return render_template('studies_list.html', project_id=project_id, project_name=project_name, studies=studies,)
+    return render_template('studies_list.html', project_id=project_id, project_name=project_name,
+                           studies=studies, eligibility_criteria_empty=eligibility_criteria_empty)
 
 def get_study_data(study_id):
     sql = """

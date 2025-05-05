@@ -216,8 +216,9 @@ def get_references(study_id):
 
 
 def get_project_name(project_id):
-    sql="SELECT name, type_of_study FROM projects WHERE id=?"
+    sql="SELECT name, type_of_study, eligibility_criteria FROM projects WHERE id=?"
     r = sql_select_fetchone(sql, (project_id,))
     project_name = r['name']
     study_type = r['type_of_study']
-    return project_name, study_type
+    eligibility_criteria_empty = (r['eligibility_criteria'] is None or r['eligibility_criteria'].strip() == "")
+    return project_name, study_type, eligibility_criteria_empty

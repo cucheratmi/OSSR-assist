@@ -38,11 +38,12 @@ def get_data(project_id):
 
 def data_list1(project_id):
 
-    sql="SELECT name FROM projects WHERE id=?"
-    project_name = sql_select_fetchone(sql, (project_id,))['name']
+    project_name, study_type, eligibility_criteria_empty = get_project_name(project_id)
 
     df2 = get_data(project_id)
-    if df2 is None: return render_template('data1.html', project_id=project_id, project_name=project_name, html="No data available")
+    if df2 is None: return render_template('data1.html', project_id=project_id, project_name=project_name,
+                                           eligibility_criteria_empty=eligibility_criteria_empty,
+                                           html="No data available")
 
     # styler = df2.style
     # styler.set_table_attributes('class="table table-condensed table-hover table-sm" id="data"')
@@ -50,7 +51,8 @@ def data_list1(project_id):
 
     html = df2.to_html(index=False, table_id="data", classes="table table-striped table-hover table-sm table_small")
 
-    return render_template('data1.html', project_id=project_id, project_name=project_name, html=html)
+    return render_template('data1.html', project_id=project_id, project_name=project_name,
+                           eligibility_criteria_empty=eligibility_criteria_empty, html=html)
 
 
 def data_csv1(project_id):
@@ -130,7 +132,8 @@ def get_ROB_data(project_id, study_type):
         rob[domain]['risk_of_bias'] = level_name
 
     study['rob'] = rob
-    studies.append(study)
+    if 'study_name' in study.keys():
+        studies.append(study)
 
     return studies, ROB_DOMAIN
 
@@ -176,13 +179,13 @@ def get_results_data(project_id):
     return studies, outcomes_list
 
 def table_results(project_id):
-    sql = "SELECT name FROM projects WHERE id=?"
-    r = sql_select_fetchone(sql, (project_id,))
-    project_name = r['name']
+    project_name, study_type, eligibility_criteria_empty = get_project_name(project_id)
 
     studies, outcomes_list = get_results_data(project_id)
-    lg = math.ceil(85 / len(outcomes_list))
-    return render_template('table_results.html', studies=studies, outcomes_list=outcomes_list, lg=lg, project_id=project_id, project_name=project_name)
+    lg = math.ceil(85 / len(outcomes_list)) if len(outcomes_list)>0 else 50
+    return render_template('table_results.html', studies=studies, outcomes_list=outcomes_list, lg=lg,
+                           eligibility_criteria_empty=eligibility_criteria_empty,
+                           project_id=project_id, project_name=project_name)
 
 def table_results_as_dataframe(project_id):
     data, outcomes_list = get_results_data(project_id)
@@ -241,14 +244,13 @@ def data_results_excel(project_id):
 
 
 def table_ROB(project_id):
-    sql = "SELECT name, type_of_study FROM projects WHERE id=?"
-    r = sql_select_fetchone(sql, (project_id,))
-    study_type  = r['type_of_study']
-    project_name = r['name']
+    project_name, study_type, eligibility_criteria_empty = get_project_name(project_id)
 
     studies, ROB_DOMAIN = get_ROB_data(project_id, study_type)
-    lg = math.ceil(85 / len(ROB_DOMAIN))
-    return render_template('table_ROB.html', studies=studies, ROB_DOMAIN=ROB_DOMAIN, lg=lg, project_id=project_id, project_name=project_name)
+    lg = math.ceil(85 / len(ROB_DOMAIN)) if len(ROB_DOMAIN)>0 else 50
+    return render_template('table_ROB.html', studies=studies, ROB_DOMAIN=ROB_DOMAIN, lg=lg,
+                           eligibility_criteria_empty=eligibility_criteria_empty,
+                           project_id=project_id, project_name=project_name)
 
 
 def table_ROB_as_dataframe(project_id, study_type):
