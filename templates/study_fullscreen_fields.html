@@ -60,6 +60,9 @@
                                 <span style="color: red;">PDF not available</span>
                             {% endif %}
                         </a>
+                            {%  if not secondary_LLM_available %}
+                                <span style="color: red;">secondary LLM isn't set</span>
+                            {% endif %}
                     </li>
 
                     <li>
@@ -67,7 +70,7 @@
                            href="/AI/compare1/{{ study_id }}/{{ project_id }}/{{ record_id }}/2" onclick="loading()">
                             compare models for extraction
                             {%  if not primary_LLM_available %}
-                                <span style="color: red;">secondary LLM isn't set</span>
+                                <span style="color: red;">LLM isn't set</span>
                             {% endif %}
                         </a>
                     </li>
@@ -75,6 +78,9 @@
                         <a class="dropdown-item disabled"
                            href="/AI/compare2/{{ study_id }}/{{ project_id }}/{{ record_id }}/2" onclick="loading()">
                             compare models for extraction checking
+                            {%  if not primary_LLM_available %}
+                                <span style="color: red;">LLM isn't set</span>
+                            {% endif %}
                         </a>
                     </li>
 

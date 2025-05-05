@@ -28,24 +28,49 @@
                         <p class="p-3" style="color: red;">Select a reference with PDF</p>
                     {% endif %}
                     <li>
-                        <a class="dropdown-item {% if record_id==0 or not primary_LLM_available%}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0 or results_data==[] or not primary_LLM_available%}disabled{% endif %}"
                            href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}/20" onclick="loading()">
                             <i class="bi bi-stars"></i> AI extraction from abstract
+                        {%  if not primary_LLM_available %}
+                            <span style="color: red;">LLM isn't set</span>
+                        {% endif %}
+                        {%  if results_data is none or results_data==[] %}
+                            <span style="color: red;">no outcome defined</span>
+                        {% endif %}
+
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item {% if record_id==0  or not pdf_exists or not primary_LLM_available %}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0 or results_data==[] or not pdf_exists or not primary_LLM_available %}disabled{% endif %}"
                            href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}/21" onclick="loading()">
                             <i class="bi bi-stars"></i> AI extraction from PDF
+                            {%  if not pdf_exists %}
+                                <span style="color: red;">PDF not available</span>
+                            {% endif %}
+                            {%  if not primary_LLM_available %}
+                                <span style="color: red;">LLM isn't set</span>
+                            {% endif %}
+                            {%  if results_data is none or results_data==[] %}
+                                <span style="color: red;">no outcome defined</span>
+                            {% endif %}
                         </a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item {% if record_id==0  or not pdf_exists or not secondary_LLM_available %}disabled{% endif %}"
+                        <a class="dropdown-item {% if record_id==0 or results_data==[] or not pdf_exists or not secondary_LLM_available %}disabled{% endif %}"
                            href="#"
                            hx-get="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}/9999"
                            hx-trigger="click" hx-target="#AI_check" hx-swap="innerHTML" hx-indicator="#loader" >
                             <i class="bi bi-stars"></i> AI checking extraction
+                            {%  if not pdf_exists %}
+                                <span style="color: red;">PDF not available</span>
+                            {% endif %}
+                            {%  if not secondary_LLM_available %}
+                                <span style="color: red;">secondary LLM isn't set</span>
+                            {% endif %}
+                            {%  if results_data is none or results_data==[] %}
+                                <span style="color: red;">no outcome defined</span>
+                            {% endif %}
                         </a>
                     </li>
 
