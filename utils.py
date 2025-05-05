@@ -80,6 +80,15 @@ class TypeOfStudy(IntEnum):
     OTHER=4
     MA=5
 
+type_of_study_dict = {
+    1: "OBS",
+    2: "RCT",
+    3: "DIAG",
+    4: "OTHER",
+    5: "MA"
+}
+
+
 ### htmlx utilities
 
 def update_field(table, id, field, value):

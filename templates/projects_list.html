@@ -67,10 +67,15 @@
     {% for project in projects %}
         <tr>
         <td>{{ project["name"] }}</td>
+            <td>
+                <span class="badge bg-secondary" style="font-size: 10px;">
+                {{ type_of_study_dict[project['type_of_study']] }}
+                </span>
+            </td>
         <td style="font-size: smaller;">#{{ project["id"] }}</td>
 
         <td class="project_list_command">
-        <a href="/project/edit/{{ project["id"] }}" class="text-decoration-none mx-2">Project setup</a>
+        <a href="/project/edit/{{ project["id"] }}" class="text-decoration-none mx-2">Project set-up</a>
         </td>
         <td  class="project_list_command">
         <a href="/records/list/{{ project["id"] }}/1" class="text-decoration-none mx-2">Screening</a>

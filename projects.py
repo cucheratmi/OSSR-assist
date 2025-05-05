@@ -8,10 +8,10 @@ from utils import *
 from AI_utils import *
 
 def projects_list():
-    sql = "SELECT id, name FROM projects ORDER BY name"
+    sql = "SELECT id, name, type_of_study FROM projects ORDER BY name"
     projects = sql_select_fetchall(sql, ())
     LLM_available = is_primary_LLM_available() and is_secondary_LLM_available()
-    return render_template('projects_list.html', projects=projects, LLM_available=LLM_available)
+    return render_template('projects_list.html', projects=projects, LLM_available=LLM_available, type_of_study_dict=type_of_study_dict)
 
 def home():
     return projects_list()
