@@ -244,11 +244,12 @@
                     <td>{{ record["registration_number"] }}</td>
                     <td>
                         {% if record["study_name"] is not none %}
-                            {%  if record["study_name"] =="create study" %}
-                                <a href="/records/create_study/{{ project_id }}/{{ record["id"] }}/{{ pass_number }}">create study</a>
-                            {%  else %}
+                            {% if record["study_name"] =="create study" %}
+                                <a href="/records/create_study/{{ project_id }}/{{ record["id"] }}/{{ pass_number }}">create
+                                    study</a>
+                            {% else %}
                                 {{ record["study_name"] }}
-                            {%  endif %}
+                            {% endif %}
                         {% endif %}
                     </td>
 
@@ -287,24 +288,30 @@
                                         <i class="bi bi-arrows-fullscreen"></i> screening pass 2
                                     </a>
                                 </li>
-                                {%  if record["study_name"] =="create study" %}
+                                {% if record["study_name"] =="create study" %}
                                     <li>
                                         <a class="dropdown-item"
                                            href="/records/create_study/{{ project_id }}/{{ record["id"] }}/{{ pass_number }}">
                                             create study
                                         </a>
                                     </li>
-                                {%  endif %}
+                                {% endif %}
 
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
 
-                                <li><a class="dropdown-item"
+                                <li>
+                                    <a class="dropdown-item"
                                        href="/records/reset_selection/{{ record["id"] }}/{{ project_id }}/{{ pass_number }}">reset
-                                    selection to pending</a></li>
-                                <li><a class="dropdown-item" href="/record/edit/{{ record["id"] }}/{{ project_id }}"><i
-                                        class="bi bi-pen"></i> edit reference</a></li>
+                                        selection to pending
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/record/edit/{{ record["id"] }}/{{ project_id }}"><i
+                                            class="bi bi-pen"></i> edit reference
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </td>

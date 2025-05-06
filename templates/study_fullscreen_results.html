@@ -13,7 +13,7 @@
     <a class="nav-link" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}">Results</a>
+    <a class="nav-link active" href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
   </li>
 </ul>
 
@@ -121,6 +121,16 @@
       </div>
     </div>
 
+    {% if results_data == [] %}
+        <div class="alert alert-warning mt-5" role="alert" style="margin-top: 3em;">
+        <h4 class="alert-heading">Warning. No outcome declared</h4>
+        <p>No outcome declared</p>
+                <p class="mb-0">
+            You can add outcome in the
+                    <a class="btn btn-primary btn-sm" href="/outcomes/setup/{{ project_id }}">setup project tab</a>
+        </p>
+        </div>
+    {% endif %}
 
         {% for f in results_data %}
             <div class="row gt-3 mb-1 mt-4">
@@ -162,9 +172,7 @@ function save_AI(outcome_id) {
 }
 </script>
 
-    <p style="text-align: center; margin-top: 4em;">
-    You can add supplementary outcomes in the <a class="nav-link " href="/outcomes/setup/{{ project_id }}">outcomes setup project tab</a>
-    </p>
+
 
 
 {%  endblock %}
