@@ -89,7 +89,6 @@ type_of_study_dict = {
     5: "MA"
 }
 
-
 ### htmlx utilities
 
 def update_field(table, id, field, value):
