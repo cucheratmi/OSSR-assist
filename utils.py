@@ -92,31 +92,31 @@ type_of_study_dict = {
 
 ### htmlx utilities
 
-# def update_field(table, id, field, value):
-#     assert table in ["studies", "records", "projects", "study_fields", "outcomes"]
-#     assert field is not None
-#     assert value is not None
-#     assert id is not None
-#
-#     value = value.strip()
-#
-#     con = sqlite3.connect(DB_PATH)
-#     con.row_factory = sqlite3.Row
-#     cur = con.cursor()
-#     sql = f"UPDATE {table} SET {field}=? WHERE id=?"
-#     #print(f"{table}.{field} = {value} {id=}")
-#     cur.execute(sql, (value, id))
-#     con.commit()
-#     cur.close()
-#     con.close()
-#
-#     l = f"saved! {table}.{field} = {value}"
-#     return l
-#
-#
-# def htmlx_update_field(table, id, data):
-#     field, value = next(iter(data.items()))
-#     return update_field(table, id, field, value)
+def update_field(table, id, field, value):
+    assert table in ["studies", "records", "projects", "study_fields", "outcomes"]
+    assert field is not None
+    assert value is not None
+    assert id is not None
+
+    value = value.strip()
+
+    con = sqlite3.connect(DB_PATH)
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
+    sql = f"UPDATE {table} SET {field}=? WHERE id=?"
+    #print(f"{table}.{field} = {value} {id=}")
+    cur.execute(sql, (value, id))
+    con.commit()
+    cur.close()
+    con.close()
+
+    l = f"saved! {table}.{field} = {value}"
+    return l
+
+
+def htmlx_update_field(table, id, data):
+    field, value = next(iter(data.items()))
+    return update_field(table, id, field, value)
 
 
 def htmlx_update_field2(study_id, field_id, data):
