@@ -233,12 +233,12 @@
                     </td>
 
                     <td class="align-middle text-center">
-                <span data-bs-toggle="popover" data-bs-title="AI screening" data-bs-html="true"
-                      data-bs-placement="bottom" data-bs-trigger="hover" data-bs-container="body"
-                      data-bs-custom-class="popover-custom"
-                      data-bs-content="{{ record["AI_answer"] }}">
-                    {{ record["AI_decision"] | safe }}
-                </span>
+                        <span data-bs-toggle="popover" data-bs-title="AI screening" data-bs-html="true"
+                              data-bs-placement="bottom" data-bs-trigger="hover" data-bs-container="body"
+                              data-bs-custom-class="popover-custom"
+                              data-bs-content="{{ record["AI_answer"] | safe }}">
+                            {{ record["AI_decision"] | safe }}
+                        </span>
                     </td>
 
                     <td>{{ record["registration_number"] }}</td>
@@ -320,6 +320,15 @@
         </div>
     {% endif %}
 
+    <p class="text-center">
+        {% if (i_page + 1) <= n_page %}
+            <a class="btn btn-outline-primary" href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page + 1 }}">
+                Next <i class="bi bi-arrow-right"></i>
+            </a>
+        {% else %}
+            End of records
+        {% endif %}
+    </p>
 
 
 {% endblock %}

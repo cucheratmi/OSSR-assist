@@ -71,7 +71,7 @@
 <thead>
     <tr>
         <th>Outcomes</th>
-        <th>Description</th>
+        <th style="width: 50%;">Description</th>
         <th>Type</th>
         <th></th>
         <th></th>
@@ -95,6 +95,11 @@
         <td class="drag-handle" style="padding-left: 3em">☰</td>
         </tr>
     {%  endfor %}
+    {% if outcomes == [] %}
+        <tr>
+        <td colspan="99">Empty</td>
+        </tr>
+    {%  endif %}
 
     <tr class="table-light">
         <form action="/outcomes/add/{{ project_id }}" method="post">
@@ -158,10 +163,10 @@
     {%  if outcomes==[] %}
         <div class="alert alert-warning" role="alert" style="margin-top: 3em;">
         <h4 class="alert-heading">Warning</h4>
-        <p>You have not defined any outcome. Please add some outcomes to your project.</p>
+        <p>You have not defined any outcome. </p>
 
         <hr>
-        <p class="mb-0">You can add outcomes by using the "add new" fields above.</p>
+        <p class="mb-0">You can add outcomes by using the "add new outcome" fields above.</p>
         </div>
     {%  endif %}
 

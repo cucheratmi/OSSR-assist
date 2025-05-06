@@ -64,11 +64,7 @@ def records_list(project_id, pass_number=1, page=1):
     for e in records:
         e["database"] = database_dict[e["database"]] if e["database"] in database_dict else "unknown"
 
-        if e["AI_answer"] is not None:
-            if type(e["AI_answer"]) is str:
-                e["AI_answer"] = e["AI_answer"].replace('\n', "<br/>").replace('"','\'')
-            else:
-                e["AI_answer"] = e["AI_answer"].decode('utf-8').replace('\n', "<br/>").replace('"','\'')
+        e["AI_answer"] = format_AI_screening_suggestion(e["AI_answer"])
 
         if e["abstract"] is None: e["abstract"] = ""
         e["abstract"] = e["abstract"].replace('"','\'')
@@ -91,13 +87,24 @@ def records_list(project_id, pass_number=1, page=1):
         e["exclusion_reason_text"] = EXCLUSION_REASON_DICT[e["exclusion_reason"]]
 
 
-    LLM_available = is_primary_LLM_available() and is_secondary_LLM_available()
+    #primary_LLM_available = is_primary_LLM_available()
 
     return render_template('records_list.html', project_id=project_id, project_name=project_name, records=records,
                            pass_number=pass_number, i_page=page, n_page=npage,
                            first_reference=first_reference, last_reference=last_reference, n_reference=n_reference,
                            primary_LLM_available=is_primary_LLM_available(), eligibility_criteria_empty=eligibility_criteria_empty)
 
+
+def format_AI_screening_suggestion(s):
+    if s is None: return ""
+    if type(s) is str:
+        s = s.replace('\n', "<br/>").replace('"','\'')
+    else:
+        s = s.decode('utf-8').replace('\n', "<br/>").replace('"','\'')
+    s = s.replace('\n', "<br/>")
+    s = re.sub(r'\bstudy is eligible\b', f"<span style='color: green; font-weight: bold;'>study is eligible</span>", s, flags=re.IGNORECASE)
+    s = re.sub(r'\bstudy is not eligible\b', f"<span style='color: red; font-weight: bold;'>study is not eligible</span>", s, flags=re.IGNORECASE)
+    return s
 
 def records_upload_form(project_id, s_database):
     sql="SELECT name FROM projects WHERE id=?"
@@ -195,15 +202,7 @@ def records_screening_window(record_id, project_id, pass_number):
                 break
 
     ### format AI answer
-    if record_data["AI_answer"] is not None:
-        s = record_data["AI_answer"]
-        if type(s) is str:
-            s = s.replace('\n\n','<br/>')
-        else:
-            s = s.decode('utf-8').replace('\n\n','<br/>')
-        s = re.sub(r'\bstudy is eligible\b', f"<span style='color: green; font-weight: bold;'>study is eligible</span>", s, flags=re.IGNORECASE)
-        s = re.sub(r'\bstudy is not eligible\b', f"<span style='color: red; font-weight: bold;'>study is not eligible</span>", s, flags=re.IGNORECASE)
-        record_data["AI_answer"] = s.replace('\n', "<br/>").replace('"','\'')
+    record_data["AI_answer"] = format_AI_screening_suggestion(record_data["AI_answer"])
 
     ### button style
     btn_exclude_style = "color: red; width: 50%;"
