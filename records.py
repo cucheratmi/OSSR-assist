@@ -86,6 +86,8 @@ def records_list(project_id, pass_number=1, page=1):
         e["selection_text"] = INCLUSION_STATUS_DICT[e["selection"]]
         e["exclusion_reason_text"] = EXCLUSION_REASON_DICT[e["exclusion_reason"]]
 
+        if (e['selection']==InclusionStatus.INCLUDED_FIRST_PASS or e['selection']==InclusionStatus.INCLUDED_SECOND_PASS) and e['study_id'] is None:
+            e["study_name"] = "create study"
 
     #primary_LLM_available = is_primary_LLM_available()
 
