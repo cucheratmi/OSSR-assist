@@ -70,13 +70,5 @@ L'application elle-même est accessible avec un navigateur Web (Firefox, Chrome,
 
 - [Michel Cucherat](https://github.com/cucheratmi) 
 
-### Autres contributions 
-
-à venir
-
-## Licence
-The OSSR software has an Apache 2.0 [LICENCE](LICENSE). The OSSR team
-accepts no responsibility or liability for the use of the OSSR software or any
-direct or indirect damages arising out of the application of the tool.
 
 
