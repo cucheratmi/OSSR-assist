@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
-{%  block content %}
+{% block content %}
 
-    {%  set page = 'screening' %}
+    {% set page = 'screening' %}
     {% include '_navbar1.html' %}
 
     {# secondary navbar  #}
@@ -10,13 +10,16 @@
 
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link {% if pass_number==1 %}active{% endif %}" href="/records/list/{{ project_id }}/1/1" style="width: 12rem; text-align: center;">pass 1</a>
+                <a class="nav-link {% if pass_number==1 %}active{% endif %}" href="/records/list/{{ project_id }}/1/1"
+                   style="width: 12rem; text-align: center;">pass 1</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if pass_number==2 %}active{% endif %}" href="/records/list/{{ project_id }}/2/1" style="width: 12rem; text-align: center;">pass 2</a>
+                <a class="nav-link {% if pass_number==2 %}active{% endif %}" href="/records/list/{{ project_id }}/2/1"
+                   style="width: 12rem; text-align: center;">pass 2</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/records/flowchart/{{ project_id }}" style="width: 12rem; text-align: center;">flow chart</a>
+                <a class="nav-link" href="/records/flowchart/{{ project_id }}"
+                   style="width: 12rem; text-align: center;">flow chart</a>
             </li>
         </ul>
 
@@ -25,18 +28,22 @@
     <h5 class="mt-0 mb-4">
         {#    menu   #}
         <div class="dropdown" style="float: right; ">
-            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                 <i class="bi bi-list"></i> menu
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                    <a href="/records/upload_form/{{ project_id }}/pubmed" class="dropdown-item"><i class="bi bi-box-arrow-in-down"></i> load Pubmed search</a>
+                    <a href="/records/upload_form/{{ project_id }}/pubmed" class="dropdown-item"><i
+                            class="bi bi-box-arrow-in-down"></i> load Pubmed search</a>
                 </li>
                 <li>
-                    <a href="/" class="dropdown-item disabled"><i class="bi bi-box-arrow-in-down"></i> load Embase search</a>
+                    <a href="/" class="dropdown-item disabled"><i class="bi bi-box-arrow-in-down"></i> load Embase
+                        search</a>
                 </li>
                 <li>
-                    <a href="/records/upload_form/{{ project_id }}/endnote" class="dropdown-item"><i class="bi bi-box-arrow-in-down"></i> load Endnote export file</a>
+                    <a href="/records/upload_form/{{ project_id }}/endnote" class="dropdown-item"><i
+                            class="bi bi-box-arrow-in-down"></i> load Endnote export file</a>
                 </li>
                 <li>
                     <a href="/" class="dropdown-item disabled"><i class="bi bi-box-arrow-in-down"></i> load RIS file</a>
@@ -48,10 +55,12 @@
                     <hr class="dropdown-divider">
                 </li>
                 <li>
-                    <a href="/records/retraction_watch/{{ project_id }}" class="dropdown-item"><i class="bi bi-clipboard2-check"></i> check retraction watch</a>
+                    <a href="/records/retraction_watch/{{ project_id }}" class="dropdown-item"><i
+                            class="bi bi-clipboard2-check"></i> check retraction watch</a>
                 </li>
                 <li>
-                    <a href="/records/deduplication/{{ project_id }}" class="dropdown-item "><i class="bi bi-clipboard2-check"></i> check duplicate</a>
+                    <a href="/records/deduplication/{{ project_id }}" class="dropdown-item "><i
+                            class="bi bi-clipboard2-check"></i> check duplicate</a>
                 </li>
 
                 <li>
@@ -60,7 +69,7 @@
 
                 <li>
                     <a href="/records/screening_AI/{{ project_id }}"
-                       class="dropdown-item {% if not primary_LLM_available or eligibility_criteria_empty %}disabled{% endif %}" >
+                       class="dropdown-item {% if not primary_LLM_available or eligibility_criteria_empty %}disabled{% endif %}">
                         <i class="bi bi-stars"></i> AI screening
                         {% if eligibility_criteria_empty %}
                             <span style="color: red;">eligibility criteria not defined (in project set-up)</span>
@@ -71,26 +80,31 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/records/AI_doublecheck_results/{{ project_id }}" class="dropdown-item" ><i class="bi bi-clipboard2-check"></i> AI human crosschecking</a>
+                    <a href="/records/AI_doublecheck_results/{{ project_id }}" class="dropdown-item"><i
+                            class="bi bi-clipboard2-check"></i> AI human crosschecking</a>
                 </li>
                 <li>
-                    <a href="/records/delete_AI_suggestions/{{ project_id }}" class="dropdown-item">Erase AI suggestions</a>
+                    <a href="/records/delete_AI_suggestions/{{ project_id }}" class="dropdown-item">Erase AI
+                        suggestions</a>
                 </li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
 
                 <li>
-                    <a href="/records/export_RIS/{{ project_id }}" class="dropdown-item"><i class="bi bi-box-arrow-down"></i> export as RIS file</a>
+                    <a href="/records/export_RIS/{{ project_id }}" class="dropdown-item"><i
+                            class="bi bi-box-arrow-down"></i> export as RIS file</a>
                 </li>
                 <li>
-                    <a href="/records/export_CSV/{{ project_id }}" class="dropdown-item"><i class="bi bi-box-arrow-down"></i> export as .CSV file</a>
+                    <a href="/records/export_CSV/{{ project_id }}" class="dropdown-item"><i
+                            class="bi bi-box-arrow-down"></i> export as .CSV file</a>
                 </li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
                 <li>
-                    <a href="/records/delete/{{ project_id }}" class="dropdown-item"><i class="bi bi-trash3"></i> delete all references</a>
+                    <a href="/records/delete/{{ project_id }}" class="dropdown-item"><i class="bi bi-trash3"></i> delete
+                        all references</a>
                 </li>
 
 
@@ -101,185 +115,211 @@
         {% if pass_number==2 %}Screening pass 2 - Records selection using full text{% endif %}
     </h5>
 
-    {%  if records %}
-    <div>
-    <nav aria-label="Page navigation example"  style="display: inline-block;  vertical-align: center;">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link {% if i_page<=1 %}disabled{% endif %}" href="/records/list/{{ project_id }}/{{ pass_number }}/{{ 1 }}" aria-label="Previous">
-            <i class="bi bi-skip-start"></i>
-          </a>
-        </li>
-        {% if i_page - 2 > 1 %}
-            <li class="page-item"><a class="page-link"><i class="bi bi-three-dots"></i></a></li>
-        {%  endif %}
+    {% if records %}
+        <div>
+            <nav aria-label="Page navigation example" style="display: inline-block;  vertical-align: center;">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link {% if i_page<=1 %}disabled{% endif %}"
+                           href="/records/list/{{ project_id }}/{{ pass_number }}/{{ 1 }}" aria-label="Previous">
+                            <i class="bi bi-skip-start"></i>
+                        </a>
+                    </li>
+                    {% if i_page - 2 > 1 %}
+                        <li class="page-item"><a class="page-link"><i class="bi bi-three-dots"></i></a></li>
+                    {% endif %}
 
-          {%  if i_page>2 %}
-            <li class="page-item"><a class="page-link" href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page - 2 }}">{{ i_page - 2 }}</a></li>
-          {% endif %}
-          {%  if i_page>1 %}
-            <li class="page-item"><a class="page-link" href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page - 1 }}">{{ i_page - 1 }}</a></li>
-          {% endif %}
+                    {% if i_page>2 %}
+                        <li class="page-item"><a class="page-link"
+                                                 href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page - 2 }}">{{ i_page - 2 }}</a>
+                        </li>
+                    {% endif %}
+                    {% if i_page>1 %}
+                        <li class="page-item"><a class="page-link"
+                                                 href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page - 1 }}">{{ i_page - 1 }}</a>
+                        </li>
+                    {% endif %}
 
 
-        <li class="page-item"><a class="page-link active" href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page }}">{{ i_page }}</a></li>
+                    <li class="page-item"><a class="page-link active"
+                                             href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page }}">{{ i_page }}</a>
+                    </li>
 
-        {%  if (i_page + 1) <= n_page %}
-        <li class="page-item"><a class="page-link" href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page + 1 }}">{{ i_page + 1 }} </a></li>
-        {%  endif %}
-        {%  if (i_page + 2) <= n_page %}
-        <li class="page-item"><a class="page-link" href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page + 2 }}">{{ i_page + 2 }}</a></li>
-        {% endif %}
-        {% if i_page + 2 < n_page %}
-            <li class="page-item"><a class="page-link"><i class="bi bi-three-dots"></i></a></li>
-        {%  endif %}
-        <li class="page-item">
-          <a class="page-link {% if i_page == n_page %}disabled{% endif %}" href="/records/list/{{ project_id }}/{{ pass_number }}/{{ n_page }}" aria-label="Next">
-            <i class="bi bi-skip-end"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
+                    {% if (i_page + 1) <= n_page %}
+                        <li class="page-item"><a class="page-link"
+                                                 href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page + 1 }}">{{ i_page + 1 }} </a>
+                        </li>
+                    {% endif %}
+                    {% if (i_page + 2) <= n_page %}
+                        <li class="page-item"><a class="page-link"
+                                                 href="/records/list/{{ project_id }}/{{ pass_number }}/{{ i_page + 2 }}">{{ i_page + 2 }}</a>
+                        </li>
+                    {% endif %}
+                    {% if i_page + 2 < n_page %}
+                        <li class="page-item"><a class="page-link"><i class="bi bi-three-dots"></i></a></li>
+                    {% endif %}
+                    <li class="page-item">
+                        <a class="page-link {% if i_page == n_page %}disabled{% endif %}"
+                           href="/records/list/{{ project_id }}/{{ pass_number }}/{{ n_page }}" aria-label="Next">
+                            <i class="bi bi-skip-end"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-        <div style="display: inline-block;  vertical-align: center; margin-left: 2em;">
-            page {{ i_page }}/{{ n_page }}
+            <div style="display: inline-block;  vertical-align: center; margin-left: 2em;">
+                page {{ i_page }}/{{ n_page }}
+            </div>
+            <div style="display: inline-block;  vertical-align: center; margin-left: 1em;">
+                references {{ first_reference }}-{{ last_reference }}/{{ n_reference }}
+            </div>
         </div>
-        <div style="display: inline-block;  vertical-align: center; margin-left: 1em;">
-            references {{ first_reference }}-{{ last_reference }}/{{ n_reference }}
-        </div>
-    </div>
 
-    <table class="table table-condensed table-hover" style="font-size: small;">
-    <tr>
-        <th>id</th>
-        <th>database</th>
-        <th>selection</th>
-        <th>title/abstract</th>
-        <th>author/source</th>
-        <th></th>
-        <th>AI suggestion</th>
-        <th>registration number</th>
-        <th>study</th>
-        <th></th>
-        <th></th>
-    </tr>
-    {% for record in records %}
-        <tr class="{{ record["selection_class"] }}">
-            <td>{{ record["id"] }}</td>
+        <table class="table table-condensed table-hover" style="font-size: small;">
+            <tr>
+                <th>id</th>
+                <th>database</th>
+                <th>selection</th>
+                <th>title/abstract</th>
+                <th>author/source</th>
+                <th></th>
+                <th>AI suggestion</th>
+                <th>registration number</th>
+                <th>study</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for record in records %}
+                <tr class="{{ record["selection_class"] }}">
+                    <td>{{ record["id"] }}</td>
 
-            <td>{{ record["database"] }}</td>
+                    <td>{{ record["database"] }}</td>
 
-            <td>
-                {% if record["exclusion_reason"]!=0 %}
-                    <span data-bs-toggle="popover" data-bs-title="Exclusion reason" data-bs-html="true"
-                          data-bs-placement="bottom" data-bs-trigger="hover" data-bs-container="body"
-                          data-bs-content="{{ record["exclusion_reason_text"] }}">
+                    <td>
+                        {% if record["exclusion_reason"]!=0 %}
+                            <span data-bs-toggle="popover" data-bs-title="Exclusion reason" data-bs-html="true"
+                                  data-bs-placement="bottom" data-bs-trigger="hover" data-bs-container="body"
+                                  data-bs-content="{{ record["exclusion_reason_text"] }}">
                         {{ record["selection_text"] }} ({{ record["selection"] }})
                     </span>
-                {% else %}
-                    {{ record["selection_text"] }}
-                {% endif %}
-            </td>
+                        {% else %}
+                            {{ record["selection_text"] }}
+                        {% endif %}
+                    </td>
 
-            <td>
-                <span data-bs-toggle="popover" data-bs-title="Abstract" data-bs-html="true" data-bs-placement="bottom" data-bs-trigger="hover" data-bs-container="body"
+                    <td>
+                <span data-bs-toggle="popover" data-bs-title="Abstract" data-bs-html="true" data-bs-placement="bottom"
+                      data-bs-trigger="hover" data-bs-container="body"
                       data-bs-custom-class="popover-custom"
                       data-bs-content="{{ record["abstract"] }}">
                     {{ record["title"] }}
                 </span>
-            </td>
+                    </td>
 
-            <td>
-                {{ record["author1"] }} <br/> {{ record["source"] }}
-                <small>
-                    <a href="https://pubmed.ncbi.nlm.nih.gov/{{ record["pmid"] }}/" target="_blank">[{{ record["pmid"] }}]</a>
-                    <a href="https://doi.org/{{ record["DOI"] }}/" target="_blank">{{ record["DOI"] }}</a>
-                </small>
-            </td>
-        <td>
-            {% if record['url']!="" and  record['url'] is not none %}
-                <a href="{{ record['url'] }}" target="_blank">
-                    <i class="bi bi-link"></i>
-                </a>
-            {% endif %}
-        </td>
+                    <td>
+                        {{ record["author1"] }} <br/> {{ record["source"] }}
+                        <small>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/{{ record["pmid"] }}/"
+                               target="_blank">[{{ record["pmid"] }}]</a>
+                            <a href="https://doi.org/{{ record["DOI"] }}/" target="_blank">{{ record["DOI"] }}</a>
+                        </small>
+                    </td>
+                    <td>
+                        {% if record['url']!="" and  record['url'] is not none %}
+                            <a href="{{ record['url'] }}" target="_blank">
+                                <i class="bi bi-link"></i>
+                            </a>
+                        {% endif %}
+                    </td>
 
-            <td class="align-middle text-center">
-                <span data-bs-toggle="popover" data-bs-title="AI screening" data-bs-html="true" data-bs-placement="bottom" data-bs-trigger="hover" data-bs-container="body"
+                    <td class="align-middle text-center">
+                <span data-bs-toggle="popover" data-bs-title="AI screening" data-bs-html="true"
+                      data-bs-placement="bottom" data-bs-trigger="hover" data-bs-container="body"
                       data-bs-custom-class="popover-custom"
                       data-bs-content="{{ record["AI_answer"] }}">
-                    {{ record["AI_decision"] | safe}}
+                    {{ record["AI_decision"] | safe }}
                 </span>
-            </td>
+                    </td>
 
-            <td>{{ record["registration_number"] }}</td>
-            <td>
-                {%  if record["study_name"] is not none %}
-                {{ record["study_name"] }}
-                {% endif %}
-            </td>
+                    <td>{{ record["registration_number"] }}</td>
+                    <td>
+                        {% if record["study_name"] is not none %}
+                            {{ record["study_name"] }}
+                        {% endif %}
+                    </td>
 
 
-            <td class="" style="vertical-align: middle;">
-                {%  if pass_number==1 %}
-                    <a href="/records/screening_pass1_window/{{ record["id"] }}/{{ project_id }}"><i class="bi bi-arrows-fullscreen" style="font-size: 1rem;"></i></a>
-                {%  else  %}
-                    <a href="/records/screening_pass2_window/{{ record["id"] }}/{{ project_id }}"><i class="bi bi-arrows-fullscreen" style="font-size: 1rem;"></i></a>
-                {%  endif %}
-            </td>
-{#        <td>#}
-{#            exclude maybe include#}
-{#            <a href="/records/study_add/{{ project_id }}/{{ record["id"] }}" class="btn btn-primary btn-xs">#}
-{#                create study#}
-{#            </a>#}
-{#        </td>#}
-        <td class="" style="margin-right: 2em; vertical-align: center;">&nbsp;
-        <div class="dropdown align-middle">
-            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-three-dots-vertical"></i>
-            </button>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="dropdown-item" href="/records/screening_pass1_window/{{ record["id"] }}/{{ project_id }}">
-                    <i class="bi bi-arrows-fullscreen"></i> screening pass 1
-                </a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="/records/screening_pass2_window/{{ record["id"] }}/{{ project_id }}">
-                    <i class="bi bi-arrows-fullscreen"></i> screening pass 2
-                </a>
-            </li>
-            <li><hr class="dropdown-divider"></li>
+                    <td class="" style="vertical-align: middle;">
+                        {% if pass_number==1 %}
+                            <a href="/records/screening_pass1_window/{{ record["id"] }}/{{ project_id }}"><i
+                                    class="bi bi-arrows-fullscreen" style="font-size: 1rem;"></i></a>
+                        {% else %}
+                            <a href="/records/screening_pass2_window/{{ record["id"] }}/{{ project_id }}"><i
+                                    class="bi bi-arrows-fullscreen" style="font-size: 1rem;"></i></a>
+                        {% endif %}
+                    </td>
+                    {#        <td>#}
+                    {#            exclude maybe include#}
+                    {#            <a href="/records/study_add/{{ project_id }}/{{ record["id"] }}" class="btn btn-primary btn-xs">#}
+                    {#                create study#}
+                    {#            </a>#}
+                    {#        </td>#}
+                    <td class="" style="margin-right: 2em; vertical-align: center;">&nbsp;
+                        <div class="dropdown align-middle">
+                            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item"
+                                       href="/records/screening_pass1_window/{{ record["id"] }}/{{ project_id }}">
+                                        <i class="bi bi-arrows-fullscreen"></i> screening pass 1
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                       href="/records/screening_pass2_window/{{ record["id"] }}/{{ project_id }}">
+                                        <i class="bi bi-arrows-fullscreen"></i> screening pass 2
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
 
-            <li><a class="dropdown-item" href="/records/reset_selection/{{ record["id"] }}/{{ project_id }}/{{ pass_number }}">reset selection to pending</a></li>
-            <li><a class="dropdown-item" href="/record/edit/{{ record["id"] }}/{{ project_id }}"><i class="bi bi-pen"></i> edit reference</a></li>
-            </ul>
+                                <li><a class="dropdown-item"
+                                       href="/records/reset_selection/{{ record["id"] }}/{{ project_id }}/{{ pass_number }}">reset
+                                    selection to pending</a></li>
+                                <li><a class="dropdown-item" href="/record/edit/{{ record["id"] }}/{{ project_id }}"><i
+                                        class="bi bi-pen"></i> edit reference</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">no reference </h4>
+            {% if pass_number==1 %}
+                <p>
+                    Start by uploading the file of references obtained by your bibliographic search using the relevant
+                    function in the menu (for example, 'load Pubmed search' for a pubmed file).
+                    The references will be displayed in this tab, and you can start screening.
+                </p>
+                <p>
+                    <a href="/records/upload_form/{{ project_id }}" class="btn btn-primary">load Pubmed search</a>
+                </p>
+            {% else %}
+                <p>
+                    No retained reference for the pass 2 screening.
+                    No reference to be screened at pass 2 with full text
+                </p>
+            {% endif %}
         </div>
-        </td>
-        </tr>
-    {% endfor %}
-    </table>
-
-    {%  else %}
-    <div class="alert alert-warning" role="alert">
-    <h4 class="alert-heading">no reference </h4>
-        {%  if pass_number==1 %}
-        <p>
-            Start by uploading the file of references obtained by your bibliographic search using the relevant function in the menu (for example, 'load Pubmed search' for a pubmed file).
-            The references will be displayed in this tab, and you can start screening.
-        </p>
-        <p>
-            <a href="/records/upload_form/{{ project_id }}" class="btn btn-primary">load Pubmed search</a>
-        </p>
-            {%  else %}
-            <p>
-            No retained reference for the pass 2 screening.
-            No reference to be screened at pass 2 with full text
-            </p>
-            {%  endif %}
-    </div>
-    {%  endif %}
+    {% endif %}
 
 
 
-{%  endblock %}
+{% endblock %}

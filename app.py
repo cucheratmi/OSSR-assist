@@ -393,7 +393,7 @@ def serve_file(record_id):
         return f"Erreur: {str(e)}", 404
 
 
-### test streaming  #######################################
+###  streaming  #######################################
 
 @app.route('/stream2/<int:project_id>/')
 def stream2(project_id):

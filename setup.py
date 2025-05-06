@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, current_app
-from utils import *
+from pathlib import Path
+from dotenv import load_dotenv
 
+from utils import *
 from AI_utils import AI_initilization
 
 def setup():
@@ -105,4 +107,3 @@ def app_config(app):
     AI_initilization(app)
 
     print("initialization done")
-

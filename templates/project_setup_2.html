@@ -115,6 +115,11 @@
         <td class="drag-handle" style="padding-left: 3em">☰</td>
         </tr>
     {%  endfor %}
+    {% if fields==[] %}
+        <tr>
+            <td colspan="4">Empty</td>
+        </tr>
+    {% endif %}
     </tbody>
 </table>
 
