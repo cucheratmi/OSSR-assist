@@ -3,7 +3,7 @@
 {%  block col2 %}
 
     <div>
-<ul class="nav nav-tabs mt-0 mb-4">
+<ul class="nav nav-tabs mt-0 mb-0">
   <li class="nav-item">
     <a class="nav-link" href="/study/fullscreen/tab1/{{ study_id }}/{{ project_id }}/{{ record_id }}">Study</a>
   </li>
@@ -20,8 +20,14 @@
 </div>
 
 
-    <div class="row" style="text-align: right;">
-        <div class="dropdown" style="">
+    <div class="mt-0 mb-0">
+
+        <div id="loader" class="htmx-indicator" style="text-align: center; font-size: large;">
+          <div class="spinner-border text-primary" role="status">
+          </div>
+        </div>
+
+        <div class="dropdown" style="float: right;">
             <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                 <i class="bi bi-list"></i> menu
@@ -71,12 +77,6 @@
     </script>
 
     <div id="AI_check" class="mt-0 mb-0" style=""></div>
-
-    <div id="loader" class="htmx-indicator" style="text-align: center; font-size: large;">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Chargement...</span>
-      </div>
-    </div>
 
 
     <form id="form_ROB">
