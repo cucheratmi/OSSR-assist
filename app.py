@@ -64,10 +64,14 @@ def endpoint_outcomes_order(project_id):
     outcomes_order(project_id)
     return '', 204
 
+#
+# @app.route('/outcomes/result_update/<int:outcome_id>/<int:study_id>', methods=['POST'])
+# def endpoint_outcomes_result_update(outcome_id, study_id):
+#     return result_update(outcome_id, study_id)
 
-@app.route('/outcomes/result_update/<int:outcome_id>/<int:study_id>', methods=['POST'])
-def endpoint_outcomes_result_update(outcome_id, study_id):
-    return result_update(outcome_id, study_id)
+@app.route('/outcomes/result_update2/<string:variable>/<int:outcome_id>/<int:study_id>', methods=['POST'])
+def endpoint_outcomes_result_update2(variable, outcome_id, study_id):
+    return result_update2(variable, outcome_id, study_id)
 
 
 #######################  projects  ##########################
@@ -145,6 +149,11 @@ def endpoint_data_results_csv(project_id):
 @app.route('/data/results/excel/<int:project_id>')
 def endpoint_data_results_excell(project_id):
     return data_results_excel(project_id)
+
+@app.route('/data/outcomes/short_format/<int:project_id>')
+def endpoint_data_outcomes_short_format(project_id):
+    return get_outcomes_data_short_format(project_id)
+
 
 
 ########################### extraction field ############################
@@ -267,6 +276,9 @@ def endpoint_study_check_extraction(study_id, project_id, record_id):
 def endpoint_study_check_ROB(study_id, project_id, record_id):
     return study_check_ROB(study_id, project_id, record_id)
 
+@app.route('/study/check_outcomes/<int:study_id>/<int:record_id>/')
+def endpoint_study_check_outcomes(study_id, record_id):
+    return study_check_outcomes(study_id, record_id)
 
 @app.route('/study/ROB_set_level/<int:study_id>/<int:domain>', methods=['POST'])
 def endpoint_study_ROB_set_level(study_id, domain):

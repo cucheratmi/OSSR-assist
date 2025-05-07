@@ -1,5 +1,6 @@
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, jsonify
 from utils import *
+
 
 def outcomes_setup(project_id):
     project_name,_, eligibility_criteria_empty = get_project_name(project_id)
@@ -58,7 +59,7 @@ def get_results_data(study_id, project_id):
     sql = """
           SELECT outcomes.name        AS outcome_name, \
                  outcomes.id          AS outcome_id, \
-                 outcome_values.value AS value, \
+                 outcome_values.*, \
                  outcomes.description AS description
           FROM outcomes
                    LEFT JOIN outcome_values ON outcome_values.outcome = outcomes.id
@@ -69,21 +70,59 @@ def get_results_data(study_id, project_id):
     for e in results_data:
         label = e['outcome_name']
         label = label.replace("_", " ")
-        label = label[0].upper() + label[1:]
         e['label'] = label
+
+        for k,v in e.items():
+            if v is None:
+                e[k] = ""
+
     return results_data
 
 
-def result_update(outcome_id, study_id):
-    value = request.form["F"+str(outcome_id)]
+# def result_update(outcome_id, study_id):
+#     # TODO potentially remove this
+#     value = request.form["F"+str(outcome_id)]
+#     try:
+#         sql = "INSERT INTO outcome_values (outcome, study, value) VALUES (?,?,?)"
+#         sql_insert_into(sql, (outcome_id, study_id, value))
+#     except Exception as e:
+#         print(e)
+#
+#     sql="UPDATE outcome_values SET value=? WHERE outcome=? AND study=?"
+#     sql_update(sql, (value, outcome_id, study_id))
+#
+#     r = f"Outcome {outcome_id} updated for study {study_id} with value {value}"
+#     return r, 200
+
+
+def is_real(s):
     try:
-        sql = "INSERT INTO outcome_values (outcome, study, value) VALUES (?,?,?)"
-        sql_insert_into(sql, (outcome_id, study_id, value))
-    except Exception as e:
-        print(e)
+        float(s)
+        return True
+    except ValueError:
+        return False
 
-    sql="UPDATE outcome_values SET value=? WHERE outcome=? AND study=?"
-    sql_update(sql, (value, outcome_id, study_id))
+def result_update2(field_DB_name, outcome_id, study_id):
+    field_HTML_name = field_DB_name + "_" + str(outcome_id)
+    value = request.form[field_HTML_name].strip()
 
-    r = f"Outcome {outcome_id} updated for study {study_id} with value {value}"
-    return r, 200
+    valid = True
+    if field_DB_name in ["TE","ll","ul"] and value!="":
+        valid = is_real(value)
+    elif field_DB_name in ["events_1","events_0","n_1","n_0"] and value!="":
+        valid = value.isdigit()
+
+    if valid:
+        sql = "SELECT outcome, study FROM outcome_values WHERE outcome=? AND study=?"
+        r = sql_select_fetchone(sql, (outcome_id, study_id,))
+        if r is not None:
+            sql=f"UPDATE outcome_values SET {field_DB_name}=? WHERE outcome=? AND study=?"
+            sql_update(sql, (value, outcome_id, study_id))
+        else:
+            sql = f"INSERT INTO outcome_values (outcome, study, {field_DB_name}) VALUES (?,?,?)"
+            sql_insert_into(sql, (outcome_id, study_id, value))
+
+    c = "is-valid" if valid else "is-invalid"
+    return jsonify({"className": "form-control " + c})
+
+

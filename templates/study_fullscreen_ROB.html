@@ -14,7 +14,7 @@
     <a class="nav-link active" aria-current="page" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
+    <a class="nav-link" href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
   </li>
 </ul>
 </div>
@@ -83,8 +83,8 @@
 
         {% for i in ROB.keys() %}
             <div class='row gt-3 mt-5 mb-2'>
-                <div class="col-md-6 align-middle" style="">
-                    {{ ROB[i]['domain_name'] }}
+                <div class="col-md-6 align-middle fw-semibold" style="">
+                    {{ ROB[i]['domain_name'] | capitalize  }}
                 </div>
                 <div class="col-md-6">
                     <select class='form-select' id="level_{{ i }}" name="level_{{ i }}"
@@ -104,7 +104,7 @@
             <div class="row gt-3 mb-1">
                 <div class="col-md-12" >
 {#                    <label for="justification_{{ i }}" class="form-label">Justification</label>#}
-                    <textarea rows=3 class="form-control" id="justification_{{ i }}" name="justification_{{ i }}"
+                    <textarea rows=4 class="form-control" id="justification_{{ i }}" name="justification_{{ i }}"
                               placeholder="Justification"
                               hx-post="/study/ROB_set_justification/{{ study_id }}/{{ i }}"
                               hx-trigger="change" hx-target="#justification_{{ i }}"
@@ -115,7 +115,7 @@
             {% if i in AI_data %}
                 <div class="row gt-3 mt-1 mb-3">
                     <div class="col-md-11 form-floating">
-                        <textarea class="form-control" style="font-size: small; background-color: lavender; height: 6rem;"
+                        <textarea class="form-control" style="font-size: small; background-color: lavender; height: 7rem;"
                                   id="AI_{{ i }}"
                                   name="AI_{{ i }}">**{{ AI_data[i]['risk_of_bias'] }}** {{ AI_data[i]['justification'] }}</textarea>
                         <label for="AI_{{ i }}">✨ AI suggestion</label>

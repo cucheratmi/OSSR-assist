@@ -137,6 +137,34 @@ def get_ROB_data(project_id, study_type):
 
     return studies, ROB_DOMAIN
 
+def get_outcomes_data_short_format(project_id):
+    sql = "SELECT name FROM projects WHERE id=?"
+    r = sql_select_fetchone(sql, (project_id,))
+    project_name = r['name']
+    file_name = "project_" + str(project_id) + "_" + project_name.strip().replace(" ","_") + "_data"
+
+    sql = """ \
+          SELECT 
+                studies.name AS study_name, 
+                outcomes.name AS outcome_name, 
+                outcome_values.TE, outcome_values.ll, outcome_values.ul, outcome_values.n_1, outcome_values.n_0, outcome_values.events_1, outcome_values.events_0
+          FROM studies 
+                INNER JOIN outcome_values ON outcome_values.study = studies.id 
+                INNER JOIN outcomes ON outcomes.id = outcome_values.outcome 
+          WHERE studies.project = ? 
+          ORDER BY studies.name, outcome_values.outcome 
+         """
+    rows = sql_select_fetchall(sql, (project_id,))
+    df = pd.DataFrame(rows)
+    df.columns = ["study_name", "outcome_name", "TE", "ll","ul","n_1","n_0","events_1","events_0"]
+
+    response = make_response(df.to_csv())
+    response.headers['Content-Disposition'] = 'attachment; filename=' + file_name+ '.csv'
+    response.headers['Content-type'] = 'text/csv'
+
+    return response
+
+
 def get_results_data(project_id):
     sql = "SELECT id, name FROM outcomes WHERE project=? ORDER BY sort_order, id"
     r = sql_select_fetchall(sql, (project_id,))

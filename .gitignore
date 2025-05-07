@@ -11,3 +11,4 @@
 *.swo
 
 README_draft.md
+/Dockerfile

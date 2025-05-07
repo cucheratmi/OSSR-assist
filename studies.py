@@ -46,7 +46,6 @@ def get_fields_data(study_id, project_id):
     for e in data_fields:
         label = e['field_name']
         label = label.replace("_", " ")
-        label = label[0].upper() + label[1:]
         e['label'] = label
     return data_fields
 
@@ -140,12 +139,12 @@ def get_ROB(study_id, project_id):
             ROB_DOMAIN = ROB_DIAG_DOMAIN
             LEVEL_NAME = {0:'', 1:'low risk', 2:'some concern', 3:'high risk'}
             for i in range(1, len(ROB_DOMAIN)+1):
-                d[i] = {'domain': i, 'domain_name': first_letter_in_capital(ROB_DOMAIN[i]), 'level': 0, 'level_name':'', 'justification': ''}
+                d[i] = {'domain': i, 'domain_name': ROB_DOMAIN[i], 'level': 0, 'level_name':'', 'justification': ''}
         case _:
             ROB_DOMAIN = ROB_RCT_DOMAIN
             LEVEL_NAME = {0:'', 1:'low risk', 2:'some concern', 3:'high risk'}
             for i in range(1, 6):
-                d[i] = {'domain':i, 'domain_name': first_letter_in_capital(ROB_RCT_DOMAIN[i]), 'level':0, 'level_name':'', 'justification': ''}
+                d[i] = {'domain':i, 'domain_name': ROB_RCT_DOMAIN[i], 'level':0, 'level_name':'', 'justification': ''}
 
     sql = "SELECT domain, level, justification FROM ROB_values where study=?"
     rows = sql_select_fetchall(sql, (study_id,))
@@ -216,9 +215,9 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
     elif tab=="fields":
         data_fields = get_fields_data(study_id, project_id)
         template= 'study_fullscreen_fields.html'
-    elif tab=="results":
+    elif tab=="outcomes2":
         results_data = get_results_data(study_id, project_id)
-        template= 'study_fullscreen_results.html'
+        template= 'study_fullscreen_outcomes2.html'
     else:
         template= 'study_fullscreen_tab1.html'
 
@@ -228,8 +227,8 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
         AI_data = get_AI_data_extraction(AI, study_id, record_id, project_id)
     if AI == 10:  #rob
         AI_data = get_AI_data_ROB(study_id, record_id, project_id)
-    if AI == 20 or AI == 21: #results
-        AI_data = get_AI_data_results(AI, study_id, record_id, project_id)
+    if AI==30 or AI==31: # outcomes2
+        AI_data = get_AI_data_results2(AI, study_id, record_id, project_id)
 
 
     return render_template(template, study_id=study_id,
@@ -251,14 +250,21 @@ def get_AI_data_extraction(AI, study_id, record_id, project_id):
         AI_data[i] = e[1]
     return AI_data
 
-def get_AI_data_results(AI, study_id, record_id, project_id):
+# def get_AI_data_results(AI, study_id, record_id, project_id):
+#     AI_data = dict()
+#     context_source = "abstract" if AI == 1 else "pdf"
+#     data = AI_results(study_id, record_id, project_id, context_source)
+#     for e in data:
+#         i = int(e[0][1:])
+#         AI_data[i] = e[1]
+#     return AI_data
+
+def get_AI_data_results2(AI, study_id, record_id, project_id):
+    # TODO modif en cours
     AI_data = dict()
     context_source = "abstract" if AI == 1 else "pdf"
-    data = AI_results(study_id, record_id, project_id, context_source)
-    for e in data:
-        i = int(e[0][1:])
-        AI_data[i] = e[1]
-    return AI_data
+    data = AI_results2(study_id, record_id, project_id, context_source)
+    return data
 
 def get_AI_data_ROB(study_id, record_id, project_id):
     AI_data = AI_ROB(study_id, record_id, project_id, current_app.config['LLM_NAME'])
@@ -308,6 +314,40 @@ def study_check_ROB(study_id, project_id, record_id):
         extracted_data += f" - {data[i]['domain_name']}: {level_name}\n"
 
     answer = AI_check_ROB(extracted_data, record_id, project_id)
+
+    if True:
+        # model answer is considered as being markdown that will be convert to HTML
+        import mistune
+        html = mistune.html(answer)
+    else:
+        html = "<pre class='p-2 text-monospace' style='white-space: pre-wrap;'>" + \
+        answer + \
+        "</pre>"
+
+    html = "<div class='alert alert-light'>"+\
+           "<h4 class='alert-heading'>✨ AI check </h4>" + \
+            html +\
+            "</div>"
+
+    return html
+
+def get_outcomes_data(study_id):
+    sql = """
+    SELECT outcome_values.*, outcomes.name AS outcome_name 
+    FROM outcome_values 
+        INNER  JOIN outcomes ON outcomes.id=outcome_values.outcome 
+    WHERE outcome_values.study=? 
+    """
+    outcomes = sql_select_fetchall(sql, (study_id,))
+    return outcomes
+
+def study_check_outcomes(study_id, record_id):
+    outcomes = get_outcomes_data(study_id)
+    extracted_data = ""
+    for o in outcomes:
+        extracted_data += f" - {o['outcome_name']}: treatment effect: {o['TE']}, confidence interval; [{o['ll']};{o['ul']}], p value: {o["p_value"]}   \n"
+
+    answer = AI_check_outcomes(extracted_data, record_id)
 
     if True:
         # model answer is considered as being markdown that will be convert to HTML

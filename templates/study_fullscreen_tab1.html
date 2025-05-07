@@ -13,14 +13,14 @@
     <a class="nav-link" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
+    <a class="nav-link" href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
   </li>
 </ul>
 
 
             <form>
         <div class="mb-4">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label fw-semibold">Name</label>
             <input type="text" class="form-control" id="name" name="name" value="{{ study_data["name"] }}"
                    hx-post="/study/update_field/{{ study_id }}/name" hx-trigger="change" hx-target="#name_info"
                    hx-swap="innerHTML"/>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="mb-4">
-            <label for="registration_number" class="form-label">Registration number</label>
+            <label for="registration_number" class="form-label fw-semibold">Registration number</label>
             <input type="text" class="form-control" id="registration_number" name="registration_number"
                    value="{{ study_data["registration_number"] }}" hx-post="/study/update_field/{{ study_id }}/registration_number"
                    hx-trigger="change" hx-target="#registration_number_info" hx-swap="innerHTML"/>

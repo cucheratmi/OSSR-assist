@@ -13,7 +13,7 @@
     <a class="nav-link" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
+    <a class="nav-link active" href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
   </li>
 </ul>
 
@@ -25,11 +25,11 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                     {%  if record_id==0 %}
-                        <p class="p-3" style="color: red;">Select a reference with PDF</p>
+                        <p class="p-3" style="color: red;">Select a reference</p>
                     {% endif %}
                     <li>
                         <a class="dropdown-item {% if record_id==0 or results_data==[] or not primary_LLM_available%}disabled{% endif %}"
-                           href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}/20" onclick="loading()">
+                           href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}/30" onclick="loading()">
                             <i class="bi bi-stars"></i> AI extraction from abstract
                         {%  if not primary_LLM_available %}
                             <span style="color: red;">LLM isn't set</span>
@@ -42,7 +42,7 @@
                     </li>
                     <li>
                         <a class="dropdown-item {% if record_id==0 or results_data==[] or not pdf_exists or not primary_LLM_available %}disabled{% endif %}"
-                           href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}/21" onclick="loading()">
+                           href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}/31" onclick="loading()">
                             <i class="bi bi-stars"></i> AI extraction from PDF
                             {%  if not pdf_exists %}
                                 <span style="color: red;">PDF not available</span>
@@ -59,7 +59,7 @@
                     <li>
                         <a class="dropdown-item {% if record_id==0 or results_data==[] or not pdf_exists or not secondary_LLM_available %}disabled{% endif %}"
                            href="#"
-                           hx-get="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}/9999"
+                           hx-get="/study/check_outcomes/{{ study_id }}/{{ record_id }}"
                            hx-trigger="click" hx-target="#AI_check" hx-swap="innerHTML" hx-indicator="#loader" >
                             <i class="bi bi-stars"></i> AI checking extraction
                             {%  if not pdf_exists %}
@@ -132,43 +132,129 @@
         </div>
     {% endif %}
 
+
+{#    macro    #}
+{% macro macro_field_1(field_name, outcome_id, value, field_title) -%}
+    <input type="text" class="form-control" id="{{ field_name }}_{{ outcome_id }}" name="{{ field_name }}_{{ outcome_id }}"
+           value="{{ value }}"
+           hx-post="/outcomes/result_update2/{{ field_name }}/{{ outcome_id }}/{{ study_id }}" hx-trigger="change"
+{#           hx-target="#{{ field_name }}_{{ outcome_id }}_info" hx-swap="innerHTML"#}
+           placeholder="{{ field_name }}" title="{{ field_title }}">
+    <div class="invalid-feedback">Inappropriate format</div>
+    <div id="{{ field_name }}_{{ outcome_id }}_info" class="form-text"></div>
+{%- endmacro -%}
+
+
         {% for f in results_data %}
+            {%  set outcome_id = f['outcome_id'] %}
             <div class="row gt-3 mb-1 mt-4">
                 <div class="col-md-12" >
-                    <label for="F{{ f['outcome_name'] }}" class="form-label">{{ f['label'] }}</label>
-                    <textarea rows=2 class="form-control" id="F{{ f['outcome_id'] }}" name="F{{ f['outcome_id'] }}"
-                           hx-post="/outcomes/result_update/{{ f['outcome_id'] }}/{{ study_id }}"
-                           hx-trigger="change" hx-target="#F{{ f['outcome_id'] }}_info" hx-swap="innerHTML">{{ f['value'] }}</textarea>
-                    <div class="form-text">{{ f['description'] }}</div>
-                    <div id="F{{ f['outcome_id'] }}_info" class="form-text"></div>
+                    <label for="F{{ f['outcome_name'] }}" class="form-label fw-medium" >{{ f['label'] }}</label>
+
+                    <input type="text" class="form-control" id="paper_designation_{{ outcome_id }}" name="paper_designation_{{ outcome_id }}"
+                           value="{{ f['paper_designation'] }}"
+                           hx-post="/outcomes/result_update2/paper_designation/{{ outcome_id }}/{{ study_id }}" hx-trigger="change"
+                           placeholder="outcome name used in the paper" title="outcomes designation in paper">
+                </div>
+            </div>
+            <div class="row gt-3 mb-1 ">
+                <div class="col-3" >
+                    {{ macro_field_1("TE", outcome_id, f['TE'], "treatment effect (hazard ratio, relative risk, odds ratio, etc.") }}
+                </div>
+                <div class="col-3" >
+                    {{ macro_field_1("ll", outcome_id, f['ll'], "lower limit of confidence interval") }}
+                </div>
+                <div class="col-3" >
+                    {{ macro_field_1("ul", outcome_id, f['ul'], "Rename… limit of confidence interval") }}
+                </div>
+                <div class="col-3" >
+                    {{ macro_field_1("p_value", outcome_id, f['p_value'], "p value (nominal)") }}
                 </div>
             </div>
 
-            {%  if f['outcome_id'] in AI_data %}
+            <div class="row gt-3 mb-1 ">
+                <div class="col-2" >
+                    {{ macro_field_1("events_1", outcome_id, f['events_1'], "number of events in treatment group") }}
+                </div>
+                <div class="col-2" >
+                    {{ macro_field_1("n_1", outcome_id, f['n_1'], "sample size of treatment group") }}
+                </div>
+                <div class="col-2" >
+                    {{ macro_field_1("events_0", outcome_id, f['events_0'], "number of events in control group") }}
+                </div>
+                 <div class="col-2" >
+                    {{ macro_field_1("n_0", outcome_id, f['n_0'], "sample size of control group") }}
+                </div>
+            </div>
+
+            <div class="row gt-3 mb-1 ">
+                <div class="col-md-12" >
+                    <textarea rows=2 class="form-control" id="value_{{ outcome_id }}" name="value_{{ outcome_id }}"
+                           hx-post="/outcomes/result_update2/value/{{ outcome_id }}/{{ study_id }}"
+                           hx-trigger="change">{{ f['value'] }}</textarea>
+                </div>
+            </div>
+
+
+            {%  if outcome_id in AI_data %}
+                {%  set r = AI_data[outcome_id] %}
             <div class="row gt-3 mb-3 mt-0 ">
                 <div class="col-md-11 form-floating">
-                    <textarea class="form-control" style="font-size: small; height: 4rem;"
-                              id="AI_{{ f['outcome_id'] }}" name="AI_{{ f['outcome_id'] }}" placeholder="✨ AI suggestion">{{ AI_data[f['outcome_id']] }}</textarea>
-                    <label for="AI_{{ f['outcome_id'] }}">AI suggestion</label>
-                </div>
+
+                    <div class="alert alert-light" role="alert" style="background-color: lavender;" >
+                        <h4 class="heading-text">AI suggestions</h4>
+                        <ul>
+                            <li>endpoint name in the paper: <span id="AI_paper_designation_{{ outcome_id }}">{{ r['paper_endpoint_name'] }}</span></li>
+                            <li>hazard ratio: <span id="AI_TE_{{ outcome_id }}">{{ r['hazard_ratio'] }}</span></li>
+                            <li>ll: <span id="AI_ll_{{ outcome_id }}">{{ r['ll'] }}</span></li>
+                            <li>ul: <span id="AI_ul_{{ outcome_id }}">{{ r['ul'] }}</span></li>
+                            <li>p value: <span id="AI_p_value_{{ outcome_id }}">{{ r['p_value'] }}</span></li>
+                            <li>literal summary of the result: <span id="AI_value_{{ outcome_id }}">{{ r['literal_summary'] }}</span></li>
+                        </ul>
+                    </div>
+
+                    </div>
                 <div class="col-md-1 align-middle" >
                     <a class="btn btn-outline-primary btn-sm align-middle"
                        href="javascript:void(0)" onclick="save_AI('{{ f['outcome_id'] }}')">
                         save
                     </a>
                 </div>
-
             </div>
+
             {%  endif %}
-
-
         {% endfor %}
     </form>
 <script>
+
+    document.body.addEventListener('htmx:afterRequest', (event) => {
+        if (event.detail.target.className.includes('form-control')) {
+            const response = event.detail.xhr.response;
+            const data = JSON.parse(response);
+            event.detail.target.className = data.className;
+        }
+    });
+
+    function transfer_field_value(field_name, outcome_id) {
+        const val = document.getElementById("AI_" + field_name + "_" + outcome_id).innerText;
+        const dest = document.getElementById(field_name + "_" + outcome_id);
+        dest.value = val;
+        dest.dispatchEvent(new Event('change'));
+    }
+
 function save_AI(outcome_id) {
-    var AI_value = document.getElementById("AI_"+outcome_id).value;
-    document.getElementById("F"+outcome_id).value = AI_value;
-    document.getElementById("F"+outcome_id).dispatchEvent(new Event('change'));
+    transfer_field_value('paper_designation', outcome_id);
+    transfer_field_value('TE', outcome_id);
+    transfer_field_value('ll', outcome_id);
+    transfer_field_value('ul', outcome_id);
+    transfer_field_value('p_value', outcome_id);
+    transfer_field_value('value', outcome_id);
+
+    {#transfer_field_value('events_1', outcome_id);#}
+    {#transfer_field_value('n_1', outcome_id);#}
+    {#transfer_field_value('events_0', outcome_id);#}
+    {#transfer_field_value('n_0', outcome_id);#}
+    {#transfer_field_value('value', outcome_id);#}
 }
 </script>
 

@@ -13,7 +13,7 @@
     <a class="nav-link" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/study/fullscreen/results/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
+    <a class="nav-link" href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
   </li>
 </ul>
 
@@ -121,7 +121,7 @@
     }
     </script>
 
-    <div id="loader" class="htmx-indicator" style="text-align: center; font-size: large; display: none;">
+    <div id="loader" class="htmx-indicator" style="text-align: center; font-size: large; ">
       <div class="spinner-border text-primary" role="status">
         <span class="visually-hidden">Chargement...</span>
       </div>
@@ -141,7 +141,7 @@
         {% for f in data_fields %}
             <div class="row gt-3 mb-1 mt-4">
                 <div class="col-md-12" >
-                    <label for="F{{ f['field_name'] }}" class="form-label">{{ f['label'] }}</label>
+                    <label for="F{{ f['field_name'] }}" class="form-label fw-semibold">{{ f['label'] }}</label>
                     <textarea rows=2 class="form-control" id="F{{ f['field_id'] }}" name="F{{ f['field_id'] }}"
                            hx-post="/study/update_field2/{{ study_id }}/{{ f['field_id'] }}"
                            hx-trigger="change" hx-target="#F{{ f['field_id'] }}_info" hx-swap="innerHTML">{{ f['value'] }}</textarea>
