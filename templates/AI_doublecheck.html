@@ -9,43 +9,48 @@
 </p>
 
 
+{%  macro display_table(rows) %}
+    <table class="table table-condensed table-hover table-sm mb-5" style="font-size: smaller;">
+        <tr>
+            <th>id</th>
+            <th style="width: 48%;">Abstract</th>
+            <th style="width: 48%;">AI suggestion</th>
+        </tr>
+        {% for row in rows %}
+            <tr>
+            <td>{{ row['id'] }}</td>
+           <td>
+                {{ row['selection'] | safe }}
+                {{ row['abstract'] | safe }}
+            </td>
+            <td>
+                {{ row['AI_decision'] | safe }}
+                {{ row['AI_answer'] | safe }}
+            </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{%  endmacro %}
+
+
 <h1>AI human crosschecking </h1>
 
-    <h4>table 1</h4>
+    <h3 class="mt-6">False negative of AI</h3>
+    <p>Included by human but excluded by AI</p>
+    {{ display_table(table1) }}
 
-    <table class="table table-condensed table-hover table-sm" >
-    <tr>
-        <th>id</th>
-        <th style="width: 48%;">Abstract</th>
-        <th style="width: 48%;">AI suggestion</th>
-    </tr>
-    {% for row in table1 %}
-        <tr>
-        <td>{{ row['id'] }}</td>
-        <td>{{ row['abstract'] | safe }}</td>
-        <td>{{ row['AI_answer'] | safe }}</td>
-        </tr>
-    {% endfor %}
-    </table>
+    <h3 class="mt-6">False positive of AI</h3>
+    <p>Excluded by human but included by IA</p>
+    {{ display_table(table2) }}
 
-<h4>Table 2</h4>
+    <h3 class="mt-6">True positive of AI</h3>
+    <p>Agreement on inclusion </p>
+    {{ display_table(table3) }}
 
-    <table class="table table-condensed table-hover table-sm" >
-    <tr>
-        <th>id</th>
-        <th style="width: 48%;">Abstract</th>
-        <th style="width: 48%;">AI suggestion</th>
-    </tr>
-    {% for row in table2 %}
-        <tr>
-        <td>{{ row['id'] }}</td>
-        <td>{{ row['abstract'] | safe }}</td>
-        <td>{{ row['AI_answer'] | safe }}</td>
-        </tr>
-    {% endfor %}
-    </table>
-
-
+    <h3 class="mt-6">True negative of AI</h3>
+    <p>Agreement on exclusion </p>
+    {{ display_table(table4) }}
 
 
 {%  endblock %}

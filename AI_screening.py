@@ -4,7 +4,7 @@ import time
 from flask import Flask, render_template, request, redirect, url_for, Response, stream_with_context
 import pandas as pd
 
-from utils import DB_PATH, sql_select_fetchone, sql_select_fetchall, InclusionStatus
+from utils import *
 from AI_utils import *
 
 from langchain_anthropic import ChatAnthropic
@@ -192,7 +192,7 @@ def screening_AI_stream(project_id):
 
 
 
-def records_AI_screening_doublecheck(project_id):
+def ZZZrecords_AI_screening_doublecheck(project_id):
 
     def row_to_dict(row):
         abstract = "<p>" + row['title'] + "</p>" + row['abstract']
@@ -224,3 +224,43 @@ def records_AI_screening_doublecheck(project_id):
 
 
     return render_template('AI_doublecheck.html',table1=table1, table2=table2, project_id=project_id)
+
+
+def records_AI_screening_doublecheck(project_id):
+
+    def row_to_dict(row):
+        abstract = "<p>" + row['title'] + "</p>" + row['abstract']
+        AI_answer = row['AI_answer'].replace("\n","<br/>")
+        col = "green" if row['selection'] in [InclusionStatus.INCLUDED_FIRST_PASS.value, InclusionStatus.INCLUDED_SECOND_PASS.value] else "red"
+        selection_span = f"<h5 style='color: {col}'>{INCLUSION_STATUS_DICT[int(row['selection'])]}</h5>"
+        AI_decision_span = "<h5 style='color: green;'>Eligible</h5>" if row['AI_decision'] == 1 else "<h5 style='color: red;'>Not eligible</h5>"
+        r = {'abstract': abstract, 'AI_answer': AI_answer, 'id':row['id'], 'selection':selection_span, 'AI_decision':AI_decision_span}
+        return r
+
+    def build_table(v_human, AI_decision):
+        sin = ','.join([str(x) for x in v_human])
+        sql = f"SELECT id, title, abstract, selection, AI_decision, AI_answer FROM records WHERE project=?  AND selection IN ({sin})  AND AI_decision = ?"
+        rows = sql_select_fetchall(sql, (project_id, AI_decision,))
+
+        table = []
+        for row in rows:
+            table.append(row_to_dict(row))
+        return table
+
+    v_humain =[InclusionStatus.INCLUDED_FIRST_PASS.value, InclusionStatus.INCLUDED_SECOND_PASS.value]
+    table1 = build_table(v_humain, -1)
+
+    v_humain =[InclusionStatus.EXCLUDED_FIRST_PASS.value, InclusionStatus.EXCLUDED_SECOND_PASS.value]
+    table2 = build_table(v_humain, 1)
+
+    v_humain =[InclusionStatus.INCLUDED_FIRST_PASS.value, InclusionStatus.INCLUDED_SECOND_PASS.value]
+    table3 = build_table(v_humain, 1)
+
+    v_humain =[InclusionStatus.EXCLUDED_FIRST_PASS.value, InclusionStatus.EXCLUDED_SECOND_PASS.value]
+    table4 = build_table(v_humain, -1)
+
+
+
+    return render_template('AI_doublecheck.html',
+                           table1=table1, table2=table2, table3=table3, table4=table4,
+                           project_id=project_id)
