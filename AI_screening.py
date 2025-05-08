@@ -139,6 +139,7 @@ def evaluate_eligibility(record_id, title, abstract, prompt, cur, con):
         if "study is eligible" in h: decision = 1
         if "study is not eligible" in h: decision = -1
         output += f" {decision} "
+        output += "<span style='color: red;'>not eligible</span>" if decision == -1 else "<span style='color: green;'>eligible</span>"
 
         print(f">>> updating record #{record_id}\n")
         if record_id > 0:
@@ -167,7 +168,7 @@ def screening_AI_stream(project_id):
     con2 = sqlite3.connect(DB_PATH)
     cur2 = con2.cursor()
 
-    sql="SELECT id, title, abstract FROM records WHERE project=?"
+    sql="SELECT id, title, abstract FROM records WHERE project=? AND AI_decision=0"
     cur.execute(sql, (project_id,))
 
     def generate():
@@ -175,9 +176,11 @@ def screening_AI_stream(project_id):
             for row in cur.fetchall():
                 chunk = evaluate_eligibility(row['id'], row['title'], row['abstract'], prompt, cur2, con2)
                 yield "data: " + chunk + "\n\n"
+
+            yield 'data: <h4>Completed !</h4>\n\n'
             yield 'data: Stream ended.\n\n'
         finally:
-            yield 'data: Completed !\n\n'
+            yield 'data: <h4>Completed !</h4>\n\n'
             yield 'data: Stream ended.\n\n'
             cur.close()
             con.close()

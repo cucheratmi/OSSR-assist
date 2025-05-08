@@ -147,3 +147,13 @@ def AI_check_ROB(extracted_data, record_id, project_id):
             answer = AI_check_ROB_RCT(extracted_data, record_id)
 
     return answer
+
+
+
+
+def get_AI_data_ROB(study_id, record_id, project_id):
+    AI_data = AI_ROB(study_id, record_id, project_id, current_app.config['LLM_NAME'])
+    return AI_data
+
+
+

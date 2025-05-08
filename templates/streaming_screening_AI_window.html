@@ -3,16 +3,16 @@
 {%  block content %}
 
 <p class="mt-2 mb-3">
-    <a href="/records/list/{{ project_id }}">
+    <a href="/records/list/{{ project_id }}" class="return_arrow">
     <i class="bi bi-arrow-left"></i> return to the reference list
     </a>
 </p>
 
-    <h1>AI references screening tool</h1>
+    <h1>References screening - AI suggestions</h1>
 
     <p>Please wait during the screening by the AI tool. It could take several minutes according to the number of references to screen.</p>
 
-    <div id="content"><p>Waiting for data...</p></div>
+    <div id="content"><p>Screening running...</p></div>
 
     <script>
         if (!!window.EventSource) {

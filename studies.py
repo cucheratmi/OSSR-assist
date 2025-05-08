@@ -9,6 +9,7 @@ from pdfs import test_if_pdf_exists
 from utils import *
 from AI_extraction import *
 from AI_ROB import *
+from AI_outcomes import *
 from outcomes import *
 
 def studies_list(project_id):
@@ -241,34 +242,8 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
                            primary_LLM_available=is_primary_LLM_available(), secondary_LLM_available=is_secondary_LLM_available() )
 
 
-def get_AI_data_extraction(AI, study_id, record_id, project_id):
-    AI_data = dict()
-    context_source = "abstract" if AI == 1 else "pdf"
-    data = AI_extraction_personalised_fields(study_id, record_id, project_id, context_source)
-    for e in data:
-        i = int(e[0][1:])
-        AI_data[i] = e[1]
-    return AI_data
 
-# def get_AI_data_results(AI, study_id, record_id, project_id):
-#     AI_data = dict()
-#     context_source = "abstract" if AI == 1 else "pdf"
-#     data = AI_results(study_id, record_id, project_id, context_source)
-#     for e in data:
-#         i = int(e[0][1:])
-#         AI_data[i] = e[1]
-#     return AI_data
 
-def get_AI_data_results2(AI, study_id, record_id, project_id):
-    # TODO modif en cours
-    AI_data = dict()
-    context_source = "abstract" if AI == 1 else "pdf"
-    data = AI_results2(study_id, record_id, project_id, context_source)
-    return data
-
-def get_AI_data_ROB(study_id, record_id, project_id):
-    AI_data = AI_ROB(study_id, record_id, project_id, current_app.config['LLM_NAME'])
-    return AI_data
 
 
 # def study_fullscreen_AI(study_id, project_id, record_id=0):
@@ -331,6 +306,7 @@ def study_check_ROB(study_id, project_id, record_id):
 
     return html
 
+
 def get_outcomes_data(study_id):
     sql = """
     SELECT outcome_values.*, outcomes.name AS outcome_name 
@@ -364,7 +340,5 @@ def study_check_outcomes(study_id, record_id):
             "</div>"
 
     return html
-
-
 
 
