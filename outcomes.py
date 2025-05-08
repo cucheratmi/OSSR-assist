@@ -42,7 +42,7 @@ def outcome_field_update(outcome_id, field_name):
 def outcome_edit(outcome_id, project_id):
     sql = "SELECT * FROM outcomes WHERE id=?"
     outcome = sql_select_fetchone(sql, (outcome_id,))
-    return render_template('outcome_edit.html', outcome_id=outcome_id, outcome=outcome, project_id=project_id)
+    return render_template('outcome_edit.html', outcome_id=outcome_id, outcome=outcome, project_id=project_id, OUTCOMES_TYPES=OUTCOMES_TYPES)
 
 
 def outcomes_order(project_id):

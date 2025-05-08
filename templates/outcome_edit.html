@@ -4,8 +4,8 @@
 {%  block content %}
 
 
-        <p class="mt-2 mb-3">
-            <a href="/outcomes/setup/{{ project_id }}">
+        <p class="mt-3 mb-3">
+            <a href="/outcomes/setup/{{ project_id }}" class="return_arrow">
                 <i class="bi bi-arrow-left"></i> return to the outcome list
             </a>
         </p>
@@ -34,10 +34,18 @@
             </div>
 
             <div class="mb-4">
-                <label for="type" class="form-label">type</label>
-                <input type="text" class="form-control" id="type" name="type"
-                       value="{{ outcome['type'] }}" hx-post="/outcomes/field_update/{{ outcome_id }}/type"
-                       hx-trigger="change" hx-target="#type_info" hx-swap="innerHTML"/>
+                <label for="type" class="form-label">Outcome type</label>
+                <select class="form-select" id="type" name="type"
+                       hx-post="/outcomes/field_update/{{ outcome_id }}/type"
+                       hx-trigger="change" hx-target="#type_info" hx-swap="innerHTML">
+                    <option value="0"></option>
+                    <option value="1">{{ OUTCOMES_TYPES[1] }}</option>
+                    <option value="3">{{ OUTCOMES_TYPES[3] }}</option>
+                    <option value="2">{{ OUTCOMES_TYPES[2] }}</option>
+                </select>
+                <script>
+                    document.getElementById("type").value = "{{ outcome['type'] }}";
+                </script>
                 <div id="type_info" class="form-text"></div>
             </div>
 

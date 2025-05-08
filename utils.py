@@ -28,6 +28,7 @@ ROB_DIAG_DOMAIN = {
 OUTCOMES_TYPES = {
     1: 'binary',
     2: 'continuous',
+    3: 'time to event',
     99: 'other'
 }
 
