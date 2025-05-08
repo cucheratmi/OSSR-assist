@@ -5,6 +5,19 @@ from AI_utils import *
 from prompts import *
 
 
+def get_prompt_screening(project_id, source):
+    sql = "SELECT eligibility_criteria FROM projects WHERE id=?"
+    eligibility_criteria = sql_select_fetchone(sql, (project_id,))['eligibility_criteria']
+
+
+    if source == "pdf":
+        prompt =  prompt_template_screening_pdf.format(eligibility_criteria=eligibility_criteria, context="{context}")
+    else:
+        prompt = prompt_template_screening_abstract.format(eligibility_criteria=eligibility_criteria, context="{context}")
+
+    return prompt
+
+
 def evaluate_eligibility(record_id, title, context, prompt, cur, con, source):
     output = ""
 
@@ -13,10 +26,10 @@ def evaluate_eligibility(record_id, title, context, prompt, cur, con, source):
     output += f"{title}"
 
     response = ""
-    prompt = prompt + context
+    prompt2 = prompt.format(context=context)
     prompt_system = "Your are an expert in clinical trials and systematic review."
     try:
-        response = invoke_llm_text_output("primary", prompt, prompt_system)
+        response = invoke_llm_text_output("primary", prompt2, prompt_system)
     except:
         output += "<p>llm ERROR</p>"
 

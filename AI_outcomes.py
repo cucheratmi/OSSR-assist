@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field, create_model
 from utils import *
 from pdfs import test_if_pdf_exists
 from AI_utils import *
-
+from prompts import *
 
 
 
@@ -23,26 +23,13 @@ class ResultsModel2(BaseModel):
     r: list[Result] = Field(description="list of the results")
 
 
-
-
 def results_build_prompt2(outcomes):
-    prompt = ("Here is an report of a randomized trial in the following context.\n")
 
-    prompt +="""
-    For each of the following outcomes, state the estimation of the treatment effect (Hazard ratio, odds ratio, relative risk, etc.), the lower and upper limites of its confidence interval,
-    the number of events in the experimental groupe, the effective of the experimental group, the number of events in the control groups, the effective of the control groups.
-    Give also a short literal summary of the result.
-    """
-
-    prompt += "\nOutcomes:\n"
+    outcomes_list = ""
     for o in outcomes:
-        prompt += " - " + o + "\n"
+        outcomes_list += " - " + o + "\n"
 
-    prompt += """
-
-    CONTEXT:
-    {context}
-    """
+    prompt = template_prompt_outcomes.format(outcomes_list=outcomes_list, context="{context}")
 
     system_prompt = """
         You are a specialist in randomized clinical trials and systematic reviews.
@@ -83,17 +70,12 @@ def AI_results2(study_id, record_id, project_id, context_source):
     return AI_data
 
 
-
-
 def AI_check_outcomes(extracted_data, record_id):
     context = get_pdf(record_id)
 
     prompt_system = "Your are an expert of clinical trials and systematic reviews."
 
-    prompt = "Given the randomized clinical trial described in the CONTEXT below, could you check the correctness of this trial results summary.\n" \
-             "Please answer for each item with 'OK' if the item is correct, or 'ERROR' if it is not correct. If it is not correct, please provide the correct information for this item.\n"
-    prompt += "TRIAL RESULTS SUMMARY:\n" + extracted_data + "\n"
-    prompt += "CONTEXT:\n" + context + "\n"
+    prompt = prompt_template_outcomes_checking.format(extracted_data=extracted_data, context=context)
 
     answer = invoke_llm_text_output("secondary", prompt, prompt_system)
 
@@ -101,14 +83,6 @@ def AI_check_outcomes(extracted_data, record_id):
 
 
 
-# def get_AI_data_results(AI, study_id, record_id, project_id):
-#     AI_data = dict()
-#     context_source = "abstract" if AI == 1 else "pdf"
-#     data = AI_results(study_id, record_id, project_id, context_source)
-#     for e in data:
-#         i = int(e[0][1:])
-#         AI_data[i] = e[1]
-#     return AI_data
 
 def get_AI_data_results2(AI, study_id, record_id, project_id):
     # TODO modif en cours

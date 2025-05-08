@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field, create_model
 from utils import *
 from pdfs import test_if_pdf_exists
 from AI_utils import *
+from prompts import *
 
 ### create dynamic pydantic model
 def create_pydantic_model(project_id):
@@ -20,7 +21,7 @@ def create_pydantic_model(project_id):
     for row in rows:
         field_name = f"F{row["id"]}"
 
-        #fields dictionary
+        # field dictionary
         fields[field_name] = {'id': row["id"], 'name': row["name"], 'description': row["description"]}
 
         #model pydantic
@@ -32,21 +33,20 @@ def create_pydantic_model(project_id):
     return create_model('FieldModel', **model_fields), fields
 
 
-def build_extraction_prompt(fields):
-    prompt = "Here is an abstract of a randomized trial in the following context.\nState:\n"
+def build_extraction_prompt(fields, source):
+    fields_bullet_list  = ""
     for e in fields.values():
-        prompt += " - " + e["name"] + "\n"
-
-    prompt += """
-    
-    CONTEXT:
-    {context}
-    """
+        fields_bullet_list += " - " + e["name"] + "\n"
 
     system_prompt = """
-        You are a specialist in randomized clinical trials and systematic reviews.
-        extract information using only the given context and does not used your memory or your knowledge of the concerned trial.
-        """
+    You are a specialist in randomized clinical trials and systematic reviews.
+    extract information using only the given context and does not used your memory or your knowledge of the concerned trial.
+    """
+
+    if source == "pdf":
+        prompt = prompt_template_extraction_pdf.format(fields=fields_bullet_list, context="{context}")
+    else :
+        prompt = prompt_template_extraction_abstract.format(fields=fields_bullet_list, context="{context}")
 
     return prompt, system_prompt
 
@@ -58,7 +58,7 @@ def AI_extraction_personalised_fields(study_id, record_id, project_id, context_s
     assert pdf_exists
 
     FieldModel, fields = create_pydantic_model(project_id)
-    user_prompt, system_prompt = build_extraction_prompt(fields)
+    user_prompt, system_prompt = build_extraction_prompt(fields, context_source)
 
     if context_source == "pdf":
         context = get_pdf(record_id)
@@ -75,42 +75,11 @@ def AI_check_extraction(extracted_data, record_id):
 
     prompt_system = "Your are an expert of clinical trials and systematic reviews."
 
-    prompt = "Given the randomized clinical trial described in the CONTEXT below, could you check the correctness of this trial summary.\n" \
-             "Please answer for each item with 'OK' if the item is correct, or 'ERROR' if it is not correct. If it is not correct, please provide the correct information for this item.\n"
-    prompt += "TRIAL SUMMARY:\n" + extracted_data + "\n"
-    prompt += "CONTEXT:\n" + context + "\n"
+    prompt = prompt_template_extraction_checking.format(extracted_data=extracted_data, context=context)
 
     answer = invoke_llm_text_output("secondary", prompt, prompt_system)
 
     return answer
-
-
-################## results ##############################
-
-# def results_create_pydantic_model(project_id):
-# TODO deprecated
-#
-# deprecated
-#     model_outcomes = {}
-#     outcomes = dict()
-#     sql = "SELECT id, name, description FROM outcomes WHERE project=?"
-#     con = sqlite3.connect(DB_PATH)
-#     con.row_factory = sqlite3.Row
-#     cur = con.cursor()
-#     res = cur.execute(sql, (project_id,))
-#     rows = res.fetchall()
-#     for row in rows:
-#         outcome_name = f"F{row["id"]}"
-#
-#         outcomes[outcome_name] = {'id': row["id"], 'name': row["name"], 'description': row["description"]}
-#
-#         #model pydantic
-#         outcome_description = Field(..., description=row['name'] + ": " + row["description"])
-#         model_outcomes[outcome_name] = (str, outcome_description)
-#
-#     cur.close()
-#     con.close()
-#     return create_model('ResultsModel', **model_outcomes), outcomes
 
 
 def get_AI_data_extraction(AI, study_id, record_id, project_id):

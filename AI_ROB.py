@@ -1,6 +1,5 @@
 import sqlite3
 import os
-from multiprocessing.connection import answer_challenge
 
 from flask import render_template
 from pydantic import BaseModel, Field, create_model
@@ -8,6 +7,7 @@ from pydantic import BaseModel, Field, create_model
 from utils import DB_PATH, get_references, TypeOfStudy
 from pdfs import test_if_pdf_exists
 from AI_utils import *
+from prompts import *
 
 
 class ROB_item(BaseModel):
@@ -24,18 +24,7 @@ class ROB(BaseModel):
 
 def build_ROB_RCT_prompt():
 
-    rob_user_prompt = """"
-    Here is an article reporting a randomized clinical trial in the following context.
-    using the ROB2.0 tools, assess and justify the risk of bias on the five ROB2.0 key domain:
-     - Bias arising from the randomization process
-     - Bias due to deviations from intended interventions
-     - Bias due to missing outcome data
-     - Bias in measurement of the outcome
-     - Bias in selection of the reported result
-    
-     CONTEXT:
-     {context}
-    """
+    rob_user_prompt = prompt_template_ROB_RCT
 
     system_prompt = """
         You are a specialist in randomized clinical trials and systematic reviews.
@@ -46,20 +35,7 @@ def build_ROB_RCT_prompt():
 
 def build_ROB_DIAG_prompt():
 
-    rob_user_prompt = """"
-    Here is an article reporting a diagnostic accuracy study in the following context.
-    Using the QUADAS-2 tools, assess and justify the risk of bias on the seven QUADAS-2 key domain:   
-     - Bias patient selection
-     - Applicability patient selection
-     - Bias index test(s)
-     - Applicability index test(s)
-     - Bias in reference standard
-     - Applicability reference standard
-     - Bias flow and timing
-    
-     CONTEXT:
-     {context}
-    """
+    rob_user_prompt = prompt_template_ROB_DIAG
 
     system_prompt = """
         You are a specialist in diagnostic accuracy studies and systematic reviews.
@@ -114,10 +90,7 @@ def AI_check_ROB_RCT(extracted_data, record_id):
 
     prompt_system = "Your are an expert of clinical trials and systematic reviews."
 
-    prompt = "Given the randomized clinical trial described in the CONTEXT below, could you check the correctness of this risk of bias assessment.\n" \
-             "Please answer for each item with 'OK' if the item is correct, or 'ERROR' if it is not correct. If it is not correct, please provide the correct information for this item.\n"
-    prompt += "RISK OF BIAS ASSESSMENT:\n" + extracted_data + "\n"
-    prompt += "CONTEXT:\n" + context + "\n"
+    prompt = prompt_template_ROB_checking_RCT.format(extracted_data=extracted_data,context=context)
 
     answer = invoke_llm_text_output("secondary", prompt, prompt_system)
 
@@ -128,10 +101,7 @@ def AI_check_ROB_DIAG(extracted_data, record_id):
 
     prompt_system = "Your are an expert of diagnostic accuracy studies and systematic reviews."
 
-    prompt = "Given the diagnostic accuracy study described in the CONTEXT below, could you check the correctness of this risk of bias assessment.\n" \
-             "Please answer for each item with 'OK' if the item is correct, or 'ERROR' if it is not correct. If it is not correct, please provide the correct information for this item.\n"
-    prompt += "RISK OF BIAS ASSESSMENT:\n" + extracted_data + "\n"
-    prompt += "CONTEXT:\n" + context + "\n"
+    prompt = prompt_template_ROB_checking_DIAG.format(extracted_data=extracted_data,context=context)
 
     answer = invoke_llm_text_output("secondary", prompt, prompt_system)
 
@@ -147,7 +117,6 @@ def AI_check_ROB(extracted_data, record_id, project_id):
             answer = AI_check_ROB_RCT(extracted_data, record_id)
 
     return answer
-
 
 
 
