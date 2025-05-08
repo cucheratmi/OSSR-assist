@@ -1,150 +1,36 @@
-import sqlite3
-import os
-import time
 from flask import Flask, render_template, request, redirect, url_for, Response, stream_with_context
-import pandas as pd
 
 from utils import *
 from AI_utils import *
-
-from langchain_anthropic import ChatAnthropic
-
+from prompts import *
 
 
-def chat2(prompt, context):
-    prompt = prompt + context
-    prompt_system = "Your are an expert in clinical trials"
-
-    response = invoke_llm_text_output("primary", prompt, prompt_system)
-    return response
-
-def ZZZAI_records_screening(project_id):
-    # TODO est-ce tjs utilisé
-    model = ChatAnthropic(model='claude-3-5-sonnet-latest')
-
-    sql = "SELECT eligibility_criteria FROM projects WHERE id=?"
-    eligibility_criteria = sql_select_fetchone(sql, (project_id,))['eligibility_criteria']
-
-    prompt = "Check if the study described in the abstract met all the following criteria. Answer by yes, no ou unclear before justify your responses.\n" + \
-             eligibility_criteria + \
-             """
-         
-             Start your response by 'Study is eligible' if all criteria are clearly met, or by 'Study is not eligible' if one of them is clearly not meet. Otherwise, start by "Eligibility unclear". Then justify your assessment.
-         
-             Abstract: 
-             """
-
-    con = sqlite3.connect(DB_PATH)
-    con.row_factory = sqlite3.Row
-    cur = con.cursor()
-    sql="SELECT id, title, abstract FROM records WHERE project=?"
-    cur.execute(sql, (project_id,))
-    r = cur.fetchall()
-    i = 0
-    for e in r:
-        i += 1
-        record_id = e["id"]
-        title = e["title"]
-        abstract = e["abstract"]
-        if abstract is None: abstract = ""
-
-        context = title + " " + abstract
-
-        print("\n\n", i, " - title: ", title)
-
-        response = ""
-        try:
-            response = chat2(prompt, context)
-            print(response)
-            # response = response.replace("\"", "\\\"")
-        except:
-            print("llm ERROR")
-
-        if response != "":
-            decision = 0
-            h = response.split("\n")[0].lower().strip()
-            if "study is eligible" in h: decision = 1
-            if "study is not eligible" in h: decision = -1
-            print(f" {decision}")
-
-            print(f">>> updating record #{record_id}\n")
-            if record_id > 0:
-                response = response.encode("utf-8")
-                sql = "UPDATE records SET AI_answer=?, AI_decision=? WHERE id=?"
-                try:
-                    cur.execute(sql, (response, decision, record_id))
-                    con.commit()
-                except Exception as e:
-                    print("!! ERROR in writing into database !!")
-                    print(e)
-                    print(sql)
-                    print("\n")
-
-    cur.close()
-    con.close()
-
-    print("\ncompleted.\n")
-
-# def OLDrecords_screening_AI(project_id):
-#     AI_records_screening(project_id)
-#     return redirect(url_for('endpoint_records_list', project_id=project_id))
-
-###### V2 streaming
-
-def records_screening_AI(project_id):
-    return render_template('streaming_screening_AI_window.html',project_id=project_id,)
-
-
-def get_prompt(project_id):
-
-    sql = "SELECT eligibility_criteria FROM projects WHERE id=?"
-    eligibility_criteria = sql_select_fetchone(sql, (project_id,))['eligibility_criteria']
-
-    prompt = "Check if the study described in the abstract met all the following criteria. Answer by yes, no ou unclear before justify your responses.\n" + \
-             eligibility_criteria + \
-             """
-
-             Start your response by 'Study is eligible' if all criteria are clearly met, or by 'Study is not eligible' if one of them is clearly not meet. Otherwise, start by "Eligibility unclear".
-
-             Abstract: 
-             """
-
-    return prompt
-
-def evaluate_eligibility2(record_id, title, abstract, prompt, model, cur, con):
-    # TODO deprecated
-    print(f"{record_id=} {title=} {abstract=}")
-    return f"{record_id=}"
-
-def evaluate_eligibility(record_id, title, abstract, prompt, cur, con):
+def evaluate_eligibility(record_id, title, context, prompt, cur, con, source):
     output = ""
 
-    if abstract is None: abstract = ""
-
-    context = title + " " + abstract
+    if context is None: context = ""
 
     output += f"{title}"
 
     response = ""
+    prompt = prompt + context
+    prompt_system = "Your are an expert in clinical trials and systematic review."
     try:
-        response = chat2(prompt, context)
-        # response = response.replace("\"", "\\\"")
+        response = invoke_llm_text_output("primary", prompt, prompt_system)
     except:
         output += "<p>llm ERROR</p>"
 
     if response != "":
-        print(response)
         decision = 0
         h = response.split("\n")[0].lower().strip()
         if "study is eligible" in h: decision = 1
         if "study is not eligible" in h: decision = -1
-        output += f" {decision} "
-        output += "<span style='color: red;'>not eligible</span>" if decision == -1 else "<span style='color: green;'>eligible</span>"
 
-        print(f">>> updating record #{record_id}\n")
+        output += " <span style='color: red;'>not eligible</span>" if decision == -1 else " <span style='color: green;'>eligible</span>"
+
         if record_id > 0:
             response = response.encode("utf-8").decode('utf-8')
-            response = response + " [Generated by " + current_app.config["LLM_NAME"]  + " model]"
+            response = response + "\n\nScreening using " + source
             sql = "UPDATE records SET AI_answer=?, AI_decision=? WHERE id=?"
             try:
                 cur.execute(sql, (response, decision, record_id))
@@ -157,10 +43,14 @@ def evaluate_eligibility(record_id, title, abstract, prompt, cur, con):
     return output
 
 
+##### streaming #####
 
-def screening_AI_stream(project_id):
+def records_screening_AI(project_id, source):
+    return render_template('streaming_screening_AI_window.html',project_id=project_id, source=source)
 
-    prompt = get_prompt(project_id)
+def screening_AI_stream(project_id, source):
+
+    prompt = get_prompt_screening(project_id, source)
 
     con = sqlite3.connect(DB_PATH)
     con.row_factory = sqlite3.Row
@@ -174,7 +64,13 @@ def screening_AI_stream(project_id):
     def generate():
         try:
             for row in cur.fetchall():
-                chunk = evaluate_eligibility(row['id'], row['title'], row['abstract'], prompt, cur2, con2)
+                context = None
+                if source == "pdf":
+                    context = get_pdf(row['id'])
+                if source == "abstract" or (source == "pdf" and context is None):
+                    context = row['title'] + " " + row['abstract']
+
+                chunk = evaluate_eligibility(row['id'], row['title'], context, prompt, cur2, con2, source)
                 yield "data: " + chunk + "\n\n"
 
             yield 'data: <h4>Completed !</h4>\n\n'
@@ -192,39 +88,7 @@ def screening_AI_stream(project_id):
 
 
 
-def ZZZrecords_AI_screening_doublecheck(project_id):
-
-    def row_to_dict(row):
-        abstract = "<p>" + row['title'] + "</p>" + row['abstract']
-        AI_answer = row['AI_answer'].replace("\n","<br/>")
-        r = {'abstract': abstract, 'AI_answer': AI_answer, 'id':row['id']}
-        return r
-
-    sql = f"SELECT id, title, abstract, selection, AI_decision, AI_answer FROM records WHERE project={project_id}"
-    with sqlite3.connect(DB_PATH) as con:
-        df = pd.read_sql(sql, con)
-
-    df2 = df[(df['selection'] != 0) & (df['AI_decision'] != 0) & (df['selection'] != InclusionStatus.UNDECIDED.value)]
-
-    # ne pas changer l'ordre de ces 4 instructions
-    i1 = df2['selection'].apply(lambda x: x == InclusionStatus.EXCLUDED_FIRST_PASS.value or x == InclusionStatus.EXCLUDED_SECOND_PASS.value)
-    i2 = df2['selection'].apply(lambda x: x == InclusionStatus.INCLUDED_FIRST_PASS.value or x == InclusionStatus.INCLUDED_SECOND_PASS.value)
-    df2.loc[i1, "selection"] = -1
-    df2.loc[i2, "selection"] = 1
-
-    df3 = df2[(df2['selection'] == 1) & (df2['AI_decision'] != 1)]
-    table1 = []
-    for index, row in df3.iterrows():
-        table1.append(row_to_dict(row))
-
-    df3 = df2[(df2['selection'] == -1) & (df2['AI_decision'] != -1)]
-    table2 = []
-    for index, row in df3.iterrows():
-        table2.append(row_to_dict(row))
-
-
-    return render_template('AI_doublecheck.html',table1=table1, table2=table2, project_id=project_id)
-
+################## AI accuracy ##############################
 
 def records_AI_screening_doublecheck(project_id):
 
@@ -246,6 +110,7 @@ def records_AI_screening_doublecheck(project_id):
         for row in rows:
             table.append(row_to_dict(row))
         return table
+
 
     v_humain =[InclusionStatus.INCLUDED_FIRST_PASS.value, InclusionStatus.INCLUDED_SECOND_PASS.value]
     table1 = build_table(v_humain, -1)

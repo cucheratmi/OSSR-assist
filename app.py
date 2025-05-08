@@ -341,9 +341,9 @@ def endpoint_records_upload_form(project_id, s_database):
     return records_upload_form(project_id, s_database)
 
 
-@app.route('/records/screening_AI/<int:project_id>')
-def endpoint_records_screening_AI(project_id):
-    return records_screening_AI(project_id)
+@app.route('/records/screening_AI/<int:project_id>/<string:source>')
+def endpoint_records_screening_AI(project_id, source):
+    return records_screening_AI(project_id, source)
 
 
 @app.route('/records/screening_pass1_window/<int:record_id>/<int:project_id>', )
@@ -478,9 +478,10 @@ def serve_file(record_id):
 
 ###  streaming  #######################################
 
-@app.route('/stream2/<int:project_id>/')
-def stream2(project_id):
-    return screening_AI_stream(project_id)
+@app.route('/stream2/<int:project_id>/', defaults={'source': 'abstract'})
+@app.route('/stream2/<int:project_id>/<string:source>')
+def stream2(project_id, source):
+    return screening_AI_stream(project_id, source)
 
 
 # @app.route('/stream')

@@ -10,13 +10,15 @@
 
     <h1>References screening - AI suggestions</h1>
 
+    <h3>Using {{ source }}</h3>
+
     <p>Please wait during the screening by the AI tool. It could take several minutes according to the number of references to screen.</p>
 
     <div id="content"><p>Screening running...</p></div>
 
     <script>
         if (!!window.EventSource) {
-            var source = new EventSource('/stream2/{{ project_id }}');
+            var source = new EventSource('/stream2/{{ project_id }}/{{ source }}');
             source.onmessage = function(event) {
                 var contentDiv = document.getElementById('content');
                 contentDiv.innerHTML += "<p>"+event.data+"</p>";

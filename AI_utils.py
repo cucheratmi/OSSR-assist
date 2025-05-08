@@ -23,12 +23,11 @@ def get_abstract(record_id):
 
 def get_pdf(record_id):
     pdf_path = os.path.join(PDF_UPLOAD_PATH, f"r{record_id}.pdf")
+    if os.path.exists(pdf_path):
+        pdf_md = pymupdf4llm.to_markdown(pdf_path)
+    else:
+        pdf_md= None
 
-    if not os.path.exists(pdf_path):
-        print("ERROR! file not found!")
-        raise "pdf not exist"
-    # print(f"load pdf file {path_pdf}")
-    pdf_md = pymupdf4llm.to_markdown(pdf_path)
     return pdf_md
 
 

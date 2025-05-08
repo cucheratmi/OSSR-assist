@@ -68,9 +68,21 @@
                 </li>
 
                 <li>
-                    <a href="/records/screening_AI/{{ project_id }}"
+                    <a href="/records/screening_AI/{{ project_id }}/abstract"
                        class="dropdown-item {% if not primary_LLM_available or eligibility_criteria_empty %}disabled{% endif %}">
-                        <i class="bi bi-stars"></i> AI screening
+                        <i class="bi bi-stars"></i> AI screening (abstract)
+                        {% if eligibility_criteria_empty %}
+                            <span style="color: red;">eligibility criteria not defined (in project set-up)</span>
+                        {% endif %}
+                        {% if not primary_LLM_available %}
+                            <span style="color: red;">no LLM set (in application set-up)</span>
+                        {% endif %}
+                    </a>
+                </li>
+                <li>
+                    <a href="/records/screening_AI/{{ project_id }}/pdf"
+                       class="dropdown-item {% if not primary_LLM_available or eligibility_criteria_empty %}disabled{% endif %}">
+                        <i class="bi bi-stars"></i> AI screening (fulltext)
                         {% if eligibility_criteria_empty %}
                             <span style="color: red;">eligibility criteria not defined (in project set-up)</span>
                         {% endif %}
@@ -177,15 +189,15 @@
 
         <table class="table table-condensed table-hover" style="font-size: small;">
             <tr>
-                <th>id</th>
-                <th>database</th>
-                <th>selection</th>
-                <th>title/abstract</th>
-                <th>author/source</th>
+                <th>Id</th>
+                <th>Database</th>
+                <th>Selection</th>
+                <th>Title/abstract</th>
+                <th>Author/source</th>
                 <th></th>
                 <th>AI suggestion</th>
-                <th>registration number</th>
-                <th>study</th>
+                <th>Registration number</th>
+                <th>Study</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -312,6 +324,15 @@
                                             class="bi bi-pen"></i> edit reference
                                     </a>
                                 </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item disabled" href="/prompt/test_screening/{{ record["id"] }}/{{ project_id }}"><i
+                                            class="bi bi-boxes"></i> prompt testing
+                                    </a>
+                                </li>
+
                             </ul>
                         </div>
                     </td>
