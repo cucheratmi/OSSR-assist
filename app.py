@@ -71,7 +71,7 @@ def endpoint_outcomes_order(project_id):
 
 @app.route('/outcomes/result_update2/<string:variable>/<int:outcome_id>/<int:study_id>', methods=['POST'])
 def endpoint_outcomes_result_update2(variable, outcome_id, study_id):
-    return result_update2(variable, outcome_id, study_id)
+    return outcome_update2(variable, outcome_id, study_id)
 
 
 #######################  projects  ##########################
@@ -315,8 +315,14 @@ def endpoint_records_deduplication(project_id):
 
 @app.route('/records/stream_load_reference_file/<int:project_id>/<int:database>/', methods=['GET'])
 def endpoint_records_stream_load_reference_file(project_id, database):
-    return Response(stream_with_context(read_endnote_export_file(project_id, database)),
-                    content_type='text/event-stream')  ## TODO erreur
+    if database == BIBLIOGRAPHIC_DATABASE['Endnote']:
+        #endnote(project_id, database)
+        return Response(stream_with_context(endnote(project_id)),content_type='text/event-stream')
+    elif database == BIBLIOGRAPHIC_DATABASE['Pubmed']:
+        #pubmed(project_id, database)
+        return Response(stream_with_context(pubmed(project_id)), content_type='text/event-stream')
+    else:
+        return "ERROR: Database not supported"
 
 
 @app.route('/records/reset_selection/<int:record_id>/<int:project_id>/<int:pass_number>')
@@ -331,14 +337,14 @@ def endpoint_records_list(project_id, pass_number, page):
     return records_list(project_id, pass_number, page)
 
 
-@app.route('/records/upload/<int:project_id>/<string:s_database>', methods=['POST'])
-def endpoint_records_upload(project_id, s_database):
-    return records_upload(project_id, s_database)
+@app.route('/records/upload/<int:project_id>', methods=['POST'])
+def endpoint_records_upload(project_id):
+    return records_upload(project_id)
 
 
-@app.route('/records/upload_form/<int:project_id>/<string:s_database>')
-def endpoint_records_upload_form(project_id, s_database):
-    return records_upload_form(project_id, s_database)
+@app.route('/records/upload_form/<int:project_id>')
+def endpoint_records_upload_form(project_id):
+    return records_upload_form(project_id)
 
 
 @app.route('/records/screening_AI/<int:project_id>/<string:source>')

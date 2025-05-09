@@ -8,8 +8,6 @@ import datetime
 
 from AI_utils import is_primary_LLM_available, is_secondary_LLM_available
 from utils import *
-from pubmed import parse_pubmed_file
-#from AI_screening import AI_records_screening
 
 def reset_selection(record_id, project_id, pass_number):
     sql = "UPDATE records SET selection=? WHERE id=?"
@@ -108,13 +106,15 @@ def format_AI_screening_suggestion(s):
     s = re.sub(r'\bstudy is not eligible\b', f"<span style='color: red; font-weight: bold;'>study is not eligible</span>", s, flags=re.IGNORECASE)
     return s
 
-def records_upload_form(project_id, s_database):
+def records_upload_form(project_id):
     sql="SELECT name FROM projects WHERE id=?"
     project_name = sql_select_fetchone(sql, (project_id,))['name']
-    return render_template('records_upload_form.html', project_id=project_id, project_name=project_name, s_database=s_database)
+    return render_template('records_upload_form.html', project_id=project_id, project_name=project_name, BIBLIOGRAPHIC_DATABASE=BIBLIOGRAPHIC_DATABASE)
 
 
-def records_upload(project_id, s_database):
+def records_upload(project_id):
+    database = int(request.form['database'])
+
     if 'risFile' not in request.files:
         return 'No file uploaded', 400
 
@@ -123,25 +123,28 @@ def records_upload(project_id, s_database):
     if file.filename == '':
         return 'No file selected', 400
 
-    try:
-        match s_database:
-            case "endnote":
-                database = BIBLIOGRAPHIC_DATABASE["Endnote"]
-                s_database = "Endnote file"
-                app_dir = os.path.dirname(os.path.abspath(__file__))
-                file_path = app_dir + "/tempo/endnote.txt"
-                file.save(file_path)
+    if database == BIBLIOGRAPHIC_DATABASE["Endnote"]:
+        s_database = "Endnote"
+    elif database == BIBLIOGRAPHIC_DATABASE["Pubmed"]:
+        s_database = "Pubmed"
+    elif database == BIBLIOGRAPHIC_DATABASE["Embase"]:
+        s_database = "Embase"
+    elif database == BIBLIOGRAPHIC_DATABASE["Other"]:
+        s_database = "Other database"
+    elif database == BIBLIOGRAPHIC_DATABASE["Manually"]:
+        s_database = "Manually"
+    else:
+        s_database = "ERROR!"
 
-                return render_template('streaming_read_references.html', project_id=project_id, database=database, s_database=s_database)
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = app_dir + "/tempo/ref.txt"
+    file.save(file_path)
 
-            case _:
-                database = BIBLIOGRAPHIC_DATABASE["Pubmed"]
-                content = file.read().decode('utf-8')
-                parse_pubmed_file(content, project_id)
-                return redirect(url_for('endpoint_records_list', project_id=project_id))
+    return render_template('streaming_read_references.html', project_id=project_id, database=database, s_database=s_database)
 
-    except Exception as e:
-        return f'Error processing file: {str(e)}', 500
+
+
+
 
 
 def highlight(s, green_words, red_words):

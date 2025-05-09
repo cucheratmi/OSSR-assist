@@ -69,7 +69,7 @@
         <td>{{ project["name"] }}</td>
             <td>
                 <span class="badge bg-secondary" style="font-size: 10px;">
-                {{ type_of_study_dict[project['type_of_study']] }}
+                {{ type_of_study_dict[project['type_of_study']] }}&nbsp;
                 </span>
             </td>
         <td style="font-size: smaller;">#{{ project["id"] }}</td>
@@ -84,23 +84,36 @@
             {% endif %}
         </a>
         </td>
-        <td  class="project_list_command">
-        <a href="/records/list/{{ project["id"] }}/1" class="text-decoration-none mx-2">Screening</a>
-        </td>
-        <td  class="project_list_command">
-        <a href="/pdfs/list/{{ project["id"] }}" class="text-decoration-none mx-2">PDFs</a>
-        </td>
-        <td  class="project_list_command">
-        <a href="/studies/list/{{ project["id"] }}" class="text-decoration-none mx-2">Studies</a>
-        </td>
-        <td  class="project_list_command">
-        <a href="/data/list1/{{ project["id"] }}"  class="text-decoration-none mx-2">Data</a>
-        </td>
-        <td  class="project_list_command">
-        <a href="/projects/save/{{ project["id"] }}" class="text-decoration-none mx-2" title="save all data of the project into a JSON file." >
-            <i class="bi bi-file-earmark-arrow-up"></i> Save project
-        </a>
-        </td>
+        {% if project["n_ref"] == 0 %}
+            <td colspan="5">
+            <a href="/records/list/{{ project["id"] }}/1" class="text-decoration-none mx-2">
+                Start by loading a reference file
+            </a>
+            </td>
+        {% else %}
+            <td  class="project_list_command">
+            <a href="/records/list/{{ project["id"] }}/1" class="text-decoration-none mx-2">
+                Screening
+                <span class="badge bg-secondary" style="font-size: 10px;">{{ project['n_ref'] }} ref.</span>
+            </a>
+            </td>
+            <td  class="project_list_command">
+            <a href="/pdfs/list/{{ project["id"] }}" class="text-decoration-none mx-2">PDFs</a>
+            </td>
+            <td  class="project_list_command">
+            <a href="/studies/list/{{ project["id"] }}" class="text-decoration-none mx-2">
+                Studies
+            </a>
+            </td>
+            <td  class="project_list_command">
+            <a href="/data/list1/{{ project["id"] }}"  class="text-decoration-none mx-2">Data</a>
+            </td>
+            <td  class="project_list_command">
+            <a href="/projects/save/{{ project["id"] }}" class="text-decoration-none mx-2" title="save all data of the project into a JSON file." >
+                <i class="bi bi-file-earmark-arrow-up"></i> Save project
+            </a>
+            </td>
+        {%  endif %}
 
         <td style="padding-left: 2em;">
             <a hx-delete="/project/delete/{{ project["id"] }}" ><i class="bi bi-trash3"></i></a>

@@ -102,7 +102,7 @@ def is_real(s):
     except ValueError:
         return False
 
-def result_update2(field_DB_name, outcome_id, study_id):
+def outcome_update2(field_DB_name, outcome_id, study_id):
     field_HTML_name = field_DB_name + "_" + str(outcome_id)
     value = request.form[field_HTML_name].strip()
 

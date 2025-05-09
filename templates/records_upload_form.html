@@ -1,27 +1,47 @@
 {% extends 'base.html' %}
 
-{%  block content %}
+{% block content %}
 
-<p class="mt-3 mb-3">
-    <a href="/records/list/{{ project_id }}" class="return_arrow">
-    <i class="bi bi-arrow-left"></i> return to the reference list
-    </a>
-</p>
+    <p class="mt-3 mb-3">
+        <a href="/records/list/{{ project_id }}" class="return_arrow">
+            <i class="bi bi-arrow-left"></i> return to the reference list
+        </a>
+    </p>
 
 
 
-    <h3>Upload reference file {{ s_database }}</h3>
+    <h2 class="mb-4">Upload reference file</h2>
 
-    <p>Upload a {{ format }} file containing your reference records. The file will be processed and the references will be
+    <p>File from bibliographic databases search like Pubmed, Embase or from reference manager software like Endnote,
+        Zotero, etc.</p>
+    <p>Upload file containing your reference records. The file will be processed and the references will be
         added to your project.</p>
 
-    <form action="/records/upload/{{ project_id }}/{{ s_database }}" method="post" enctype="multipart/form-data" class>
-
-        <label for="risFile" class="form-label">Choose {{ format }} file</label>
-        <input type="file" class="form-control" id="risFile" name="risFile">
-
-        <button type="submit" class="btn btn-primary mt-4">Upload references</button>
-    </form>
+    <div class="alert alert-light mt-4 mb-4" role="alert" style="margin-left: 3em; margin-right: 3em;">
 
 
-{%  endblock %}
+        <form action="/records/upload/{{ project_id }}" method="post" enctype="multipart/form-data" class="mt-3 mb-3">
+
+
+            <label class="form-label" for="database">Database </label>
+            <select class="form-select" name="database" id="database">
+                <option value="" selected>Select source of the file ...</option>
+                <option value="{{ BIBLIOGRAPHIC_DATABASE["Pubmed"] }}">Pubmed</option>
+                <option value="{{ BIBLIOGRAPHIC_DATABASE["Endnote"] }}">Endnote (endnote export file)</option>
+                <option value="{{ BIBLIOGRAPHIC_DATABASE["Embase"] }}" disabled>Embase</option>
+                <option value="{{ BIBLIOGRAPHIC_DATABASE["Other"] }}" disabled>Other database (.RIS format)</option>
+                <option value="{{ BIBLIOGRAPHIC_DATABASE["Manually"] }}" disabled>Manually (.RIS format)</option>
+            </select>
+
+            <label for="risFile" class="form-label mt-4">File</label>
+            <input type="file" class="form-control" id="risFile" name="risFile">
+
+            <button type="submit" class="btn btn-primary mt-4">Upload references</button>
+        </form>
+
+    </div>
+
+    <br/>
+    <p>N.B. Pour charger un fichier d'échange OSSR utiliser la fonction ??? du menu</p>
+
+{% endblock %}

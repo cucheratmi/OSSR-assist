@@ -34,12 +34,12 @@ def add_reference(project_id, DOI, pages, registration_number, acronym, journal,
 
 def parse_pubmed_file(content, project_id):
     flagAbstract = False
-    abstract = ""
     flagTitle = False
-    title = ""
     flagSource = False
-    source = ""
     flagFirstAuthor = True
+    abstract = ""
+    title = ""
+    source = ""
     DOI=volume=pages=date=journal=acronym=registration_number=author1=pmid = ""
 
     n_records = 0

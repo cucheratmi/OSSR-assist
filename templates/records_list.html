@@ -34,24 +34,12 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                    <a href="/records/upload_form/{{ project_id }}/pubmed" class="dropdown-item"><i
-                            class="bi bi-box-arrow-in-down"></i> load Pubmed search</a>
+                    <a href="/records/upload_form/{{ project_id }}" class="dropdown-item" title="load references files from bibliographic database">
+                        <i class="bi bi-box-arrow-in-down"></i> load references files (pubmed, endnote, etc.)
+                    </a>
                 </li>
-                <li>
-                    <a href="/" class="dropdown-item disabled"><i class="bi bi-box-arrow-in-down"></i> load Embase
-                        search</a>
-                </li>
-                <li>
-                    <a href="/records/upload_form/{{ project_id }}/endnote" class="dropdown-item"><i
-                            class="bi bi-box-arrow-in-down"></i> load Endnote export file</a>
-                </li>
-                <li>
-                    <a href="/" class="dropdown-item disabled"><i class="bi bi-box-arrow-in-down"></i> load RIS file</a>
-                </li>
-                <li>
-                    <a href="/" class="dropdown-item disabled">add reference manually</a>
-                </li>
-                <li>
+
+               <li>
                     <hr class="dropdown-divider">
                 </li>
                 <li>
@@ -111,6 +99,16 @@
                     <a href="/records/export_CSV/{{ project_id }}" class="dropdown-item"><i
                             class="bi bi-box-arrow-down"></i> export as .CSV file</a>
                 </li>
+
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a href="/" class="dropdown-item disabled" title="screening by a second reviewer ">
+                        <i class="bi bi-arrow-left-right"></i> crosschecking with a second reviewer)
+                    </a>
+                </li>
+
                 <li>
                     <hr class="dropdown-divider">
                 </li>
@@ -341,7 +339,7 @@
         </table>
 
     {% else %}
-        <div class="alert alert-warning" role="alert">
+        <div class="alert alert-warning mt-5" role="alert" style="margin-top: 3em;">
             <h4 class="alert-heading">no reference </h4>
             {% if pass_number==1 %}
                 <p>

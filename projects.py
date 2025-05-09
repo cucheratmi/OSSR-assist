@@ -9,6 +9,13 @@ from AI_utils import *
 
 def projects_list():
     sql = "SELECT id, name, type_of_study, eligibility_criteria FROM projects ORDER BY name"
+    sql = """
+          SELECT projects.id, projects.name, projects.type_of_study, projects.eligibility_criteria, COUNT(records.id) AS n_ref 
+          FROM projects
+              LEFT JOIN records ON records.project = projects.id 
+          GROUP BY projects.id
+          ORDER BY projects.name
+          """
     projects = sql_select_fetchall(sql, ())
     LLM_available = (is_primary_LLM_available() and is_secondary_LLM_available())
     return render_template('projects_list.html', projects=projects,

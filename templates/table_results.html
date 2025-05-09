@@ -69,7 +69,37 @@
 
     </table>
 
-    
+    <h4 class="mt-5">Short format (for R)</h4>
+    <table class="table table-condensed table-hover table-sm" style="font-size: smaller;">
+    <tr>
+        <th>study</th>
+        <th>outcome</th>
+        <th>TE</th>
+        <th>ll</th>
+        <th>ul</th>
+        <th>x1</th>
+        <th>n1</th>
+        <th>x0</th>
+        <th>n0</th>
+        <th>p_value</th>
+        <th>designation used in paper</th>
+    </tr>
+    {%  for r in short_format %}
+            <tr>
+                <td>{{ r['study_name'] }}</td>
+                <td>{{ r['outcome_name'] }}</td>
+                <td>{{ r['TE'] }}</td>
+                <td>{{ r['ll'] }}</td>
+                <td>{{ r['ul'] }}</td>
+                <td>{{ r['events_1'] }}</td>
+                <td>{{ r['n_1'] }}</td>
+                <td>{{ r['events_0'] }}</td>
+                <td>{{ r['n_0'] }}</td>
+                <td>{{ r['p_value'] }}</td>
+                <td>{{ r['paper_designation'] }}</td>
+            </tr>
+    {%  endfor %}
+    </table>
 
 
 {%  endblock %}

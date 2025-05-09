@@ -143,11 +143,23 @@ def get_outcomes_data_short_format(project_id):
     project_name = r['name']
     file_name = "project_" + str(project_id) + "_" + project_name.strip().replace(" ","_") + "_data"
 
+    rows = outcomes_short_format(project_id)
+    df = pd.DataFrame(rows)
+    df.columns = ["study_name", "outcome_name", "TE", "ll","ul","n_1","n_0","events_1","events_0","p_value","comment"]
+
+    response = make_response(df.to_csv())
+    response.headers['Content-Disposition'] = 'attachment; filename=' + file_name+ '.csv'
+    response.headers['Content-type'] = 'text/csv'
+
+    return response
+
+def outcomes_short_format(project_id):
     sql = """ \
           SELECT 
                 studies.name AS study_name, 
                 outcomes.name AS outcome_name, 
-                outcome_values.TE, outcome_values.ll, outcome_values.ul, outcome_values.n_1, outcome_values.n_0, outcome_values.events_1, outcome_values.events_0
+                outcome_values.TE, outcome_values.ll, outcome_values.ul, outcome_values.n_1, outcome_values.n_0, outcome_values.events_1, outcome_values.events_0,
+                outcome_values.p_value, outcome_values.paper_designation
           FROM studies 
                 INNER JOIN outcome_values ON outcome_values.study = studies.id 
                 INNER JOIN outcomes ON outcomes.id = outcome_values.outcome 
@@ -155,14 +167,7 @@ def get_outcomes_data_short_format(project_id):
           ORDER BY studies.name, outcome_values.outcome 
          """
     rows = sql_select_fetchall(sql, (project_id,))
-    df = pd.DataFrame(rows)
-    df.columns = ["study_name", "outcome_name", "TE", "ll","ul","n_1","n_0","events_1","events_0"]
-
-    response = make_response(df.to_csv())
-    response.headers['Content-Disposition'] = 'attachment; filename=' + file_name+ '.csv'
-    response.headers['Content-type'] = 'text/csv'
-
-    return response
+    return rows
 
 
 def get_results_data(project_id):
@@ -211,7 +216,11 @@ def table_results(project_id):
 
     studies, outcomes_list = get_results_data(project_id)
     lg = math.ceil(85 / len(outcomes_list)) if len(outcomes_list)>0 else 50
-    return render_template('table_results.html', studies=studies, outcomes_list=outcomes_list, lg=lg,
+
+    short_format = outcomes_short_format(project_id)
+
+    return render_template('table_results.html', studies=studies,
+                           outcomes_list=outcomes_list, lg=lg, short_format = short_format,
                            eligibility_criteria_empty=eligibility_criteria_empty,
                            project_id=project_id, project_name=project_name)
 
