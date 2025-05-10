@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Sortable.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <style>
+        .sortable-ghost {
+            opacity: 0.4;
+            background-color: #c8ebfb;
+        }
+
+        .sortable-drag {
+            background-color: #f8f9fa;
+        }
+
+        .drag-handle {
+            cursor: move;
+            padding: 5px;
+        }
+
+        tbody tr {
+            transition: all .3s ease;
+        }
+    </style>
+
+
+    {% set page = 'setup' %}
+    {% include '_navbar1.html' %}
+
+
+    <div class="mb-5">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link " href="/project/edit/{{ project_id }}"
+                   style="width: 15rem; text-align: center;">
+                    Protocol
+                    {% if eligibility_criteria_empty %}
+                        <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Nouvelle notification</span>
+                        </span>
+                    {% endif %}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/project/update_fields/{{ project_id }}"
+                   style="width: 15rem; text-align: center;">
+                    Extraction fields
+                    {% if extraction_fields_list_empty %}
+                        <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Nouvelle notification</span>
+                        </span>
+                    {% endif %}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/outcomes/setup/{{ project_id }}"
+                   style="width: 15rem; text-align: center;">
+                    Outcome
+                    {% if outcomes == [] %}
+                        <span class="position-absolute top-n2 start-99 translate-left p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Nouvelle notification</span>
+                        </span>
+                    {% endif %}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/research_questions/list/{{ project_id }}"
+                   style="width: 15rem; text-align: center;">
+                    Research question (PICO)
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <table class="table table-condensed table-hover mt-3" style="width: auto;">
+        <thead>
+        <tr>
+            <th>Research questions</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody hx-confirm="You are about to delete a research question. Are you sure?" hx-target="closest tr"
+               hx-swap="outerHTML swap:1s" id="sortable-table">
+        {% for f in questions %}
+            <tr data-id="{{ f['id'] }}">
+                <td>{{ f["name"] }}</td>
+                <td>
+                    <a href="/research_question/edit/{{ f["id"] }}/{{ project_id }}"><i class="bi bi-pen"></i></a>
+                </td>
+                <td style="padding-left: 3em">
+                    <a hx-delete="/research_question/delete/{{ f["id"] }}"><i class="bi bi-trash3"></i></a>
+                </td>
+                <td class="drag-handle" style="padding-left: 3em">☰</td>
+            </tr>
+        {% endfor %}
+        {% if questions == [] %}
+            <tr>
+                <td colspan="99">Empty</td>
+            </tr>
+        {% endif %}
+
+        <tr class="table-light">
+            <form action="/research_questions/add/{{ project_id }}" method="post">
+                <td>
+                    <input type="text" class="form-control" placeholder="new research_questions name" id="name"
+                           name="name"/>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-plus"></i> add</button>
+                </td>
+                <td></td>
+            </form>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tableBody = document.getElementById('sortable-table');
+
+            new Sortable(tableBody, {
+                animation: 150,
+                handle: '.drag-handle',
+                ghostClass: 'sortable-ghost',
+                dragClass: 'sortable-drag',
+                onStart: function (evt) {
+                    // Désactiver temporairement HTMX pendant le glisser-déposer
+                    evt.from.setAttribute('data-htmx-disabled', '');
+                },
+                onEnd: function (evt) {
+                    // Réactiver HTMX
+                    evt.from.removeAttribute('data-htmx-disabled');
+
+                    const itemIds = Array.from(evt.to.children).map(row => row.dataset.id);
+
+                    fetch('/research_questions/order/{{ project_id }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(itemIds)
+                    });
+
+                }
+            });
+        });
+
+
+    </script>
+
+    {% if questions==[] %}
+        <div class="alert alert-warning" role="alert" style="margin-top: 3em;">
+            <h4 class="alert-heading">Warning</h4>
+            <p>You have not defined any research_questions. </p>
+
+            <hr>
+            <p class="mb-0">You can add research_questions by using the "add new research_questions" fields above.</p>
+        </div>
+    {% endif %}
+
+
+{% endblock %}

@@ -15,6 +15,9 @@ from retraction_watch import *
 from load_reference_file import *
 from setup import app_config
 from records_deduplication import records_deduplication
+from second_reviewer import *
+from research_questions import *
+
 
 app = Flask(__name__)
 app.secret_key = 'OSSR54@#66FRT689H_JGFrf'
@@ -316,10 +319,8 @@ def endpoint_records_deduplication(project_id):
 @app.route('/records/stream_load_reference_file/<int:project_id>/<int:database>/', methods=['GET'])
 def endpoint_records_stream_load_reference_file(project_id, database):
     if database == BIBLIOGRAPHIC_DATABASE['Endnote']:
-        #endnote(project_id, database)
         return Response(stream_with_context(endnote(project_id)),content_type='text/event-stream')
     elif database == BIBLIOGRAPHIC_DATABASE['Pubmed']:
-        #pubmed(project_id, database)
         return Response(stream_with_context(pubmed(project_id)), content_type='text/event-stream')
     else:
         return "ERROR: Database not supported"
@@ -421,6 +422,9 @@ def endpoint_records_export_RIS(project_id):
 def endpoint_records_flowchart(project_id):
     return records_flowchart(project_id)
 
+@app.route('/records/second_reviewer/<int:project_id>')
+def endpoint_records_second_reviewer(project_id):
+    return second_reviewer(project_id)
 
 @app.route('/records/retraction_watch/<int:project_id>')
 def endpoint_records_retraction_watch(project_id):
@@ -480,6 +484,43 @@ def serve_file(record_id):
         return send_from_directory(PDF_UPLOAD_PATH, f"r{record_id}.pdf")
     except Exception as e:
         return f"Erreur: {str(e)}", 404
+
+
+############ research question s(PICO) ############################
+
+@app.route('/research_questions/list/<int:project_id>/')
+def endpoint_research_questions_list(project_id):
+    return research_questions_list(project_id)
+
+
+@app.route('/research_questions/add/<int:project_id>', methods=['POST'])
+def endpoint_research_questions_add(project_id):
+    return research_question_add(project_id)
+
+
+@app.route('/research_question/delete/<int:research_question_id>', methods=['DELETE'])
+def endpoint_research_questions_delete(research_question_id):
+    return del_research_question(research_question_id)
+
+
+@app.route('/research_question/field_update/<int:research_question_id>/<string:field_name>', methods=['POST'])
+def endpoint_research_questions_field_modif(research_question_id, field_name):
+    return research_question_field_update(research_question_id, field_name)
+
+
+@app.route('/research_question/edit/<int:research_question_id>/<int:project_id>')
+def endpoint_research_questions_edit(research_question_id, project_id):
+    return research_question_edit(research_question_id, project_id)
+
+
+@app.route('/research_questions/order/<int:project_id>', methods=['POST'])
+def endpoint_research_questions_order(project_id):
+    research_questions_order(project_id)
+    return '', 204
+
+@app.route('/research_questions/set_study_research_question/<int:study_id>', methods=['POST'])
+def endpoint_research_questions_set_study_research_question(study_id):
+    return set_study_research_question(study_id)
 
 
 ###  streaming  #######################################

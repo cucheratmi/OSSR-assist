@@ -165,16 +165,20 @@ def records_screening_window(record_id, project_id, pass_number):
     else:
         template_file = "records_screening_pass2_window.html"
 
-    sql="""
-    SELECT records.*, studies.name AS study_name, studies.registration_number AS study_registration_number, studies.id AS study_id 
-    FROM records
-        LEFT JOIN rel_study_records ON rel_study_records.record = records.id
-        LEFT JOIN studies ON studies.id = rel_study_records.study
-    WHERE records.id=?
-    """
+    sql="SELECT * FROM records WHERE records.id=?"
     record_data = sql_select_fetchone(sql, (record_id,))
     record_data = dict(record_data)
     project_id = record_data["project"]
+
+    sql = """
+    SELECT studies.name AS study_name, studies.registration_number AS study_registration_number, studies.id AS study_id
+    FROM studies
+        INNER JOIN rel_study_records ON rel_study_records.study = studies.id
+    WHERE rel_study_records.record=?
+    """
+    linked_studies = sql_select_fetchall(sql, (record_id,))
+    linked_studies_ids = [study["study_id"] for study in linked_studies]
+
 
     sql = "SELECT id, name, registration_number FROM studies WHERE project=? ORDER BY name"
     included_studies = sql_select_fetchall(sql, (project_id,))
@@ -231,6 +235,7 @@ def records_screening_window(record_id, project_id, pass_number):
     return render_template(
         template_file,
         record_id=record_id, project_id=project_id, record_data=record_data, pass_number=pass_number,
+        linked_studies=linked_studies, linked_studies_ids=linked_studies_ids,
         included_studies=included_studies, project_data=project_data, known_study=known_study,
         btn_exclude_style=btn_exclude_style, btn_include_style=btn_include_style, btn_undecided_style=btn_undecided_style,
         btn_exclude_label=btn_exclude_label, btn_include_label=btn_include_label, btn_undecided_label=btn_undecided_label,
@@ -260,43 +265,17 @@ def record_create_study(project_id, record_id, pass_number):
     assert project_id is not None
     assert project_id != 0
 
-    study_id = create_study_from_record(project_id, record_id, InclusionStatus.INCLUDED_FIRST_PASS)
+    study_id = create_study_from_record(project_id, record_id, InclusionStatus.INCLUDED_FIRST_PASS, duplicate_study=False)
 
-    sql = "SELECT * FROM studies WHERE id=?"
-    study_data = sql_select_fetchone(sql, (study_id,))
+    if study_id is not None:
+        sql = "SELECT * FROM studies WHERE id=?"
+        study_data = sql_select_fetchone(sql, (study_id,))
 
-    sql="SELECT * FROM records WHERE id=?"
-    record_data = sql_select_fetchone(sql, (record_id,))
-    #convert sqlite3.Row into ordinary dictionary
-    record_data = dict(record_data)
-    # project_id = record_data["project"]
+        flash(make_message_study_created(study_id, study_data['name']), 'success')
 
-    #TODO à supprimer
-    # ### format AI answer
-    # if record_data["AI_answer"] is not None:
-    #     if isinstance(record_data['AI_answer'], bytes):
-    #         s = record_data["AI_answer"].decode('utf-8')
-    #     else:
-    #         s = record_data["AI_answer"]
-    #
-    #     s = s.replace('\n\n', '<br/>')
-    #     s = re.sub(r'\bstudy is eligible\b', f"<span style='color: green; font-weight: bold;'>study is eligible</span>",
-    #                s, flags=re.IGNORECASE)
-    #     s = re.sub(r'\bstudy is not eligible\b',
-    #                f"<span style='color: red; font-weight: bold;'>study is not eligible</span>", s, flags=re.IGNORECASE)
-    #     record_data["AI_answer"] = s.replace('\n', "<br/>").replace('"', '\'')
-    #
-    # ### references linked to this study
-    # sql="""
-    #     SELECT id, author1, title, source, pmid, DOI
-    #     FROM records
-    #         INNER JOIN rel_study_records ON rel_study_records.record = records.id
-    #     WHERE rel_study_records.study=?
-    #     """
-    # references = sql_select_fetchall(sql,(study_id,))
+    else:
 
-
-    flash(make_message_study_created(study_id, study_data['name']), 'success')
+        flash("Reference already linked with a study. No study created. To duplicate study use the link 'create a new study for this reference'.", 'warning')
 
     if pass_number==2:
         return redirect(url_for("endpoint_records_screening_pass2_window", record_id=record_id, project_id=project_id))
@@ -348,31 +327,40 @@ def records_screening_set_excluded(record_id, exclusion_reason, pass_number, pro
         return redirect(url_for("endpoint_records_screening_pass2_window",  record_id=record_id, project_id=project_id))
 
 
-def create_study_from_record(project_id, record_id, screening_pass):
+def create_study_from_record(project_id, record_id, screening_pass, duplicate_study=False):
+    sql = f"UPDATE records SET selection=? WHERE id=?"
+    sql_update(sql, (screening_pass.value, record_id,))
+
     sql = "SELECT author1, registration_number, acronym FROM records WHERE id=?"
     record_data = sql_select_fetchone(sql, (record_id,))
     study_name = ""
-    registration_number = record_data["registration_number"]
+    registration_number = record_data["registration_number"].strip()
     if registration_number is None: registration_number = ""
     if record_data["acronym"] is not None: study_name = record_data["acronym"]
     if study_name == "": study_name = registration_number
     if study_name == "": study_name = record_data["author1"]
     if study_name == "": study_name = "new study"
 
-    sql = "INSERT INTO studies (name, project, registration_number) VALUES (?,?,?)"
-    study_id = sql_insert_into(sql, (study_name, project_id, registration_number))
+    # test if study already exits
+    study_id = None
+    sql = "SELECT study FROM rel_study_records WHERE record=?"
+    r = sql_select_fetchone(sql, (record_id,))
+    if r is None or duplicate_study:
+        sql = "SELECT id FROM studies WHERE registration_number LIKE ? AND project=?"
+        r = sql_select_fetchone(sql, (registration_number, project_id,))
+        if r is None or duplicate_study:
+            sql = "INSERT INTO studies (name, project, registration_number) VALUES (?,?,?)"
+            study_id = sql_insert_into(sql, (study_name, project_id, registration_number))
 
-    sql = "INSERT INTO rel_study_records (record, study) VALUES (?,?)"
-    x = sql_insert_into(sql, (record_id, study_id))
+            sql = "INSERT INTO rel_study_records (record, study) VALUES (?,?)"
+            x = sql_insert_into(sql, (record_id, study_id))
 
-    sql = f"UPDATE records SET selection=? WHERE id=?"
-    sql_update(sql, (screening_pass.value, record_id,))
 
     return study_id
 
 
 def record_study_add(project_id, record_id):
-    study_id = create_study_from_record(project_id, record_id, InclusionStatus.INCLUDED_SECOND_PASS)
+    study_id = create_study_from_record(project_id, record_id, InclusionStatus.INCLUDED_SECOND_PASS, duplicate_study=True)
     return redirect(url_for("endpoint_study_edit", study_id=study_id, project_id=project_id))
 
 def record_link_to_study(project_id, record_id, study_id):

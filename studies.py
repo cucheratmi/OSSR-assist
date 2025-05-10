@@ -178,21 +178,15 @@ def set_ROB_justification(study, domain):
     return '', 200
 
 
-# def study_fullscreen_old(study_id, project_id, record_id=0, tab="study"):
-#     study_data = get_study_data(study_id)
-#     data_fields = get_data_fields(study_id, project_id)
-#     references = get_references(study_id)
-#     pdf_exists = test_if_pdf_exists(record_id)
-#     ROB = get_ROB(study_id)
-#
-#     if False: # AI
-#         extracted_data = study_extraction_personalised_fields(study_id, record_id, project_id, "abstract")
-#     else:
-#         extracted_data = dict()
-#
-#     return render_template('study_fullscreen_old.html', study_id=study_id, references=references, study_data=study_data,
-#                            project_id=project_id, data_fields=data_fields,pdf_exists=pdf_exists, record_id=record_id, tab=tab, ROB=ROB,
-#                            extracted_data=extra)
+def get_research_questions(study_id, project_id):
+    sql = """
+          SELECT research_questions.id, research_questions.name, rel_study_QRs.study 
+          FROM research_questions
+              LEFT JOIN rel_study_QRs ON rel_study_QRs.research_question = research_questions.id AND rel_study_QRs.study = ?
+          WHERE research_questions.project = ?  
+          """
+    rows = sql_select_fetchall(sql, (study_id, project_id,))
+    return rows
 
 
 def study_fullscreen(study_id, project_id, record_id, tab, AI):
@@ -210,6 +204,7 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
     results_data = None
     data_fields = None
     template= None
+    research_questions = None
     if tab=="ROB":
         ROB, ROB_DOMAIN = get_ROB(study_id, project_id)
         template= 'study_fullscreen_ROB.html'
@@ -220,6 +215,9 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
         results_data = get_results_data(study_id, project_id)
         template= 'study_fullscreen_outcomes2.html'
     else:
+        research_questions = get_research_questions(study_id, project_id)
+        if len(research_questions) == 0:
+            research_questions = None
         template= 'study_fullscreen_tab1.html'
 
     #### AI #####
@@ -234,7 +232,7 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
 
     return render_template(template, study_id=study_id,
                            project_id=project_id, project_name=project_name, pdf_exists=pdf_exists, record_id=record_id, tab=tab,
-                           references=references, study_data=study_data,
+                           references=references, study_data=study_data, research_questions=research_questions,
                            data_fields=data_fields,
                            ROB=ROB, ROB_DOMAIN=ROB_DOMAIN,
                            results_data=results_data,

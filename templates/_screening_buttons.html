@@ -60,9 +60,20 @@
     }
 </script>
 
-{% if record_data['study_id'] is not none %}
+{% if not linked_studies==[]  %}
         <div class="alert alert-success" role="alert">
-            this reference is already linked to study {{ record_data['study_name'] }} ({{ record_data['study_registration_number'] }}) - study #{{ record_data['study_id'] }}
+            <p>This reference is already linked to:</p>
+                <ul>
+                {% for s in linked_studies %}
+                    <li>{{ s['study_name'] }} ({{ s['study_registration_number'] }}) - study #{{ s['study_id'] }}</li>
+                {%  endfor %}
+                </ul>
+        <p>
+            <a href="/records/study_add/{{ project_id }}/{{ record_id }}" class="btn btn-link">
+                <i class="bi bi-exclamation-triangle" style="color: red;"></i>
+                create a new study for this reference
+            </a>
+        </p>
         </div>
 
 {%  endif %}
@@ -79,7 +90,7 @@
             {% set sty="" %}
         {% endif %}
 
-        {% if s['id']==record_data['study_id'] %}
+        {% if s['id'] in linked_studies_ids %}
             {% set sty="table-success" %}
         {%  endif %}
 
@@ -87,7 +98,7 @@
             <td>{{ s["name"] }}</td>
             <td>{{ s["registration_number"] }}</td>
             <td title="add this reference to this study">
-                <a href="/records/link_record_to_study/{{ record_id }}/{{ s['id'] }}" >add ref</a>
+                <a href="/records/link_record_to_study/{{ record_id }}/{{ s['id'] }}" >add this ref to this study</a>
             </td>
         </tr>
     {% endfor %}

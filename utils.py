@@ -93,7 +93,7 @@ type_of_study_dict = {
 ### htmlx utilities
 
 def update_field(table, id, field, value):
-    assert table in ["studies", "records", "projects", "study_fields", "outcomes"]
+    assert table in ["studies", "records", "projects", "study_fields", "outcomes","research_questions"]
     assert field is not None
     assert value is not None
     assert id is not None

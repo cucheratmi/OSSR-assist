@@ -1,24 +1,26 @@
 {% extends 'base_study_fullscreen.html' %}
 
-{%  block col2 %}
+{% block col2 %}
 
-<ul class="nav nav-tabs mt-0 mb-4">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="/study/fullscreen/tab1/{{ study_id }}/{{ project_id }}/{{ record_id }}">Study</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}">Fields</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
-  </li>
-</ul>
+    <ul class="nav nav-tabs mt-0 mb-4">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page"
+               href="/study/fullscreen/tab1/{{ study_id }}/{{ project_id }}/{{ record_id }}">Study</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+               href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}">Fields</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
+        </li>
+    </ul>
 
 
-            <form>
+    <form>
         <div class="mb-4">
             <label for="name" class="form-label fw-semibold">Name</label>
             <input type="text" class="form-control" id="name" name="name" value="{{ study_data["name"] }}"
@@ -31,12 +33,43 @@
         <div class="mb-4">
             <label for="registration_number" class="form-label fw-semibold">Registration number</label>
             <input type="text" class="form-control" id="registration_number" name="registration_number"
-                   value="{{ study_data["registration_number"] }}" hx-post="/study/update_field/{{ study_id }}/registration_number"
+                   value="{{ study_data["registration_number"] }}"
+                   hx-post="/study/update_field/{{ study_id }}/registration_number"
                    hx-trigger="change" hx-target="#registration_number_info" hx-swap="innerHTML"/>
             <div class="form-text">Registration number (NCT, etc.)</div>
             <div id="registration_number_info" class="form-text"></div>
         </div>
 
+
+        <div class="mb-4">
+            <label for="research_question" class="form-label fw-semibold">Research question (PICO)</label>
+            <select multiple class="form-select" id="research_question" name="research_question[]"
+                    hx-post="/research_questions/set_study_research_question/{{ study_id }}"
+                    hx-trigger="change" hx-target="#research_question_info" hx-swap="innerHTML">
+                <option value="0"></option>
+                {% for qr in research_questions %}
+                    <option value="{{ qr['id'] }}" {% if qr['study'] is not none %}selected{% endif %}>
+                        {{ qr['id'] }} - {{ qr['name'] }}
+                    </option>
+                {% endfor %}
+            </select>
+            {% if not research_questions %}
+                <div class="form-text">To create question research (PICO) use the project setup tab</div>
+            {% endif %}
+            <div id="research_question_info" class="form-text"></div>
+        </div>
+
+        <div class="mb-4">
+            <label for="comments" class="form-label fw-semibold">Comments</label>
+            <textarea rows=4 class="form-control" id="comments" name="comments"
+                      hx-post="/study/update_field/{{ study_id }}/comments"
+                      hx-trigger="change" hx-target="#comments_info"
+                      hx-swap="innerHTML">{{ study_data["comments"] }}</textarea>
+            <div id="comments_info" class="form-text"></div>
+        </div>
+
+
     </form>
 
-{%  endblock %}
+
+{% endblock %}
