@@ -188,7 +188,6 @@ CONTEXT:
 
 ##### convenience functions #########
 
-
 def invoke_mistral_llm_text_output(template_name, parameters, context):
     print(template_name)
 
