@@ -23,22 +23,6 @@ class ResultsModel2(BaseModel):
     r: list[Result] = Field(description="list of the results")
 
 
-# def results_build_prompt2(outcomes):
-#
-#     outcomes_list = ""
-#     for o in outcomes:
-#         outcomes_list += " - " + o + "\n"
-#
-#     prompt = template_prompt_outcomes.format(outcomes_list=outcomes_list, context="{context}")
-#
-#     system_prompt = """
-#         You are a specialist in randomized clinical trials and systematic reviews.
-#         Extract information using only the given context and does not used your memory or your knowledge of the concerned trial.
-#         """
-#
-#     return prompt, system_prompt
-
-
 def AI_results2(study_id, record_id, project_id, context_source):
     # TODO modif en cours
     pdf_exists = test_if_pdf_exists(record_id)

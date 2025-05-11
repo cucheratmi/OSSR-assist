@@ -168,10 +168,10 @@ def is_secondary_LLM_available():
 
 
 
-def not_AI():
-    # TODO à voir
-    print("AI is used but LLM is not set. Please set an LLM in the setup menu. AI will not be used.")
-    session['_flashes'] = []
-    flash('You try to use AI function but no LLM was set or no API_KEY provided ! Set these parameters to use AI functions',
-          'danger')
-    return redirect(url_for("endpoint_setup"))
+# def not_AI():
+#     # TODO à voir
+#     print("AI is used but LLM is not set. Please set an LLM in the setup menu. AI will not be used.")
+#     session['_flashes'] = []
+#     flash('You try to use AI function but no LLM was set or no API_KEY provided ! Set these parameters to use AI functions',
+#           'danger')
+#     return redirect(url_for("endpoint_setup"))

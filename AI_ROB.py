@@ -20,40 +20,6 @@ class ROB(BaseModel):
 
 
 
-
-
-# def build_ROB_RCT_prompt():
-#
-#     rob_user_prompt = prompt_template_ROB_RCT
-#
-#     system_prompt = """
-#         You are a specialist in randomized clinical trials and systematic reviews.
-#         Extract information using only the given context and does not used your memory or your knowledge of the concerned trial.
-#         """
-#
-#     return rob_user_prompt, system_prompt
-#
-# def build_ROB_DIAG_prompt():
-#
-#     rob_user_prompt = prompt_template_ROB_DIAG
-#
-#     system_prompt = """
-#         You are a specialist in diagnostic accuracy studies and systematic reviews.
-#         Extract information using only the given context and does not used your memory or your knowledge of the concerned study.
-#         """
-#
-#     return rob_user_prompt, system_prompt
-
-# def build_ROB_prompt(study_type):
-#     match study_type:
-#         case TypeOfStudy.DIAG.value:
-#             rob_user_prompt, system_prompt = build_ROB_DIAG_prompt()
-#         case _:
-#             rob_user_prompt, system_prompt = build_ROB_RCT_prompt()
-#
-#     return rob_user_prompt, system_prompt
-
-
 def AI_ROB(study_id, record_id, project_id, llm_name):
     sql = "SELECT type_of_study FROM projects WHERE id=?"
     study_type = sql_select_fetchone(sql, (project_id,))['type_of_study']
