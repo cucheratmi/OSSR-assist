@@ -531,19 +531,6 @@ def stream2(project_id, source):
     return screening_AI_stream(project_id, source)
 
 
-# @app.route('/stream')
-# def stream():
-#     def generate():
-#         for i in range(10):
-#             yield f'data: Chunk {i}\n\n'
-#             time.sleep(1)  # Simulate a delay
-#         yield 'data: Stream ended.\n\n'
-#
-#     return Response(stream_with_context(generate()), content_type='text/event-stream')
-#
-# @app.route('/test_streaming/')
-# def test_streaming():
-#     return render_template('streaming_test.html')
 
 
 if __name__ == '__main__':
