@@ -14,3 +14,8 @@ README_draft.md
 /Dockerfile
 
 .gitignore
+/test/
+test endnote.py
+test_load_saved_project.py
+test_save_projet.py
+test_table_rob.py

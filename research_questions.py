@@ -48,6 +48,7 @@ def research_questions_order(project_id):
         i+=1
 
 def set_study_research_question(study_id):
+    print("fired")
     selected_values = request.form.getlist('research_question[]')
     print(selected_values)
     sql = "DELETE FROM rel_study_QRs WHERE study=?"
