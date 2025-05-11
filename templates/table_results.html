@@ -72,6 +72,8 @@
     <h4 class="mt-5">Short format (for R)</h4>
     <table class="table table-condensed table-hover table-sm" style="font-size: smaller;">
     <tr>
+        <th>research question ID</th>
+        <th>research question</th>
         <th>study</th>
         <th>outcome</th>
         <th>TE</th>
@@ -86,6 +88,8 @@
     </tr>
     {%  for r in short_format %}
             <tr>
+                <td>{{ r['research_question_id'] }}</td>
+                <td>{{ r['research_question_name'] }}</td>
                 <td>{{ r['study_name'] }}</td>
                 <td>{{ r['outcome_name'] }}</td>
                 <td>{{ r['TE'] }}</td>

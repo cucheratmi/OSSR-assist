@@ -143,7 +143,7 @@ def get_ROB(study_id, project_id):
                 d[i] = {'domain': i, 'domain_name': ROB_DOMAIN[i], 'level': 0, 'level_name':'', 'justification': ''}
         case _:
             ROB_DOMAIN = ROB_RCT_DOMAIN
-            LEVEL_NAME = {0:'', 1:'low risk', 2:'some concern', 3:'high risk'}
+            LEVEL_NAME = {0:'', 1:'low risk of bias', 2:'some concern', 3:'high risk of bias'}
             for i in range(1, 6):
                 d[i] = {'domain':i, 'domain_name': ROB_RCT_DOMAIN[i], 'level':0, 'level_name':'', 'justification': ''}
 

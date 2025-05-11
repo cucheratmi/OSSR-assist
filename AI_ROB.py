@@ -22,36 +22,36 @@ class ROB(BaseModel):
 
 
 
-def build_ROB_RCT_prompt():
+# def build_ROB_RCT_prompt():
+#
+#     rob_user_prompt = prompt_template_ROB_RCT
+#
+#     system_prompt = """
+#         You are a specialist in randomized clinical trials and systematic reviews.
+#         Extract information using only the given context and does not used your memory or your knowledge of the concerned trial.
+#         """
+#
+#     return rob_user_prompt, system_prompt
+#
+# def build_ROB_DIAG_prompt():
+#
+#     rob_user_prompt = prompt_template_ROB_DIAG
+#
+#     system_prompt = """
+#         You are a specialist in diagnostic accuracy studies and systematic reviews.
+#         Extract information using only the given context and does not used your memory or your knowledge of the concerned study.
+#         """
+#
+#     return rob_user_prompt, system_prompt
 
-    rob_user_prompt = prompt_template_ROB_RCT
-
-    system_prompt = """
-        You are a specialist in randomized clinical trials and systematic reviews.
-        Extract information using only the given context and does not used your memory or your knowledge of the concerned trial.
-        """
-
-    return rob_user_prompt, system_prompt
-
-def build_ROB_DIAG_prompt():
-
-    rob_user_prompt = prompt_template_ROB_DIAG
-
-    system_prompt = """
-        You are a specialist in diagnostic accuracy studies and systematic reviews.
-        Extract information using only the given context and does not used your memory or your knowledge of the concerned study.
-        """
-
-    return rob_user_prompt, system_prompt
-
-def build_ROB_prompt(study_type):
-    match study_type:
-        case TypeOfStudy.DIAG.value:
-            rob_user_prompt, system_prompt = build_ROB_DIAG_prompt()
-        case _:
-            rob_user_prompt, system_prompt = build_ROB_RCT_prompt()
-
-    return rob_user_prompt, system_prompt
+# def build_ROB_prompt(study_type):
+#     match study_type:
+#         case TypeOfStudy.DIAG.value:
+#             rob_user_prompt, system_prompt = build_ROB_DIAG_prompt()
+#         case _:
+#             rob_user_prompt, system_prompt = build_ROB_RCT_prompt()
+#
+#     return rob_user_prompt, system_prompt
 
 
 def AI_ROB(study_id, record_id, project_id, llm_name):
@@ -62,9 +62,9 @@ def AI_ROB(study_id, record_id, project_id, llm_name):
     pdf_exists = test_if_pdf_exists(record_id)
     if not pdf_exists: return None
 
-    user_prompt, system_prompt = build_ROB_prompt(study_type)
     context = get_pdf(record_id)
-    rob = invoke_llm_structured_output(system_prompt, user_prompt, context, ROB)
+
+    rob = invoke_llm_structured_output("ROB_RCT", {}, context, ROB)
     rob = rob.r
 
     data = dict()
@@ -86,26 +86,16 @@ def AI_ROB(study_id, record_id, project_id, llm_name):
 
 
 def AI_check_ROB_RCT(extracted_data, record_id):
-    context = get_pdf(record_id)
-
-    prompt_system = "Your are an expert of clinical trials and systematic reviews."
-
-    prompt = prompt_template_ROB_checking_RCT.format(extracted_data=extracted_data,context=context)
-
-    answer = invoke_llm_text_output("secondary", prompt, prompt_system)
-
+    parameters = {'extracted_data': extracted_data}
+    answer = invoke_llm_PDF_text_output("secondary", "ROB_checking_RCT", parameters, record_id)
     return answer
+
 
 def AI_check_ROB_DIAG(extracted_data, record_id):
-    context = get_pdf(record_id)
-
-    prompt_system = "Your are an expert of diagnostic accuracy studies and systematic reviews."
-
-    prompt = prompt_template_ROB_checking_DIAG.format(extracted_data=extracted_data,context=context)
-
-    answer = invoke_llm_text_output("secondary", prompt, prompt_system)
-
+    parameters = {'extracted_data': extracted_data}
+    answer = invoke_llm_PDF_text_output("secondary", "ROB_checking_DIAG", parameters, record_id)
     return answer
+
 
 def AI_check_ROB(extracted_data, record_id, project_id):
     sql = "SELECT type_of_study FROM projects WHERE id=?"

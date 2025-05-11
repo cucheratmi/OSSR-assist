@@ -33,24 +33,6 @@ def create_pydantic_model(project_id):
     return create_model('FieldModel', **model_fields), fields
 
 
-def build_extraction_prompt(fields, source):
-    fields_bullet_list  = ""
-    for e in fields.values():
-        fields_bullet_list += " - " + e["name"] + "\n"
-
-    system_prompt = """
-    You are a specialist in randomized clinical trials and systematic reviews.
-    extract information using only the given context and does not used your memory or your knowledge of the concerned trial.
-    """
-
-    if source == "pdf":
-        prompt = prompt_template_extraction_pdf.format(fields=fields_bullet_list, context="{context}")
-    else :
-        prompt = prompt_template_extraction_abstract.format(fields=fields_bullet_list, context="{context}")
-
-    return prompt, system_prompt
-
-
 def AI_extraction_personalised_fields(study_id, record_id, project_id, context_source):
     #references = get_references(study_id)
     pdf_exists = test_if_pdf_exists(record_id)
@@ -58,27 +40,27 @@ def AI_extraction_personalised_fields(study_id, record_id, project_id, context_s
     assert pdf_exists
 
     FieldModel, fields = create_pydantic_model(project_id)
-    user_prompt, system_prompt = build_extraction_prompt(fields, context_source)
+    fields_bullet_list  = ""
+    for e in fields.values():
+        fields_bullet_list += " - " + e["name"] + "\n"
+    parameters={'fields': fields_bullet_list}
+
 
     if context_source == "pdf":
         context = get_pdf(record_id)
+        template_name = "extraction_pdf"
     else:
         context = get_abstract(record_id)
+        template_name = "extraction_abstract"
 
-    extracted_data = invoke_llm_structured_output(system_prompt, user_prompt, context, FieldModel)
+    extracted_data = invoke_llm_structured_output(template_name,parameters, context, FieldModel)
 
     return extracted_data
 
 
 def AI_check_extraction(extracted_data, record_id):
-    context = get_pdf(record_id)
-
-    prompt_system = "Your are an expert of clinical trials and systematic reviews."
-
-    prompt = prompt_template_extraction_checking.format(extracted_data=extracted_data, context=context)
-
-    answer = invoke_llm_text_output("secondary", prompt, prompt_system)
-
+    parameters = {'extracted_data': extracted_data}
+    answer = invoke_llm_PDF_text_output("secondary", "extraction_checking", parameters, record_id)
     return answer
 
 

@@ -5,32 +5,18 @@ from AI_utils import *
 from prompts import *
 
 
-def get_prompt_screening(project_id, source):
-    sql = "SELECT eligibility_criteria FROM projects WHERE id=?"
-    eligibility_criteria = sql_select_fetchone(sql, (project_id,))['eligibility_criteria']
-
-
-    if source == "pdf":
-        prompt =  prompt_template_screening_pdf.format(eligibility_criteria=eligibility_criteria, context="{context}")
-    else:
-        prompt = prompt_template_screening_abstract.format(eligibility_criteria=eligibility_criteria, context="{context}")
-
-    return prompt
-
-
-def evaluate_eligibility(record_id, title, context, prompt, cur, con, source):
-    output = ""
-
+#utility function
+def evaluate_eligibility(record_id, title, parameters, context, template_name, cur, con, source):
     if context is None: context = ""
 
+    output = ""
     output += f"{title}"
-
     response = ""
-    prompt2 = prompt.format(context=context)
-    prompt_system = "Your are an expert in clinical trials and systematic review."
+
     try:
-        response = invoke_llm_text_output("primary", prompt2, prompt_system)
-    except:
+        response = invoke_llm_text_output("primary", template_name, parameters, context)
+    except Exception as e:
+        print(e)
         output += "<p>llm ERROR</p>"
 
     if response != "":
@@ -55,15 +41,13 @@ def evaluate_eligibility(record_id, title, context, prompt, cur, con, source):
 
     return output
 
-
-##### streaming #####
-
-def records_screening_AI(project_id, source):
-    return render_template('streaming_screening_AI_window.html',project_id=project_id, source=source)
-
+#streaming loop
 def screening_AI_stream(project_id, source):
+    template_name = "screening_abstract" if source == "abstract" else "screening_pdf"
 
-    prompt = get_prompt_screening(project_id, source)
+    sql = "SELECT eligibility_criteria FROM projects WHERE id=?"
+    eligibility_criteria = sql_select_fetchone(sql, (project_id,))['eligibility_criteria']
+    parameters = {'eligibility_criteria': eligibility_criteria}
 
     con = sqlite3.connect(DB_PATH)
     con.row_factory = sqlite3.Row
@@ -76,14 +60,16 @@ def screening_AI_stream(project_id, source):
 
     def generate():
         try:
+            i=0
             for row in cur.fetchall():
+                i+=1
                 context = None
                 if source == "pdf":
                     context = get_pdf(row['id'])
                 if source == "abstract" or (source == "pdf" and context is None):
                     context = row['title'] + " " + row['abstract']
 
-                chunk = evaluate_eligibility(row['id'], row['title'], context, prompt, cur2, con2, source)
+                chunk = str(i) + ") " + evaluate_eligibility(row['id'], row['title'], parameters, context, template_name, cur2, con2, source)
                 yield "data: " + chunk + "\n\n"
 
             yield 'data: <h4>Completed !</h4>\n\n'
@@ -98,6 +84,10 @@ def screening_AI_stream(project_id, source):
 
     return Response(stream_with_context(generate()), content_type='text/event-stream')
 
+
+# root page for streaming
+def records_screening_AI(project_id, source):
+    return render_template('streaming_screening_AI_window.html',project_id=project_id, source=source)
 
 
 

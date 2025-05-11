@@ -1,6 +1,11 @@
 import os
 import sqlite3
 from enum import IntEnum
+import requests, json
+import pymupdf4llm
+import textwrap
+
+
 
 DB_PATH = "srai_database.sqlite"
 
@@ -238,3 +243,54 @@ def is_extraction_fields_list_empty(project_id):
     sql = "SELECT COUNT(*) FROM study_fields WHERE project=?"
     parameters = (project_id,)
     return sql_select_fetchone(sql, parameters)['COUNT(*)'] == 0
+
+
+####################
+
+### utils get context
+
+def get_abstract(record_id):
+    sql = "SELECT abstract, title FROM records WHERE id=?"
+    abstract, title = sql_select_fetchone(sql, (record_id,))
+    return title.strip() + " " + abstract.strip()
+
+def get_pdf(record_id):
+    pdf_path = os.path.join(PDF_UPLOAD_PATH, f"r{record_id}.pdf")
+    if os.path.exists(pdf_path):
+        pdf_md = pymupdf4llm.to_markdown(pdf_path)
+    else:
+        pdf_md= None
+
+    return pdf_md
+
+
+def get_NCT(nct):
+    l = """NCTId
+BriefTitle
+Acronym
+OfficialTitle
+Condition
+InterventionName
+InterventionDescription
+ArmGroupDescription
+BriefSummary
+DesignAllocation
+DesignInterventionModel
+DesignMasking
+DesignWhoMasked
+StudyType
+PrimaryOutcomeMeasure
+PrimaryOutcomeDescription
+SecondaryOutcomeMeasure
+SecondaryOutcomeDescription
+LeadSponsorName
+Reference"""
+    l = textwrap.dedent(l)
+
+    l = l.splitlines()
+    a = "%7C".join(l)
+    url = "https://clinicaltrials.gov/api/v2/studies/" + nct + "?format=json&fields=" + a
+
+    r = requests.get(url)
+    json_NCT = json.dumps(r.json())
+    return (json_NCT)

@@ -23,20 +23,20 @@ class ResultsModel2(BaseModel):
     r: list[Result] = Field(description="list of the results")
 
 
-def results_build_prompt2(outcomes):
-
-    outcomes_list = ""
-    for o in outcomes:
-        outcomes_list += " - " + o + "\n"
-
-    prompt = template_prompt_outcomes.format(outcomes_list=outcomes_list, context="{context}")
-
-    system_prompt = """
-        You are a specialist in randomized clinical trials and systematic reviews.
-        Extract information using only the given context and does not used your memory or your knowledge of the concerned trial.
-        """
-
-    return prompt, system_prompt
+# def results_build_prompt2(outcomes):
+#
+#     outcomes_list = ""
+#     for o in outcomes:
+#         outcomes_list += " - " + o + "\n"
+#
+#     prompt = template_prompt_outcomes.format(outcomes_list=outcomes_list, context="{context}")
+#
+#     system_prompt = """
+#         You are a specialist in randomized clinical trials and systematic reviews.
+#         Extract information using only the given context and does not used your memory or your knowledge of the concerned trial.
+#         """
+#
+#     return prompt, system_prompt
 
 
 def AI_results2(study_id, record_id, project_id, context_source):
@@ -47,19 +47,19 @@ def AI_results2(study_id, record_id, project_id, context_source):
 
     sql = "SELECT id, name, description FROM outcomes WHERE project=?"
     r = sql_select_fetchall(sql, (project_id,))
-    outcomes = []
+    outcomes_list = ""
     for o in r:
         outcome = o['name'] + " (" + o['description'] + "), id:" + str(o['id'])
-        outcomes.append(outcome)
+        outcomes_list += " - " + outcome + "\n"
 
-    user_prompt, system_prompt = results_build_prompt2(outcomes)
+    parameters = {'outcomes_list': outcomes_list}
 
     if context_source == "pdf":
         context = get_pdf(record_id)
     else:
         context = get_abstract(record_id)
 
-    extracted_data = invoke_llm_structured_output(system_prompt, user_prompt, context, ResultsModel2)
+    extracted_data = invoke_llm_structured_output("outcomes", parameters, context, ResultsModel2)
 
     AI_data = dict()
     for o in extracted_data.r:
@@ -71,14 +71,8 @@ def AI_results2(study_id, record_id, project_id, context_source):
 
 
 def AI_check_outcomes(extracted_data, record_id):
-    context = get_pdf(record_id)
-
-    prompt_system = "Your are an expert of clinical trials and systematic reviews."
-
-    prompt = prompt_template_outcomes_checking.format(extracted_data=extracted_data, context=context)
-
-    answer = invoke_llm_text_output("secondary", prompt, prompt_system)
-
+    parameters = {'extracted_data': extracted_data}
+    answer = invoke_llm_PDF_text_output("secondary", "outcomes_checking", parameters, record_id)
     return answer
 
 

@@ -145,7 +145,7 @@ def get_outcomes_data_short_format(project_id):
 
     rows = outcomes_short_format(project_id)
     df = pd.DataFrame(rows)
-    df.columns = ["study_name", "outcome_name", "TE", "ll","ul","n_1","n_0","events_1","events_0","p_value","comment"]
+    df.columns = ["research_question_id","research_question_name","study_name", "outcome_name", "TE", "ll","ul","n_1","n_0","events_1","events_0","p_value","comment"]
 
     response = make_response(df.to_csv())
     response.headers['Content-Disposition'] = 'attachment; filename=' + file_name+ '.csv'
@@ -156,6 +156,7 @@ def get_outcomes_data_short_format(project_id):
 def outcomes_short_format(project_id):
     sql = """ \
           SELECT 
+                research_questions.id AS research_question_id, research_questions.name AS research_question, 
                 studies.name AS study_name, 
                 outcomes.name AS outcome_name, 
                 outcome_values.TE, outcome_values.ll, outcome_values.ul, outcome_values.n_1, outcome_values.n_0, outcome_values.events_1, outcome_values.events_0,
@@ -163,8 +164,10 @@ def outcomes_short_format(project_id):
           FROM studies 
                 INNER JOIN outcome_values ON outcome_values.study = studies.id 
                 INNER JOIN outcomes ON outcomes.id = outcome_values.outcome 
+                LEFT JOIN rel_study_QRs ON rel_study_QRs.study = studies.id
+                LEFT JOIN research_questions ON research_questions.id = rel_study_QRs.research_question
           WHERE studies.project = ? 
-          ORDER BY studies.name, outcome_values.outcome 
+          ORDER BY research_questions.id, studies.name, outcome_values.outcome 
          """
     rows = sql_select_fetchall(sql, (project_id,))
     return rows
@@ -175,14 +178,14 @@ def get_results_data(project_id):
     r = sql_select_fetchall(sql, (project_id,))
     outcomes_list = {outcome['id']: outcome['name'] for outcome in r}
 
-    sql = """ \
-          SELECT outcome_values.outcome             AS outcome_id, \
-                 outcome_values.value         AS value, \
-                 studies.name AS study_name \
-          FROM studies \
-                   INNER JOIN outcome_values ON outcome_values.study = studies.id \
-          WHERE studies.project = ? \
-          ORDER BY studies.name, outcome_values.outcome \
+    sql = """ 
+          SELECT outcome_values.outcome AS outcome_id, 
+                 outcome_values.*, 
+                 studies.name AS study_name 
+          FROM studies 
+                   INNER JOIN outcome_values ON outcome_values.study = studies.id 
+          WHERE studies.project = ? 
+          ORDER BY studies.name, outcome_values.outcome 
          """
     rows = sql_select_fetchall(sql, (project_id,))
 

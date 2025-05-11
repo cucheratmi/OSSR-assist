@@ -1,67 +1,19 @@
 import os
-
-import flask
-import requests, json
-import pymupdf4llm
-import textwrap
+from enum import Enum
 from flask import current_app, Flask, session
 
-from utils import PDF_UPLOAD_PATH, sql_select_fetchone
+from utils import *
 
-from langchain_openai import ChatOpenAI
-from langchain_mistralai import ChatMistralAI
-from langchain_anthropic import ChatAnthropic
-from langchain_core.prompts import ChatPromptTemplate
+from AI_mistral import *
+from AI_anthropic import *
+from AI_openai import *
+from AI_hyperbolicxyz import *
 
-
-### utils get context
-
-def get_abstract(record_id):
-    sql = "SELECT abstract, title FROM records WHERE id=?"
-    abstract, title = sql_select_fetchone(sql, (record_id,))
-    return title.strip() + " " + abstract.strip()
-
-def get_pdf(record_id):
-    pdf_path = os.path.join(PDF_UPLOAD_PATH, f"r{record_id}.pdf")
-    if os.path.exists(pdf_path):
-        pdf_md = pymupdf4llm.to_markdown(pdf_path)
-    else:
-        pdf_md= None
-
-    return pdf_md
-
-
-def get_NCT(nct):
-    l = """NCTId
-BriefTitle
-Acronym
-OfficialTitle
-Condition
-InterventionName
-InterventionDescription
-ArmGroupDescription
-BriefSummary
-DesignAllocation
-DesignInterventionModel
-DesignMasking
-DesignWhoMasked
-StudyType
-PrimaryOutcomeMeasure
-PrimaryOutcomeDescription
-SecondaryOutcomeMeasure
-SecondaryOutcomeDescription
-LeadSponsorName
-Reference"""
-    l = textwrap.dedent(l)
-
-    l = l.splitlines()
-    a = "%7C".join(l)
-    url = "https://clinicaltrials.gov/api/v2/studies/" + nct + "?format=json&fields=" + a
-
-    r = requests.get(url)
-    json_NCT = json.dumps(r.json())
-    return (json_NCT)
-
+class LLM_Name_Enum(Enum):
+    MISTRAL = "mistral"
+    ANTHROPIC = "claude"
+    OPENAI = "openai"
+    DEEPSEEK = "hyperbolic"
 
 
 #### initialisation LLM model
@@ -69,17 +21,20 @@ Reference"""
 def initialise_LLM_model(llm_name):
     model = None
     try:
-        if llm_name=="claude" and "ANTHROPIC_API_KEY" in os.environ:
+        if llm_name==LLM_Name_Enum.ANTHROPIC.value and "ANTHROPIC_API_KEY" in os.environ:
             model = ChatAnthropic(model='claude-3-7-sonnet-latest')
 
-        elif llm_name=="openai" and "OPENAI_API_KEY" in os.environ:
+        elif llm_name==LLM_Name_Enum.OPENAI.value and "OPENAI_API_KEY" in os.environ:
             model = ChatOpenAI(model="gpt-4o", temperature=0)
 
+        elif llm_name==LLM_Name_Enum.MISTRAL.value and "MISTRAL_API_KEY" in os.environ:
+            model = ChatMistralAI(model="mistral-large-latest")
         else:
-            if "MISTRAL_API_KEY" in os.environ:
-                model = ChatMistralAI(model="mistral-large-latest")
-    except:
+            model = None
+            print("no model available")
+    except Exception as e:
         print("erreur initialisation model")
+        print(e)
 
     return model
 
@@ -95,174 +50,48 @@ def AI_initilization(app):
 
 
 
+
 ######## invoke llm with structured output ####################################
 
+def invoke_llm_structured_output(template_name, parameters, context, pydantic_class):
+    llm_name = current_app.config["LLM_NAME"]
+    print(f"invoke_llm_structured_output, {llm_name=}")
 
-def invoke_llm_structured_output(system_prompt, user_prompt, context, pydantic_class):
-    model = current_app.config["model"]
-    if model is None: return None
-
-    prompt_template = ChatPromptTemplate([
-        ("system", system_prompt),
-        ("user", user_prompt)
-    ])
-
-    structured_llm = model.with_structured_output(pydantic_class)
-    prompt = prompt_template.invoke({"context": context})
-    r = structured_llm.invoke(prompt)
-
-    return r
-
-
-
-def ZZZinvoke_llm_text_output(model_level, prompt, prompt_system):
-
-    if model_level=="secondary":
-        model = current_app.config["secondary_model"]
-        print(current_app.config["secondary_model"])
-        print(current_app.config["SECONDARY_LLM_NAME"])
-    else:
-        model = current_app.config["model"]
-        print(current_app.config["model"])
-        print(current_app.config["LLM_NAME"])
+    match llm_name:
+        case LLM_Name_Enum.MISTRAL.value:
+            return invoke_mistral_llm_structured_output(template_name, parameters, context, pydantic_class)
+        case LLM_Name_Enum.ANTHROPIC.value:
+            return invoke_anthropic_llm_structured_output(template_name, parameters, context, pydantic_class)
+        case LLM_Name_Enum.OPENAI.value:
+            return invoke_openai_llm_structured_output(template_name, parameters, context, pydantic_class)
+        case LLM_Name_Enum.DEEPSEEK.value:
+            return invoke_hyperbolic_llm_structured_output(template_name, parameters, context, pydantic_class)
+        case _:
+            print("no model available for structured output")
+            return None
 
 
-    messages = [
-        {"role": "system", "content": prompt_system},
-        {"role": "user", "content": prompt},
-    ]
-    ai_msg = model.invoke(messages)
+def invoke_llm_PDF_structured_output(template_name, parameters, record_id, pydantic_class):
+    llm_name = current_app.config["LLM_NAME"]
+    print(f"invoke_llm_PDF_text_output, {llm_name=}")
 
-    return ai_msg.content
-
-
-
-
-
-def claude_text_output(prompt, prompt_system):
-    print("claude")
-    import anthropic
-    client = anthropic.Anthropic()
-    message = client.messages.create(
-        model="claude-3-7-sonnet-latest",
-        max_tokens=1024,
-        messages = [
-            {"role": "user", "content": prompt_system + "\n" + prompt },
-        ]
-    )
-    answer = message.content[0].text
-    answer += "\n\n[Generated by claude-3-7-sonnet-latest model]"
-    return answer
-
-def claude_PDF_text_output(prompt, prompt_system, record_id):
-    import base64
-    import anthropic
-
-    pdf_name = f"r{record_id}.pdf"
-    pdf_path = os.path.join(PDF_UPLOAD_PATH, pdf_name)
-    with open(pdf_path, "rb") as f:
-        pdf_data = base64.standard_b64encode(f.read()).decode("utf-8")
-    client = anthropic.Anthropic()
-    message = client.messages.create(
-        model="claude-3-7-sonnet-20250219",
-        max_tokens=1024,
-        messages = [
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "document",
-                        "source": {
-                            "type": "base64",
-                            "media_type": "application/pdf",
-                            "data": pdf_data
-                        }
-                    },
-                    {
-                        "type": "text",
-                        "text": prompt_system + "\n" + prompt
-                    }
-                ]
-            }
-        ],
-    )
-    print(message.content)
-
-def mistral_text_output(prompt, prompt_system):
-    print("mistral")
-    from mistralai import Mistral
-    client = Mistral(api_key=os.environ["MISTRAL_API_KEY"])
-    chat_response = client.chat.complete(
-        model="mistral-large-latest",
-        messages=[
-            {"role": "system", "content": prompt_system},
-            {"role": "user", "content": prompt,},
-        ]
-    )
-    answer = chat_response.choices[0].message.content
-    answer += "\n\n[Generated by mistral-large-latest model]"
-    return answer
-
-def openai_text_output(prompt, prompt_system):
-    print("openai GPT-4.1")
-    from openai import OpenAI
-    client = OpenAI()
-    response = client.responses.create(
-        model="gpt-4.1",
-        input= prompt_system + "\n" + prompt
-    )
-    answer = response.output_text
-    answer += "\n\n[Generated by OpenAI GPT-4.1 model]"
-    return answer
-
-def ZZZdeepseek_text_output(prompt, prompt_system):
-    print("deepseek-ai/DeepSeek-R1")
-    import requests
-
-    url = "https://api.hyperbolic.xyz/v1/chat/completions"
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": os.environ["HYPERBOLIC_API_KEY"]
-    }
-    data = {
-        "messages": [{
-            "role": "user",
-            "content": prompt_system + "\n" + prompt
-        }],
-        "model": "deepseek-ai/DeepSeek-R1",
-        "max_tokens": 508,
-        "temperature": 1.0,
-        "top_p": 0.9
-    }
-
-    response = requests.post(url, headers=headers, json=data)
-    answer = response.json()["choices"][0]["message"]["content"]
-
-    answer += "\n\n[Generated by deepseek-ai/DeepSeek-R1 model]"
-    return answer
-
-def deepseek_text_output(prompt, prompt_system):
-    print("deepseek")
-    import openai
-    client = openai.OpenAI(
-        api_key=os.environ["HYPERBOLIC_API_KEY"],
-        base_url="https://api.hyperbolic.xyz/v1",
-    )
-    chat_completion = client.chat.completions.create(
-        model="deepseek-ai/DeepSeek-R1",
-        messages=[
-            {"role": "system", "content": prompt_system},
-            {"role": "user", "content": prompt},
-        ],
-        temperature=1,
-        max_tokens=1024,
-    )
-    answer = chat_completion.choices[0].message.content
-    answer += "\n\n[Generated by deepseek-ai/DeepSeek-V3 model]"
-    return answer
+    match llm_name:
+        case LLM_Name_Enum.MISTRAL.value:
+            return invoke_mistral_llm_PDF_structured_output(template_name, parameters, record_id, pydantic_class)
+        case LLM_Name_Enum.OPENAI.value:
+            return invoke_openai_llm_PDF_structured_output(template_name, parameters, record_id, pydantic_class)
+        case LLM_Name_Enum.ANTHROPIC.value:
+            return invoke_anthropic_llm_PDF_structured_output(template_name, parameters, record_id, pydantic_class)
+        case LLM_Name_Enum.DEEPSEEK.value:
+            return invoke_hyperbolic_llm_PDF_structured_output(template_name, parameters, record_id, pydantic_class)
+        case _:
+            print("no model available for structured output")
+            return None
 
 
-def invoke_llm_text_output(model_level, prompt, prompt_system):
+######## invoke llm with text output ####################################
+
+def invoke_llm_text_output(model_level, template_name, parameters, context):
     if model_level=="secondary":
         llm_name = current_app.config["SECONDARY_LLM_NAME"]
     else:
@@ -270,36 +99,57 @@ def invoke_llm_text_output(model_level, prompt, prompt_system):
     print(f"invoke_llm_text_output, {llm_name=}")
 
     match llm_name:
-        case "mistral":
-            assert os.environ["MISTRAL_API_KEY"]!=""
-            answer = mistral_text_output(prompt, prompt_system)
-        case "openai":
-            assert os.environ["OPENAI_API_KEY"]!=""
-            answer = openai_text_output(prompt, prompt_system)
-        case "deepseek":
-            assert os.environ["HYPERBOLIC_API_KEY"]!=""
-            answer = deepseek_text_output(prompt, prompt_system)
+        case LLM_Name_Enum.MISTRAL.value:
+            answer = invoke_mistral_llm_text_output(template_name, parameters, context)
+        case LLM_Name_Enum.OPENAI.value:
+            answer = invoke_openai_llm_text_output(template_name, parameters, context)
+        case LLM_Name_Enum.DEEPSEEK.value:
+            answer = invoke_hyperbolic_llm_text_output(template_name, parameters, context)
+        case LLM_Name_Enum.ANTHROPIC.value:
+            answer = invoke_anthropic_llm_text_output(template_name, parameters, context)
         case _:
-            assert os.environ["ANTHROPIC_API_KEY"]!=""
-            answer = claude_text_output(prompt, prompt_system)
+            print("no model available for text output")
+            answer = None
 
     return answer
+
+
+def invoke_llm_PDF_text_output(model_level, template_name, parameters, record_id):
+    if model_level=="secondary":
+        llm_name = current_app.config["SECONDARY_LLM_NAME"]
+    else:
+        llm_name = current_app.config["LLM_NAME"]
+    print(f"invoke_llm_PDF_text_output, {llm_name=}")
+
+    match llm_name:
+        case LLM_Name_Enum.MISTRAL.value:
+            return invoke_mistral_llm_PDF_text_output(template_name, parameters, record_id)
+        case LLM_Name_Enum.OPENAI.value:
+            return invoke_openai_llm_PDF_text_output(template_name, parameters, record_id)
+        case LLM_Name_Enum.ANTHROPIC.value:
+            return invoke_anthropic_llm_PDF_text_output(template_name, parameters, record_id)
+        case LLM_Name_Enum.DEEPSEEK.value:
+            return invoke_hyperbolic_llm_PDF_text_output(template_name, parameters, record_id)
+        case _:
+            print("no model available for PDF output")
+            return None
+
 
 
 
 ##############
 
 def is_API_KEY_available(llm_name):
-    if llm_name == "openai":
+    if llm_name == LLM_Name_Enum.OPENAI.value:
         if "OPENAI_API_KEY" in os.environ and os.environ["OPENAI_API_KEY"]!="": return True
 
-    elif llm_name == "claude":
+    elif llm_name == LLM_Name_Enum.ANTHROPIC.value:
         if "ANTHROPIC_API_KEY" in os.environ and os.environ["ANTHROPIC_API_KEY"] != "": return True
 
-    elif llm_name == "deepseek":
+    elif llm_name == LLM_Name_Enum.DEEPSEEK.value:
         if "HYPERBOLIC_API_KEY" in os.environ and os.environ["HYPERBOLIC_API_KEY"] != "": return True
 
-    elif llm_name == "mistral":
+    elif llm_name == LLM_Name_Enum.MISTRAL.value:
         if "MISTRAL_API_KEY" in os.environ and os.environ["MISTRAL_API_KEY"] != "": return True
 
     return False
@@ -319,6 +169,7 @@ def is_secondary_LLM_available():
 
 
 def not_AI():
+    # TODO à voir
     print("AI is used but LLM is not set. Please set an LLM in the setup menu. AI will not be used.")
     session['_flashes'] = []
     flash('You try to use AI function but no LLM was set or no API_KEY provided ! Set these parameters to use AI functions',

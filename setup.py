@@ -3,7 +3,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from utils import *
-from AI_utils import AI_initilization
+from AI_utils import AI_initilization, LLM_Name_Enum
+
 
 def setup():
     sql="SELECT * FROM config_variables"
@@ -37,7 +38,7 @@ def setup():
                            SECONDARY_LLM_NAME=SECONDARY_LLM_NAME, SECONDARY_API_KEY=SECONDARY_API_KEY,
                            config_LLM_NAME=current_app.config["LLM_NAME"], config_API_KEY=current_app.config["API_KEY"],
                            config_SECONDARY_LLM_NAME=current_app.config["SECONDARY_LLM_NAME"], config_SECONDARY_API_KEY=current_app.config["SECONDARY_API_KEY"],
-                           app=current_app,)
+                           app=current_app, LLM_Name_Enum=LLM_Name_Enum)
 
 def setup_update_variable(variable_name, value):
     assert variable_name in ["API_KEY", "LLM_NAME", "SECONDARY_API_KEY", "SECONDARY_LLM_NAME"]
@@ -68,20 +69,20 @@ def app_config(app):
                 app.config[k] = v
                 second_llm_name = v
             case "API_KEY":
-                if llm_name == "openai":
+                if llm_name == LLM_Name_Enum.OPENAI.value:
                     os.environ["OPENAI_API_KEY"] = v
-                elif llm_name == "claude":
+                elif llm_name == LLM_Name_Enum.ANTHROPIC.value:
                     os.environ["ANTHROPIC_API_KEY"] = v
-                elif llm_name == "deepseek":
+                elif llm_name == LLM_Name_Enum.DEEPSEEK.value:
                     os.environ["HYPERBOLIC_API_KEY"] = v
                 else:
                     os.environ["MISTRAL_API_KEY"] = v
             case "SECONDARY_API_KEY":
-                if second_llm_name == "openai":
+                if second_llm_name == LLM_Name_Enum.OPENAI.value:
                     os.environ["OPENAI_API_KEY"] = v
-                elif second_llm_name == "claude":
+                elif second_llm_name == LLM_Name_Enum.ANTHROPIC.value:
                     os.environ["ANTHROPIC_API_KEY"] = v
-                elif second_llm_name == "deepseek":
+                elif second_llm_name == LLM_Name_Enum.DEEPSEEK.value:
                     os.environ["HYPERBOLIC_API_KEY"] = v
                 else:
                     os.environ["MISTRAL_API_KEY"] = v
