@@ -60,7 +60,7 @@ def AI_extraction_personalised_fields(study_id, record_id, project_id, context_s
         i = int(e[0][1:])
         AI_data[i] = e[1]
 
-    return extracted_data
+    return AI_data
 
 
 def pdf_extraction_anthropic_labs(study_id, record_id, project_id):

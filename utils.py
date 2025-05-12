@@ -257,7 +257,10 @@ def get_abstract(record_id):
 def get_pdf(record_id):
     pdf_path = os.path.join(PDF_UPLOAD_PATH, f"r{record_id}.pdf")
     if os.path.exists(pdf_path):
-        pdf_md = pymupdf4llm.to_markdown(pdf_path)
+        try:
+            pdf_md = pymupdf4llm.to_markdown(pdf_path)
+        except Exception as e:
+            print(f"erreur pymupdf4llm {e}")
     else:
         pdf_md= None
 
