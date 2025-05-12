@@ -68,7 +68,7 @@
         <tr>
         <td>{{ project["name"] }}</td>
             <td>
-                <span class="badge bg-secondary" style="font-size: 10px;">
+                <span class="badge bg-secondary" style="font-size: 10px; min-width: 2em;">
                 {{ type_of_study_dict[project['type_of_study']] }}&nbsp;
                 </span>
             </td>
@@ -85,16 +85,16 @@
         </a>
         </td>
         {% if project["n_ref"] == 0 %}
-            <td colspan="5">
+            <td colspan="5" style="text-align: center;">
             <a href="/records/list/{{ project["id"] }}/1" class="text-decoration-none mx-2">
-                Start by loading a reference file
+                Start by loading references
             </a>
             </td>
         {% else %}
             <td  class="project_list_command">
             <a href="/records/list/{{ project["id"] }}/1" class="text-decoration-none mx-2">
                 Screening
-                <span class="badge bg-secondary" style="font-size: 10px;">{{ project['n_ref'] }} ref.</span>
+{#                <span class="badge bg-secondary" style="font-size: 10px;">{{ project['n_ref'] }} ref.</span>#}
             </a>
             </td>
             <td  class="project_list_command">
