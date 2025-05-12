@@ -530,7 +530,10 @@ def endpoint_research_questions_set_study_research_question(study_id):
 def stream2(project_id, source):
     return screening_AI_stream(project_id, source)
 
-
+########## labs #########################
+@app.route('/labs/pdf_extraction_anthropic/<int:study_id>/<int:record_id>/<int:project_id>')
+def endpoint_pdf_extraction_anthropic_labs(study_id, record_id, project_id):
+    return pdf_extraction_anthropic_labs(study_id, record_id, project_id)
 
 
 if __name__ == '__main__':

@@ -55,7 +55,46 @@ def AI_extraction_personalised_fields(study_id, record_id, project_id, context_s
 
     extracted_data = invoke_llm_structured_output(template_name,parameters, context, FieldModel)
 
+    AI_data = dict()
+    for e in extracted_data:
+        i = int(e[0][1:])
+        AI_data[i] = e[1]
+
     return extracted_data
+
+
+def pdf_extraction_anthropic_labs(study_id, record_id, project_id):
+    FieldModel, fields = create_pydantic_model(project_id)
+    fields_bullet_list  = ""
+    fields_id = dict()
+    for e in fields.values():
+        fields_bullet_list += " - " + e["name"] + " (" + e["description"] + ")\n"
+        fields_id[e["name"]] = e["id"]
+
+    j = "["
+    for e in fields.values():
+        j += "{'name':'" + e["name"] + "', 'value': 'extracted value'},"
+    j += "]"
+
+    j = '{'
+    for e in fields.values():
+        j += '"' + e["name"] + '": "extracted value", '
+    j += '}'
+
+    prompt = "Please extract the following informations:\n" + fields_bullet_list + \
+    "Give me a JSON file with strictly the following format: " + j
+
+    r = invoke_anthropic_llm_PDF_text_output_dev(prompt, "", record_id)
+
+    data = json.loads(r)
+    print(data)
+    print(json.dumps(data, indent=2, ensure_ascii=False))
+
+    AI_data = dict()
+    for k,v in data.items():
+        AI_data[fields_id[k]] = v
+
+    return AI_data
 
 
 def AI_check_extraction(extracted_data, record_id):
@@ -65,12 +104,13 @@ def AI_check_extraction(extracted_data, record_id):
 
 
 def get_AI_data_extraction(AI, study_id, record_id, project_id):
-    AI_data = dict()
     context_source = "abstract" if AI == 1 else "pdf"
-    data = AI_extraction_personalised_fields(study_id, record_id, project_id, context_source)
-    for e in data:
-        i = int(e[0][1:])
-        AI_data[i] = e[1]
+    llm_name = current_app.config['LLM_NAME']
+    if llm_name == LLM_Name_Enum.ANTHROPIC.value and context_source == "pdf":
+        AI_data = pdf_extraction_anthropic_labs(study_id, record_id, project_id)
+    else:
+        AI_data = AI_extraction_personalised_fields(study_id, record_id, project_id, context_source)
+
     return AI_data
 
 

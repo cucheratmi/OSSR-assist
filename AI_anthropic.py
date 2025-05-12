@@ -246,41 +246,46 @@ def invoke_anthropic_llm_PDF_structured_output(prompt_name, parameters, record_i
 
 #################
 
-def A_mettre_a_jour_claude_PDF_text_output(prompt, prompt_system, record_id):
+def invoke_anthropic_llm_PDF_text_output_dev(prompt, prompt_system, record_id):
+
     import base64
     import anthropic
+    from anthropic import Anthropic
+
+    client = Anthropic(default_headers={"anthropic-beta": "pdfs-2024-09-25"})
+    # For now, only claude-3-5-sonnet-20241022 supports PDFs
+    MODEL_NAME = "claude-3-5-sonnet-20241022"
+
+    def get_completion(client, messages):
+        return client.messages.create(
+            model=MODEL_NAME,
+            max_tokens=2048,
+            messages=messages
+        ).content[0].text
+
 
     pdf_name = f"r{record_id}.pdf"
     pdf_path = os.path.join(PDF_UPLOAD_PATH, pdf_name)
-    with open(pdf_path, "rb") as f:
-        pdf_data = base64.standard_b64encode(f.read()).decode("utf-8")
 
-    client = anthropic.Anthropic()
-    message = client.messages.create(
-        model="claude-3-7-sonnet-20250219",
-        max_tokens=1024,
-        messages = [
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "document",
-                        "source": {
-                            "type": "base64",
-                            "media_type": "application/pdf",
-                            "data": pdf_data
-                        }
-                    },
-                    {
-                        "type": "text",
-                        "text": prompt_system + "\n" + prompt
-                    }
-                ]
-            }
-        ],
-    )
-    print(message.content)
-    return (message.content)
+    with open(pdf_path, "rb") as pdf_file:
+        binary_data = pdf_file.read()
+        base64_encoded_data = base64.standard_b64encode(binary_data)
+        base64_string = base64_encoded_data.decode("utf-8")
+
+    messages = [
+        {
+            "role": 'user',
+            "content": [
+                {"type": "document",
+                 "source": {"type": "base64", "media_type": "application/pdf", "data": base64_string}},
+                {"type": "text", "text": prompt}
+            ]
+        }
+    ]
+
+    completion = get_completion(client, messages)
+
+    return completion
 
 
 
