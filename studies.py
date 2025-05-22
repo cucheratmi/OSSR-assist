@@ -242,7 +242,7 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
                            references=references, study_data=study_data, research_questions=research_questions,
                            data_fields=data_fields,
                            ROB=ROB, ROB_DOMAIN=ROB_DOMAIN,
-                           results_data=results_data,
+                           results_data=results_data, OUTCOMES_TYPES=OUTCOMES_TYPES,
                            AI_data=AI_data, AI=AI, LLM_name=current_app.config['LLM_NAME'],
                            primary_LLM_available=is_primary_LLM_available(), secondary_LLM_available=is_secondary_LLM_available() )
 

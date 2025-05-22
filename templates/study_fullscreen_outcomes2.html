@@ -15,6 +15,9 @@
   <li class="nav-item">
     <a class="nav-link active" href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
   </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/study/fullscreen/experimental/{{ study_id }}/{{ project_id }}/{{ record_id }}">Experimental</a>
+        </li>
 </ul>
 
 
@@ -158,7 +161,7 @@
             {%  set outcome_id = f['outcome_id'] %}
             <div class="row gt-3 mb-1 mt-4">
                 <div class="col-md-12" >
-                    <label for="F{{ f['outcome_name'] }}" class="form-label fw-medium" >{{ f['label'] }}</label>
+                    <label for="F{{ f['outcome_name'] }}" class="form-label fw-medium" >{{ f['label'] }} <small class="text-secondary">({{ OUTCOMES_TYPES[f["outcome_type"]] }})</small></label>
 
                     <input type="text" class="form-control" id="paper_designation_{{ outcome_id }}" name="paper_designation_{{ outcome_id }}"
                            value="{{ f['paper_designation'] }}"
@@ -182,16 +185,25 @@
             </div>
 
             <div class="row gt-3 mb-1 ">
-                <div class="col-2" >
+                <div class="col-5" >
+                    {{ macro_field_1("median_1", outcome_id, f['median_1'], "median 1") }}
+                </div>
+                <div class="col-5" >
+                    {{ macro_field_1("median_0", outcome_id, f['median_0'], "median 0") }}
+                </div>
+            </div>
+
+            <div class="row gt-3 mb-1 ">
+                    <div class="col-3" >
                     {{ macro_field_1("events_1", outcome_id, f['events_1'], "number of events in treatment group") }}
                 </div>
-                <div class="col-2" >
+                <div class="col-3" >
                     {{ macro_field_1("n_1", outcome_id, f['n_1'], "sample size of treatment group") }}
                 </div>
-                <div class="col-2" >
+                <div class="col-3" >
                     {{ macro_field_1("events_0", outcome_id, f['events_0'], "number of events in control group") }}
                 </div>
-                 <div class="col-2" >
+                 <div class="col-3" >
                     {{ macro_field_1("n_0", outcome_id, f['n_0'], "sample size of control group") }}
                 </div>
             </div>

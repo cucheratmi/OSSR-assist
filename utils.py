@@ -1,7 +1,8 @@
 import os
 import sqlite3
 from enum import IntEnum
-import requests, json
+import requests
+import json
 import pymupdf4llm
 import textwrap
 

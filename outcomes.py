@@ -57,14 +57,15 @@ def outcomes_order(project_id):
 
 def get_results_data(study_id, project_id):
     sql = """
-          SELECT outcomes.name        AS outcome_name, \
-                 outcomes.id          AS outcome_id, \
-                 outcome_values.*, \
+          SELECT outcomes.name        AS outcome_name, 
+                 outcomes.id          AS outcome_id, 
+                 outcomes.type        AS outcome_type,
+                 outcome_values.*, 
                  outcomes.description AS description
           FROM outcomes
                    LEFT JOIN outcome_values ON outcome_values.outcome = outcomes.id
               AND outcome_values.study = ?
-          WHERE outcomes.project = ? \
+          WHERE outcomes.project = ? 
           """
     results_data = sql_select_fetchall(sql, (study_id, project_id,))
     for e in results_data:
