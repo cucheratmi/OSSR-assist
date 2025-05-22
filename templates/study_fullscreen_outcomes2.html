@@ -80,6 +80,14 @@
                         </a>
                     </li>
 
+{#                    <li>#}
+{#                        <a class="dropdown-item"#}
+{#                           href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}/41" onclick="loading()">#}
+{#                            test mistral ocr json#}
+{#                        </a>#}
+{#                    </li>#}
+
+
                     <li>
                         <a class="dropdown-item disabled"
                            href="/AI/compare1_r/{{ study_id }}/{{ project_id }}/{{ record_id }}/2" onclick="loading()">
@@ -203,14 +211,21 @@
                 <div class="col-md-11 form-floating">
 
                     <div class="alert alert-light" role="alert" style="background-color: lavender;" >
-                        <h4 class="heading-text">AI suggestions</h4>
+                        <h5 class="heading-text">AI suggestions</h5>
                         <ul>
                             <li>endpoint name in the paper: <span id="AI_paper_designation_{{ outcome_id }}">{{ r['paper_endpoint_name'] }}</span></li>
                             <li>hazard ratio: <span id="AI_TE_{{ outcome_id }}">{{ r['hazard_ratio'] }}</span></li>
                             <li>ll: <span id="AI_ll_{{ outcome_id }}">{{ r['ll'] }}</span></li>
                             <li>ul: <span id="AI_ul_{{ outcome_id }}">{{ r['ul'] }}</span></li>
+                            <li>median 1: <span id="AI_median_1_{{ outcome_id }}">{{ r['median_1'] }}</span></li>
+                            <li>median 0: <span id="AI_median_0_{{ outcome_id }}">{{ r['median_0'] }}</span></li>
+                            <li>events 1: <span id="AI_events_1_{{ outcome_id }}">{{ r['events_1'] }}</span></li>
+                            <li>events 0: <span id="AI_events_0_{{ outcome_id }}">{{ r['events_0'] }}</span></li>
+                            <li>sample size 1: <span id="AI_n_1_{{ outcome_id }}">{{ r['n_1'] }}</span></li>
+                            <li>sample size 0: <span id="AI_n_0_{{ outcome_id }}">{{ r['n_0'] }}</span></li>
                             <li>p value: <span id="AI_p_value_{{ outcome_id }}">{{ r['p_value'] }}</span></li>
                             <li>literal summary of the result: <span id="AI_value_{{ outcome_id }}">{{ r['literal_summary'] }}</span></li>
+                            <li>source: <span id="AI_source_{{ outcome_id }}" style="font-size: smaller;">{{ r['source'] }}</span></li>
                         </ul>
                     </div>
 

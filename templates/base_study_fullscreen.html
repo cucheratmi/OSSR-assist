@@ -7,13 +7,20 @@
         <i class="bi bi-arrow-left"></i> return to study list
         <span class="text-secondary" >({{ project_name }} <small>project #{{ project_id }}</small>)</span>
     </a>
+
+    <span style="float: right;">
+        LLM: {{ LLM_name }}
+        {% if not primary_LLM_available %}
+            <span style="color: red;">No API KEY (see set-up)</span>
+        {% endif %}
+    </span>
 </p>
 
 
     <div class="row">
 
         <div class="col-md-6">
-            <h3>Data extraction <small class="text-secondary">study #{{ study_id }} </small></h3>
+            <h3>{{ study_data["name"] }} <small class="text-secondary">Data extraction</small></h3>
 
      <form class="mb-3">
         <select class="form-select {% if not record_id>0 %}is-invalid{% endif %}"
@@ -113,7 +120,9 @@
 
 
 
-
+<p style="margin-top: 6em;" >
+Study #{{ study_id }}
+</p>
 
 
 {%  endblock %}

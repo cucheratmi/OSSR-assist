@@ -45,9 +45,11 @@
 
         <td>
             {%  if pdf_exists[r['id']]  %}
-                <a href="/pdfs/file/{{r['id'] }}" target="_blank"><i class="bi bi-filetype-pdf"></i></a>
+                <a href="/pdfs/file/{{r['id'] }}" target="_blank"><i class="bi bi-filetype-pdf"></i>
+                PDF present
+                </a>
             {% else %}
-                <span style="color: red;">unretrieved pdf</span>
+                <span style="color: red;">pdf absent</span>
             {% endif %}
         </td>
 

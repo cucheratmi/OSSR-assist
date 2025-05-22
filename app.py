@@ -2,6 +2,7 @@ from flask import Flask, send_from_directory, render_template, request, Response
 import time
 import webbrowser
 
+import outcomes
 from outcomes import *
 from projects import *
 from studies import *
@@ -39,42 +40,37 @@ def endpoint_setup_update_variable(variable_name):
 
 @app.route('/outcomes/setup/<int:project_id>')
 def endpoint_outcomes_setup(project_id):
-    return outcomes_setup(project_id)
+    return outcomes.outcomes_setup(project_id)
 
 
 @app.route('/outcomes/add/<int:project_id>', methods=['POST'])
 def endpoint_outcomes_add(project_id):
-    return outcomes_add(project_id)
+    return outcomes.outcomes_add(project_id)
 
 
 @app.route('/outcomes/delete/<int:outcome_id>', methods=['DELETE'])
 def endpoint_outcomes_delete(outcome_id):
-    return del_outcomes(outcome_id)
+    return outcomes.del_outcomes(outcome_id)
 
 
 @app.route('/outcomes/field_update/<int:outcome_id>/<string:field_name>', methods=['POST'])
 def endpoint_outcomes_field_modif(outcome_id, field_name):
-    return outcome_field_update(outcome_id, field_name)
+    return outcomes.outcome_field_update(outcome_id, field_name)
 
 
 @app.route('/outcomes/edit/<int:outcome_id>/<int:project_id>')
 def endpoint_outcome_edit(outcome_id, project_id):
-    return outcome_edit(outcome_id, project_id)
+    return outcomes.outcome_edit(outcome_id, project_id)
 
 
 @app.route('/outcomes/order/<int:project_id>', methods=['POST'])
 def endpoint_outcomes_order(project_id):
-    outcomes_order(project_id)
+    outcomes.outcomes_order(project_id)
     return '', 204
-
-#
-# @app.route('/outcomes/result_update/<int:outcome_id>/<int:study_id>', methods=['POST'])
-# def endpoint_outcomes_result_update(outcome_id, study_id):
-#     return result_update(outcome_id, study_id)
 
 @app.route('/outcomes/result_update2/<string:variable>/<int:outcome_id>/<int:study_id>', methods=['POST'])
 def endpoint_outcomes_result_update2(variable, outcome_id, study_id):
-    return outcome_update2(variable, outcome_id, study_id)
+    return outcomes.outcome_update2(variable, outcome_id, study_id)
 
 
 #######################  projects  ##########################
@@ -293,6 +289,13 @@ def endpoint_study_ROB_set_justification(study_id, domain):
     return set_ROB_justification(study_id, domain)
 
 
+@app.route('/study/run_experimental_script/<int:script>/<int:study_id>/<int:project_id>/<int:record_id>')
+def endpoint_study_run_experimental_script(script, study_id, project_id, record_id):
+    return study_run_experimental_script(script, study_id, project_id, record_id)
+
+
+
+
 ####################### records  ###################################
 
 @app.route('/record/edit/<int:record_id>/<int:project_id>')
@@ -412,10 +415,13 @@ def endpoint_records_delete(project_id):
 def endpoint_records_export_CSV(project_id):
     return records_export_CSV(project_id)
 
-
 @app.route('/records/export_RIS/<int:project_id>')
 def endpoint_records_export_RIS(project_id):
     return records_export_RIS(project_id)
+
+@app.route('/records/export_JSON/<int:project_id>')
+def endpoint_records_export_JSON(project_id):
+    return records_export_JSON(project_id)
 
 
 @app.route('/records/flowchart/<int:project_id>')
@@ -530,10 +536,7 @@ def endpoint_research_questions_set_study_research_question(study_id):
 def stream2(project_id, source):
     return screening_AI_stream(project_id, source)
 
-########## labs #########################
-@app.route('/labs/pdf_extraction_anthropic/<int:study_id>/<int:record_id>/<int:project_id>')
-def endpoint_pdf_extraction_anthropic_labs(study_id, record_id, project_id):
-    return pdf_extraction_anthropic_labs(study_id, record_id, project_id)
+
 
 
 if __name__ == '__main__':

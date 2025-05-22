@@ -84,6 +84,13 @@ CONTEXT:
 {context}
 """,
 
+#################
+
+    'extraction_json': """Please extract the following informations and cite the text extract you used as source:
+{fields}
+Give me a JSON file with strictly the following format: {json_template}
+""",
+
     ####################    
 
     'extraction_checking': """
@@ -169,6 +176,13 @@ Outcomes:
 
 CONTEXT:
 {context}
+""",
+
+    ####################
+
+    'results_json': """Please extract the results for the following outcomes and cite the text extract you used as source:
+{outcomes_list}
+    Give me a JSON file with strictly the following format: {json_template}
 """,
 
     ####################    

@@ -6,7 +6,7 @@ import re, math
 import csv, io
 import datetime
 
-from AI_utils import is_primary_LLM_available, is_secondary_LLM_available
+from AI_utils import is_primary_LLM_available, is_secondary_LLM_available, LLM_Name_Enum
 from utils import *
 
 def reset_selection(record_id, project_id, pass_number):
@@ -90,7 +90,7 @@ def records_list(project_id, pass_number=1, page=1):
     #primary_LLM_available = is_primary_LLM_available()
 
     return render_template('records_list.html', project_id=project_id, project_name=project_name, records=records,
-                           pass_number=pass_number, i_page=page, n_page=npage,
+                           pass_number=pass_number, i_page=page, n_page=npage, LLM_name=current_app.config['LLM_NAME'],
                            first_reference=first_reference, last_reference=last_reference, n_reference=n_reference,
                            primary_LLM_available=is_primary_LLM_available(), eligibility_criteria_empty=eligibility_criteria_empty)
 
@@ -230,7 +230,7 @@ def records_screening_window(record_id, project_id, pass_number):
     btn_undecided_label = "maybe"
     if record_data["selection"] == InclusionStatus.UNDECIDED.value:
         btn_undecided_style = "background-color: dimgray; color: white; width: 50%;"
-        btn_undecided_label = "set maybe"
+        btn_undecided_label = "maybe"
 
     return render_template(
         template_file,
@@ -239,7 +239,8 @@ def records_screening_window(record_id, project_id, pass_number):
         included_studies=included_studies, project_data=project_data, known_study=known_study,
         btn_exclude_style=btn_exclude_style, btn_include_style=btn_include_style, btn_undecided_style=btn_undecided_style,
         btn_exclude_label=btn_exclude_label, btn_include_label=btn_include_label, btn_undecided_label=btn_undecided_label,
-        exclusion_reason = ExclusionReason, pdf_exists=pdf_exists, eligibility_criteria=eligibility_criteria
+        exclusion_reason = ExclusionReason, EXCLUSION_REASON_DICT=EXCLUSION_REASON_DICT,
+        pdf_exists=pdf_exists, eligibility_criteria=eligibility_criteria
     )
 
 
@@ -419,6 +420,24 @@ def records_export_CSV(project_id):
         as_attachment=True,
         download_name=f'references_project_{project_id}.csv'
     )
+
+def records_export_JSON(project_id):
+    sql = """
+          SELECT records.*
+          FROM records 
+          WHERE records.project = ? 
+          """
+    data = sql_select_fetchall(sql, (project_id,))
+
+    output = json.dumps(data, indent=4)
+
+    return send_file(
+        io.BytesIO(output.encode('utf-8')),
+        mimetype='application/json',
+        as_attachment=True,
+        download_name=f'transfert_to_2nd_reviewer_project_{project_id}.json'
+    )
+
 
 def records_export_RIS(project_id):
 

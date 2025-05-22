@@ -6,7 +6,17 @@
         {% endif %}
     {%  endif %}
 
-    <p>selection {{ record_data["selection"] }}</p>
+    <p>selection {{ record_data["selection"] }} exclusion reason {{ record_data['exclusion_reason'] }}</p>
+
+    {% macro li_exclusion(i_reason, exclusion_reason) %}
+        <li>
+            <a class="dropdown-item {%  if exclusion_reason==i_reason %}active{% endif %}"
+               href="javascript:void(0)" onclick="exclude({{ i_reason }},this)" >
+                {{ EXCLUSION_REASON_DICT[i_reason] }}
+            </a>
+        </li>
+    {% endmacro %}
+
 
     <div class="mb-4 text-center">
         <div class="dropdown">
@@ -14,15 +24,15 @@
               {{ btn_exclude_label }}
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_POPULATION.value }},this)">wrong population</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_TREATMENT.value }},this)">wrong treatment</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_CONTROL.value }},this)">wrong control</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_OUTCOME.value }},this)">wrong outcome</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_DESIGN.value }},this)">wrong design</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.WRONG_OBJECTIVE.value }},this)">wrong study objective</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.NOT_A_PUBLICATION_ABOUT_A_STUDY.value }},this)">not a publication about a study</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)" onclick="exclude({{ exclusion_reason.OTHER.value }},this)">other</a></li>
-          </ul>
+                {{ li_exclusion(exclusion_reason.WRONG_POPULATION.value, record_data['exclusion_reason']) }}
+                {{ li_exclusion(exclusion_reason.WRONG_TREATMENT.value, record_data['exclusion_reason']) }}
+                {{ li_exclusion(exclusion_reason.WRONG_CONTROL.value, record_data['exclusion_reason']) }}
+                {{ li_exclusion(exclusion_reason.WRONG_OUTCOME.value, record_data['exclusion_reason']) }}
+                {{ li_exclusion(exclusion_reason.WRONG_DESIGN.value, record_data['exclusion_reason']) }}
+                {{ li_exclusion(exclusion_reason.WRONG_OBJECTIVE.value, record_data['exclusion_reason']) }}
+                {{ li_exclusion(exclusion_reason.NOT_A_PUBLICATION_ABOUT_A_STUDY.value, record_data['exclusion_reason']) }}
+                {{ li_exclusion(exclusion_reason.OTHER.value, record_data['exclusion_reason']) }}
+         </ul>
         </div>
     </div>
 

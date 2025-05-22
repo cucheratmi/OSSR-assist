@@ -1,0 +1,33 @@
+{% extends 'base_study_fullscreen.html' %}
+
+{% block col2 %}
+
+    <ul class="nav nav-tabs mt-0 mb-4">
+        <li class="nav-item">
+            <a class="nav-link " aria-current="page"
+               href="/study/fullscreen/tab1/{{ study_id }}/{{ project_id }}/{{ record_id }}">Study</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+               href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}">Fields</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/study/fullscreen/experimental/{{ study_id }}/{{ project_id }}/{{ record_id }}">Experimental</a>
+        </li>
+    </ul>
+
+
+<p>
+<a href="/study/run_experimental_script/1/{{ study_id }}/{{ project_id }}/{{ record_id }}" target="_blank">
+    function 1
+</a>
+</p>
+
+
+{% endblock %}

@@ -101,11 +101,11 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li>
-                        <a href="/labs/pdf_extraction_anthropic/{{ study_id }}/{{ record_id }}/{{ project_id }}" class="dropdown-item" target="_blank">
-                            labs anthropic PDF extraction
-                        </a>
-                    </li>
+{#                    <li>#}
+{#                        <a href="/labs/pdf_extraction_anthropic/{{ study_id }}/{{ record_id }}/{{ project_id }}" class="dropdown-item" target="_blank">#}
+{#                            labs anthropic PDF extraction#}
+{#                        </a>#}
+{#                    </li>#}
             </ul>
         </div>
         &nbsp;
@@ -141,24 +141,27 @@
         {% for f in data_fields %}
             <div class="row gt-3 mb-1 mt-4">
                 <div class="col-md-12" >
-                    <label for="F{{ f['field_name'] }}" class="form-label fw-semibold">{{ f['label'] }}</label>
+                    <label for="F{{ f['field_name'] }}" class="form-label fw-semibold" title="{{ f['description'] }}">{{ f['label'] }}</label>
                     <textarea rows=2 class="form-control" id="F{{ f['field_id'] }}" name="F{{ f['field_id'] }}"
                            hx-post="/study/update_field2/{{ study_id }}/{{ f['field_id'] }}"
                            hx-trigger="change" hx-target="#F{{ f['field_id'] }}_info" hx-swap="innerHTML">{{ f['value'] }}</textarea>
-                    <div class="form-text">{{ f['description'] }}</div>
+{#                    <div class="form-text">{{ f['description'] }}</div>#}
                     <div id="F{{ f['field_id'] }}_info" class="form-text"></div>
                 </div>
             </div>
 
             {%  if f['field_id'] in AI_data %}
-            <div class="row gt-3 mb-3 mt-0 ">
+            <div class="row gt-1 mb-3 mt-0 ">
                 <div class="col-md-11 form-floating">
-                    <textarea class="form-control" style="font-size: small; background-color: lavender; height: 4rem;"
-                              id="AI_{{ f['field_id'] }}" name="AI_{{ f['field_id'] }}">{{ AI_data[f['field_id']] }}</textarea>
-                    <label for="AI_{{ f['field_id'] }}"> ✨ AI suggestion</label>
+                    <textarea class="form-control" style="font-size: small; height: 4rem; "
+                              id="AI_{{ f['field_id'] }}" name="AI_{{ f['field_id'] }}">{{ AI_data[f['field_id']]['extracted_value'] }}</textarea>
+                    <label for="AI_{{ f['field_id'] }}" style="margin-left: 10px; padding-top: 3px; color: royalblue;">AI suggestion</label>
+                    {% if AI_data[f['field_id']]['source'] != "" %}
+                        <div class="form-text" style="color: royalblue;">Source: {{ AI_data[f['field_id']]['source'] }}</div>
+                    {%  endif %}
                 </div>
-                <div class="col-md-1 align-middle" >
-                    <a class="btn btn-outline-primary btn-sm align-middle"
+                <div class="col-md-1" style="text-align: left;">
+                    <a class="btn btn-outline-primary btn-sm" style="margin-top: 1rem;"
                        href="javascript:void(0)" onclick="save_AI('{{ f['field_id'] }}')">
                         save
                     </a>

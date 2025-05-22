@@ -105,15 +105,20 @@
                     <a href="/records/export_CSV/{{ project_id }}" class="dropdown-item"><i
                             class="bi bi-box-arrow-down"></i> export as .CSV file</a>
                 </li>
-
                 <li>
                     <hr class="dropdown-divider">
                 </li>
                 <li>
-                    <a href="/" class="dropdown-item disabled" title="screening by a second reviewer ">
-                        <i class="bi bi-arrow-left-right"></i> crosschecking with a second reviewer)
+                    <a href="/records/export_JSON/{{ project_id }}" class="dropdown-item"><i
+                            class="bi bi-box-arrow-right"></i> transfert to second reviewer</a>
+                </li>
+
+                <li>
+                    <a href="/" class="dropdown-item disabled" title="">
+                        <i class="bi bi-box-arrow-left"></i> get screening from the second reviewer)
                     </a>
                 </li>
+
 
                 <li>
                     <hr class="dropdown-divider">
@@ -264,7 +269,9 @@
                                 <a href="/records/create_study/{{ project_id }}/{{ record["id"] }}/{{ pass_number }}">create
                                     study</a>
                             {% else %}
+                                <a href="/study/fullscreen/tab1/{{ record["study_id"] }}/{{ project_id }}/{{ record["id"] }}" >
                                 {{ record["study_name"] }}
+                                </a>
                             {% endif %}
                         {% endif %}
                     </td>

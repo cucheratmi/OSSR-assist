@@ -11,7 +11,11 @@ DB_PATH = "srai_database.sqlite"
 
 PDF_UPLOAD_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pdf')
 
+
+### enums
+
 BIBLIOGRAPHIC_DATABASE = {'Pubmed': 1, 'Embase': 2, 'Endnote': 97, 'Other': 98, 'Manually': 99}
+
 
 ROB_RCT_DOMAIN = {
     1: 'bias arising from the randomization process',
@@ -30,6 +34,7 @@ ROB_DIAG_DOMAIN = {
     7: 'Bias flow and timing'
 }
 
+
 OUTCOMES_TYPES = {
     1: 'binary',
     2: 'continuous',
@@ -45,7 +50,6 @@ class InclusionStatus(IntEnum):
     INCLUDED_SECOND_PASS = 3
     EXCLUDED_FIRST_PASS = 4
     EXCLUDED_SECOND_PASS = 5
-
 
 INCLUSION_STATUS_DICT = dict()
 INCLUSION_STATUS_DICT[InclusionStatus.PENDING.value] = "Pending"
@@ -92,7 +96,8 @@ type_of_study_dict = {
     2: "RCT",
     3: "DIAG",
     4: "OTHER",
-    5: "MA"
+    5: "MA",
+    0: "Unknown"
 }
 
 ### htmlx utilities
@@ -106,14 +111,16 @@ def update_field(table, id, field, value):
     value = value.strip()
 
     con = sqlite3.connect(DB_PATH)
-    con.row_factory = sqlite3.Row
-    cur = con.cursor()
-    sql = f"UPDATE {table} SET {field}=? WHERE id=?"
-    #print(f"{table}.{field} = {value} {id=}")
-    cur.execute(sql, (value, id))
-    con.commit()
-    cur.close()
-    con.close()
+    try:
+        con.row_factory = sqlite3.Row
+        cur = con.cursor()
+        sql = f"UPDATE {table} SET {field}=? WHERE id=?"
+        #print(f"{table}.{field} = {value} {id=}")
+        cur.execute(sql, (value, id))
+        con.commit()
+        cur.close()
+    finally:
+        con.close()
 
     l = f"saved! {table}.{field} = {value}"
     return l
@@ -131,15 +138,16 @@ def htmlx_update_field2(study_id, field_id, data):
     #print(l)
 
     con = sqlite3.connect(DB_PATH)
-    con.row_factory = sqlite3.Row
-    cur = con.cursor()
+    try:
+        con.row_factory = sqlite3.Row
+        cur = con.cursor()
 
-    sql = "INSERT OR REPLACE INTO study_field_values (study, field, value) VALUES (?, ?, ?)"
-    cur.execute(sql, (study_id, field_id, value,))
-    con.commit()
-
-    cur.close()
-    con.close()
+        sql = "INSERT OR REPLACE INTO study_field_values (study, field, value) VALUES (?, ?, ?)"
+        cur.execute(sql, (study_id, field_id, value,))
+        con.commit()
+        cur.close()
+    finally:
+        con.close()
 
     return l
 
@@ -157,21 +165,19 @@ def sql_select_fetchone(sql, parameters):
         cur = con.cursor()
         res = cur.execute(sql, parameters)
         r = res.fetchone()
+        cur.close()
     return r
 
 
 def sql_select_fetchall(sql, parameters):
-    con = sqlite3.connect(DB_PATH)
-    con.row_factory = sqlite3.Row
-    cur = con.cursor()
-    res = cur.execute(sql, parameters)
-    rows = res.fetchall()
+    with get_db_connection() as con:
+        cur = con.cursor()
+        res = cur.execute(sql, parameters)
+        rows = res.fetchall()
 
-    columns = [column[0] for column in cur.description]
-    result = [dict(zip(columns, row)) for row in rows]
-
-    cur.close()
-    con.close()
+        columns = [column[0] for column in cur.description]
+        result = [dict(zip(columns, row)) for row in rows]
+        cur.close()
 
     return result
 
@@ -180,34 +186,37 @@ def sql_update(sql, parameters):
     assert "DELETE" not in sql
     assert "delete" not in sql
 
-    con = sqlite3.connect(DB_PATH)
-    con.row_factory = sqlite3.Row
-    cur = con.cursor()
-    cur.execute(sql, parameters)
-    con.commit()
-    cur.close()
-    con.close()
+    with get_db_connection() as con:
+        cur = con.cursor()
+        cur.execute(sql, parameters)
+        con.commit()
+        cur.close()
 
 
 def sql_insert_into(sql, parameters):
+    id = None
     con = sqlite3.connect(DB_PATH)
     # con.row_factory = sqlite3.Row
-    cur = con.cursor()
-    cur.execute(sql, parameters)
-    con.commit()
-    id = cur.lastrowid
-    cur.close()
-    con.close()
+    try:
+        cur = con.cursor()
+        cur.execute(sql, parameters)
+        con.commit()
+        id = cur.lastrowid
+        cur.close()
+    finally:
+        con.close()
     return id
 
 
 def sql_delete(sql, parameters):
     con = sqlite3.connect(DB_PATH)
-    cur = con.cursor()
-    cur.execute(sql, parameters)
-    con.commit()
-    cur.close()
-    con.close()
+    try:
+        cur = con.cursor()
+        cur.execute(sql, parameters)
+        con.commit()
+        cur.close()
+    finally:
+        con.close()
 
 
 ##########################

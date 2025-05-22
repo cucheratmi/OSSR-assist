@@ -11,6 +11,8 @@ from AI_extraction import *
 from AI_ROB import *
 from AI_outcomes import *
 from outcomes import *
+from experimental_script import *
+
 
 def studies_list(project_id):
     sql = "SELECT id, name FROM studies WHERE project=? ORDER BY name"
@@ -214,6 +216,8 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
     elif tab=="outcomes2":
         results_data = get_results_data(study_id, project_id)
         template= 'study_fullscreen_outcomes2.html'
+    elif tab=="experimental":
+        template = "study_fullscreen_experimental.html"
     else:
         research_questions = get_research_questions(study_id, project_id)
         if len(research_questions) == 0:
@@ -228,6 +232,9 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
         AI_data = get_AI_data_ROB(study_id, record_id, project_id)
     if AI==30 or AI==31: # outcomes2
         AI_data = get_AI_data_results2(AI, study_id, record_id, project_id)
+    # if AI==41:
+    #     # outcome pdf ocr json source
+    #     AI_data = get_AI_data_results_json(study_id, record_id, project_id)
 
 
     return render_template(template, study_id=study_id,
@@ -236,7 +243,7 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
                            data_fields=data_fields,
                            ROB=ROB, ROB_DOMAIN=ROB_DOMAIN,
                            results_data=results_data,
-                           AI_data=AI_data, AI=AI,
+                           AI_data=AI_data, AI=AI, LLM_name=current_app.config['LLM_NAME'],
                            primary_LLM_available=is_primary_LLM_available(), secondary_LLM_available=is_secondary_LLM_available() )
 
 
@@ -340,3 +347,21 @@ def study_check_outcomes(study_id, record_id):
     return html
 
 
+def study_run_experimental_script(script, study_id, project_id, record_id):
+    from io import StringIO
+    import sys
+
+    buffer = StringIO()
+
+    old_stdout = sys.stdout
+    sys.stdout = buffer
+
+    match script:
+        case 1:
+            experimental_script_1(study_id, record_id, project_id)
+        case _:
+            pass
+
+    sys.stdout = old_stdout
+
+    return buffer.getvalue()

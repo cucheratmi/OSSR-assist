@@ -73,7 +73,7 @@ def invoke_llm_structured_output(template_name, parameters, context, pydantic_cl
 
 def invoke_llm_PDF_structured_output(template_name, parameters, record_id, pydantic_class):
     llm_name = current_app.config["LLM_NAME"]
-    print(f"invoke_llm_PDF_text_output, {llm_name=}")
+    print(f"invoke_llm_PDF_structured_output, {llm_name=}")
 
     match llm_name:
         case LLM_Name_Enum.MISTRAL.value:
@@ -84,6 +84,23 @@ def invoke_llm_PDF_structured_output(template_name, parameters, record_id, pydan
             return invoke_anthropic_llm_PDF_structured_output(template_name, parameters, record_id, pydantic_class)
         case LLM_Name_Enum.DEEPSEEK.value:
             return invoke_hyperbolic_llm_PDF_structured_output(template_name, parameters, record_id, pydantic_class)
+        case _:
+            print("no model available for structured output")
+            return None
+
+def invoke_llm_PDF_json_output(template_name, parameters, record_id):
+    llm_name = current_app.config["LLM_NAME"]
+    print(f"invoke_llm_PDF_json_output, {llm_name=}")
+
+    match llm_name:
+        case LLM_Name_Enum.MISTRAL.value:
+            return invoke_mistral_llm_PDF_json_output(template_name, parameters, record_id)
+        case LLM_Name_Enum.OPENAI.value:
+            return invoke_openai_llm_PDF_json_output(template_name, parameters, record_id)
+        case LLM_Name_Enum.ANTHROPIC.value:
+            return invoke_anthropic_llm_PDF_json_output(template_name, parameters, record_id)
+        case LLM_Name_Enum.DEEPSEEK.value:
+            return invoke_hyperbolic_llm_PDF_json_output(template_name, parameters, record_id)
         case _:
             print("no model available for structured output")
             return None

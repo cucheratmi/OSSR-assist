@@ -86,6 +86,11 @@ CONTEXT:
 {context}
 """,
 
+'extraction_json': """Please extract the following informations and cite the text extract you used as source:
+{fields}
+Give me a JSON file with strictly the following format: {json_template}
+""",
+
     ####################
 
     'extraction_checking': """
@@ -175,6 +180,13 @@ CONTEXT:
 
     ####################
 
+    'results_json': """Please extract the results for the following outcomes and cite the text extract you used as source:
+{outcomes_list}
+    Give me a JSON file with strictly the following format: {json_template}
+""",
+
+    ####################
+
     'outcomes_checking': """
 Given the randomized clinical trial described in the CONTEXT below, could you check the correctness of this trial results summary.
 Please answer for each item with 'OK' if the item is correct, or 'ERROR' if it is not correct. If it is not correct, please provide the correct information for this item.
@@ -246,23 +258,59 @@ def invoke_anthropic_llm_PDF_structured_output(prompt_name, parameters, record_i
 
 #################
 
-def invoke_anthropic_llm_PDF_text_output_dev(prompt, prompt_system, record_id):
+# def invoke_anthropic_llm_PDF_text_output_dev(prompt, prompt_system, record_id):
+#
+#     import base64
+#     import anthropic
+#     from anthropic import Anthropic
+#
+#     client = Anthropic(default_headers={"anthropic-beta": "pdfs-2024-09-25"})
+#     # For now, only claude-3-5-sonnet-20241022 supports PDFs
+#     MODEL_NAME = "claude-3-5-sonnet-20241022"
+#
+#     def get_completion(client, messages):
+#         return client.messages.create(
+#             model=MODEL_NAME,
+#             max_tokens=2048,
+#             messages=messages
+#         ).content[0].text
+#
+#
+#     pdf_name = f"r{record_id}.pdf"
+#     pdf_path = os.path.join(PDF_UPLOAD_PATH, pdf_name)
+#
+#     with open(pdf_path, "rb") as pdf_file:
+#         binary_data = pdf_file.read()
+#         base64_encoded_data = base64.standard_b64encode(binary_data)
+#         base64_string = base64_encoded_data.decode("utf-8")
+#
+#     messages = [
+#         {
+#             "role": 'user',
+#             "content": [
+#                 {"type": "document",
+#                  "source": {"type": "base64", "media_type": "application/pdf", "data": base64_string}},
+#                 {"type": "text", "text": prompt}
+#             ]
+#         }
+#     ]
+#
+#     completion = get_completion(client, messages)
+#
+#     return completion
 
+
+def invoke_anthropic_llm_PDF_json_output(template_name, parameters, record_id):
     import base64
-    import anthropic
     from anthropic import Anthropic
+
+    prompt_template = prompt_template_anthropic[template_name]
+    prompt_user = prompt_template.format(**parameters).strip()
+
 
     client = Anthropic(default_headers={"anthropic-beta": "pdfs-2024-09-25"})
     # For now, only claude-3-5-sonnet-20241022 supports PDFs
     MODEL_NAME = "claude-3-5-sonnet-20241022"
-
-    def get_completion(client, messages):
-        return client.messages.create(
-            model=MODEL_NAME,
-            max_tokens=2048,
-            messages=messages
-        ).content[0].text
-
 
     pdf_name = f"r{record_id}.pdf"
     pdf_path = os.path.join(PDF_UPLOAD_PATH, pdf_name)
@@ -278,16 +326,20 @@ def invoke_anthropic_llm_PDF_text_output_dev(prompt, prompt_system, record_id):
             "content": [
                 {"type": "document",
                  "source": {"type": "base64", "media_type": "application/pdf", "data": base64_string}},
-                {"type": "text", "text": prompt}
+                {"type": "text", "text": prompt_user}
             ]
         }
     ]
 
-    completion = get_completion(client, messages)
+    completion = client.messages.create(
+            model=MODEL_NAME,
+            max_tokens=2048,
+            messages=messages
+        ).content[0].text
 
-    return completion
+    j = json.loads(completion)
 
-
+    return j
 
 
 
