@@ -8,6 +8,11 @@ from pdfs import test_if_pdf_exists
 from AI_utils import *
 from prompts import *
 
+class Extracted_Data(BaseModel):
+    extracted_value: str = Field(description="extracted value")
+    source: str = Field(description="source of the extracted value")
+    field_name: str = Field(description="name of the field")
+
 ### create dynamic pydantic model
 def create_pydantic_model(project_id):
     model_fields = {}
@@ -26,7 +31,8 @@ def create_pydantic_model(project_id):
 
         #model pydantic
         field_description = Field(..., description=row['name'] + ": " + row["description"])
-        model_fields[field_name] = (str, field_description)
+        #model_fields[field_name] = (str, field_description)
+        model_fields[field_name] = (Extracted_Data, field_description)
 
     cur.close()
     con.close()
@@ -65,7 +71,7 @@ def AI_extraction_personalised_fields(study_id, record_id, project_id, context_s
     AI_data = dict()
     for e in extracted_data:
         field_id = int(e[0][1:])
-        AI_data[field_id] = {'extracted_value':e[1], 'source':'', 'field_name': field_names[field_id] }
+        AI_data[field_id] = {'extracted_value':e[1].extracted_value, 'source':e[1].source, 'field_name': field_names[field_id] }
 
     return AI_data
 

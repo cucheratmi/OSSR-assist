@@ -156,9 +156,9 @@
             {%  if f['field_id'] in AI_data %}
             <div class="row gt-1 mb-3 mt-0 ">
                 <div class="col-md-11 form-floating">
-                    <textarea class="form-control" style="font-size: small; height: 4rem; "
+                    <textarea class="form-control" style="font-size: small; height: 5rem; "
                               id="AI_{{ f['field_id'] }}" name="AI_{{ f['field_id'] }}">{{ AI_data[f['field_id']]['extracted_value'] }}</textarea>
-                    <label for="AI_{{ f['field_id'] }}" style="margin-left: 10px; padding-top: 3px; color: royalblue;">AI suggestion</label>
+                    <label for="AI_{{ f['field_id'] }}" style="margin-left: 11px; padding-top: 4px; color: royalblue;">AI suggestion</label>
                     {% if AI_data[f['field_id']]['source'] != "" %}
                         <div class="form-text" style="color: royalblue;">Source: {{ AI_data[f['field_id']]['source'] }}</div>
                     {%  endif %}
