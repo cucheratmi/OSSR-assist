@@ -156,12 +156,25 @@
             {%  if f['field_id'] in AI_data %}
             <div class="row gt-1 mb-3 mt-0 ">
                 <div class="col-md-11 form-floating">
-                    <textarea class="form-control" style="font-size: small; height: 5rem; "
-                              id="AI_{{ f['field_id'] }}" name="AI_{{ f['field_id'] }}">{{ AI_data[f['field_id']]['extracted_value'] }}</textarea>
-                    <label for="AI_{{ f['field_id'] }}" style="margin-left: 11px; padding-top: 4px; color: royalblue;">AI suggestion</label>
-                    {% if AI_data[f['field_id']]['source'] != "" %}
-                        <div class="form-text" style="color: royalblue;">Source: {{ AI_data[f['field_id']]['source'] }}</div>
-                    {%  endif %}
+
+{#                    <textarea class="form-control" style="font-size: small; height: 5rem; "#}
+{#                              id="AI_{{ f['field_id'] }}" name="AI_{{ f['field_id'] }}">{{ AI_data[f['field_id']]['extracted_value'] }}</textarea>#}
+{#                    <label for="AI_{{ f['field_id'] }}" style="margin-left: 11px; padding-top: 4px; color: royalblue;">AI suggestion</label>#}
+{#                    {% if AI_data[f['field_id']]['source'] != "" %}#}
+{#                        <div class="form-text" style="color: royalblue;">Source: {{ AI_data[f['field_id']]['source'] }}</div>#}
+{#                    {%  endif %}#}
+
+                    <div class="alert alert-light" role="alert" style="background-color: lavender; font-size: smaller;" >
+                        <h5 class="heading-text" style="font-size: small;">AI suggestions</h5>
+                        <p id="AI_{{ f['field_id'] }}" style="margin-bottom: 0px; margin-top: 0px;">{{ AI_data[f['field_id']]['extracted_value'] }}</p>
+                        {% if AI_data[f['field_id']]['source'] != "" %}
+                            <p style="font-style: italic; font-size: smaller; margin-bottom: 0px; margin-top: 0px; ">
+                                Source: {{ AI_data[f['field_id']]['source']  }}
+                            </p>
+                        {%  endif %}
+                    </div>
+
+
                 </div>
                 <div class="col-md-1" style="text-align: left;">
                     <a class="btn btn-outline-primary btn-sm" style="margin-top: 1rem;"
@@ -178,7 +191,7 @@
     </form>
 <script>
 function save_AI(field_id) {
-    var AI_value = document.getElementById("AI_"+field_id).value;
+    var AI_value = document.getElementById("AI_"+field_id).innerText;
     document.getElementById("F"+field_id).value = AI_value;
     document.getElementById("F"+field_id).dispatchEvent(new Event('change'));
 }

@@ -278,11 +278,13 @@ function save_AI(outcome_id) {
     transfer_field_value('p_value', outcome_id);
     transfer_field_value('value', outcome_id);
 
-    {#transfer_field_value('events_1', outcome_id);#}
-    {#transfer_field_value('n_1', outcome_id);#}
-    {#transfer_field_value('events_0', outcome_id);#}
-    {#transfer_field_value('n_0', outcome_id);#}
-    {#transfer_field_value('value', outcome_id);#}
+    transfer_field_value('median_1', outcome_id);
+    transfer_field_value('median_0', outcome_id);
+    transfer_field_value('events_1', outcome_id);
+    transfer_field_value('n_1', outcome_id);
+    transfer_field_value('events_0', outcome_id);
+    transfer_field_value('n_0', outcome_id);
+    {#transfer_field_value('source', outcome_id);#}
 }
 </script>
 

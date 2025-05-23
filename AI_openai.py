@@ -66,7 +66,7 @@ CONTEXT:
 
     'extraction_abstract': """
 Here is an abstract of a randomized trial in the following context.
-State:
+Please extract the following informations and cite the text fragment you used as source:
 {fields}
 
 CONTEXT:
@@ -77,7 +77,7 @@ CONTEXT:
 
     'extraction_pdf': """
 Here is a fulltext report of a randomized trial in the following context.
-State:
+Please extract the following informations and cite the text fragment you used as source:
 {fields}
 
 CONTEXT:
