@@ -17,6 +17,13 @@ class Result(BaseModel):
     ll : float = Field(description="lower limit of the confidence interval corresponding to this result")
     ul : float = Field(description="upper limit of the confidence interval corresponding to this result")
     p_value: str = Field(description="p value of the result")
+    median_1: str = Field(description="median of the experimental group")
+    median_0: str = Field(description="median of the control group")
+    n_1: int = Field(description="sample size of the experimental group")
+    n_0: int = Field(description="sample size of the control group")
+    events_1: int = Field(description="number of events in the experimental group")
+    events_0: int = Field(description="number of events in the control group")
+    source: str = Field(description="text extracts used to obtain these values")
     literal_summary: str = Field(description="short literal summary of the result")
 
 class ResultsModel2(BaseModel):

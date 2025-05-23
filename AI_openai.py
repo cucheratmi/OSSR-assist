@@ -171,7 +171,8 @@ CONTEXT:
 Here is an report of a randomized trial in the following context.
 
 For each of the following outcomes, state the estimation of the treatment effect (Hazard ratio, odds ratio, relative risk, etc.), the lower and upper limites of its confidence interval,
-the number of events in the experimental groupe, the effective of the experimental group, the number of events in the control groups, the effective of the control groups.
+the number of events in the experimental groupe, the effective of the experimental group, the number of events in the control groups, the effective of the control groups, 
+the median and its confidence interval in the experimental and control groups.
 Give also a short literal summary of the result.
 
 Outcomes:
