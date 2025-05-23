@@ -238,33 +238,11 @@ def endpoint_study_panel_references(study_id, project_id, record_id):
     return study_panel_references(study_id, project_id, record_id)
 
 
-# @app.route('/study/fullscreen_old/<int:study_id>/<int:project_id>/', defaults={'record_id': 0,'tab': 'study'})
-# @app.route('/study/fullscreen_old/<int:study_id>/<int:project_id>/<int:record_id>/', defaults={'tab': 'study'})
-# @app.route('/study/fullscreen_old/<int:study_id>/<int:project_id>/<int:record_id>/<string:tab>/')
-# def endpoint_study_fullscreen_old(study_id, project_id, record_id, tab):
-#     return study_fullscreen_old(study_id, project_id, record_id, tab)
-
-
 @app.route('/study/fullscreen/<string:tab>/<int:study_id>/<int:project_id>/<int:record_id>/', defaults={'AI': 0})
 @app.route('/study/fullscreen/<string:tab>/<int:study_id>/<int:project_id>/<int:record_id>/<int:AI>')
 def endpoint_study_fullscreen(study_id, project_id, record_id, tab, AI):
     return study_fullscreen(study_id, project_id, record_id, tab, AI)
 
-
-# TODO deprecated
-# @app.route('/study/fullscreen_AI/<int:study_id>/<int:project_id>/', defaults={'record_id': 0})
-# @app.route('/study/fullscreen_AI/<int:study_id>/<int:project_id>/<int:record_id>/')
-# def endpoint_study_fullscreen_AI(study_id, project_id, record_id):
-#     return study_fullscreen_AI(study_id, project_id, record_id)
-#
-# @app.route('/study/AI_extract/<int:study_id>/<int:record_id>/<int:project_id>/', defaults={'context_source': 'abstract'})
-# @app.route('/study/AI_extract/<int:study_id>/<int:record_id>/<int:project_id>/<string:context_source>/')
-# def endpoint_study_AI_extract(study_id, record_id, project_id, context_source):
-#     return study_extraction_personalised_fields(study_id, record_id, project_id, context_source)
-#
-# @app.route('/study/AI_ROB/<int:study_id>/<int:record_id>/<int:project_id>/')
-# def endpoint_study_AI_ROB(study_id, record_id, project_id):
-#     return study_AI_ROB(study_id, record_id, project_id)
 
 @app.route('/study/check_extraction/<int:study_id>/<int:project_id>/<int:record_id>/')
 def endpoint_study_check_extraction(study_id, project_id, record_id):
@@ -293,8 +271,13 @@ def endpoint_study_ROB_set_justification(study_id, domain):
 def endpoint_study_run_experimental_script(script, study_id, project_id, record_id):
     return study_run_experimental_script(script, study_id, project_id, record_id)
 
+@app.route('/study/compare_extraction/<int:study_id>/<int:project_id>/<int:record_id>')
+def endpoint_study_compare_extraction(study_id, project_id, record_id):
+    return study_compare_extraction(study_id, project_id, record_id)
 
-
+@app.route('/study/compare_outcome//<int:study_id>/<int:project_id>/<int:record_id>')
+def endpoint_study_compare_outcome(study_id, project_id, record_id):
+    return study_compare_outcome(study_id, project_id, record_id)
 
 ####################### records  ###################################
 

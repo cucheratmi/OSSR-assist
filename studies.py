@@ -192,6 +192,7 @@ def get_research_questions(study_id, project_id):
 
 
 def study_fullscreen(study_id, project_id, record_id, tab, AI):
+    llm_name = current_app.config['LLM_NAME']
     project_name, _, _ = get_project_name(project_id)
 
     study_data = get_study_data(study_id)
@@ -243,22 +244,53 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
                            data_fields=data_fields,
                            ROB=ROB, ROB_DOMAIN=ROB_DOMAIN,
                            results_data=results_data, OUTCOMES_TYPES=OUTCOMES_TYPES,
-                           AI_data=AI_data, AI=AI, LLM_name=current_app.config['LLM_NAME'],
+                           AI_data=AI_data, AI=AI, LLM_name=llm_name,
                            primary_LLM_available=is_primary_LLM_available(), secondary_LLM_available=is_secondary_LLM_available() )
 
 
+def study_compare_extraction(study_id, project_id, record_id):
+    AI = 2 # pdf
+    models = (LLM_Name_Enum.OPENAI.value, LLM_Name_Enum.ANTHROPIC.value, LLM_Name_Enum.MISTRAL.value)
+
+    AI_data = dict()
+    for llm_name in models:
+        r = get_AI_data_extraction(AI, study_id, record_id, project_id, llm_name)
+        for i in range(1, len(r)-1):
+            field_name = r[i]['field_name'].strip()
+            e = dict(value=r[i]['extracted_value'], source=r[i]['source'])
+
+            if field_name not in AI_data:
+                AI_data[field_name] = [e,]
+            else:
+                AI_data[field_name].append(e)
+
+    return render_template('llm_comparison_extraction.html',
+                           study_id=study_id, project_id=project_id, record_id=record_id,
+                           AI_data=AI_data, models=models,)
 
 
+def study_compare_outcome(study_id, project_id, record_id):
+    models = (LLM_Name_Enum.OPENAI.value, LLM_Name_Enum.ANTHROPIC.value, LLM_Name_Enum.MISTRAL.value)
 
+    results_data = dict()
+    for llm_name in models:
+        r = get_AI_data_results2(2, study_id, record_id, project_id, llm_name)
+        for k,v in r.items():
+            outcome_name = v['outcome_name']
+            s = f"HR={v['hazard_ratio']} 95% CI [{v['ll']};{v['ul']}], p={v['p_value']}"
+            s+= f"<br/>{v['median_1']} {v['median_0']}"
+            s+= f"<br/>{v['events_1']}/{v['n_1']} {v['events_0']}/{v['n_0']}"
+            s+= f"<br/>source: {v['source']}"
+            s+= f"<br/>{v['literal_summary']}"
+            s+= f"<br/>{v['paper_endpoint_name']}"
 
-# def study_fullscreen_AI(study_id, project_id, record_id=0):
-#     # TODO deprecated
-#     references = get_references(study_id)
-#     pdf_exists = test_if_pdf_exists(record_id)
-#
-#     extracted_data = []
-#     return render_template('study_fullscreen_AI.html', study_id=study_id, project_id=project_id,
-#                            references=references, pdf_exists=pdf_exists, record_id=record_id, extracted_data=extracted_data )
+            if outcome_name not in results_data:
+                results_data[outcome_name] = []
+            results_data[outcome_name].append(s)
+
+    return render_template('llm_comparison_outcomes.html',
+                           study_id=study_id, project_id=project_id, record_id=record_id,
+                           results_data=results_data)
 
 
 def study_check_extraction(study_id, project_id, record_id):
@@ -365,3 +397,6 @@ def study_run_experimental_script(script, study_id, project_id, record_id):
     sys.stdout = old_stdout
 
     return buffer.getvalue()
+
+
+

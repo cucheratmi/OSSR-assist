@@ -272,12 +272,24 @@ def invoke_mistral_llm_PDF_json_output(template_name, parameters, record_id):
 
     def extract_json_simple(text):
         import json
-        # Prendre le contenu entre les premiers ``` et les derniers ```
-        content = text.split("```")[1]
-        # Enlever la première ligne si elle contient "json"
-        if content.lstrip().startswith("json\n"):
-            content = content.split("\n", 1)[1]
-        return json.loads(content)
+        import re
+        
+        # Extraire le contenu entre les backticks
+        match = re.search(r'```(?:json\s*)?\n?(.*?)```', text, re.DOTALL)
+        if not match:
+            raise ValueError("Aucun bloc JSON trouvé dans le texte")
+        
+        content = match.group(1).strip()
+        
+        # Échapper correctement les caractères spéciaux
+        content = content.replace('\\', '\\\\')
+        
+        try:
+            return json.loads(content)
+        except json.JSONDecodeError as e:
+            print(f"Erreur de décodage JSON : {str(e)}")
+            print(f"Contenu problématique : {content}")
+            raise
 
 
     prompt_template = prompt_template_mistral[template_name]
@@ -327,65 +339,64 @@ def invoke_mistral_llm_PDF_json_output(template_name, parameters, record_id):
 
 
 
-def mistral_pdf_ocr_structured_output(template_name, parameters, record_id, Pydantic_Class):
-    import os
-    from mistralai import Mistral
-
-    prompt_template = prompt_template_mistral[template_name+"_ocr"]
-    prompt_user = prompt_template.format(**parameters)
-    print(prompt_user)
-    prompt_system = prompt_systems_mistral[template_name]
-
-    model_name = current_app.config["LLM_name"]
-    if model is None: return None
-    model_name = "mistral-large-latest"
-
-
-    client = Mistral(api_key=os.environ["MISTRAL_API_KEY"])
-
-    pdf_path = os.path.join(PDF_UPLOAD_PATH, f"r{record_id}.pdf")
-
-    uploaded_pdf = client.files.upload(
-        file = {
-            "file_name": "uploaded_file.pdf",
-            "content": open(pdf_path, "rb"),
-        },
-        purpose = "ocr"
-    )
-    signed_url = client.files.get_signed_url(file_id=uploaded_pdf.id)
-    print(signed_url)
-
-    # ocr_response = client.ocr.process(
-    #     model="mistral-ocr-latest",
-    #     document={
-    #         "type": "document_url",
-    #         "document_url": signed_url.url,
-    #     }
-    # )
-    # print(ocr_response)
-
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": prompt_user
-                },
-                {
-                    "type": "document_url",
-                    "document_url": signed_url.url
-                }
-            ]
-        }
-    ]
-
-    chat_response = client.chat.complete(
-        model=model_name,
-        messages=messages
-    )
-
-    print(chat_response.choices[0].message.content)
-    print(chat_response.choices[0].message.parsed)
-    return chat_response.choices[0].message.parsed
-
+# def mistral_pdf_ocr_structured_output(template_name, parameters, record_id, Pydantic_Class):
+#     import os
+#     from mistralai import Mistral
+#
+#     prompt_template = prompt_template_mistral[template_name+"_ocr"]
+#     prompt_user = prompt_template.format(**parameters)
+#     print(prompt_user)
+#     prompt_system = prompt_systems_mistral[template_name]
+#
+#     model_name = current_app.config["LLM_name"]
+#     if model is None: return None
+#     model_name = "mistral-large-latest"
+#
+#
+#     client = Mistral(api_key=os.environ["MISTRAL_API_KEY"])
+#
+#     pdf_path = os.path.join(PDF_UPLOAD_PATH, f"r{record_id}.pdf")
+#
+#     uploaded_pdf = client.files.upload(
+#         file = {
+#             "file_name": "uploaded_file.pdf",
+#             "content": open(pdf_path, "rb"),
+#         },
+#         purpose = "ocr"
+#     )
+#     signed_url = client.files.get_signed_url(file_id=uploaded_pdf.id)
+#     print(signed_url)
+#
+#     # ocr_response = client.ocr.process(
+#     #     model="mistral-ocr-latest",
+#     #     document={
+#     #         "type": "document_url",
+#     #         "document_url": signed_url.url,
+#     #     }
+#     # )
+#     # print(ocr_response)
+#
+#     messages = [
+#         {
+#             "role": "user",
+#             "content": [
+#                 {
+#                     "type": "text",
+#                     "text": prompt_user
+#                 },
+#                 {
+#                     "type": "document_url",
+#                     "document_url": signed_url.url
+#                 }
+#             ]
+#         }
+#     ]
+#
+#     chat_response = client.chat.complete(
+#         model=model_name,
+#         messages=messages
+#     )
+#
+#     print(chat_response.choices[0].message.content)
+#     print(chat_response.choices[0].message.parsed)
+#     return chat_response.choices[0].message.parsed

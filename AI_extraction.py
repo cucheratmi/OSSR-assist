@@ -41,8 +41,10 @@ def AI_extraction_personalised_fields(study_id, record_id, project_id, context_s
 
     FieldModel, fields = create_pydantic_model(project_id)
     fields_bullet_list  = ""
+    field_names = dict()
     for e in fields.values():
         fields_bullet_list += " - " + e["name"] + "\n"
+        field_names[e["id"]] = e["name"]
     parameters={'fields': fields_bullet_list}
 
     json_template = '{'
@@ -63,7 +65,7 @@ def AI_extraction_personalised_fields(study_id, record_id, project_id, context_s
     AI_data = dict()
     for e in extracted_data:
         field_id = int(e[0][1:])
-        AI_data[field_id] = {'extracted_value':e[1], 'source':''}
+        AI_data[field_id] = {'extracted_value':e[1], 'source':'', 'field_name': field_names[field_id] }
 
     return AI_data
 
@@ -136,15 +138,19 @@ def AI_check_extraction(extracted_data, record_id):
     return answer
 
 
-def get_AI_data_extraction(AI, study_id, record_id, project_id):
+def get_AI_data_extraction(AI, study_id, record_id, project_id, model=None):
     context_source = "abstract" if AI == 1 else "pdf"
-    llm_name = current_app.config['LLM_NAME']
+    if model is None:
+        llm_name = current_app.config['LLM_NAME']
+    else :
+        llm_name = model
+
     if llm_name == LLM_Name_Enum.ANTHROPIC.value and context_source == "pdf":
         # AI_data = pdf_extraction_anthropic_labs(study_id, record_id, project_id) # experimental à détruire
-        AI_data = get_AI_data_extraction_json(study_id, record_id, project_id)
+        AI_data = get_AI_data_extraction_json(study_id, record_id, project_id, llm_name)
 
     elif llm_name == LLM_Name_Enum.MISTRAL.value and context_source == "pdf":
-        AI_data = get_AI_data_extraction_json(study_id, record_id, project_id)
+        AI_data = get_AI_data_extraction_json(study_id, record_id, project_id,llm_name)
 
     else:
         AI_data = AI_extraction_personalised_fields(study_id, record_id, project_id, context_source)
@@ -152,11 +158,15 @@ def get_AI_data_extraction(AI, study_id, record_id, project_id):
     return AI_data
 
 
-def get_AI_data_extraction_json(study_id, record_id, project_id):
+def get_AI_data_extraction_json(study_id, record_id, project_id, llm_name):
     fields_bullet_list, json_template, field_ids = get_fields_json_template(project_id)
+
+    if llm_name == LLM_Name_Enum.OPENAI.value:
+        json_template = openai_extraction_json_schema(project_id)
+
     parameters = {'fields': fields_bullet_list, 'json_template': json_template}
 
-    j = invoke_llm_PDF_json_output("extraction_json", parameters, record_id)
+    j = invoke_llm_PDF_json_output("extraction_json", parameters, record_id, llm_name)
 
     AI_data = dict()
     for k,v in j.items():

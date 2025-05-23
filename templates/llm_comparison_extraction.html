@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+<style>
+    .source{
+        font-size: smaller;
+        color: red;
+        font-style: italic;
+    }
+    td{
+        vertical-align: top;
+    }
+</style>
+
+{%  block content %}
+
+    <h4>comparisons</h4>
+
+    <table class="table table-condensed table-hover table-sm" style="font-size: small;">
+    <tr>
+        <th>field</th>
+        {% for m in models %}
+            <th>{{ m }}</th>
+        {%  endfor %}
+    </tr>
+    {%  for field_name in AI_data.keys() %}
+        <tr>
+            <td>
+                {{ field_name }}
+            </td>
+            {% for e in AI_data[field_name] %}
+                <td>
+                    {{ e['value'] }}
+                    <div style="color: dimgray; font-size: smaller; font-style: italic;">{{ e['source'] }}</div>
+                </td>
+            {% endfor %}
+        </tr>
+    {%  endfor %}
+
+    </table>
+
+
+{%  endblock %}
+
+

@@ -6,7 +6,7 @@ from utils import *
 def research_questions_list(project_id):
     sql="SELECT * FROM research_questions WHERE project = ?"
     questions = sql_select_fetchall(sql, (project_id,))
-    return render_template('research_questions_list.html', questions=questions, project_id=project_id)
+    return render_template('project_setup_research_questions.html', questions=questions, project_id=project_id)
  
 
 def research_question_add(project_id):

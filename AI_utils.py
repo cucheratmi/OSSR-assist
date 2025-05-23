@@ -88,8 +88,7 @@ def invoke_llm_PDF_structured_output(template_name, parameters, record_id, pydan
             print("no model available for structured output")
             return None
 
-def invoke_llm_PDF_json_output(template_name, parameters, record_id):
-    llm_name = current_app.config["LLM_NAME"]
+def invoke_llm_PDF_json_output(template_name, parameters, record_id, llm_name):
     print(f"invoke_llm_PDF_json_output, {llm_name=}")
 
     match llm_name:

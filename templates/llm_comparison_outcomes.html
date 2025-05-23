@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+<style>
+    .source{
+        font-size: smaller;
+        color: red;
+        font-style: italic;
+    }
+    td{
+        vertical-align: top;
+    }
+</style>
+
+{%  block content %}
+
+    <h4>comparisons outcomes extraction</h4>
+
+    <table class="table table-condensed table-hover table-sm" style="font-size: small;">
+    <tr>
+        <th>field</th>
+        <th>model 1</th>
+        <th>model 2</th>
+    </tr>
+    {%  for outcome_name,l in results_data.items() %}
+        <tr>
+            <td>
+                {{ outcome_name }}
+            </td>
+            {% for s in l %}
+                <td>
+                    {{ s | safe }}
+                </td>
+            {% endfor %}
+        </tr>
+    {%  endfor %}
+
+    </table>
+
+
+{%  endblock %}
+
+

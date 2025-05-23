@@ -62,13 +62,16 @@ def AI_check_outcomes(extracted_data, record_id):
 
 
 
-def get_AI_data_results2(AI, study_id, record_id, project_id):
+def get_AI_data_results2(AI, study_id, record_id, project_id, llm_name=None):
+    if llm_name is None:
+        llm_name=current_app.config['LLM_NAME']
+
     AI_data = dict()
     context_source = "abstract" if AI == 30 else "pdf"
-    if current_app.config['LLM_NAME'] == LLM_Name_Enum.ANTHROPIC.value and context_source == "pdf":
-        data = get_AI_data_results_json(study_id, record_id, project_id)
-    elif current_app.config['LLM_NAME'] == LLM_Name_Enum.MISTRAL.value and context_source == "pdf":
-        data = get_AI_data_results_json(study_id, record_id, project_id)
+    if llm_name == LLM_Name_Enum.ANTHROPIC.value and context_source == "pdf":
+        data = get_AI_data_results_json(study_id, record_id, project_id, llm_name)
+    elif llm_name == LLM_Name_Enum.MISTRAL.value and context_source == "pdf":
+        data = get_AI_data_results_json(study_id, record_id, project_id, llm_name)
     else:
         data = AI_results2(study_id, record_id, project_id, context_source)
 
@@ -78,7 +81,7 @@ def get_AI_data_results2(AI, study_id, record_id, project_id):
 
 #### json #####
 
-def get_AI_data_results_json(study_id: int, record_id: int, project_id: int) -> any:
+def get_AI_data_results_json(study_id: int, record_id: int, project_id: int, llm_name: str) -> any:
 
     json_hazard_ratio = (' "hazard ratio": "value", "confidence interval lower limit": "value", "confidence interval upper limit": "value", '
                          '"median experimental group": "value and confidence interval", "median control group": "value and confidence interval", '
@@ -101,12 +104,13 @@ def get_AI_data_results_json(study_id: int, record_id: int, project_id: int) -> 
     json_template = '[' + ', '.join(json1) + ']'
     parameters = {'outcomes_list': outcomes_list, 'json_template': json_template}
 
-    j = invoke_llm_PDF_json_output("results_json", parameters, record_id)
+    j = invoke_llm_PDF_json_output("results_json", parameters, record_id,llm_name)
 
     AI_data = dict()
     for e in j:
         outcome_name = e['outcome name']
         r = dict()
+        r['outcome_name'] = outcome_name
         r['hazard_ratio'] = e['hazard ratio']
         r['ll'] = e['confidence interval lower limit']
         r['ul'] = e['confidence interval upper limit']

@@ -83,8 +83,8 @@
 
 
                     <li>
-                        <a class="dropdown-item disabled"
-                           href="/AI/compare1/{{ study_id }}/{{ project_id }}/{{ record_id }}/2" onclick="loading()">
+                        <a class="dropdown-item"
+                           href="/study/compare_extraction/{{ study_id }}/{{ project_id }}/{{ record_id }}" onclick="loading()" target="_blank">
                             compare models for extraction
                             {%  if not primary_LLM_available %}
                                 <span style="color: red;">LLM isn't set</span>

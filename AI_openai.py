@@ -86,9 +86,12 @@ CONTEXT:
 
 #################
 
-    'extraction_json': """Please extract the following informations and cite the text extract you used as source:
+    'extraction_json': """Here is a fulltext report of a randomized trial in the following context.
+Please extract the following informations and cite the text part you used as source:
 {fields}
-Give me a JSON file with strictly the following format: {json_template}
+
+base64 CONTEXT:
+{context}
 """,
 
     ####################    
@@ -202,9 +205,9 @@ CONTEXT:
 
 ##### convenience functions #########
 
-def invoke_openai_llm_text_output(prompt_name, parameters, context):
+def invoke_openai_llm_text_output(template_name, parameters, context):
     parameters.update({'context': context})
-    prompt_template = prompt_template_openai[prompt_name]
+    prompt_template = prompt_template_openai[template_name]
     prompt = prompt_template.format(**parameters)
 
     prompt_system = prompt_systems_openai[template_name]
@@ -219,9 +222,9 @@ def invoke_openai_llm_text_output(prompt_name, parameters, context):
     return answer
 
 
-def invoke_openai_llm_structured_output(prompt_name, parameters, context, pydantic_class):
+def invoke_openai_llm_structured_output(template_name, parameters, context, pydantic_class):
     parameters.update({'context': context})
-    prompt_template = prompt_template_openai[prompt_name]
+    prompt_template = prompt_template_openai[template_name]
     prompt = prompt_template.format(**parameters)
 
     prompt_system = prompt_systems_openai[template_name]
@@ -249,6 +252,52 @@ def invoke_openai_llm_PDF_text_output(prompt_name, parameters, record_id):
 def invoke_openai_llm_PDF_structured_output(prompt_name, parameters, record_id, pydantic_class):
     context = get_pdf(record_id)
     return invoke_openai_llm_structured_output(prompt_name, parameters, context, pydantic_class)
+
+
+
+def invoke_openai_llm_PDF_json_output(template_name, parameters, record_id):
+    import base64
+    pdf_name = f"r{record_id}.pdf"
+    pdf_path = os.path.join(PDF_UPLOAD_PATH, pdf_name)
+
+    with open(pdf_path, "rb") as pdf_file:
+        binary_data = pdf_file.read()
+        base64_encoded_data = base64.standard_b64encode(binary_data)
+        base64_string = base64_encoded_data.decode("utf-8")
+
+    prompt_template = prompt_template_openai[template_name]
+    prompt_user = prompt_template.format(fields=parameters['fields'], context=base64_string ).strip()
+
+    schema = json.loads(parameters['json_template'])
+
+    client = OpenAI()
+    response = client.responses.parse(
+        model="gpt-4.1",
+        input=[
+            {
+                "role": "system",
+                "content": "You are an expert at structured data extraction and you give your answer in JSON format.",
+            },
+            {"role": "user", "content": prompt_user},
+        ],
+        text={ "format": { "name":"RCT_extraction", "type": "json_schema", "schema": schema, "strict": True } },
+    )
+
+    print(response.output_text)
+
+    return json.loads(response.output_text)
+
+
+def openai_extraction_json_schema(project_id):
+    sql = "SELECT id, name, description FROM study_fields WHERE project=?"
+    rows = sql_select_fetchall(sql, (project_id,))
+
+    json_schema = ''
+    for e in rows:
+        json_schema += '"' + e["name"] + '": {"type": "string", "description": "' + e["description"] + '"}, '
+
+    json_schema = '{ "type": "object", "properties": { ' + json_schema + '}, "required": "allOf", "additionalProperties": False }'
+    return json_schema
 
 
 
