@@ -6,24 +6,22 @@
     {% include '_navbar1.html' %}
 
     {# secondary navbar  #}
-    <div class="mb-3">
+    <div class="mb-3" >
 
-        <ul class="nav nav-pills">
+        <ul class="nav nav-pills nav-fill" style="background-color: whitesmoke;">
             <li class="nav-item">
-                <a class="nav-link {% if pass_number==1 %}active{% endif %}" href="/records/list/{{ project_id }}/1/1"
-                   style="width: 12rem; text-align: center;">pass 1</a>
+                <a class="nav-link {% if pass_number==1 %}active{% endif %}" href="/records/list/{{ project_id }}/1/1">pass 1</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if pass_number==2 %}active{% endif %}" href="/records/list/{{ project_id }}/2/1"
-                   style="width: 12rem; text-align: center;">pass 2</a>
+                <a class="nav-link {% if pass_number==2 %}active{% endif %}" href="/records/list/{{ project_id }}/2/1">pass 2</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/records/flowchart/{{ project_id }}"
-                   style="width: 12rem; text-align: center;">flow chart</a>
+                   style="">flow chart</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/records/second_reviewer/{{ project_id }}"
-                   style="width: 12rem; text-align: center;" title="compare with the selection performed by the 2nd reviewer">
+                   style="" title="compare with the selection performed by the 2nd reviewer">
                     2nd reviewer
                 </a>
             </li>

@@ -238,14 +238,36 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
     #     AI_data = get_AI_data_results_json(study_id, record_id, project_id)
 
 
-    return render_template(template, study_id=study_id,
-                           project_id=project_id, project_name=project_name, pdf_exists=pdf_exists, record_id=record_id, tab=tab,
+    return render_template(template,
+                           study_id=study_id,project_id=project_id, project_name=project_name, pdf_exists=pdf_exists, record_id=record_id, tab=tab,
                            references=references, study_data=study_data, research_questions=research_questions,
                            data_fields=data_fields,
                            ROB=ROB, ROB_DOMAIN=ROB_DOMAIN,
                            results_data=results_data, OUTCOMES_TYPES=OUTCOMES_TYPES,
-                           AI_data=AI_data, AI=AI, LLM_name=llm_name,
-                           primary_LLM_available=is_primary_LLM_available(), secondary_LLM_available=is_secondary_LLM_available() )
+                           AI_data=AI_data, AI=AI,
+                           LLM_name=llm_name, primary_LLM_available=is_primary_LLM_available(), secondary_LLM_available=is_secondary_LLM_available() )
+
+
+
+def study_llamaindex_extract(study_id, project_id, record_id):
+    project_name, _, _ = get_project_name(project_id)
+    references = get_references(study_id)
+    if record_id == 0 and len(references) == 1:
+        record_id = list(references.values())[0]['id']
+
+    pdf_exists = test_if_pdf_exists(record_id)
+    llm_name = current_app.config['LLM_NAME']
+
+    extracted_data = llamaindexextract_field_extraction(study_id, record_id, project_id)
+
+    return render_template('study_fullscreen_experimental.html',
+                           study_id=study_id,project_id=project_id, project_name=project_name, pdf_exists=pdf_exists, record_id=record_id, tab="experimental",
+                           extracted_data=extracted_data,
+                           study_data = get_study_data(study_id), references = references,
+                           ROB = None, ROB_DOMAIN = None, results_data = None, data_fields = None, research_questions = None,
+                           LLM_name=llm_name, primary_LLM_available=is_primary_LLM_available(),secondary_LLM_available=is_secondary_LLM_available(),
+                           )
+
 
 
 def study_compare_extraction(study_id, project_id, record_id):

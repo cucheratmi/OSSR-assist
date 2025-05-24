@@ -75,6 +75,79 @@ def AI_extraction_personalised_fields(study_id, record_id, project_id, context_s
 
     return AI_data
 
+#### llamaindex extract
+
+def llamaindexextract_field_extraction(study_id, record_id, project_id):
+    model_fields = {}
+    fields = dict()
+    field_names= dict()
+    sql = "SELECT id, name, description FROM study_fields WHERE project=?"
+    con = sqlite3.connect(DB_PATH)
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
+    res = cur.execute(sql, (project_id,))
+    rows = res.fetchall()
+    for row in rows:
+        field_name = f"F{row["id"]}"
+        field_names[row["id"]] = row["name"]
+        fields[field_name] = {'id': row["id"], 'name': row["name"], 'description': row["description"]}
+        field_description = Field(..., description=row['name'] + ": " + row["description"])
+        model_fields[field_name] = (str, field_description)
+    cur.close()
+    con.close()
+
+    FieldModel = create_model('FieldModel', **model_fields)
+
+    extracted_data = llamaindex_extract(record_id, FieldModel)
+
+    for k,v in extracted_data.items():
+        extracted_data[k]['field_name'] = field_names[k]
+
+    return extracted_data
+
+
+def llamaindex_extract(record_id, Pydantic_model):
+
+    pdf_path = os.path.join(PDF_UPLOAD_PATH, f"r{record_id}.pdf")
+
+    from llama_cloud.types import ExtractConfig, ExtractMode
+    from llama_cloud_services import LlamaExtract
+
+    llama_extract = LlamaExtract()
+
+    try:
+        # Essayer d'abord de récupérer un agent existant
+        agent = llama_extract.get_agent(name="RCT_extract")
+    except Exception:
+        # Si l'agent n'existe pas, en créer un nouveau
+        config = ExtractConfig(use_reasoning=True,
+                               cite_sources=True,
+                               extraction_mode=ExtractMode.MULTIMODAL)
+        agent = llama_extract.create_agent(name="RCT_extract",
+                                           data_schema=Pydantic_model,
+                                           config=config)
+
+    filing_info = agent.extract(pdf_path)
+
+    print(filing_info.data)
+
+    AI_data = dict()
+    for k,v in filing_info.data.items():
+        field_id = int(k[1:])
+        AI_data[field_id] = {'extracted_value':v, 'source':'', 'field_name': '' }
+
+    for k, v in filing_info.extraction_metadata['field_metadata'].items():
+        field_id = int(k[1:])
+        s = ""
+        s+= f"Reasoning: {v["reasoning"]} <br/>"
+        for e in v["citation"]:
+            s += f" - page {e['page']}: {e['matching_text']} <br/>"
+
+        AI_data[field_id]['source'] = s
+
+    return AI_data
+
+
 #### JSON ###########
 
 def get_fields_json_template(project_id):

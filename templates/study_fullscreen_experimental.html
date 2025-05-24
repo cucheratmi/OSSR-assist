@@ -24,10 +24,19 @@
 
 
 <p>
-<a href="/study/run_experimental_script/1/{{ study_id }}/{{ project_id }}/{{ record_id }}" target="_blank">
-    function 1
+<a href="/study/llamaindex_extract/{{ study_id }}/{{ project_id }}/{{ record_id }}" target="_blank">
+    extraction using llamaindex extract (PDF)
 </a>
 </p>
+
+{%  if extracted_data %}
+    <h4>Extraction using Llamaindex extract</h4>
+    {% for k,e in extracted_data.items() %}
+        <h5 class="mt-5">{{ e['field_name'] }}</h5>
+        <p>{{ e['extracted_value'] }}</p>
+        <p style="font-size: smaller; margin-bottom: 10px;">{{ e['source'] | safe }}</p>
+    {% endfor %}
+{% endif %}
 
 
 {% endblock %}

@@ -271,6 +271,10 @@ def endpoint_study_ROB_set_justification(study_id, domain):
 def endpoint_study_run_experimental_script(script, study_id, project_id, record_id):
     return study_run_experimental_script(script, study_id, project_id, record_id)
 
+@app.route('/study/llamaindex_extract/<int:study_id>/<int:project_id>/<int:record_id>')
+def endpoint_study_llamaindex_extract(study_id, project_id, record_id):
+    return study_llamaindex_extract(study_id, project_id, record_id)
+
 @app.route('/study/compare_extraction/<int:study_id>/<int:project_id>/<int:record_id>')
 def endpoint_study_compare_extraction(study_id, project_id, record_id):
     return study_compare_extraction(study_id, project_id, record_id)
