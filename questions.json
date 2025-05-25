@@ -8,5 +8,6 @@
   "how many patients were censored before the cut-off date for each of the endpoints analysed in time to event?",
   "show me the disposal patients flow chart?",
   "what are the safety data results?",
-  "what are the endpoints and their status in the multiplicity handling?"
+  "what are the endpoints and their status in the multiplicity handling?",
+  "What are the patient baseline characteristics?"
 ]
