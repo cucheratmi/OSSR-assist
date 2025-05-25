@@ -1,0 +1,108 @@
+{% extends 'base_study_fullscreen.html' %}
+
+{% block col2 %}
+
+    <ul class="nav nav-tabs mt-0 mb-4">
+        <li class="nav-item">
+            <a class="nav-link " aria-current="page"
+               href="/study/fullscreen/tab1/{{ study_id }}/{{ project_id }}/{{ record_id }}">Study</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+               href="/study/fullscreen/fields/{{ study_id }}/{{ project_id }}/{{ record_id }}">Fields</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/study/fullscreen/ROB/{{ study_id }}/{{ project_id }}/{{ record_id }}">ROB</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/study/fullscreen/outcomes2/{{ study_id }}/{{ project_id }}/{{ record_id }}">Outcomes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/study/fullscreen/chat/{{ study_id }}/{{ project_id }}/{{ record_id }}">Ask the paper</a>
+        </li>
+    </ul>
+        <li class="nav-item">
+            <a class="nav-link" href="/study/fullscreen/experimental/{{ study_id }}/{{ project_id }}/{{ record_id }}">Experimental</a>
+        </li>
+
+
+    <div>
+
+
+{% if record_id==0 or not pdf_exists %}
+    <div class="alert alert-warning" role="alert">
+    <i class="bi bi-exclamation-triangle-fill"></i>
+    <strong>Warning!</strong>
+    <p>
+        To use the chat, you need to select a reference with a PDF.
+    </p>
+    </div>
+    {%  endif %}
+
+
+
+       <form method="POST" action="/study/fullscreen/chat/{{ study_id }}/{{ project_id }}/{{ record_id }}"
+              id="form_chat" class="mb-5">
+
+            <label for="question" class="form-label fw-semibold">
+
+                <div class="dropdown">
+                    <button type="button" class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: black; text-decoration: none; padding-bottom: 0; padding-left: 0; font-weight: semibold;">
+                        Question
+                    </button>
+                    <div class="dropdown-menu">
+                        {% for q in exemple_questions %}
+                            <li>
+                                <a class="dropdown-item" href="javascript:void(0)" onclick="ask_question('{{ q }}')">
+                                    {{ q }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </div>
+                </div>
+            </label>
+
+            <textarea rows=2 class="form-control" id="question" name="question" placeholder="Ask AI assistant"></textarea>
+            <button type="submit" class="btn btn-outline-primary mt-3" style="float: right;" onclick="display_wait()"><i class="bi bi-send"></i> Ask</button>
+
+    </form>
+
+    <script>
+        function ask_question(q) {
+            document.getElementById('question').value = q;
+            display_wait()
+            document.getElementById('form_chat').submit();
+        }
+
+        function display_wait() {
+            document.getElementById('loading-spinner').style.display = 'block';
+            document.getElementById('answer').innerHTML = '';
+        }
+    </script>
+
+<div id="loading-spinner" class="mt-5 mb-5" style="display: none; text-align: center; font-size: large;">
+    <br/><br/>
+    <div class="spinner-content">
+        <div class="spinner-border text-primary" role="status">
+        </div>
+        <div class="mt-2">Traitement en cours...</div>
+    </div>
+</div>
+
+
+
+
+{%  if answer %}
+    <div id="answer">
+    <p class="mt-5" style="font-weight: bold;">
+    {{ question }}
+    </p>
+    <div>
+    {{ answer | safe }}
+    </div>
+    </div>
+{% endif %}
+
+
+{% endblock %}

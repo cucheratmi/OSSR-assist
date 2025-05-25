@@ -34,6 +34,7 @@ prompt_systems_openai = {
         You are a specialist in randomized clinical trials and systematic reviews.
         Check provided data using only the given context and does not used your memory or your knowledge of the concerned trial.
         """,
+    'chat_with_paper' : "you are an expert in clinical trial and biostatistics.",
 }
 
 
@@ -200,7 +201,17 @@ TRIAL RESULTS SUMMARY:
 
 CONTEXT:
 {context}
+""",
+
+    #######################
+
+    'chat_with_paper': """About the clinical trial described in CONTEXT, answer the following question:
+{question}
+
+CONTEXT:
+{context}
 """
+
 }
 
 

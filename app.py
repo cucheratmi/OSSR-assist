@@ -1,3 +1,4 @@
+
 from flask import Flask, send_from_directory, render_template, request, Response, stream_with_context
 import time
 import webbrowser
@@ -238,7 +239,7 @@ def endpoint_study_panel_references(study_id, project_id, record_id):
     return study_panel_references(study_id, project_id, record_id)
 
 
-@app.route('/study/fullscreen/<string:tab>/<int:study_id>/<int:project_id>/<int:record_id>/', defaults={'AI': 0})
+@app.route('/study/fullscreen/<string:tab>/<int:study_id>/<int:project_id>/<int:record_id>/', defaults={'AI': 0}, methods=['GET','POST'])
 @app.route('/study/fullscreen/<string:tab>/<int:study_id>/<int:project_id>/<int:record_id>/<int:AI>')
 def endpoint_study_fullscreen(study_id, project_id, record_id, tab, AI):
     return study_fullscreen(study_id, project_id, record_id, tab, AI)
@@ -266,7 +267,7 @@ def endpoint_study_ROB_set_level(study_id, domain):
 def endpoint_study_ROB_set_justification(study_id, domain):
     return set_ROB_justification(study_id, domain)
 
-
+# TODO à revoir
 @app.route('/study/run_experimental_script/<int:script>/<int:study_id>/<int:project_id>/<int:record_id>')
 def endpoint_study_run_experimental_script(script, study_id, project_id, record_id):
     return study_run_experimental_script(script, study_id, project_id, record_id)
@@ -274,6 +275,14 @@ def endpoint_study_run_experimental_script(script, study_id, project_id, record_
 @app.route('/study/llamaindex_extract/<int:study_id>/<int:project_id>/<int:record_id>')
 def endpoint_study_llamaindex_extract(study_id, project_id, record_id):
     return study_llamaindex_extract(study_id, project_id, record_id)
+
+@app.route('/study/llamaindex_extract_outcomes/<int:study_id>/<int:project_id>/<int:record_id>')
+def endpoint_study_llamaindex_extract_outcomes(study_id, project_id, record_id):
+    return study_llamaindex_extract_outcomes(study_id, project_id, record_id)
+
+@app.route('/study/llamaindex_parse/<int:study_id>/<int:project_id>/<int:record_id>')
+def endpoint_study_llamaindex_parse(study_id, project_id, record_id):
+    return study_llamaindex_parse(study_id, project_id, record_id)
 
 @app.route('/study/compare_extraction/<int:study_id>/<int:project_id>/<int:record_id>')
 def endpoint_study_compare_extraction(study_id, project_id, record_id):

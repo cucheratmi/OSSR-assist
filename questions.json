@@ -1,0 +1,12 @@
+[
+  "What is the PICO of this trial?",
+  "How is handled statistical multiplicity?",
+  "How many interim analysis in this trial?",
+  "what are the statistically significant results obtain by this trial given the handling of multiplicity?",
+  "how was randomisation and double-blinding performed in this trial?",
+  "how missing data were replaced in this trial?",
+  "how many patients were censored before the cut-off date for each of the endpoints analysed in time to event?",
+  "show me the disposal patients flow chart?",
+  "what are the safety data results?",
+  "what are the endpoints and their status in the multiplicity handling?"
+]

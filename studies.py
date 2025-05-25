@@ -194,13 +194,40 @@ def get_research_questions(study_id, project_id):
 def study_fullscreen(study_id, project_id, record_id, tab, AI):
     llm_name = current_app.config['LLM_NAME']
     project_name, _, _ = get_project_name(project_id)
-
-    study_data = get_study_data(study_id)
     references = get_references(study_id)
     if record_id == 0 and len(references) == 1:
         record_id = list(references.values())[0]['id']
-
     pdf_exists = test_if_pdf_exists(record_id)
+    study_data = get_study_data(study_id)
+
+    if tab=="chat":
+        return tab_chat(study_id, project_id, record_id, tab, llm_name, project_name, references, pdf_exists,  study_data)
+    else:
+        return tabs(study_id, project_id, record_id, tab, AI, llm_name, project_name, references, pdf_exists,  study_data)
+
+
+def tab_chat(study_id, project_id, record_id, tab, llm_name, project_name, references, pdf_exists,  study_data):
+    question = request.form.get('question')
+    answer = None
+    if question !="" and question is not None:
+        parameters = dict(question=question)
+        answer = invoke_llm_PDF_text_output("primary", "chat_with_paper", parameters, record_id)
+        import mistune
+        answer = mistune.html(answer)
+
+    exemple_questions = None
+    with open('questions.json', 'r', encoding='utf-8') as file:
+        exemple_questions = json.load(file)
+
+    return render_template('study_fullscreen_chat.html',
+                           study_id=study_id, project_id=project_id, project_name=project_name, pdf_exists=pdf_exists,
+                           record_id=record_id, tab=tab,
+                           references=references,  study_data=study_data,
+                           question=question, answer=answer, exemple_questions=exemple_questions,
+                           LLM_name=llm_name, primary_LLM_available=is_primary_LLM_available(),secondary_LLM_available=is_secondary_LLM_available())
+
+
+def tabs(study_id, project_id, record_id, tab, AI, llm_name, project_name, references, pdf_exists, study_data):
 
     ROB = None
     ROB_DOMAIN = None
@@ -250,6 +277,9 @@ def study_fullscreen(study_id, project_id, record_id, tab, AI):
 
 
 def study_llamaindex_extract(study_id, project_id, record_id):
+    if os.environ.get('LLAMA_CLOUD_API_KEY') is None:
+        return "LLAMA_CLOUD_API_KEY not set", 400
+
     project_name, _, _ = get_project_name(project_id)
     references = get_references(study_id)
     if record_id == 0 and len(references) == 1:
@@ -269,14 +299,21 @@ def study_llamaindex_extract(study_id, project_id, record_id):
                            )
 
 
+def study_llamaindex_extract_outcomes(study_id, project_id, record_id):
+    extracted_data = llamaindexextract_outcomes_extraction(study_id, record_id, project_id)
+    return render_template('experimental_outcomes.html',)
 
 def study_compare_extraction(study_id, project_id, record_id):
     AI = 2 # pdf
-    models = (LLM_Name_Enum.OPENAI.value, LLM_Name_Enum.ANTHROPIC.value, LLM_Name_Enum.MISTRAL.value)
+    models = (LLM_Name_Enum.LLAMAINDEX_EXTRACT.value, LLM_Name_Enum.OPENAI.value, LLM_Name_Enum.ANTHROPIC.value, LLM_Name_Enum.MISTRAL.value)
 
     AI_data = dict()
     for llm_name in models:
-        r = get_AI_data_extraction(AI, study_id, record_id, project_id, llm_name)
+        if llm_name == LLM_Name_Enum.LLAMAINDEX_EXTRACT.value:
+            llamaindexextract_field_extraction(study_id, record_id, project_id)
+        else:
+            r = get_AI_data_extraction(AI, study_id, record_id, project_id, llm_name)
+
         for i in range(1, len(r)-1):
             field_name = r[i]['field_name'].strip()
             e = dict(value=r[i]['extracted_value'], source=r[i]['source'])
@@ -401,6 +438,10 @@ def study_check_outcomes(study_id, record_id):
     return html
 
 
+
+
+
+
 def study_run_experimental_script(script, study_id, project_id, record_id):
     from io import StringIO
     import sys
@@ -420,5 +461,26 @@ def study_run_experimental_script(script, study_id, project_id, record_id):
 
     return buffer.getvalue()
 
+
+def study_llamaindex_parse(study_id, project_id, record_id):
+    from llama_parse import LlamaParse
+
+    parser = LlamaParse(
+        result_type="markdown",  # "markdown" and "text" are available
+    )
+
+    file_name = f"r{record_id}.pdf"
+    pdf_path = os.path.join(PDF_UPLOAD_PATH, file_name)
+    extra_info = {"file_name": file_name}
+
+    documents =""
+    with open(pdf_path, "rb") as f:
+        documents = parser.load_data(f, extra_info=extra_info)
+
+        with open('./tempo/output.md', 'w', encoding='utf-8') as f2:
+            for doc in documents:
+                print(doc.text, file=f2)
+
+    return ""
 
 

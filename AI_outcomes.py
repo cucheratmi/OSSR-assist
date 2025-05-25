@@ -86,6 +86,25 @@ def get_AI_data_results2(AI, study_id, record_id, project_id, llm_name=None):
 
 
 
+#### llamaindex extract #####
+def llamaindexextract_outcomes_extraction(study_id, record_id, project_id):
+    sql = "SELECT id, name, description FROM outcomes WHERE project=?"
+    r = sql_select_fetchall(sql, (project_id,))
+    outcomes_list = ""
+    for o in r:
+        outcome = o['name'] + " (" + o['description'] + "), id:" + str(o['id'])
+        outcomes_list += " - " + outcome + "\n"
+
+    parameters = {'outcomes_list': outcomes_list}
+
+    extracted_data = llamaindex_extract(record_id, "", ResultsModel2)
+
+    print(extracted_data)
+
+    return extracted_data
+
+
+
 #### json #####
 
 def get_AI_data_results_json(study_id: int, record_id: int, project_id: int, llm_name: str) -> any:

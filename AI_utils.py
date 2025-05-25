@@ -14,6 +14,7 @@ class LLM_Name_Enum(Enum):
     ANTHROPIC = "claude"
     OPENAI = "openai"
     DEEPSEEK = "hyperbolic"
+    LLAMAINDEX_EXTRACT = "llamaindex_extract"
 
 
 #### initialisation LLM model
@@ -184,10 +185,44 @@ def is_secondary_LLM_available():
 
 
 
-# def not_AI():
-#     # TODO à voir
-#     print("AI is used but LLM is not set. Please set an LLM in the setup menu. AI will not be used.")
-#     session['_flashes'] = []
-#     flash('You try to use AI function but no LLM was set or no API_KEY provided ! Set these parameters to use AI functions',
-#           'danger')
-#     return redirect(url_for("endpoint_setup"))
+def llamaindex_extract(record_id, agent_name, Pydantic_model):
+
+    pdf_path = os.path.join(PDF_UPLOAD_PATH, f"r{record_id}.pdf")
+
+    from llama_cloud.types import ExtractConfig, ExtractMode
+    from llama_cloud_services import LlamaExtract
+
+    llama_extract = LlamaExtract()
+
+    try:
+        # Essayer d'abord de récupérer un agent existant
+        agent = llama_extract.get_agent(name=agent_name)
+    except Exception:
+        # Si l'agent n'existe pas, en créer un nouveau
+        config = ExtractConfig(use_reasoning=True,
+                               cite_sources=True,
+                               extraction_mode=ExtractMode.MULTIMODAL)
+        agent = llama_extract.create_agent(name=agent_name,
+                                           data_schema=Pydantic_model,
+                                           config=config)
+
+    filing_info = agent.extract(pdf_path)
+
+    print(filing_info.data)
+
+    AI_data = dict()
+    for k,v in filing_info.data.items():
+        field_id = int(k[1:])
+        AI_data[field_id] = {'extracted_value':v, 'source':'', 'field_name': '' }
+
+    for k, v in filing_info.extraction_metadata['field_metadata'].items():
+        field_id = int(k[1:])
+        s = ""
+        s+= f"Reasoning: {v["reasoning"]} <br/>"
+        for e in v["citation"]:
+            s += f" - page {e['page']}: {e['matching_text']} <br/>"
+
+        AI_data[field_id]['source'] = s
+
+    return AI_data
+
