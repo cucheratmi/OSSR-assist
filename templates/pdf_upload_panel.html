@@ -17,28 +17,26 @@
 
     <p>
     <a href="https://pubmed.ncbi.nlm.nih.gov/{{ record_data["pmid"] }}" target="_blank">
-        pubmed: {{ record_data["pmid"] }}
+        Pubmed: {{ record_data["pmid"] }}
     </a>
-    </p>
-    <p>
+
     <a href="https://doi.org/{{ record_data["DOI"] }}" target="_blank">
-        doi: {{ record_data["DOI"] }}
+        DOI: {{ record_data["DOI"] }}
     </a>
-    </p>
-    <p>
+
     <a target="_blank" href="{{ record_data["url"] }}">
         <i class="bi, bi-link"></i> link to fulltext
     </a>
     </p>
 
-<h3>Upload pdf file (.pdf)</h3>
+<h3 class="mt-5">Upload pdf file (.pdf)</h3>
 
     <p>
         The PDF files of the references fulltext are needed for the second pass of the reference screening and
     for the data extraction by AI
     </p>
 
-            <div class="alert alert-light mt-5 mb-5" role="alert">
+            <div class="alert alert-light mt-1 mb-5" role="alert">
             <h4 class="alert-heading">Upload fulltext PDF file</h4>
             <form action="/pdfs/upload_pdf/{{ record_id }}/{{ project_id }}" method="post" enctype="multipart/form-data">
 

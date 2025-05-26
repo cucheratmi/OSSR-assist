@@ -46,7 +46,7 @@
             <div id="registration_number_info" class="form-text"></div>
         </div>
 
-
+    {%  if research_questions %}
         <div class="mb-4">
             <label for="research_question" class="form-label fw-semibold">Research question (PICO)</label>
             <select multiple class="form-select" id="research_question" name="research_question[]"
@@ -64,6 +64,7 @@
             {% endif %}
             <div id="research_question_info" class="form-text"></div>
         </div>
+    {%  endif %}
 
         <div class="mb-4">
             <label for="comments" class="form-label fw-semibold">Comments</label>
