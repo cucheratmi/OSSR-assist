@@ -24,7 +24,7 @@ def create_pydantic_model(project_id):
     res = cur.execute(sql, (project_id,))
     rows = res.fetchall()
     for row in rows:
-        field_name = f"F{row["id"]}"
+        field_name = f"F{row['id']}"
 
         # field dictionary
         fields[field_name] = {'id': row["id"], 'name': row["name"], 'description': row["description"]}
@@ -88,7 +88,7 @@ def llamaindexextract_field_extraction(study_id, record_id, project_id):
     res = cur.execute(sql, (project_id,))
     rows = res.fetchall()
     for row in rows:
-        field_name = f"F{row["id"]}"
+        field_name = f"F{row['id']}"
         field_names[row["id"]] = row["name"]
         fields[field_name] = {'id': row["id"], 'name': row["name"], 'description': row["description"]}
         field_description = Field(..., description=row['name'] + ": " + row["description"])

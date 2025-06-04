@@ -417,7 +417,7 @@ def study_check_outcomes(study_id, record_id):
     outcomes = get_outcomes_data(study_id)
     extracted_data = ""
     for o in outcomes:
-        extracted_data += f" - {o['outcome_name']}: treatment effect: {o['TE']}, confidence interval; [{o['ll']};{o['ul']}], p value: {o["p_value"]}   \n"
+        extracted_data += f" - {o['outcome_name']}: treatment effect: {o['TE']}, confidence interval; [{o['ll']};{o['ul']}], p value: {o['p_value']}   \n"
 
     answer = AI_check_outcomes(extracted_data, record_id)
 

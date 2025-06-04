@@ -218,7 +218,7 @@ def llamaindex_extract(record_id, agent_name, Pydantic_model):
     for k, v in filing_info.extraction_metadata['field_metadata'].items():
         field_id = int(k[1:])
         s = ""
-        s+= f"Reasoning: {v["reasoning"]} <br/>"
+        s+= f"Reasoning: {v['reasoning']} <br/>"
         for e in v["citation"]:
             s += f" - page {e['page']}: {e['matching_text']} <br/>"
 
